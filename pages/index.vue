@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        what-can-i-cook-front-end-api-rest
+        Testing push
       </h1>
       <h2 class="subtitle">
         My stunning Nuxt.js project
