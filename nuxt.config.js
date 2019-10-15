@@ -1,3 +1,6 @@
+require('dotenv').config()
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   /*
@@ -43,14 +46,15 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost:5000/'
+    baseURL: process.env.API_REST_BASE_URL
   },
   /*
    ** Build configuration
