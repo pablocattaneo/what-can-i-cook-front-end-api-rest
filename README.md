@@ -3,7 +3,7 @@
 > My stunning Nuxt.js project
 
 ## .env
-.env file is no share because it could contains sensible information like API_KEY for example, find how to set this file in .env.example file.
+.env file is no shared because it could contains sensitive information like API KEY, find how to set this file in .env.example file.
 
 ## Build Setup
 
