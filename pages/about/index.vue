@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="Content">
     <div class="container">
       <h1 class="Content__Title">
         {{ $t('about.title') }}

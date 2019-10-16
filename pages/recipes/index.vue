@@ -15,7 +15,9 @@
         {{ recipe.description }}
       </b-card-text>
 
-      <b-button href="#" variant="primary">Buy ingredients</b-button>
+      <b-button href="#" variant="primary">{{
+        $t('recipes.buy_ingredients')
+      }}</b-button>
     </b-card>
   </div>
 </template>
