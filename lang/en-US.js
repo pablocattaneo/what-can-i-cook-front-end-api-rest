@@ -12,6 +12,9 @@ export default {
     introduction: 'This page is made to give you more informations.'
   },
   recipes: {
-    buy_ingredients: 'Buy ingredients'
+    buy_ingredients: 'Buy ingredients',
+    cookTime: 'Cooking time',
+    serving: 'Portions',
+    calories: 'Calories'
   }
 }

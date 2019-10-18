@@ -8,6 +8,9 @@ export default {
     introduction: 'Está es la página Acerca de nosotros'
   },
   recipes: {
-    buy_ingredients: 'Comprar ingredientes'
+    buy_ingredients: 'Comprar ingredientes',
+    cookTime: 'Tiempo de cocción',
+    serving: 'Porciones',
+    calories: 'Calorías'
   }
 }
