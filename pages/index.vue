@@ -2,17 +2,9 @@
   <div class="container">
     <div class="container">
       <h1 class="Content__Title">
-        {{ $t('about.title') }}
+        {{ $t('home.title') }}
       </h1>
-      <p>{{ $t('about.introduction') }}</p>
+      <p>{{ $t('home.introduction') }}</p>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  head() {
-    return { title: this.$t('about.title') }
-  }
-}
-</script>
