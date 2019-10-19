@@ -1,4 +1,8 @@
 export default {
+  links: {
+    home: 'Home',
+    about: 'Acerca de'
+  },
   home: {
     title: 'Bienvenidos',
     introduction: 'Esta es la home'
