@@ -1,7 +1,8 @@
 export default {
   links: {
     home: 'Home',
-    about: 'Acerca de'
+    about: 'Acerca de',
+    recipes: 'Recetas'
   },
   home: {
     title: 'Bienvenidos',
