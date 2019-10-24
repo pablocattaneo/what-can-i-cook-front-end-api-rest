@@ -1,8 +1,8 @@
 <template>
   <div id="recipes">
     <b-card
-      v-for="(recipe, index) in recipes"
-      :key="index"
+      v-for="(recipe, recipesIndex) in recipes"
+      :key="recipesIndex"
       :title="recipe.title"
       img-alt="Image"
       img-top
@@ -41,7 +41,12 @@
 <script>
 export default {
   async asyncData(context) {
-    const recipes = await context.app.$axios.$get('recipes/')
+    const currentLang = context.app.i18n.locale
+    const urlLangSantized = context.route.fullPath.replace(
+      `/${currentLang}`,
+      ''
+    )
+    const recipes = await context.app.$axios.$get(urlLangSantized)
     return {
       recipes
     }
