@@ -17,5 +17,11 @@ export default {
     cookTime: 'Cooking time',
     serving: 'Portions',
     calories: 'Calories'
-  }
+  },
+  language: 'Language',
+  select_all: 'Select All',
+  only: 'Only',
+  un_select_all_less_default_language: 'Un-select All except default language',
+  es: 'Spanish',
+  en: 'English'
 }

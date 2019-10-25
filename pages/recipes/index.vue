@@ -1,5 +1,6 @@
 <template>
   <div id="recipes">
+    <RecipeFilters />
     <b-card
       v-for="(recipe, recipesIndex) in recipes"
       :key="recipesIndex"
@@ -39,7 +40,11 @@
 </template>
 
 <script>
+import RecipeFilters from '@/components/recipes/RecipeFilters.vue'
 export default {
+  components: {
+    RecipeFilters
+  },
   async asyncData(context) {
     const currentLang = context.app.i18n.locale
     const urlLangSantized = context.route.fullPath.replace(
