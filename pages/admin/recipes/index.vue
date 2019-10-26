@@ -1,14 +1,21 @@
 <template>
   <div id="admin-recipes">
-    <b-form @submit.prevent="submit" @reset="resetForm">
+    <b-form
+      novalidate
+      :validated="recipeForm.wasFormValidated"
+      @submit.prevent="submit"
+      @reset="resetForm"
+    >
       <b-form-group
         id="recipe-name"
         label="Recipe name:"
         label-for="recipe-name"
+        invalid-feedback="invalidFeedback"
+        valid-feedback="validFeedback"
       >
         <b-form-input
           id="recipe-name"
-          v-model="form.recipeName"
+          v-model="recipeForm.fields.recipeName"
           required
           placeholder="Recipe name"
         ></b-form-input>
@@ -20,20 +27,39 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
-      form: {
-        recipeName: ''
+      recipeForm: {
+        fields: {
+          recipeName: ''
+        },
+        wasFormValidated: false
       }
     }
   },
   methods: {
     submit() {
-      alert(JSON.stringify(this.form))
+      this.recipeForm.wasFormValidated = true
+      this.$v.recipeForm.$touch()
+      if (!this.$v.recipeForm.$pending && !this.$v.recipeForm.$error) {
+        alert(JSON.stringify(this.recipeForm.fields))
+      } else {
+        alert('Error in validation')
+      }
     },
     resetForm() {
-      console.log('reset')
+      alert('reset')
+    }
+  },
+  validations: {
+    recipeForm: {
+      fields: {
+        recipeName: {
+          required
+        }
+      }
     }
   }
 }
