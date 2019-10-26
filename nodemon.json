@@ -1,0 +1,6 @@
+{
+  "events": {
+      "restart": "npm run lintfix",
+      "start": "npm run lintfix"
+    }
+ }
