@@ -1,23 +1,22 @@
 <template>
   <div id="admin-recipes">
-    <b-form
-      novalidate
-      :validated="recipeForm.wasFormValidated"
-      @submit.prevent="submit"
-      @reset="resetForm"
-    >
+    <b-form novalidate @submit.prevent="submit" @reset="resetForm">
       <b-form-group
         id="recipe-name"
         label="Recipe name:"
         label-for="recipe-name"
         invalid-feedback="invalidFeedback"
-        valid-feedback="validFeedback"
       >
         <b-form-input
           id="recipe-name"
           v-model="recipeForm.fields.recipeName"
-          required
           placeholder="Recipe name"
+          :state="
+            fieldState(
+              recipeForm.fields.recipeName,
+              $v.recipeForm.fields.recipeName.$error
+            )
+          "
         ></b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
@@ -33,13 +32,21 @@ export default {
     return {
       recipeForm: {
         fields: {
-          recipeName: ''
-        },
-        wasFormValidated: false
+          recipeName: null
+        }
       }
     }
   },
   methods: {
+    fieldState(fieldValue, validation) {
+      if (fieldValue === null) {
+        return null
+      } else if (fieldValue && !validation) {
+        return true
+      } else {
+        return false
+      }
+    },
     submit() {
       this.recipeForm.wasFormValidated = true
       this.$v.recipeForm.$touch()
