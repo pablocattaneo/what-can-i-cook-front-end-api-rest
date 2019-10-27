@@ -18,6 +18,11 @@ export default {
     serving: 'Porciones',
     calories: 'Calorías'
   },
+  form: {
+    validation: {
+      required: 'Este campo es requerido'
+    }
+  },
   language: 'Idioma',
   select_all: 'Seleccionar todos',
   only: 'Sólo',
