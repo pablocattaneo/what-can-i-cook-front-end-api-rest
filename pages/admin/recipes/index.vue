@@ -11,6 +11,7 @@
           v-model="recipeForm.fields.recipeName"
           placeholder="Recipe name"
           :state="$v.recipeForm.fields.recipeName.$error ? false : null"
+          autocomplete="off"
         ></b-form-input>
         <b-form-invalid-feedback
           v-if="!$v.recipeForm.fields.recipeName.required"
