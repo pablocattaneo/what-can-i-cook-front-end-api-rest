@@ -4,6 +4,7 @@
       <b-form-input
         :id="id"
         v-model="vModel"
+        :type="type"
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
