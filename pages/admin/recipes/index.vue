@@ -1,25 +1,17 @@
 <template>
   <div id="admin-recipes">
     <b-form novalidate @submit.prevent="submit" @reset="resetForm">
-      <b-form-group
+      <WcInput
         id="recipe-name"
+        v-model="recipeForm.fields.recipeName"
+        :validation="$v.recipeForm.fields.recipeName"
         label="Recipe name:"
         label-for="recipe-name"
-      >
-        <b-form-input
-          id="recipe-name"
-          v-model="recipeForm.fields.recipeName"
-          placeholder="Recipe name"
-          :state="$v.recipeForm.fields.recipeName.$error ? false : null"
-          autocomplete="off"
-        ></b-form-input>
-        <b-form-invalid-feedback
-          v-if="!$v.recipeForm.fields.recipeName.required"
-        >
-          {{ $t('form.validation.required') }}
-        </b-form-invalid-feedback>
-      </b-form-group>
-      <b-form-input list="my-list-id"></b-form-input>
+        placeholder="Recipe name"
+        :state="$v.recipeForm.fields.recipeName.$error ? false : null"
+        autocomplete="off"
+      />
+      <!-- <b-form-input list="my-list-id"></b-form-input>
       <datalist id="my-list-id">
         <option>Ingredients</option>
         <option
@@ -27,7 +19,7 @@
           :key="`ingredients-${index}`"
           >{{ ingredient }}</option
         >
-      </datalist>
+      </datalist> -->
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
@@ -36,7 +28,11 @@
 
 <script>
 import { required } from 'vuelidate/lib/validators'
+import WcInput from '@/components/forms/WcInput'
 export default {
+  components: {
+    WcInput
+  },
   data() {
     return {
       ingredients: ['Arroz', 'Leche', 'Dulce de leche'],
@@ -48,15 +44,6 @@ export default {
     }
   },
   methods: {
-    fieldState(fieldValue, validation) {
-      if (fieldValue === null) {
-        return null
-      } else if (fieldValue && !validation) {
-        return true
-      } else {
-        return false
-      }
-    },
     submit() {
       this.recipeForm.wasFormValidated = true
       this.$v.recipeForm.$touch()
