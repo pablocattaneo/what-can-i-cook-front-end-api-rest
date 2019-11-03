@@ -47,7 +47,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    'vue-scrollto/nuxt'
   ],
   i18n: {
     locales: [

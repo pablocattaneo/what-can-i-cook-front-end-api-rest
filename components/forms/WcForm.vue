@@ -1,10 +1,11 @@
 <template>
-  <b-form novalidate @submit.prevent>
+  <b-form id="form" novalidate @submit.prevent>
     <slot></slot>
   </b-form>
 </template>
 
 <script>
+import VueScrollTo from 'vue-scrollto'
 export default {
   methods: {
     showToastFormError() {
@@ -15,12 +16,15 @@ export default {
         solid: true
       })
     },
+    errorScrollTo() {
+      VueScrollTo.scrollTo('#form', 1000, { offset: -60 })
+    },
     validationForm(validation) {
       validation.$touch()
       console.log('validateForm')
       if (validation.$error) {
         this.showToastFormError()
-        // this.errorScrollTo()
+        this.errorScrollTo()
         return Promise.reject(new Error('validation error'))
       } else if (!validation.$pending || !validation.$error) {
         return Promise.resolve(true)
