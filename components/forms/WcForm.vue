@@ -7,11 +7,19 @@
 <script>
 export default {
   methods: {
+    showToastFormError() {
+      this.$bvToast.toast('El formulario contiene errores', {
+        title: 'Error',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'danger',
+        solid: true
+      })
+    },
     validationForm(validation) {
       validation.$touch()
       console.log('validateForm')
       if (validation.$error) {
-        // this.showToastFormError()
+        this.showToastFormError()
         // this.errorScrollTo()
         return Promise.reject(new Error('validation error'))
       } else if (!validation.$pending || !validation.$error) {
