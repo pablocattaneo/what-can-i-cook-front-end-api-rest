@@ -3,13 +3,13 @@
     <WcForm>
       <WcInput
         id="recipe-name"
-        :value="recipeForm.fields.recipeName"
-        @input="recipeForm.fields.recipeName = $event"
-        :validation="$v.recipeForm.fields.recipeName"
+        :value="recipeForm.fields.recipeTitle"
+        @input="recipeForm.fields.recipeTitle = $event"
+        :validation="$v.recipeForm.fields.recipeTitle"
         label="Recipe name:"
         label-for="recipe-name"
         placeholder="Recipe name"
-        :state="$v.recipeForm.fields.recipeName.$error ? false : null"
+        :state="$v.recipeForm.fields.recipeTitle.$error ? false : null"
         autocomplete="off"
       />
       <b-button type="submit" variant="primary" @click="submit"
@@ -33,7 +33,7 @@ export default {
       ingredients: ['Arroz', 'Leche', 'Dulce de leche'],
       recipeForm: {
         fields: {
-          recipeName: null
+          recipeTitle: null
         }
       }
     }
@@ -51,7 +51,7 @@ export default {
   validations: {
     recipeForm: {
       fields: {
-        recipeName: {
+        recipeTitle: {
           required
         }
       }
