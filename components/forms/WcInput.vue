@@ -2,13 +2,13 @@
   <div id="wc-input">
     <b-form-group :id="id" :label="label" :label-for="labelFor">
       <b-form-input
-        :value="value"
-        @input="$emit('input', $event)"
         :id="id"
+        :value="value"
         :type="type"
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
+        @input="$emit('input', $event)"
       ></b-form-input>
       <b-form-invalid-feedback v-if="!validation.required">
         {{ $t('form.validation.required') }}
