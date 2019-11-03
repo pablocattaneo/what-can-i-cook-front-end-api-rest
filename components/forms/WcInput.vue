@@ -13,6 +13,7 @@
       <b-form-invalid-feedback v-if="!validation.required">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
+      <b-form-text v-if="formText">{{ formText }}</b-form-text>
     </b-form-group>
   </div>
 </template>

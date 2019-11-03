@@ -14,6 +14,7 @@
     <b-form-invalid-feedback v-if="!validation.required">
       {{ $t('form.validation.required') }}
     </b-form-invalid-feedback>
+    <b-form-text v-if="formText">{{ formText }}</b-form-text>
   </div>
 </template>
 
@@ -23,5 +24,3 @@ export default {
   mixins: [wcFormElementsMixin]
 }
 </script>
-
-<style></style>

@@ -32,6 +32,10 @@ export default {
       type: Object,
       default: () => ({})
     },
+    formText: {
+      type: String,
+      default: ''
+    },
     value: ''
   }
 }

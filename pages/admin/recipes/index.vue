@@ -16,6 +16,7 @@
         id="recipe-ingredients"
         :value="recipeForm.fields.recipeIngredients"
         :validation="$v.recipeForm.fields.recipeIngredients"
+        formText="Lists ingredients separeted by enter"
         label="Recipe name:"
         label-for="recipe-ingredients"
         placeholder="Recipe ingredients"
