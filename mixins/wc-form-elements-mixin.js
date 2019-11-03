@@ -32,6 +32,6 @@ export default {
       type: Object,
       default: () => ({})
     },
-    vModel: ''
+    value: ''
   }
 }

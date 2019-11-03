@@ -2,8 +2,9 @@
   <div id="wc-input">
     <b-form-group :id="id" :label="label" :label-for="labelFor">
       <b-form-input
+        :value="value"
+        @input="$emit('input', $event)"
         :id="id"
-        v-model="vModel"
         :type="type"
         :placeholder="placeholder"
         :state="state"
@@ -22,5 +23,3 @@ export default {
   mixins: [wcFormElementsMixin]
 }
 </script>
-
-<style></style>

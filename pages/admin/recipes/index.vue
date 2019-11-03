@@ -3,7 +3,8 @@
     <WcForm>
       <WcInput
         id="recipe-name"
-        :v-model="recipeForm.fields.recipeName"
+        :value="recipeForm.fields.recipeName"
+        @input="recipeForm.fields.recipeName = $event"
         :validation="$v.recipeForm.fields.recipeName"
         label="Recipe name:"
         label-for="recipe-name"
@@ -38,17 +39,13 @@ export default {
     }
   },
   methods: {
-    submit() {
-      console.log('submit')
-      this.$children[0].validationForm(this.$v).then((r) => {
-        console.log('r', r)
-      })
-      // this.$v.recipeForm.$touch()
-      // if (!this.$v.recipeForm.$pending && !this.$v.recipeForm.$error) {
-      //   alert(JSON.stringify(this.recipeForm.fields))
-      // } else {
-      //   alert('Error in validation')
-      // }
+    async submit() {
+      try {
+        await this.$children[0].validationForm(this.$v)
+        alert(JSON.stringify(this.recipeForm.fields))
+      } catch (error) {
+        alert('Error in validation')
+      }
     }
   },
   validations: {
