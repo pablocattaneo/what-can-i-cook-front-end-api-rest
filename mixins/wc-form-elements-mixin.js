@@ -12,10 +12,6 @@ export default {
       type: String,
       default: ''
     },
-    labelFor: {
-      type: String,
-      default: ''
-    },
     placeholder: {
       type: String,
       default: ''
@@ -32,7 +28,7 @@ export default {
       type: Object,
       default: () => ({})
     },
-    formText: {
+    formTextHelpUsers: {
       type: String,
       default: ''
     },

@@ -1,6 +1,6 @@
 <template>
   <div id="wc-input">
-    <b-form-group :id="id" :label="label" :label-for="labelFor">
+    <b-form-group :id="id" :label="label" :for="id">
       <b-form-input
         :id="id"
         :value="value"
@@ -13,7 +13,9 @@
       <b-form-invalid-feedback v-if="!validation.required">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
-      <b-form-text v-if="formText">{{ formText }}</b-form-text>
+      <b-form-text v-if="formTextHelpUsers">{{
+        formTextHelpUsers
+      }}</b-form-text>
     </b-form-group>
   </div>
 </template>

@@ -16,7 +16,10 @@ export default {
     buy_ingredients: 'Buy ingredients',
     cookTime: 'Cooking time',
     serving: 'Portions',
-    calories: 'Calories'
+    calories: 'Calories',
+    form_title_label: 'Recipe title',
+    form_ingredients_label: 'Ingredients',
+    form_ingredients_text_helps: 'Enter ingredients separated by enter'
   },
   form: {
     validation: {

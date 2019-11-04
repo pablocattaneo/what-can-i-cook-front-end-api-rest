@@ -16,7 +16,10 @@ export default {
     buy_ingredients: 'Comprar ingredientes',
     cookTime: 'Tiempo de cocción',
     serving: 'Porciones',
-    calories: 'Calorías'
+    calories: 'Calorías',
+    form_title_label: 'Título de la receta',
+    form_ingredients_label: 'Ingredients',
+    form_ingredients_text_helps: 'Ingrese los ingredientes separados por enters'
   },
   form: {
     validation: {
