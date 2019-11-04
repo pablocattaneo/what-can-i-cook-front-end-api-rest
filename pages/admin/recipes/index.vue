@@ -22,6 +22,20 @@
         autocomplete="off"
         @input="recipeForm.fields.recipeIngredients = $event"
       />
+      <div
+        v-if="recipeForm.fields.recipeIngredients"
+        class="preview-ingredients"
+      >
+        <h1>{{ $t('recipes.preview_ingredients') }}</h1>
+        <ul>
+          <li
+            v-for="(ingredient, index) in previewIngredients"
+            :key="'ingredient-' + index"
+          >
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
       <b-button type="submit" variant="primary" @click="submit"
         >Submit</b-button
       >
@@ -42,7 +56,7 @@ export default {
   },
   data() {
     return {
-      ingredients: ['Arroz', 'Leche', 'Dulce de leche'],
+      previewIngredients: [],
       recipeForm: {
         fields: {
           recipeTitle: null,
@@ -51,7 +65,15 @@ export default {
       }
     }
   },
+  watch: {
+    'recipeForm.fields.recipeIngredients'() {
+      this.textToArray(this.recipeForm.fields.recipeIngredients)
+    }
+  },
   methods: {
+    textToArray(value) {
+      this.previewIngredients = value.split(/[\n\r]/g)
+    },
     async submit() {
       try {
         await this.$children[0].validationForm(this.$v)
