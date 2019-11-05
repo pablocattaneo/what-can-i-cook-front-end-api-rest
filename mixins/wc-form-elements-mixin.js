@@ -32,6 +32,10 @@ export default {
       type: String,
       default: ''
     },
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
     value: ''
   }
 }

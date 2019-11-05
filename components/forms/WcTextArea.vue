@@ -10,6 +10,7 @@
         :autocomplete="autocomplete"
         rows="3"
         max-rows="6"
+        :autofocus="autofocus"
         @input="$emit('input', $event)"
       ></b-form-textarea>
       <b-form-invalid-feedback v-if="!validation.required">

@@ -8,6 +8,7 @@
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
+        :autofocus="autofocus"
         @input="$emit('input', $event)"
       ></b-form-input>
       <b-form-invalid-feedback v-if="!validation.required">

@@ -9,6 +9,7 @@
         :placeholder="$t('recipes.form_title_label')"
         :state="$v.recipeForm.fields.recipeTitle.$error ? false : null"
         autocomplete="off"
+        autofocus
         @input="recipeForm.fields.recipeTitle = $event"
       />
       <WcTextArea
