@@ -79,8 +79,13 @@ export default {
     async submit() {
       try {
         await this.$children[0].validationForm(this.$v)
-        const saveRecipe = await this.$axios.$post('/recipes/create-recipe', this.recipeForm.fields)
-        alert(JSON.stringify(this.recipeForm.fields))
+        const saveRecipe = await this.$axios.$post(
+          '/recipes/create-recipe',
+          this.recipeForm.fields
+        )
+        console.log('saveRecipe', saveRecipe)
+        alert(saveRecipe.message)
+        // alert(JSON.stringify(this.recipeForm.fields))
       } catch (error) {
         alert('Error in validation')
       }
