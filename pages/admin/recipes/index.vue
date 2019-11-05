@@ -49,12 +49,14 @@ import { required } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcTextArea from '@/components/forms/WcTextArea'
+import wcFormUtilitiesMixin from '@/mixins/wc-form-utilities-mixin'
 export default {
   components: {
     WcInput,
     WcForm,
     WcTextArea
   },
+  mixins: [wcFormUtilitiesMixin],
   data() {
     return {
       previewIngredients: [],
@@ -68,13 +70,12 @@ export default {
   },
   watch: {
     'recipeForm.fields.recipeIngredients'() {
-      this.textToArray(this.recipeForm.fields.recipeIngredients)
+      this.previewIngredients = this.stringToArray(
+        this.recipeForm.fields.recipeIngredients
+      )
     }
   },
   methods: {
-    textToArray(value) {
-      this.previewIngredients = value.split(/[\n\r]/g)
-    },
     async submit() {
       try {
         await this.$children[0].validationForm(this.$v)
