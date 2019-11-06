@@ -3,30 +3,27 @@
     <WcForm>
       <WcInput
         id="recipe-name"
-        :value="recipeForm.fields.recipeTitle"
-        :validation="$v.recipeForm.fields.recipeTitle"
+        :value="recipeForm.fields.title"
+        :validation="$v.recipeForm.fields.title"
         :label="$t('recipes.form_title_label') + ':'"
         :placeholder="$t('recipes.form_title_label')"
-        :state="$v.recipeForm.fields.recipeTitle.$error ? false : null"
+        :state="$v.recipeForm.fields.title.$error ? false : null"
         autocomplete="off"
         autofocus
-        @input="recipeForm.fields.recipeTitle = $event"
+        @input="recipeForm.fields.title = $event"
       />
       <WcTextArea
         id="recipe-ingredients"
-        :value="recipeForm.fields.recipeIngredients"
-        :validation="$v.recipeForm.fields.recipeIngredients"
+        :value="recipeForm.fields.ingredients"
+        :validation="$v.recipeForm.fields.ingredients"
         :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
         :label="`${$t('recipes.form_ingredients_label')}:`"
         placeholder="Recipe ingredients"
-        :state="$v.recipeForm.fields.recipeIngredients.$error ? false : null"
+        :state="$v.recipeForm.fields.ingredients.$error ? false : null"
         autocomplete="off"
-        @input="recipeForm.fields.recipeIngredients = $event"
+        @input="recipeForm.fields.ingredients = $event"
       />
-      <div
-        v-if="recipeForm.fields.recipeIngredients"
-        class="preview-ingredients"
-      >
+      <div v-if="recipeForm.fields.ingredients" class="preview-ingredients">
         <h1>{{ $t('recipes.preview_ingredients') }}</h1>
         <ul>
           <li
@@ -62,16 +59,16 @@ export default {
       previewIngredients: [],
       recipeForm: {
         fields: {
-          recipeTitle: null,
-          recipeIngredients: null
+          title: null,
+          ingredients: null
         }
       }
     }
   },
   watch: {
-    'recipeForm.fields.recipeIngredients'() {
+    'recipeForm.fields.ingredients'() {
       this.previewIngredients = this.stringToArray(
-        this.recipeForm.fields.recipeIngredients
+        this.recipeForm.fields.ingredients
       )
     }
   },
@@ -94,10 +91,10 @@ export default {
   validations: {
     recipeForm: {
       fields: {
-        recipeTitle: {
+        title: {
           required
         },
-        recipeIngredients: {
+        ingredients: {
           required
         }
       }
