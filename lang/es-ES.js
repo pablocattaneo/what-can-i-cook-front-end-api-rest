@@ -21,7 +21,8 @@ export default {
     form_ingredients_label: 'Ingredients',
     form_ingredients_text_helps:
       'Ingrese los ingredientes separados por enters',
-    preview_ingredients: 'Ingredientes vista previa'
+    preview_ingredients: 'Ingredientes vista previa',
+    select_recipe_language: 'Eliga el idioma en el que está la receta'
   },
   form: {
     validation: {

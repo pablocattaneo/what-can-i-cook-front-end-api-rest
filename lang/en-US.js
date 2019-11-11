@@ -20,7 +20,8 @@ export default {
     form_title_label: 'Recipe title',
     form_ingredients_label: 'Ingredients',
     form_ingredients_text_helps: 'Enter ingredients separated by enter',
-    preview_ingredients: 'Preview ingredients'
+    preview_ingredients: 'Preview ingredients',
+    select_recipe_language: 'Select recipe language'
   },
   form: {
     validation: {

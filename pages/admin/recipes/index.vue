@@ -36,6 +36,7 @@
       </div>
       <WcSelect
         :options="recipeLanguageOptions"
+        :label="$t('recipes.select_recipe_language')"
         :value="recipeForm.fields.language"
         :validation="$v.recipeForm.fields.language"
         @input="recipeForm.fields.language = $event"
@@ -66,7 +67,11 @@ export default {
     return {
       previewIngredients: [],
       recipeLanguageOptions: [
-        { value: null, text: 'Select recipe language' },
+        {
+          value: null,
+          text: this.$t('recipes.select_recipe_language'),
+          disabled: true
+        },
         { value: 'en', text: 'English' },
         { value: 'es', text: 'Spanish' }
       ],

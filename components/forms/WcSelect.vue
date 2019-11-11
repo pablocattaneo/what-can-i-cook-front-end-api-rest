@@ -1,13 +1,12 @@
 <template>
   <div>
-    <b-form-select
-      v-model="selected"
-      :options="options"
-      @input="$emit('input', $event)"
-    ></b-form-select>
-    <div class="mt-3">
-      Selected: <strong>{{ selected }}</strong>
-    </div>
+    <b-form-group :id="id" :label="label" :for="id">
+      <b-form-select
+        :value="selected"
+        :options="options"
+        @input="$emit('input', $event)"
+      ></b-form-select>
+    </b-form-group>
   </div>
 </template>
 
