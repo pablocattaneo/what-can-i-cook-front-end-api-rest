@@ -34,6 +34,12 @@
           </li>
         </ul>
       </div>
+      <WcSelect
+        :options="recipeLanguageOptions"
+        :value="recipeForm.fields.language"
+        :validation="$v.recipeForm.fields.language"
+        @input="recipeForm.fields.language = $event"
+      />
       <b-button type="submit" variant="primary" @click="submit"
         >Submit</b-button
       >
@@ -45,22 +51,30 @@
 import { required } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
+import WcSelect from '@/components/forms/WcSelect'
 import WcTextArea from '@/components/forms/WcTextArea'
 import wcFormUtilitiesMixin from '@/mixins/wc-form-utilities-mixin'
 export default {
   components: {
-    WcInput,
     WcForm,
+    WcInput,
+    WcSelect,
     WcTextArea
   },
   mixins: [wcFormUtilitiesMixin],
   data() {
     return {
       previewIngredients: [],
+      recipeLanguageOptions: [
+        { value: null, text: 'Select recipe language' },
+        { value: 'en', text: 'English' },
+        { value: 'es', text: 'Spanish' }
+      ],
       recipeForm: {
         fields: {
           title: null,
-          ingredients: null
+          ingredients: null,
+          language: null
         }
       }
     }
