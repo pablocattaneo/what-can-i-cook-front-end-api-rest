@@ -16,10 +16,10 @@
         id="recipe-ingredients"
         :value="recipeForm.fields.ingredients"
         :validation="$v.recipeForm.fields.ingredients"
+        :state="$v.recipeForm.fields.ingredients.$error ? false : null"
         :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
         :label="`${$t('recipes.form_ingredients_label')}:`"
         placeholder="Recipe ingredients"
-        :state="$v.recipeForm.fields.ingredients.$error ? false : null"
         autocomplete="off"
         @input="recipeForm.fields.ingredients = $event"
       />
@@ -39,6 +39,7 @@
         :label="$t('recipes.select_recipe_language')"
         :value="recipeForm.fields.language"
         :validation="$v.recipeForm.fields.language"
+        :state="$v.recipeForm.fields.language.$error ? false : null"
         @input="recipeForm.fields.language = $event"
       />
       <b-button type="submit" variant="primary" @click="submit"
@@ -114,6 +115,9 @@ export default {
           required
         },
         ingredients: {
+          required
+        },
+        language: {
           required
         }
       }
