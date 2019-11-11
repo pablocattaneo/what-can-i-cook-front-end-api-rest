@@ -25,7 +25,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/css/global.styl'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -66,15 +66,7 @@ export default {
     defaultLocale: 'en',
     detectBrowserLanguage: false,
     vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: {
-          welcome: 'Welcome'
-        },
-        es: {
-          welcome: 'Bienvenido'
-        }
-      }
+      fallbackLocale: 'en'
     }
   },
   /*
