@@ -64,6 +64,10 @@
         :state="$v.recipeForm.fields.language.$error ? false : null"
         @input="recipeForm.fields.language = $event"
       />
+      <WcFile
+        :label="$t('recipes.form_main_img_label')"
+        :placeholder="$t('recipes.form_main_img_label')"
+      />
       <b-button type="submit" variant="primary" @click="submit"
         >Submit</b-button
       >
@@ -77,13 +81,15 @@ import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcSelect from '@/components/forms/WcSelect'
 import WcTextArea from '@/components/forms/WcTextArea'
+import WcFile from '@/components/forms/WcFile'
 import wcFormUtilitiesMixin from '@/mixins/wc-form-utilities-mixin'
 export default {
   components: {
     WcForm,
     WcInput,
     WcSelect,
-    WcTextArea
+    WcTextArea,
+    WcFile
   },
   mixins: [wcFormUtilitiesMixin],
   data() {
@@ -130,8 +136,6 @@ export default {
           this.recipeForm.fields
         )
         console.log('saveRecipe', saveRecipe)
-        alert(saveRecipe.message)
-        // alert(JSON.stringify(this.recipeForm.fields))
       } catch (error) {
         alert('Error in validation')
       }

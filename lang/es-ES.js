@@ -18,6 +18,8 @@ export default {
     serving: 'Porciones',
     calories: 'Calorías',
     form_title_label: 'Título de la receta',
+    form_main_img_label:
+      'Seleccione una imagen principal para la receta o suéltela aquí',
     form_ingredients_label: 'Ingredients',
     form_directions_label: 'Preparación',
     form_ingredients_text_helps:

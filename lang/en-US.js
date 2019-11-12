@@ -18,6 +18,7 @@ export default {
     serving: 'Portions',
     calories: 'Calories',
     form_title_label: 'Recipe title',
+    form_main_img_label: 'Choose a main image for recipe or drop it here',
     form_ingredients_label: 'Ingredients',
     form_directions_label: 'Directions',
     form_ingredients_text_helps: 'Enter ingredients separated by enter',
