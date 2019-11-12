@@ -30,6 +30,13 @@
           >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
         >
       </b-list-group>
+      <b-list-group flush>
+        <b-list-group-item
+          v-for="(direction, index) in recipe.directions"
+          :key="`direction-${index}`"
+          >{{ index + 1 }} {{ direction }}</b-list-group-item
+        >
+      </b-list-group>
       <template v-slot:footer>
         <b-button href="#" variant="primary">{{
           $t('recipes.buy_ingredients')

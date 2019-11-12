@@ -19,9 +19,12 @@ export default {
     calories: 'Calorías',
     form_title_label: 'Título de la receta',
     form_ingredients_label: 'Ingredients',
+    form_directions_label: 'Preparación',
     form_ingredients_text_helps:
       'Ingrese los ingredientes separados por enters',
+    form_directions_text_helps: 'Ingrese las indicaciones separadas por enters',
     preview_ingredients: 'Ingredientes vista previa',
+    preview_directions: 'Preparación vista previa',
     select_recipe_language: 'Eliga el idioma en el que está la receta'
   },
   form: {

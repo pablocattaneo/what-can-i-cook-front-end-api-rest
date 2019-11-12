@@ -13,6 +13,28 @@
         @input="recipeForm.fields.title = $event"
       />
       <WcTextArea
+        id="recipe-directions"
+        :value="recipeForm.fields.directions"
+        :validation="$v.recipeForm.fields.directions"
+        :state="$v.recipeForm.fields.directions.$error ? false : null"
+        :form-text-help-users="$t('recipes.form_directions_text_helps')"
+        :label="`${$t('recipes.form_directions_label')}:`"
+        placeholder="Recipe directions"
+        autocomplete="off"
+        @input="recipeForm.fields.directions = $event"
+      />
+      <div v-if="recipeForm.fields.directions" class="preview-directions">
+        <h1>{{ $t('recipes.preview_directions') }}</h1>
+        <ol>
+          <li
+            v-for="(ingredient, index) in previewDirections"
+            :key="'ingredient-' + index"
+          >
+            {{ ingredient }}
+          </li>
+        </ol>
+      </div>
+      <WcTextArea
         id="recipe-ingredients"
         :value="recipeForm.fields.ingredients"
         :validation="$v.recipeForm.fields.ingredients"
@@ -67,6 +89,7 @@ export default {
   data() {
     return {
       previewIngredients: [],
+      previewDirections: [],
       recipeLanguageOptions: [
         {
           value: null,
@@ -80,6 +103,7 @@ export default {
         fields: {
           title: null,
           ingredients: null,
+          directions: null,
           language: null
         }
       }
@@ -89,6 +113,11 @@ export default {
     'recipeForm.fields.ingredients'() {
       this.previewIngredients = this.stringToArray(
         this.recipeForm.fields.ingredients
+      )
+    },
+    'recipeForm.fields.directions'() {
+      this.previewDirections = this.stringToArray(
+        this.recipeForm.fields.directions
       )
     }
   },
@@ -115,6 +144,9 @@ export default {
           required
         },
         ingredients: {
+          required
+        },
+        directions: {
           required
         },
         language: {
