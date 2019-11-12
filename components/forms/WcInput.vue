@@ -1,6 +1,10 @@
 <template>
   <div id="wc-input">
     <b-form-group :id="id" :label="label" :for="id">
+      <template v-slot:label>
+        {{ label }}
+        <span v-if="isARequiredFiled" class="text-danger">*</span>
+      </template>
       <b-form-input
         :id="id"
         :value="value"
@@ -11,7 +15,7 @@
         :autofocus="autofocus"
         @input="$emit('input', $event)"
       ></b-form-input>
-      <b-form-invalid-feedback v-if="!validation.required">
+      <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
       <b-form-text v-if="formTextHelpUsers">{{

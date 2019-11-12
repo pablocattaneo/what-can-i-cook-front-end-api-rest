@@ -1,6 +1,10 @@
 <template>
   <div>
     <b-form-group :id="id" :label="label" :for="id">
+      <template v-slot:label>
+        {{ label }}
+        <span v-if="isARequiredFiled" class="text-danger">*</span>
+      </template>
       <b-form-select
         :value="selected"
         :options="options"

@@ -1,6 +1,10 @@
 <template>
   <div id="wc-textarea">
     <b-form-group :id="id" :label="label" :for="id">
+      <template v-slot:label>
+        {{ label }}
+        <span v-if="isARequiredFiled" class="text-danger">*</span>
+      </template>
       <b-form-textarea
         :id="id"
         :value="value"

@@ -37,5 +37,10 @@ export default {
       default: false
     },
     value: ''
+  },
+  computed: {
+    isARequiredFiled() {
+      return this.validation.hasOwnProperty('required')
+    }
   }
 }
