@@ -8,7 +8,6 @@
       <b-form-textarea
         :id="id"
         :value="value"
-        :type="type"
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
