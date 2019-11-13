@@ -7,15 +7,21 @@
       </template>
       <b-form-file
         :id="id"
-        :value="value"
-        :type="type"
+        v-model="file"
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
         :autofocus="autofocus"
         drop-placeholder="Drop file here..."
-        @input="$emit('input', $event)"
-      ></b-form-file>
+        :browse-text="buttonTextValue"
+        @input="cambiar()"
+      >
+        <template slot="file-name" slot-scope="{ names }">
+          <b-badge variant="dark">{{ names[0] }}</b-badge>
+        </template>
+      </b-form-file>
+      <b-button size="sm" @click="file = null" class="mt-2">Reset</b-button>
+      <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
@@ -29,6 +35,28 @@
 <script>
 import wcFormElementsMixin from '@/mixins/wc-form-elements-mixin'
 export default {
-  mixins: [wcFormElementsMixin]
+  mixins: [wcFormElementsMixin],
+  props: {
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    buttonTextValue: {
+      type: String,
+      default: 'Browse'
+    }
+  },
+  data() {
+    return {
+      file: null
+    }
+  },
+  methods: {
+    cambiar() {
+      console.log('cambiar')
+      console.log('file', this.file)
+      this.$emit('change', this.file)
+    }
+  }
 }
 </script>
