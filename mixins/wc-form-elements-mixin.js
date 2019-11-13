@@ -1,18 +1,10 @@
 export default {
   props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
     id: {
       type: String,
       default: ''
     },
     label: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
       type: String,
       default: ''
     },

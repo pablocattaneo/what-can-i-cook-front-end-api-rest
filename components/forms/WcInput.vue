@@ -28,6 +28,16 @@
 <script>
 import wcFormElementsMixin from '@/mixins/wc-form-elements-mixin'
 export default {
-  mixins: [wcFormElementsMixin]
+  mixins: [wcFormElementsMixin],
+  props: {
+    type: {
+      type: String,
+      default: 'text'
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
