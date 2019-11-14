@@ -67,6 +67,7 @@
       <WcFile
         :label="$t('recipes.form_main_img_label')"
         :placeholder="$t('recipes.form_main_img_label')"
+        @input="recipeForm.fields.mainImage = $event"
       />
       <b-button type="submit" variant="primary" @click="submit"
         >Submit</b-button
@@ -110,7 +111,8 @@ export default {
           title: null,
           ingredients: null,
           directions: null,
-          language: null
+          language: null,
+          mainImage: null
         }
       }
     }
@@ -131,9 +133,22 @@ export default {
     async submit() {
       try {
         await this.$children[0].validationForm(this.$v)
+        const formData = new FormData()
+        formData.append('title', this.recipeForm.fields.title)
+        formData.append('ingredients', this.recipeForm.fields.ingredients)
+        formData.append('directions', this.recipeForm.fields.directions)
+        formData.append('language', this.recipeForm.fields.language)
+        formData.append('mainImage', this.recipeForm.fields.mainImage)
+        console.log(
+          'this.recipeForm.fields.mainImage',
+          this.recipeForm.fields.mainImage
+        )
+        for (const pair of formData.entries()) {
+          console.log(pair[0] + ', ' + pair[1])
+        }
         const saveRecipe = await this.$axios.$post(
           '/recipes/create-recipe',
-          this.recipeForm.fields
+          formData
         )
         console.log('saveRecipe', saveRecipe)
       } catch (error) {

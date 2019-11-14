@@ -20,7 +20,7 @@
           <b-badge variant="dark">{{ names[0] }}</b-badge>
         </template>
       </b-form-file>
-      <b-button size="sm" @click="file = null" class="mt-2">Reset</b-button>
+      <b-button size="sm" class="mt-2" @click="file = null">Reset</b-button>
       <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
@@ -55,7 +55,7 @@ export default {
     cambiar() {
       console.log('cambiar')
       console.log('file', this.file)
-      this.$emit('change', this.file)
+      this.$emit('input', this.file)
     }
   }
 }
