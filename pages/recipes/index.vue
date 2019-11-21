@@ -7,7 +7,7 @@
       :title="recipe.title"
       :b-img-lazy-src="$store.state.apiRestBaseUrl + recipe.mainImg"
       :description="recipe.description"
-      :moreInfo="recipe.more_info"
+      :more-info="recipe.more_info"
       :directions="recipe.directions"
     />
   </div>

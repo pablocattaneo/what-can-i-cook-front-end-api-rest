@@ -73,6 +73,17 @@
         >Submit</b-button
       >
     </WcForm>
+    <b-modal id="storedRecipe" :title="storedRecipe.message">
+      <RecipeCard
+        :title="storedRecipe.data.title"
+        :b-img-lazy-src="
+          $store.state.apiRestBaseUrl + storedRecipe.data.mainImg
+        "
+        :description="storedRecipe.data.description"
+        :more-info="storedRecipe.data.more_info"
+        :directions="storedRecipe.data.directions"
+      />
+    </b-modal>
   </div>
 </template>
 
@@ -84,19 +95,25 @@ import WcSelect from '@/components/forms/WcSelect'
 import WcTextArea from '@/components/forms/WcTextArea'
 import WcFile from '@/components/forms/WcFile'
 import wcFormUtilitiesMixin from '@/mixins/wc-form-utilities-mixin'
+import RecipeCard from '@/components/recipes/RecipeCard.vue'
 export default {
   components: {
     WcForm,
     WcInput,
     WcSelect,
     WcTextArea,
-    WcFile
+    WcFile,
+    RecipeCard
   },
   mixins: [wcFormUtilitiesMixin],
   data() {
     return {
       previewIngredients: [],
       previewDirections: [],
+      storedRecipe: {
+        data: '',
+        message: ''
+      },
       recipeLanguageOptions: [
         {
           value: null,
@@ -137,12 +154,13 @@ export default {
         for (const key of Object.keys(this.recipeForm.fields)) {
           formData.append(key, this.recipeForm.fields[key])
         }
-        const saveRecipe = await this.$axios.$post(
+        this.storedRecipe = await this.$axios.$post(
           '/recipes/create-recipe',
           formData,
           { headers: { 'content-type': 'multipart/form-data' } }
         )
-        console.log('saveRecipe', saveRecipe)
+        console.log('this.storedRecipe', this.storedRecipe)
+        this.$bvModal.show('storedRecipe')
       } catch (error) {
         alert('Error in validation')
       }
