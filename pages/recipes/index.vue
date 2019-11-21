@@ -13,11 +13,11 @@
       border-variant="primary"
     >
       <b-img-lazy
-        :src="recipe.thumbnailImg"
+        :src="$store.state.apiRestBaseUrl + recipe.mainImg"
         width="100%"
         :alt="recipe.title"
         :title="recipe.title"
-        :blank-src="null"
+        blank-src="null"
         class="mb-3"
       ></b-img-lazy>
       <b-card-text>

@@ -134,21 +134,13 @@ export default {
       try {
         await this.$children[0].validationForm(this.$v)
         const formData = new FormData()
-        formData.append('title', this.recipeForm.fields.title)
-        formData.append('ingredients', this.recipeForm.fields.ingredients)
-        formData.append('directions', this.recipeForm.fields.directions)
-        formData.append('language', this.recipeForm.fields.language)
-        formData.append('mainImage', this.recipeForm.fields.mainImage)
-        console.log(
-          'this.recipeForm.fields.mainImage',
-          this.recipeForm.fields.mainImage
-        )
-        for (const pair of formData.entries()) {
-          console.log(pair[0] + ', ' + pair[1])
+        for (const key of Object.keys(this.recipeForm.fields)) {
+          formData.append(key, this.recipeForm.fields[key])
         }
         const saveRecipe = await this.$axios.$post(
           '/recipes/create-recipe',
-          formData
+          formData,
+          { headers: { 'content-type': 'multipart/form-data' } }
         )
         console.log('saveRecipe', saveRecipe)
       } catch (error) {
