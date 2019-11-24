@@ -73,7 +73,12 @@
         >Submit</b-button
       >
     </WcForm>
-    <b-modal id="storedRecipe" :title="storedRecipe.message">
+    <b-modal
+      id="storedRecipe"
+      :title="storedRecipe.message"
+      header-bg-variant="success"
+      header-text-variant="light"
+    >
       <RecipeCard
         :title="storedRecipe.data.title"
         :b-img-lazy-src="

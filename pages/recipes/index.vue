@@ -9,6 +9,8 @@
       :description="recipe.description"
       :more-info="recipe.more_info"
       :directions="recipe.directions"
+      style="max-width: 20rem;"
+      class="mb-2"
     />
   </div>
 </template>

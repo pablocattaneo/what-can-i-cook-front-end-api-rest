@@ -4,9 +4,7 @@
     img-alt="Image"
     img-top
     tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-    border-variant="primary"
+    :border-variant="borderVariant"
   >
     <b-img-lazy
       :src="bImgLazySrc"
@@ -62,6 +60,10 @@ export default {
     directions: {
       type: Array,
       default: () => []
+    },
+    borderVariant: {
+      type: String,
+      default: 'primary'
     }
   }
 }
