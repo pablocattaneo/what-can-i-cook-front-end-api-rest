@@ -7,6 +7,7 @@
     :border-variant="borderVariant"
   >
     <b-img-lazy
+      v-if="bImgLazySrc"
       :src="bImgLazySrc"
       :alt="title"
       :title="title"

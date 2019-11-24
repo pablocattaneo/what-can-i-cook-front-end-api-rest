@@ -82,7 +82,9 @@
       <RecipeCard
         :title="storedRecipe.data.title"
         :b-img-lazy-src="
-          $store.state.apiRestBaseUrl + storedRecipe.data.mainImg
+          storedRecipe.data.mainImg
+            ? $store.state.apiRestBaseUrl + storedRecipe.data.mainImg
+            : null
         "
         :description="storedRecipe.data.description"
         :more-info="storedRecipe.data.more_info"

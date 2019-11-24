@@ -5,7 +5,9 @@
       v-for="(recipe, recipesIndex) in recipes"
       :key="recipesIndex"
       :title="recipe.title"
-      :b-img-lazy-src="$store.state.apiRestBaseUrl + recipe.mainImg"
+      :b-img-lazy-src="
+        recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
+      "
       :description="recipe.description"
       :more-info="recipe.more_info"
       :directions="recipe.directions"
