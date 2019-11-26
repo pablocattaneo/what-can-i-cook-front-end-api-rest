@@ -13,6 +13,12 @@
         @input="recipeForm.fields.title = $event"
       />
       <WcTextArea
+        id="recipe-description"
+        :value="recipeForm.fields.description"
+        :label="`${$t('recipes.form_description_label')}:`"
+        @input="recipeForm.fields.description = $event"
+      />
+      <WcTextArea
         id="recipe-directions"
         :value="recipeForm.fields.directions"
         :validation="$v.recipeForm.fields.directions"
@@ -133,6 +139,7 @@ export default {
       recipeForm: {
         fields: {
           title: null,
+          description: null,
           ingredients: null,
           directions: null,
           language: null,
