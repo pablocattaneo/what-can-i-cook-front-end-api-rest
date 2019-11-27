@@ -18,10 +18,8 @@
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
-      <b-form-invalid-feedback
-        v-if="validation.integer === false || validation.minValue === false"
-      >
-        {{ $t('form.validation.integerPositive') }}
+      <b-form-invalid-feedback v-if="validation.integer === false">
+        {{ $t('form.validation.integerNumber') }}
       </b-form-invalid-feedback>
       <b-form-text v-if="formTextHelpUsers">{{
         formTextHelpUsers
