@@ -112,7 +112,7 @@
 </template>
 
 <script>
-import { required, integer, minValue } from 'vuelidate/lib/validators'
+import { required, integer } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcSelect from '@/components/forms/WcSelect'
@@ -214,8 +214,7 @@ export default {
         },
         moreInfo: {
           serving: {
-            integer,
-            minValue: minValue(1)
+            integer
           }
         }
       }
