@@ -12,15 +12,15 @@
         :state="state"
         :autocomplete="autocomplete"
         :autofocus="autofocus"
-        drop-placeholder="Drop file here..."
         :browse-text="buttonTextValue"
         @input="cambiar()"
+        drop-placeholder="Drop file here..."
       >
         <template slot="file-name" slot-scope="{ names }">
           <b-badge variant="dark">{{ names[0] }}</b-badge>
         </template>
       </b-form-file>
-      <b-button size="sm" class="mt-2" @click="file = null">Reset</b-button>
+      <b-button @click="file = null" size="sm" class="mt-2">Reset</b-button>
       <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}

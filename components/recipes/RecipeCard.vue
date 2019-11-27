@@ -1,10 +1,10 @@
 <template>
   <b-card
     :title="title"
+    :border-variant="borderVariant"
     img-alt="Image"
     img-top
     tag="article"
-    :border-variant="borderVariant"
   >
     <b-img-lazy
       v-if="bImgLazySrc"

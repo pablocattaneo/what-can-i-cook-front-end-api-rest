@@ -11,10 +11,10 @@
         :placeholder="placeholder"
         :state="state"
         :autocomplete="autocomplete"
-        rows="3"
-        max-rows="6"
         :autofocus="autofocus"
         @input="$emit('input', $event)"
+        rows="3"
+        max-rows="6"
       ></b-form-textarea>
       <b-form-invalid-feedback v-if="!validation.required">
         {{ $t('form.validation.required') }}

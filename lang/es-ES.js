@@ -32,7 +32,8 @@ export default {
   },
   form: {
     validation: {
-      required: 'Este campo es requerido'
+      required: 'Este campo es requerido',
+      integerPositive: 'Este campo sólo acepta numero enteros positivos'
     }
   },
   language: 'Idioma',

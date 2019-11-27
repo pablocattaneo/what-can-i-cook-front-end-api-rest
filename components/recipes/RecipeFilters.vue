@@ -6,9 +6,9 @@
         ><br />
         <b-form-checkbox
           v-model="allSelected"
+          @change="toggleAll"
           aria-describedby="flavours"
           aria-controls="flavours"
-          @change="toggleAll"
         >
           {{
             allSelected

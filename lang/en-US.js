@@ -30,7 +30,8 @@ export default {
   },
   form: {
     validation: {
-      required: 'This field is required'
+      required: 'This field is required',
+      integerPositive: 'This field only accept positive integers'
     }
   },
   language: 'Language',

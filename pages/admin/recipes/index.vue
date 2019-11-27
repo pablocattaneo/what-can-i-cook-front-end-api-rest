@@ -8,9 +8,9 @@
         :label="$t('recipes.form_title_label') + ':'"
         :placeholder="$t('recipes.form_title_label')"
         :state="$v.recipeForm.fields.title.$error ? false : null"
+        @input="recipeForm.fields.title = $event"
         autocomplete="off"
         autofocus
-        @input="recipeForm.fields.title = $event"
       />
       <WcTextArea
         id="recipe-description"
@@ -25,9 +25,9 @@
         :state="$v.recipeForm.fields.directions.$error ? false : null"
         :form-text-help-users="$t('recipes.form_directions_text_helps')"
         :label="`${$t('recipes.form_directions_label')}:`"
+        @input="recipeForm.fields.directions = $event"
         placeholder="Recipe directions"
         autocomplete="off"
-        @input="recipeForm.fields.directions = $event"
       />
       <div v-if="recipeForm.fields.directions" class="preview-directions">
         <h1>{{ $t('recipes.preview_directions') }}</h1>
@@ -47,9 +47,9 @@
         :state="$v.recipeForm.fields.ingredients.$error ? false : null"
         :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
         :label="`${$t('recipes.form_ingredients_label')}:`"
+        @input="recipeForm.fields.ingredients = $event"
         placeholder="Recipe ingredients"
         autocomplete="off"
-        @input="recipeForm.fields.ingredients = $event"
       />
       <div v-if="recipeForm.fields.ingredients" class="preview-ingredients">
         <h1>{{ $t('recipes.preview_ingredients') }}</h1>
@@ -75,7 +75,18 @@
         :placeholder="$t('recipes.form_main_img_label')"
         @input="recipeForm.fields.mainImage = $event"
       />
-      <b-button type="submit" variant="primary" @click="submit"
+      <WcInput
+        id="recipe-more-info"
+        :value="recipeForm.fields.moreInfo.serving"
+        :validation="$v.recipeForm.fields.moreInfo.serving"
+        :label="$t('recipes.form_title_label') + ':'"
+        :placeholder="$t('recipes.form_title_label')"
+        :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
+        @input="recipeForm.fields.moreInfo.serving = $event"
+        autocomplete="off"
+        type="number"
+      />
+      <b-button @click="submit" type="submit" variant="primary"
         >Submit</b-button
       >
     </WcForm>
@@ -101,7 +112,7 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required, integer, minValue } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcSelect from '@/components/forms/WcSelect'
@@ -143,7 +154,13 @@ export default {
           ingredients: null,
           directions: null,
           language: null,
-          mainImage: null
+          mainImage: null,
+          moreInfo: {
+            serving: null,
+            cookTime: null,
+            readyIn: null,
+            calories: null
+          }
         }
       }
     }
@@ -194,6 +211,12 @@ export default {
         },
         language: {
           required
+        },
+        moreInfo: {
+          serving: {
+            integer,
+            minValue: minValue(1)
+          }
         }
       }
     }
