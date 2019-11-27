@@ -23,6 +23,10 @@ export default {
       'Seleccione una imagen principal para la receta o suéltela aquí',
     form_ingredients_label: 'Ingredients',
     form_directions_label: 'Preparación',
+    form_more_info_serving_label: 'Comensales',
+    form_more_info_cook_time_label: 'Tiempo de cocción',
+    form_more_info_ready_in_label: 'Tiempo de preparación',
+    form_more_info_calories_label: 'Calorías',
     form_ingredients_text_helps:
       'Ingrese los ingredientes separados por enters',
     form_directions_text_helps: 'Ingrese las indicaciones separadas por enters',

@@ -76,14 +76,43 @@
         @input="recipeForm.fields.mainImage = $event"
       />
       <WcInput
-        id="recipe-more-info"
+        id="recipe-more-info-serving"
         :value="recipeForm.fields.moreInfo.serving"
         :validation="$v.recipeForm.fields.moreInfo.serving"
-        :label="$t('recipes.form_title_label') + ':'"
-        :placeholder="$t('recipes.form_title_label')"
+        :label="$t('recipes.form_more_info_serving_label') + ':'"
+        placeholder="4"
         :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
         @input="recipeForm.fields.moreInfo.serving = $event"
-        autocomplete="off"
+        type="number"
+      />
+      <WcInput
+        id="recipe-more-info-cook-time"
+        :value="recipeForm.fields.moreInfo.cookTime"
+        :validation="$v.recipeForm.fields.moreInfo.cookTime"
+        :label="$t('recipes.form_more_info_cook_time_label') + ':'"
+        placeholder="45"
+        :state="$v.recipeForm.fields.moreInfo.cookTime.$error ? false : null"
+        @input="recipeForm.fields.moreInfo.cookTime = $event"
+        type="number"
+      />
+      <WcInput
+        id="recipe-more-info-ready-in"
+        :value="recipeForm.fields.moreInfo.readyIn"
+        :validation="$v.recipeForm.fields.moreInfo.readyIn"
+        :label="$t('recipes.form_more_info_ready_in_label') + ':'"
+        placeholder="45"
+        :state="$v.recipeForm.fields.moreInfo.readyIn.$error ? false : null"
+        @input="recipeForm.fields.moreInfo.readyIn = $event"
+        type="number"
+      />
+      <WcInput
+        id="recipe-more-info-calories"
+        :value="recipeForm.fields.moreInfo.calories"
+        :validation="$v.recipeForm.fields.moreInfo.calories"
+        :label="$t('recipes.form_more_info_calories_label') + ':'"
+        placeholder="120"
+        :state="$v.recipeForm.fields.moreInfo.calories.$error ? false : null"
+        @input="recipeForm.fields.moreInfo.calories = $event"
         type="number"
       />
       <b-button @click="submit" type="submit" variant="primary"
@@ -214,6 +243,15 @@ export default {
         },
         moreInfo: {
           serving: {
+            integer
+          },
+          cookTime: {
+            integer
+          },
+          readyIn: {
+            integer
+          },
+          calories: {
             integer
           }
         }

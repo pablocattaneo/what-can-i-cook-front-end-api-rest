@@ -21,7 +21,6 @@
         </template>
       </b-form-file>
       <b-button @click="file = null" size="sm" class="mt-2">Reset</b-button>
-      <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
