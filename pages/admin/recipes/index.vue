@@ -80,9 +80,9 @@
         :value="recipeForm.fields.moreInfo.serving"
         :validation="$v.recipeForm.fields.moreInfo.serving"
         :label="$t('recipes.form_more_info_serving_label') + ':'"
-        placeholder="4"
         :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
         @input="recipeForm.fields.moreInfo.serving = $event"
+        placeholder="4"
         type="number"
       />
       <WcInput
@@ -90,9 +90,9 @@
         :value="recipeForm.fields.moreInfo.cookTime"
         :validation="$v.recipeForm.fields.moreInfo.cookTime"
         :label="$t('recipes.form_more_info_cook_time_label') + ':'"
-        placeholder="45"
         :state="$v.recipeForm.fields.moreInfo.cookTime.$error ? false : null"
         @input="recipeForm.fields.moreInfo.cookTime = $event"
+        placeholder="45"
         type="number"
       />
       <WcInput
@@ -100,9 +100,9 @@
         :value="recipeForm.fields.moreInfo.readyIn"
         :validation="$v.recipeForm.fields.moreInfo.readyIn"
         :label="$t('recipes.form_more_info_ready_in_label') + ':'"
-        placeholder="45"
         :state="$v.recipeForm.fields.moreInfo.readyIn.$error ? false : null"
         @input="recipeForm.fields.moreInfo.readyIn = $event"
+        placeholder="45"
         type="number"
       />
       <WcInput
@@ -110,9 +110,9 @@
         :value="recipeForm.fields.moreInfo.calories"
         :validation="$v.recipeForm.fields.moreInfo.calories"
         :label="$t('recipes.form_more_info_calories_label') + ':'"
-        placeholder="120"
         :state="$v.recipeForm.fields.moreInfo.calories.$error ? false : null"
         @input="recipeForm.fields.moreInfo.calories = $event"
+        placeholder="120"
         type="number"
       />
       <b-button @click="submit" type="submit" variant="primary"
@@ -178,11 +178,11 @@ export default {
       ],
       recipeForm: {
         fields: {
-          title: null,
-          description: null,
+          title: '',
+          description: '',
           ingredients: null,
           directions: null,
-          language: null,
+          language: '',
           mainImage: null,
           moreInfo: {
             serving: null,
@@ -212,8 +212,22 @@ export default {
         await this.$children[0].validationForm(this.$v)
         const formData = new FormData()
         for (const key of Object.keys(this.recipeForm.fields)) {
-          formData.append(key, this.recipeForm.fields[key])
+          let value = this.recipeForm.fields[key]
+          const isAFile = value instanceof Blob
+          console.log('typeof value', value, typeof value)
+          console.log('value !== null', value !== null)
+          console.log('isAFile', key, isAFile)
+          if (
+            typeof value === 'object' &&
+            value !== null &&
+            isAFile === false
+          ) {
+            value = JSON.stringify(value)
+            console.log('value stringify', value)
+          }
+          formData.append(key, value)
         }
+        console.log('formData', [...formData])
         this.storedRecipe = await this.$axios.$post(
           '/recipes/create-recipe',
           formData,

@@ -14,7 +14,7 @@
       :blank-src="null"
       class="mb-3"
     ></b-img-lazy>
-    <b-card-text>
+    <b-card-text v-if="description">
       {{ description }}
     </b-card-text>
     <b-list-group flush>
