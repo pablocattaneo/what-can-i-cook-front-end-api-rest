@@ -214,26 +214,20 @@ export default {
         for (const key of Object.keys(this.recipeForm.fields)) {
           let value = this.recipeForm.fields[key]
           const isAFile = value instanceof Blob
-          console.log('typeof value', value, typeof value)
-          console.log('value !== null', value !== null)
-          console.log('isAFile', key, isAFile)
           if (
             typeof value === 'object' &&
             value !== null &&
             isAFile === false
           ) {
             value = JSON.stringify(value)
-            console.log('value stringify', value)
           }
           formData.append(key, value)
         }
-        console.log('formData', [...formData])
         this.storedRecipe = await this.$axios.$post(
           '/recipes/create-recipe',
           formData,
           { headers: { 'content-type': 'multipart/form-data' } }
         )
-        console.log('this.storedRecipe', this.storedRecipe)
         this.$bvModal.show('storedRecipe')
       } catch (error) {
         alert('Error in validation')
