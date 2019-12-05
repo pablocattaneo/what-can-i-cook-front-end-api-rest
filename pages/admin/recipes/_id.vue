@@ -1,5 +1,6 @@
 <template>
   <div id="admin-recipes">
+    <h1>{{ recipeForm.title }}</h1>
     <WcForm>
       <WcInput
         id="recipe-name"
@@ -167,6 +168,7 @@ export default {
         data: '',
         message: ''
       },
+      recipeId: this.$route.params.id || null,
       recipeLanguageOptions: [
         {
           value: null,
@@ -177,6 +179,7 @@ export default {
         { value: 'es', text: 'Spanish' }
       ],
       recipeForm: {
+        isOnEditMode: !!this.$route.params.id,
         fields: {
           title: '',
           description: '',
@@ -223,11 +226,20 @@ export default {
           }
           formData.append(key, value)
         }
-        this.storedRecipe = await this.$axios.$post(
-          '/recipes/create-recipe',
-          formData,
-          { headers: { 'content-type': 'multipart/form-data' } }
-        )
+        if (this.recipeForm.isOnEditMode === false) {
+          this.storedRecipe = await this.$axios.$post(
+            '/recipes/create-recipe',
+            formData,
+            { headers: { 'content-type': 'multipart/form-data' } }
+          )
+        }
+        if (this.recipeForm.isOnEditMode) {
+          this.storedRecipe = await this.$axios.$put(
+            'admin/recipes/editing/5de655dcd269d2821b2c73f9',
+            formData,
+            { headers: { 'content-type': 'multipart/form-data' } }
+          )
+        }
         this.$bvModal.show('storedRecipe')
       } catch (error) {
         alert('Error in validation')
