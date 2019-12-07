@@ -162,8 +162,6 @@ export default {
   mixins: [wcFormUtilitiesMixin],
   data() {
     return {
-      previewIngredients: [],
-      previewDirections: [],
       storedRecipe: {
         data: '',
         message: ''
@@ -180,16 +178,12 @@ export default {
       ]
     }
   },
-  watch: {
-    'recipeForm.fields.ingredients'() {
-      this.previewIngredients = this.stringToArray(
-        this.recipeForm.fields.ingredients
-      )
+  computed: {
+    previewIngredients() {
+      return this.stringToArray(this.recipeForm.fields.ingredients)
     },
-    'recipeForm.fields.directions'() {
-      this.previewDirections = this.stringToArray(
-        this.recipeForm.fields.directions
-      )
+    previewDirections() {
+      return this.stringToArray(this.recipeForm.fields.directions)
     }
   },
   async asyncData({ params, app }) {
@@ -201,7 +195,9 @@ export default {
         fields: {
           title: recipe.title || '',
           description: recipe.description || '',
-          ingredients: recipe.ingredients || null,
+          ingredients: recipe.ingredients
+            ? recipe.ingredients.toString().replace(/,/g, '\n')
+            : null,
           directions: null,
           language: '',
           mainImage: null,
