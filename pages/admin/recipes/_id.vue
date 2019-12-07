@@ -177,24 +177,7 @@ export default {
         },
         { value: 'en', text: 'English' },
         { value: 'es', text: 'Spanish' }
-      ],
-      recipeForm: {
-        isOnEditMode: !!this.$route.params.id,
-        fields: {
-          title: '',
-          description: '',
-          ingredients: null,
-          directions: null,
-          language: '',
-          mainImage: null,
-          moreInfo: {
-            serving: null,
-            cookTime: null,
-            readyIn: null,
-            calories: null
-          }
-        }
-      }
+      ]
     }
   },
   watch: {
@@ -207,6 +190,31 @@ export default {
       this.previewDirections = this.stringToArray(
         this.recipeForm.fields.directions
       )
+    }
+  },
+  async asyncData(context) {
+    const recipeId = context.params.id
+    const recipe = recipeId
+      ? await context.app.$axios.$get(`/recipe/${recipeId}`)
+      : {}
+    return {
+      recipeForm: {
+        isOnEditMode: !!context.params.id,
+        fields: {
+          title: recipe.title || '',
+          description: recipe.description || '',
+          ingredients: null,
+          directions: null,
+          language: '',
+          mainImage: null,
+          moreInfo: {
+            serving: null,
+            cookTime: null,
+            readyIn: null,
+            calories: null
+          }
+        }
+      }
     }
   },
   methods: {
