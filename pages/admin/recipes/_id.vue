@@ -192,18 +192,16 @@ export default {
       )
     }
   },
-  async asyncData(context) {
-    const recipeId = context.params.id
-    const recipe = recipeId
-      ? await context.app.$axios.$get(`/recipe/${recipeId}`)
-      : {}
+  async asyncData({ params, app }) {
+    const recipeId = params.id
+    const recipe = recipeId ? await app.$axios.$get(`/recipe/${recipeId}`) : {}
     return {
       recipeForm: {
-        isOnEditMode: !!context.params.id,
+        isOnEditMode: !!params.id,
         fields: {
           title: recipe.title || '',
           description: recipe.description || '',
-          ingredients: null,
+          ingredients: recipe.ingredients || null,
           directions: null,
           language: '',
           mainImage: null,
