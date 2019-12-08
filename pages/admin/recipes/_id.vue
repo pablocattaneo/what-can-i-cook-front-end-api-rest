@@ -207,7 +207,7 @@ export default {
           directions: recipe.directions
             ? directionsArrayToString(recipe.directions)
             : null,
-          language: '',
+          language: recipe.language || '',
           mainImage: null,
           moreInfo: {
             serving: null,
