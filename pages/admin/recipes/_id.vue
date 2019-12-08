@@ -187,6 +187,9 @@ export default {
     }
   },
   async asyncData({ params, app }) {
+    function arrayToString(array) {
+      return array.toString().replace(/,/g, '\n')
+    }
     const recipeId = params.id
     const recipe = recipeId ? await app.$axios.$get(`/recipe/${recipeId}`) : {}
     return {
@@ -196,7 +199,7 @@ export default {
           title: recipe.title || '',
           description: recipe.description || '',
           ingredients: recipe.ingredients
-            ? recipe.ingredients.toString().replace(/,/g, '\n')
+            ? arrayToString(recipe.ingredients)
             : null,
           directions: null,
           language: '',
