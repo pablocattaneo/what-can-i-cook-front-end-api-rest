@@ -190,6 +190,9 @@ export default {
     function ingredientsArrayToString(array) {
       return array.toString().replace(/,/g, '\n')
     }
+    function directionsArrayToString(array) {
+      return array.join('\r')
+    }
     const recipeId = params.id
     const recipe = recipeId ? await app.$axios.$get(`/recipe/${recipeId}`) : {}
     return {
@@ -201,7 +204,9 @@ export default {
           ingredients: recipe.ingredients
             ? ingredientsArrayToString(recipe.ingredients)
             : null,
-          directions: null,
+          directions: recipe.directions.length
+            ? directionsArrayToString(recipe.directions)
+            : null,
           language: '',
           mainImage: null,
           moreInfo: {
