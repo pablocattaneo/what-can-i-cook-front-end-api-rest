@@ -204,7 +204,7 @@ export default {
           ingredients: recipe.ingredients
             ? ingredientsArrayToString(recipe.ingredients)
             : null,
-          directions: recipe.directions.length
+          directions: recipe.directions
             ? directionsArrayToString(recipe.directions)
             : null,
           language: '',
