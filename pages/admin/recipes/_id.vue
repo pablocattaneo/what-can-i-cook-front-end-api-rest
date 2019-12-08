@@ -187,7 +187,7 @@ export default {
     }
   },
   async asyncData({ params, app }) {
-    function arrayToString(array) {
+    function ingredientsArrayToString(array) {
       return array.toString().replace(/,/g, '\n')
     }
     const recipeId = params.id
@@ -199,7 +199,7 @@ export default {
           title: recipe.title || '',
           description: recipe.description || '',
           ingredients: recipe.ingredients
-            ? arrayToString(recipe.ingredients)
+            ? ingredientsArrayToString(recipe.ingredients)
             : null,
           directions: null,
           language: '',
