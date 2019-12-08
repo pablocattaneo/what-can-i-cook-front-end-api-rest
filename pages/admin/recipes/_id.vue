@@ -210,10 +210,10 @@ export default {
           language: recipe.language || '',
           mainImage: null,
           moreInfo: {
-            serving: null,
-            cookTime: null,
-            readyIn: null,
-            calories: null
+            serving: recipe.more_info ? recipe.more_info.serving : null,
+            cookTime: recipe.more_info ? recipe.more_info.cookTime : null,
+            readyIn: recipe.more_info ? recipe.more_info.readyIn : null,
+            calories: recipe.more_info ? recipe.more_info.calories : null
           }
         }
       }
