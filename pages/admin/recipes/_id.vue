@@ -74,7 +74,15 @@
       <WcFile
         :label="$t('recipes.form_main_img_label')"
         :placeholder="$t('recipes.form_main_img_label')"
-        @input="recipeForm.fields.mainImage = $event"
+        @input="inputImg($event)"
+      />
+      <b-img-lazy
+        v-if="ImgDOMString"
+        :src="ImgDOMString"
+        :alt="recipeForm.fields.title"
+        :title="recipeForm.fields.title"
+        :blank-src="null"
+        class="mw-100"
       />
       <WcInput
         id="recipe-more-info-serving"
@@ -162,6 +170,7 @@ export default {
   mixins: [wcFormUtilitiesMixin],
   data() {
     return {
+      ImgDOMString: '',
       storedRecipe: {
         data: '',
         message: ''
@@ -186,7 +195,7 @@ export default {
       return this.stringToArray(this.recipeForm.fields.directions)
     }
   },
-  async asyncData({ params, app }) {
+  async asyncData({ params, app, store }) {
     function ingredientsArrayToString(array) {
       return array.toString().replace(/,/g, '\n')
     }
@@ -220,6 +229,10 @@ export default {
     }
   },
   methods: {
+    inputImg(event) {
+      this.recipeForm.fields.mainImage = event
+      this.ImgDOMString = URL.createObjectURL(event)
+    },
     async submit() {
       try {
         await this.$children[0].validationForm(this.$v)
