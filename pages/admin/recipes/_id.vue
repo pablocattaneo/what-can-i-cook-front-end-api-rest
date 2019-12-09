@@ -77,8 +77,8 @@
         @input="inputImg($event)"
       />
       <b-img-lazy
-        v-if="ImgDOMString"
-        :src="ImgDOMString"
+        v-if="ImgDOMString || recipeForm.fields.mainImg"
+        :src="ImgDOMString || recipeForm.fields.mainImg"
         :alt="recipeForm.fields.title"
         :title="recipeForm.fields.title"
         :blank-src="null"
@@ -170,7 +170,6 @@ export default {
   mixins: [wcFormUtilitiesMixin],
   data() {
     return {
-      ImgDOMString: '',
       storedRecipe: {
         data: '',
         message: ''
@@ -205,6 +204,9 @@ export default {
     const recipeId = params.id
     const recipe = recipeId ? await app.$axios.$get(`/recipe/${recipeId}`) : {}
     return {
+      ImgDOMString: recipe.mainImg
+        ? store.state.apiRestBaseUrl + recipe.mainImg
+        : '',
       recipeForm: {
         isOnEditMode: !!params.id,
         fields: {
@@ -217,7 +219,7 @@ export default {
             ? directionsArrayToString(recipe.directions)
             : null,
           language: recipe.language || '',
-          mainImage: null,
+          mainImage: recipe.mainImg || null,
           moreInfo: {
             serving: recipe.more_info ? recipe.more_info.serving : null,
             cookTime: recipe.more_info ? recipe.more_info.cookTime : null,
