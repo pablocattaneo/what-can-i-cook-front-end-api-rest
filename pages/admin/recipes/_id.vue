@@ -77,8 +77,8 @@
         @input="inputImg($event)"
       />
       <b-img-lazy
-        v-if="ImgDOMString || recipeForm.fields.mainImg"
-        :src="ImgDOMString || recipeForm.fields.mainImg"
+        v-if="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
+        :src="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
         :alt="recipeForm.fields.title"
         :title="recipeForm.fields.title"
         :blank-src="null"
@@ -204,7 +204,7 @@ export default {
     const recipeId = params.id
     const recipe = recipeId ? await app.$axios.$get(`/recipe/${recipeId}`) : {}
     return {
-      ImgDOMString: recipe.mainImg
+      imgDOMStringOrImgUrl: recipe.mainImg
         ? store.state.apiRestBaseUrl + recipe.mainImg
         : '',
       recipeForm: {
@@ -233,7 +233,7 @@ export default {
   methods: {
     inputImg(event) {
       this.recipeForm.fields.mainImage = event
-      this.ImgDOMString = URL.createObjectURL(event)
+      this.imgDOMStringOrImgUrl = URL.createObjectURL(event)
     },
     async submit() {
       try {
