@@ -17,6 +17,7 @@ export default {
     cookTime: 'Tiempo de cocción',
     serving: 'Porciones',
     calories: 'Calorías',
+    readyIn: 'Listo en',
     form_title_label: 'Título de la receta',
     form_description_label: 'Descripción de la receta',
     form_main_img_label:

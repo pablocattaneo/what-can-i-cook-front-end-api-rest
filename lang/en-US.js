@@ -17,6 +17,7 @@ export default {
     cookTime: 'Cooking time',
     serving: 'Portions',
     calories: 'Calories',
+    readyIn: 'Ready in',
     form_title_label: 'Recipe title',
     form_description_label: 'Recipe description',
     form_main_img_label: 'Choose a main image for recipe or drop it here',
