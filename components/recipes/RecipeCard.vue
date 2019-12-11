@@ -1,11 +1,22 @@
 <template>
   <b-card
-    :title="title"
     :border-variant="borderVariant"
     img-alt="Image"
     img-top
     tag="article"
+    no-body
   >
+    <b-card-header header-tag="header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <b-button variant="link">Delete</b-button>
+        </li>
+        <li class="nav-item">
+          <b-button variant="link">Edit</b-button>
+        </li>
+      </ul>
+    </b-card-header>
+    <b-card-title>{{ title }}</b-card-title>
     <b-img-lazy
       v-if="bImgLazySrc"
       :src="bImgLazySrc"
