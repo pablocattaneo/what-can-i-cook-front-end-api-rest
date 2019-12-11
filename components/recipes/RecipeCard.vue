@@ -9,10 +9,20 @@
     <b-card-header header-tag="header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <b-button variant="link">Delete</b-button>
+          <nuxt-link
+            :to="
+              localePath({
+                path: `/admin/recipes/${id}`
+              })
+            "
+            class="btn btn-link"
+            >{{ $t('actions.edit') }}</nuxt-link
+          >
         </li>
         <li class="nav-item">
-          <b-button variant="link">Edit</b-button>
+          <nuxt-link :to="localePath(`about`)" class="btn btn-link">{{
+            $t('actions.delete')
+          }}</nuxt-link>
         </li>
       </ul>
     </b-card-header>
@@ -53,6 +63,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: [String, Number],
+      default: null
+    },
     title: {
       type: String,
       default: ''

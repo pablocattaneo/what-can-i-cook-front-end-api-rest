@@ -4,6 +4,7 @@
     <RecipeCard
       v-for="(recipe, recipesIndex) in recipes"
       :key="recipesIndex"
+      :id="recipe._id"
       :title="recipe.title"
       :b-img-lazy-src="
         recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null

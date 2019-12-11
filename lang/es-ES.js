@@ -1,4 +1,8 @@
 export default {
+  actions: {
+    delete: 'Eliminar',
+    edit: 'Editar'
+  },
   links: {
     home: 'Home',
     about: 'Acerca de',

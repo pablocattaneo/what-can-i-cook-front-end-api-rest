@@ -1,4 +1,8 @@
 export default {
+  actions: {
+    delete: 'Delete',
+    edit: 'Edit'
+  },
   links: {
     home: 'Home',
     about: 'About',
