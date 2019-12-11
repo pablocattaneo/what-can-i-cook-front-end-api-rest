@@ -234,7 +234,6 @@ export default {
     inputImg(event) {
       this.recipeForm.fields.mainImage = event
       this.imgDOMStringOrImgUrl = URL.createObjectURL(event)
-      console.log('imgDOMStringOrImgUrl', this.imgDOMStringOrImgUrl)
     },
     async submit() {
       try {
