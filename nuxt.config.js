@@ -61,9 +61,9 @@ export default {
         file: 'es-ES.js'
       }
     ],
-    lazy: true,
-    langDir: 'lang/',
     defaultLocale: 'en',
+    langDir: 'lang/',
+    lazy: true,
     detectBrowserLanguage: false,
     vueI18n: {
       fallbackLocale: 'en'
