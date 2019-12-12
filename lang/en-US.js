@@ -35,7 +35,8 @@ export default {
     form_directions_text_helps: 'Enter directions separated by enter',
     preview_ingredients: 'Preview ingredients',
     preview_directions: 'Preview directions',
-    select_recipe_language: 'Select recipe language'
+    select_recipe_language: 'Select recipe language',
+    there_is_no_recipes_yet: 'There is no recipes yet!'
   },
   form: {
     validation: {

@@ -1,6 +1,9 @@
 <template>
   <div id="recipes">
     <RecipeFilters />
+    <h1 v-if="recipes.length === 0" class="text-muted">
+      {{ $t('recipes.there_is_no_recipes_yet') }}
+    </h1>
     <RecipeCard
       v-for="(recipe, recipesIndex) in recipes"
       :key="recipesIndex"

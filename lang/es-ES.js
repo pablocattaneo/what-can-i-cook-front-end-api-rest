@@ -37,7 +37,8 @@ export default {
     form_directions_text_helps: 'Ingrese las indicaciones separadas por enters',
     preview_ingredients: 'Ingredientes vista previa',
     preview_directions: 'Preparación vista previa',
-    select_recipe_language: 'Eliga el idioma en el que está la receta'
+    select_recipe_language: 'Eliga el idioma en el que está la receta',
+    there_is_no_recipes_yet: 'Aún no se han cargado recetas!'
   },
   form: {
     validation: {
