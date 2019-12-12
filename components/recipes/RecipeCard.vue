@@ -95,6 +95,7 @@ export default {
   methods: {
     async deleteRecipe(recipeId) {
       await this.$axios.$delete(`/recipe/${recipeId}`)
+      this.$emit('recipeDeleted')
     }
   }
 }

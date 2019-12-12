@@ -15,6 +15,7 @@
       :description="recipe.description"
       :more-info="recipe.more_info"
       :directions="recipe.directions"
+      @recipeDeleted="getRecipes()"
       style="max-width: 20rem;"
       class="mb-2"
     />
@@ -29,15 +30,22 @@ export default {
     RecipeFilters,
     RecipeCard
   },
-  async asyncData(context) {
-    const currentLang = context.app.i18n.locale
-    const urlLangSantized = context.route.fullPath.replace(
-      `/${currentLang}`,
-      ''
-    )
-    const recipes = await context.app.$axios.$get(urlLangSantized)
+  async asyncData({ app, route }) {
+    const currentLang = app.i18n.locale
+    const urlLangSantized = route.fullPath.replace(`/${currentLang}`, '')
+    const recipes = await app.$axios.$get(urlLangSantized)
     return {
       recipes
+    }
+  },
+  methods: {
+    async getRecipes() {
+      const currentLang = this.$i18n.locale
+      const urlLangSantized = this.$route.fullPath.replace(
+        `/${currentLang}`,
+        ''
+      )
+      this.recipes = await this.$axios.$get(urlLangSantized)
     }
   }
 }
