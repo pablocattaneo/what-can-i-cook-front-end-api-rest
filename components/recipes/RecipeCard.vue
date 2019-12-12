@@ -20,9 +20,9 @@
           >
         </li>
         <li class="nav-item">
-          <nuxt-link :to="localePath(`about`)" class="btn btn-link">{{
+          <b-button @click="deleteRecipe(id)" variant="link">{{
             $t('actions.delete')
-          }}</nuxt-link>
+          }}</b-button>
         </li>
       </ul>
     </b-card-header>
@@ -90,6 +90,11 @@ export default {
     borderVariant: {
       type: String,
       default: 'primary'
+    }
+  },
+  methods: {
+    async deleteRecipe(recipeId) {
+      await this.$axios.$delete(`/recipe/${recipeId}`)
     }
   }
 }
