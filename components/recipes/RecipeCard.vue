@@ -6,7 +6,7 @@
     tag="article"
     no-body
   >
-    <b-card-header header-tag="header">
+    <b-card-header v-if="showCardHeader" header-tag="header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
           <nuxt-link
@@ -90,6 +90,10 @@ export default {
     borderVariant: {
       type: String,
       default: 'primary'
+    },
+    showCardHeader: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

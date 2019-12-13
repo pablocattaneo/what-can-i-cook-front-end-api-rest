@@ -7,6 +7,7 @@
     <RecipeCard
       v-for="(recipe, recipesIndex) in recipes"
       :key="recipesIndex"
+      :showCardHeader="true"
       :id="recipe._id"
       :title="recipe.title"
       :b-img-lazy-src="
