@@ -31,23 +31,14 @@ export default {
     RecipeCard
   },
   async asyncData({ app, route }) {
-    app.$myInjectedFunction('test in asyncdata')
-    const currentLang = app.i18n.locale
-    const urlLangSantized = route.fullPath.replace(`/${currentLang}`, '')
-    const recipes = await app.$axios.$get(urlLangSantized)
+    const recipes = await app.$getRecipes()
     return {
       recipes
     }
   },
   methods: {
     async getRecipes() {
-      this.$myInjectedFunction('test in method')
-      const currentLang = this.$i18n.locale
-      const urlLangSantized = this.$route.fullPath.replace(
-        `/${currentLang}`,
-        ''
-      )
-      this.recipes = await this.$axios.$get(urlLangSantized)
+      this.recipes = await this.$getRecipes()
     }
   }
 }
