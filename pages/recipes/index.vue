@@ -10,7 +10,7 @@
       <div
         v-for="(recipe, recipesIndex) in recipes"
         :key="recipesIndex"
-        class="mb-5 col-12 col-lg-3 d-flex align-items-stretch"
+        class="mb-5 col-12 col-md-6 col-lg-3 d-flex align-items-stretch"
       >
         <RecipeCard
           :showCardHeader="true"
