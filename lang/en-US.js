@@ -41,7 +41,8 @@ export default {
   login: {
     loginForm: {
       fields: {
-        name: 'Nombre'
+        name: 'Name',
+        lastName: 'Last name'
       }
     }
   },

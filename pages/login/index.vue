@@ -8,13 +8,25 @@
     <div class="row">
       <WcForm ref="form" class="col-12">
         <WcInput
-          id="recipe-name"
+          id="login-name"
           :value="loginForm.fields.name"
           :validation="$v.loginForm.fields.name"
           :label="$t('login.loginForm.fields.name') + ':'"
           :placeholder="$t('login.loginForm.fields.name')"
           :state="$v.loginForm.fields.name.$error ? false : null"
           @input="loginForm.fields.name = $event"
+          autocomplete="off"
+          autofocus
+          class="w-100"
+        />
+        <WcInput
+          id="login-lastname"
+          :value="loginForm.fields.lastName"
+          :validation="$v.loginForm.fields.lastName"
+          :label="$t('login.loginForm.fields.lastName') + ':'"
+          :placeholder="$t('login.loginForm.fields.lastName')"
+          :state="$v.loginForm.fields.lastName.$error ? false : null"
+          @input="loginForm.fields.lastName = $event"
           autocomplete="off"
           autofocus
           class="w-100"
