@@ -41,6 +41,17 @@
           autocomplete="off"
           class="w-100"
         />
+        <WcInput
+          id="login-username"
+          :value="loginForm.fields.username"
+          :validation="$v.loginForm.fields.username"
+          :label="$t('login.loginForm.fields.username') + ':'"
+          :placeholder="$t('login.loginForm.fields.username')"
+          :state="$v.loginForm.fields.username.$error ? false : null"
+          @input="loginForm.fields.username = $event"
+          autocomplete="off"
+          class="w-100"
+        />
         <b-button @click="submit" type="submit" variant="primary"
           >Submit</b-button
         >
