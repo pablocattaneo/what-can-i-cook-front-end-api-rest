@@ -1,25 +1,31 @@
 <template>
-  <div id="recipes">
+  <div id="recipes" class="container">
     <RecipeFilters />
-    <h1 v-if="recipes.length === 0" class="text-muted">
-      {{ $t('recipes.there_is_no_recipes_yet') }}
-    </h1>
-    <RecipeCard
-      v-for="(recipe, recipesIndex) in recipes"
-      :key="recipesIndex"
-      :showCardHeader="true"
-      :id="recipe._id"
-      :title="recipe.title"
-      :b-img-lazy-src="
-        recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
-      "
-      :description="recipe.description"
-      :more-info="recipe.more_info"
-      :directions="recipe.directions"
-      @recipeDeleted="getRecipes()"
-      style="max-width: 20rem;"
-      class="mb-2"
-    />
+    <div class="row">
+      <h1 v-if="recipes.length === 0" class="col-12 text-muted">
+        {{ $t('recipes.there_is_no_recipes_yet') }}
+      </h1>
+    </div>
+    <div class="row">
+      <div
+        v-for="(recipe, recipesIndex) in recipes"
+        :key="recipesIndex"
+        class="mb-5 col-12 col-lg-3 d-flex align-items-stretch"
+      >
+        <RecipeCard
+          :showCardHeader="true"
+          :id="recipe._id"
+          :title="recipe.title"
+          :b-img-lazy-src="
+            recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
+          "
+          :description="recipe.description"
+          :more-info="recipe.more_info"
+          :directions="recipe.directions"
+          @recipeDeleted="getRecipes()"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

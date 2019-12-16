@@ -1,5 +1,5 @@
 <template>
-  <div id="admin-recipes">
+  <div id="admin-recipes" class="container">
     <h1>{{ recipeForm.title }}</h1>
     <WcForm>
       <WcInput

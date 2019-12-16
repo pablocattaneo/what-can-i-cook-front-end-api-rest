@@ -5,6 +5,7 @@
     img-top
     tag="article"
     no-body
+    class="w-100"
   >
     <b-card-header v-if="showCardHeader" header-tag="header">
       <ul class="nav nav-pills card-header-pills">
