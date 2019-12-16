@@ -38,6 +38,13 @@ export default {
     select_recipe_language: 'Select recipe language',
     there_is_no_recipes_yet: 'There is no recipes yet!'
   },
+  login: {
+    loginForm: {
+      fields: {
+        name: 'Nombre'
+      }
+    }
+  },
   form: {
     validation: {
       required: 'This field is required',
