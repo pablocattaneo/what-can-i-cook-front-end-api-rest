@@ -28,7 +28,17 @@
           :state="$v.loginForm.fields.lastName.$error ? false : null"
           @input="loginForm.fields.lastName = $event"
           autocomplete="off"
-          autofocus
+          class="w-100"
+        />
+        <WcInput
+          id="login-email"
+          :value="loginForm.fields.email"
+          :validation="$v.loginForm.fields.email"
+          :label="$t('login.loginForm.fields.email') + ':'"
+          :placeholder="$t('login.loginForm.fields.email')"
+          :state="$v.loginForm.fields.email.$error ? false : null"
+          @input="loginForm.fields.email = $event"
+          autocomplete="off"
           class="w-100"
         />
         <b-button @click="submit" type="submit" variant="primary"
