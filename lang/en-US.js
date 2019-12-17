@@ -44,7 +44,8 @@ export default {
         name: 'Name',
         lastName: 'Last name',
         email: 'Email',
-        username: 'Username'
+        userName: 'Username',
+        password: 'Password'
       }
     }
   },

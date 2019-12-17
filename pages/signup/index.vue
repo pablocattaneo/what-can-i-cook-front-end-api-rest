@@ -43,12 +43,24 @@
         />
         <WcInput
           id="login-username"
-          :value="loginForm.fields.username"
-          :validation="$v.loginForm.fields.username"
-          :label="$t('login.loginForm.fields.username') + ':'"
-          :placeholder="$t('login.loginForm.fields.username')"
-          :state="$v.loginForm.fields.username.$error ? false : null"
-          @input="loginForm.fields.username = $event"
+          :value="loginForm.fields.userName"
+          :validation="$v.loginForm.fields.userName"
+          :label="$t('login.loginForm.fields.userName') + ':'"
+          :placeholder="$t('login.loginForm.fields.userName')"
+          :state="$v.loginForm.fields.userName.$error ? false : null"
+          @input="loginForm.fields.userName = $event"
+          autocomplete="off"
+          class="w-100"
+        />
+        <WcInput
+          id="login-password"
+          type="password"
+          :value="loginForm.fields.password"
+          :validation="$v.loginForm.fields.password"
+          :label="$t('login.loginForm.fields.password') + ':'"
+          :placeholder="$t('login.loginForm.fields.password')"
+          :state="$v.loginForm.fields.password.$error ? false : null"
+          @input="loginForm.fields.password = $event"
           autocomplete="off"
           class="w-100"
         />
@@ -76,7 +88,8 @@ export default {
           name: '',
           lastName: '',
           email: '',
-          username: ''
+          userName: '',
+          password: ''
         }
       }
     }
@@ -93,7 +106,10 @@ export default {
         email: {
           required
         },
-        username: {
+        userName: {
+          required
+        },
+        password: {
           required
         }
       }
@@ -103,7 +119,10 @@ export default {
     async submit() {
       try {
         await this.$refs.form.validationForm(this.$v)
-        console.log('validation')
+        this.storedRecipe = await this.$axios.$put(
+          '/signup',
+          this.loginForm.fields
+        )
       } catch (error) {
         alert('Error in validation')
       }

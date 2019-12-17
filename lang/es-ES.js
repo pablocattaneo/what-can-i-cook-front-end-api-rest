@@ -46,7 +46,8 @@ export default {
         name: 'Nombre',
         lastName: 'Apellido',
         email: 'Email',
-        username: 'Nombre de usuario'
+        userName: 'Nombre de usuario',
+        password: 'Password'
       }
     }
   },
