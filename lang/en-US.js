@@ -51,8 +51,9 @@ export default {
   },
   form: {
     validation: {
-      required: 'This field is required',
-      integerNumber: 'This field only accept integers'
+      required: 'This field is required.',
+      integerNumber: 'This field only accept integers.',
+      email: 'This field must be a valid email address.'
     }
   },
   language: 'Language',

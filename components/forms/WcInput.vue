@@ -21,6 +21,9 @@
       <b-form-invalid-feedback v-if="validation.integer === false">
         {{ $t('form.validation.integerNumber') }}
       </b-form-invalid-feedback>
+      <b-form-invalid-feedback v-if="validation.email === false">
+        {{ $t('form.validation.email') }}
+      </b-form-invalid-feedback>
       <b-form-text v-if="formTextHelpUsers">{{
         formTextHelpUsers
       }}</b-form-text>

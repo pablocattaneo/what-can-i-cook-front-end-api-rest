@@ -53,8 +53,9 @@ export default {
   },
   form: {
     validation: {
-      required: 'Este campo es requerido',
-      integerNumber: 'Este campo sólo acepta numero enteros'
+      required: 'Este campo es requerido.',
+      integerNumber: 'Este campo sólo acepta numero enteros.',
+      email: 'Este campo debe ser un email válido.'
     }
   },
   language: 'Idioma',

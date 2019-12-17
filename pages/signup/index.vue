@@ -32,13 +32,13 @@
         />
         <WcInput
           id="login-email"
-          type="email"
           :value="loginForm.fields.email"
           :validation="$v.loginForm.fields.email"
           :label="$t('login.loginForm.fields.email') + ':'"
           :placeholder="$t('login.loginForm.fields.email')"
           :state="$v.loginForm.fields.email.$error ? false : null"
           @input="loginForm.fields.email = $event"
+          type="email"
           class="w-100"
         />
         <WcInput
@@ -54,13 +54,13 @@
         />
         <WcInput
           id="login-password"
-          type="password"
           :value="loginForm.fields.password"
           :validation="$v.loginForm.fields.password"
           :label="$t('login.loginForm.fields.password') + ':'"
           :placeholder="$t('login.loginForm.fields.password')"
           :state="$v.loginForm.fields.password.$error ? false : null"
           @input="loginForm.fields.password = $event"
+          type="password"
           class="w-100"
         />
         <b-button @click="submit" type="submit" variant="primary"
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 export default {
@@ -103,7 +103,8 @@ export default {
           required
         },
         email: {
-          required
+          required,
+          email
         },
         userName: {
           required
@@ -123,7 +124,7 @@ export default {
           this.loginForm.fields
         )
       } catch (error) {
-        alert('Error in validation')
+        console.log('Error in validation')
       }
     }
   }
