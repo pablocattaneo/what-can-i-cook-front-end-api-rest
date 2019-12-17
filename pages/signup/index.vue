@@ -32,13 +32,13 @@
         />
         <WcInput
           id="login-email"
+          type="email"
           :value="loginForm.fields.email"
           :validation="$v.loginForm.fields.email"
           :label="$t('login.loginForm.fields.email') + ':'"
           :placeholder="$t('login.loginForm.fields.email')"
           :state="$v.loginForm.fields.email.$error ? false : null"
           @input="loginForm.fields.email = $event"
-          autocomplete="off"
           class="w-100"
         />
         <WcInput
@@ -61,7 +61,6 @@
           :placeholder="$t('login.loginForm.fields.password')"
           :state="$v.loginForm.fields.password.$error ? false : null"
           @input="loginForm.fields.password = $event"
-          autocomplete="off"
           class="w-100"
         />
         <b-button @click="submit" type="submit" variant="primary"
