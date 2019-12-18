@@ -54,7 +54,8 @@ export default {
       required: 'This field is required.',
       integerNumber: 'This field only accept integers.',
       email: 'This field must be a valid email address.'
-    }
+    },
+    submit: 'Submit'
   },
   language: 'Language',
   select_all: 'Select All',

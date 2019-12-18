@@ -56,7 +56,8 @@ export default {
       required: 'Este campo es requerido.',
       integerNumber: 'Este campo sólo acepta numero enteros.',
       email: 'Este campo debe ser un email válido.'
-    }
+    },
+    submit: 'Enviar'
   },
   language: 'Idioma',
   select_all: 'Seleccionar todos',
