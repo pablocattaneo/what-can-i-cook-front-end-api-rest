@@ -38,8 +38,8 @@ export default {
     select_recipe_language: 'Select recipe language',
     there_is_no_recipes_yet: 'There is no recipes yet!'
   },
-  login: {
-    loginForm: {
+  signUp: {
+    signUpForm: {
       fields: {
         name: 'Name',
         lastName: 'Last name',

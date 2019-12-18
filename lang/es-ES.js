@@ -40,8 +40,8 @@ export default {
     select_recipe_language: 'Eliga el idioma en el que está la receta',
     there_is_no_recipes_yet: 'Aún no se han cargado recetas!'
   },
-  login: {
-    loginForm: {
+  signUp: {
+    signUpForm: {
       fields: {
         name: 'Nombre',
         lastName: 'Apellido',

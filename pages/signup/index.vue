@@ -2,64 +2,64 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
       </div>
     </div>
     <div class="row">
       <WcForm ref="form" class="col-12">
         <WcInput
-          id="login-name"
-          :value="loginForm.fields.name"
-          :validation="$v.loginForm.fields.name"
-          :label="$t('login.loginForm.fields.name') + ':'"
-          :placeholder="$t('login.loginForm.fields.name')"
-          :state="$v.loginForm.fields.name.$error ? false : null"
-          @input="loginForm.fields.name = $event"
+          id="sign-up-name"
+          :value="signUpForm.fields.name"
+          :validation="$v.signUpForm.fields.name"
+          :label="$t('signUp.signUpForm.fields.name') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.name')"
+          :state="$v.signUpForm.fields.name.$error ? false : null"
+          @input="signUpForm.fields.name = $event"
           autocomplete="off"
           autofocus
           class="w-100"
         />
         <WcInput
-          id="login-lastname"
-          :value="loginForm.fields.lastName"
-          :validation="$v.loginForm.fields.lastName"
-          :label="$t('login.loginForm.fields.lastName') + ':'"
-          :placeholder="$t('login.loginForm.fields.lastName')"
-          :state="$v.loginForm.fields.lastName.$error ? false : null"
-          @input="loginForm.fields.lastName = $event"
+          id="sign-up-lastname"
+          :value="signUpForm.fields.lastName"
+          :validation="$v.signUpForm.fields.lastName"
+          :label="$t('signUp.signUpForm.fields.lastName') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.lastName')"
+          :state="$v.signUpForm.fields.lastName.$error ? false : null"
+          @input="signUpForm.fields.lastName = $event"
           autocomplete="off"
           class="w-100"
         />
         <WcInput
-          id="login-email"
-          :value="loginForm.fields.email"
-          :validation="$v.loginForm.fields.email"
-          :label="$t('login.loginForm.fields.email') + ':'"
-          :placeholder="$t('login.loginForm.fields.email')"
-          :state="$v.loginForm.fields.email.$error ? false : null"
-          @input="loginForm.fields.email = $event"
+          id="sign-up-email"
+          :value="signUpForm.fields.email"
+          :validation="$v.signUpForm.fields.email"
+          :label="$t('signUp.signUpForm.fields.email') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.email')"
+          :state="$v.signUpForm.fields.email.$error ? false : null"
+          @input="signUpForm.fields.email = $event"
           type="email"
           class="w-100"
         />
         <WcInput
-          id="login-username"
-          :value="loginForm.fields.userName"
-          :validation="$v.loginForm.fields.userName"
-          :label="$t('login.loginForm.fields.userName') + ':'"
-          :placeholder="$t('login.loginForm.fields.userName')"
-          :state="$v.loginForm.fields.userName.$error ? false : null"
-          @input="loginForm.fields.userName = $event"
+          id="sign-up-username"
+          :value="signUpForm.fields.userName"
+          :validation="$v.signUpForm.fields.userName"
+          :label="$t('signUp.signUpForm.fields.userName') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.userName')"
+          :state="$v.signUpForm.fields.userName.$error ? false : null"
+          @input="signUpForm.fields.userName = $event"
           autocomplete="off"
           class="w-100"
         />
         <WcInput
-          id="login-password"
-          :value="loginForm.fields.password"
-          :validation="$v.loginForm.fields.password"
-          :label="$t('login.loginForm.fields.password') + ':'"
-          :placeholder="$t('login.loginForm.fields.password')"
-          :state="$v.loginForm.fields.password.$error ? false : null"
-          @input="loginForm.fields.password = $event"
+          id="sign-up-password"
+          :value="signUpForm.fields.password"
+          :validation="$v.signUpForm.fields.password"
+          :label="$t('signUp.signUpForm.fields.password') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.password')"
+          :state="$v.signUpForm.fields.password.$error ? false : null"
+          @input="signUpForm.fields.password = $event"
           type="password"
           class="w-100"
         />
@@ -82,7 +82,7 @@ export default {
   },
   data() {
     return {
-      loginForm: {
+      signUpForm: {
         fields: {
           name: '',
           lastName: '',
@@ -94,7 +94,7 @@ export default {
     }
   },
   validations: {
-    loginForm: {
+    signUpForm: {
       fields: {
         name: {
           required
@@ -121,7 +121,7 @@ export default {
         await this.$refs.form.validationForm(this.$v)
         this.storedRecipe = await this.$axios.$put(
           '/signup',
-          this.loginForm.fields
+          this.signUpForm.fields
         )
       } catch (error) {
         console.log('Error in validation')
