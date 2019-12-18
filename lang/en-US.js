@@ -46,7 +46,7 @@ export default {
         email: 'Email',
         userName: 'Username',
         password: 'Password',
-        confirmPassword: 'Repeat your password'
+        confirmPassword: 'Confirm your password'
       }
     }
   },

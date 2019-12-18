@@ -48,7 +48,7 @@ export default {
         email: 'Email',
         userName: 'Nombre de usuario',
         password: 'Password',
-        confirmPassword: 'Repita su password'
+        confirmPassword: 'Confirme su password'
       }
     }
   },
