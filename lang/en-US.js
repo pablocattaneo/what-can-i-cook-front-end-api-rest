@@ -66,7 +66,8 @@ export default {
       integerNumber: 'This field only accept integers.',
       email: 'This field must be a valid email address.'
     },
-    submit: 'Submit'
+    submit: 'Submit',
+    processing: 'Processing...'
   },
   language: 'Language',
   select_all: 'Select All',

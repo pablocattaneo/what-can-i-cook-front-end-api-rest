@@ -63,9 +63,15 @@
           type="password"
           class="w-100"
         />
-        <b-button @click="submit" type="submit" variant="primary">{{
-          $t('form.submit')
-        }}</b-button>
+        <b-button @click="submit" type="submit" variant="primary">
+          <b-spinner small type="grow" v-if="isFormProcessing" />
+          <template v-if="isFormProcessing">
+            {{ $t('form.processing') }}
+          </template>
+          <template v-if="!isFormProcessing">
+            {{ $t('form.submit') }}
+          </template>
+        </b-button>
       </WcForm>
     </div>
   </div>
@@ -90,7 +96,8 @@ export default {
           userName: '',
           password: ''
         }
-      }
+      },
+      isFormProcessing: false
     }
   },
   validations: {
@@ -118,11 +125,14 @@ export default {
   methods: {
     async submit() {
       try {
+        this.isFormProcessing = true
         await this.$refs.form.validationForm(this.$v)
         await this.$axios.$put('/signup', this.signUpForm.fields)
         this.$router.push('/login')
       } catch (error) {
         console.log('Error in validation')
+      } finally {
+        this.isFormProcessing = false
       }
     }
   }

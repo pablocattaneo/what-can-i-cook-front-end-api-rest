@@ -68,7 +68,8 @@ export default {
       integerNumber: 'Este campo sólo acepta numero enteros.',
       email: 'Este campo debe ser un email válido.'
     },
-    submit: 'Enviar'
+    submit: 'Enviar',
+    processing: 'Procesando...'
   },
   language: 'Idioma',
   select_all: 'Seleccionar todos',
