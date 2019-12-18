@@ -63,6 +63,17 @@
           type="password"
           class="w-100"
         />
+        <WcInput
+          id="sign-up-repeat-password"
+          :value="signUpForm.fields.confirmPassword"
+          :validation="$v.signUpForm.fields.confirmPassword"
+          :label="$t('signUp.signUpForm.fields.confirmPassword') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.confirmPassword')"
+          :state="$v.signUpForm.fields.confirmPassword.$error ? false : null"
+          @input="signUpForm.fields.confirmPassword = $event"
+          type="password"
+          class="w-100"
+        />
         <WcButtonSubmit
           @click.native="submit"
           :isProcessing="isFormProcessing"
@@ -91,7 +102,8 @@ export default {
           lastName: '',
           email: '',
           userName: '',
-          password: ''
+          password: '',
+          confirmPassword: ''
         }
       },
       isFormProcessing: false
@@ -114,6 +126,9 @@ export default {
           required
         },
         password: {
+          required
+        },
+        confirmPassword: {
           required
         }
       }
