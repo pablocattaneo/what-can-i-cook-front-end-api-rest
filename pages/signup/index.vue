@@ -119,10 +119,7 @@ export default {
     async submit() {
       try {
         await this.$refs.form.validationForm(this.$v)
-        this.storedRecipe = await this.$axios.$put(
-          '/signup',
-          this.signUpForm.fields
-        )
+        this.$axios.$put('/signup', this.signUpForm.fields)
       } catch (error) {
         console.log('Error in validation')
       }
