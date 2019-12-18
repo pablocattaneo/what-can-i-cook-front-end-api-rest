@@ -49,6 +49,17 @@ export default {
       }
     }
   },
+  login: {
+    loginForm: {
+      fields: {
+        name: 'Name',
+        lastName: 'Last name',
+        email: 'Email',
+        userName: 'Username',
+        password: 'Password'
+      }
+    }
+  },
   form: {
     validation: {
       required: 'This field is required.',
