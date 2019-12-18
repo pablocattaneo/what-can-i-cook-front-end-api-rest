@@ -67,6 +67,17 @@
           >Submit</b-button
         >
       </WcForm>
+      <div class="row">
+        <div class="col-12">
+          <b-jumbotron
+            header="BootstrapVue"
+            lead="Bootstrap v4 Components for Vue.js 2"
+          >
+            <p>For more information visit website</p>
+            <b-button variant="primary" href="#">More Info</b-button>
+          </b-jumbotron>
+        </div>
+      </div>
     </div>
   </div>
 </template>
