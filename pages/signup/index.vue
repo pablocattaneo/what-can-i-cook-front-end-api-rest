@@ -63,15 +63,10 @@
           type="password"
           class="w-100"
         />
-        <b-button @click="submit" type="submit" variant="primary">
-          <b-spinner small type="grow" v-if="isFormProcessing" />
-          <template v-if="isFormProcessing">
-            {{ $t('form.processing') }}
-          </template>
-          <template v-if="!isFormProcessing">
-            {{ $t('form.submit') }}
-          </template>
-        </b-button>
+        <WcButtonSubmit
+          @click.native="submit"
+          :isProcessing="isFormProcessing"
+        />
       </WcForm>
     </div>
   </div>
@@ -81,10 +76,12 @@
 import { required, email } from 'vuelidate/lib/validators'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
+import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 export default {
   components: {
     WcForm,
-    WcInput
+    WcInput,
+    WcButtonSubmit
   },
   data() {
     return {
