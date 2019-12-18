@@ -1,6 +1,6 @@
 <template>
   <div id="wc-textarea">
-    <b-form-group :id="id" :label="label" :for="id">
+    <b-form-group :id="`label-${id}`" :label="label" :for="id">
       <template v-slot:label>
         {{ label }}
         <span v-if="isARequiredFiled" class="text-danger">*</span>
