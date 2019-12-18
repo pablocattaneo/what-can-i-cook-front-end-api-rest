@@ -65,7 +65,8 @@ export default {
     validation: {
       required: 'This field is required.',
       integerNumber: 'This field only accept integers.',
-      email: 'This field must be a valid email address.'
+      email: 'This field must be a valid email address.',
+      sameAs: 'The content of this field must be the same as password'
     },
     submit: 'Submit',
     processing: 'Processing...'

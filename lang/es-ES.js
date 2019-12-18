@@ -67,7 +67,8 @@ export default {
     validation: {
       required: 'Este campo es requerido.',
       integerNumber: 'Este campo sólo acepta numero enteros.',
-      email: 'Este campo debe ser un email válido.'
+      email: 'Este campo debe ser un email válido.',
+      sameAs: 'El contenido de este campo debe ser igual al de password.'
     },
     submit: 'Enviar',
     processing: 'Procesando...'
