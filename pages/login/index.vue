@@ -29,9 +29,9 @@
           type="password"
           class="w-100"
         />
-        <b-button @click="submit" type="submit" variant="primary"
-          >Submit</b-button
-        >
+        <b-button @click="submit" type="submit" variant="primary">{{
+          $t('form.submit')
+        }}</b-button>
       </WcForm>
     </div>
   </div>

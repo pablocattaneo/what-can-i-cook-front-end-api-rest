@@ -124,9 +124,9 @@
         placeholder="120"
         type="number"
       />
-      <b-button @click="submit" type="submit" variant="primary"
-        >Submit</b-button
-      >
+      <b-button @click="submit" type="submit" variant="primary">{{
+        $t('form.submit')
+      }}</b-button>
     </WcForm>
     <b-modal
       id="storedRecipe"
