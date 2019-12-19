@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row">
-      <WcForm ref="form" class="col-12">
+      <WcForm class="col-12">
         <WcInput
           id="sign-up-name"
           :value="signUpForm.fields.name"
@@ -143,7 +143,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.$refs.form.validationForm(this.$v)
+        await this.validationForm(this.$v)
         await this.$axios.$put('/signup', this.signUpForm.fields)
         this.$router.push('/login')
       } catch (error) {

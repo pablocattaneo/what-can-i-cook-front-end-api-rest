@@ -240,7 +240,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.$children[0].validationForm(this.$v)
+        await this.validationForm(this.$v)
         const formData = new FormData()
         for (const key of Object.keys(this.recipeForm.fields)) {
           let value = this.recipeForm.fields[key]
