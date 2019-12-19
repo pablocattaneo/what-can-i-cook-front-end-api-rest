@@ -124,9 +124,7 @@
         placeholder="120"
         type="number"
       />
-      <b-button @click="submit" type="submit" variant="primary">{{
-        $t('form.submit')
-      }}</b-button>
+      <WcButtonSubmit @click.native="submit" :isProcessing="isFormProcessing" />
     </WcForm>
     <b-modal
       id="storedRecipe"
@@ -151,12 +149,15 @@
 
 <script>
 import { required, integer } from 'vuelidate/lib/validators'
+
+import wcFormMixin from '@/mixins/wc-form-mixin'
+
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcSelect from '@/components/forms/WcSelect'
 import WcTextArea from '@/components/forms/WcTextArea'
 import WcFile from '@/components/forms/WcFile'
-import wcFormUtilitiesMixin from '@/mixins/wc-form-utilities-mixin'
+import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 import RecipeCard from '@/components/recipes/RecipeCard.vue'
 export default {
   components: {
@@ -165,9 +166,10 @@ export default {
     WcSelect,
     WcTextArea,
     WcFile,
+    WcButtonSubmit,
     RecipeCard
   },
-  mixins: [wcFormUtilitiesMixin],
+  mixins: [wcFormMixin],
   data() {
     return {
       storedRecipe: {
@@ -237,6 +239,7 @@ export default {
     },
     async submit() {
       try {
+        this.isFormProcessing = true
         await this.$children[0].validationForm(this.$v)
         const formData = new FormData()
         for (const key of Object.keys(this.recipeForm.fields)) {
@@ -267,7 +270,9 @@ export default {
         }
         this.$bvModal.show('storedRecipe')
       } catch (error) {
-        alert('Error in validation')
+        this.serverErrorsHandler(error)
+      } finally {
+        this.isFormProcessing = false
       }
     }
   },

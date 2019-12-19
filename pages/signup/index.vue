@@ -85,15 +85,20 @@
 
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
+
+import wcFormMixin from '@/mixins/wc-form-mixin'
+
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
+
 export default {
   components: {
     WcForm,
     WcInput,
     WcButtonSubmit
   },
+  mixins: [wcFormMixin],
   data() {
     return {
       signUpForm: {
@@ -105,8 +110,7 @@ export default {
           password: '',
           confirmPassword: ''
         }
-      },
-      isFormProcessing: false
+      }
     }
   },
   validations: {
@@ -141,9 +145,9 @@ export default {
         this.isFormProcessing = true
         await this.$refs.form.validationForm(this.$v)
         await this.$axios.$put('/signup', this.signUpForm.fields)
-        this.$router.push('/login')
+        // this.$router.push('/login')
       } catch (error) {
-        console.log('Error in validation')
+        this.serverErrorsHandler(error)
       } finally {
         this.isFormProcessing = false
       }

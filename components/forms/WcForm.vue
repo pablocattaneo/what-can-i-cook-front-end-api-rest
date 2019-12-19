@@ -21,7 +21,6 @@ export default {
     },
     validationForm(validation) {
       validation.$touch()
-      console.log('validateForm')
       if (validation.$error) {
         this.showToastFormError()
         this.errorScrollTo()

@@ -29,9 +29,10 @@
           type="password"
           class="w-100"
         />
-        <b-button @click="submit" type="submit" variant="primary">{{
-          $t('form.submit')
-        }}</b-button>
+        <WcButtonSubmit
+          @click.native="submit"
+          :isProcessing="isFormProcessing"
+        />
       </WcForm>
     </div>
   </div>
@@ -39,13 +40,19 @@
 
 <script>
 import { required } from 'vuelidate/lib/validators'
+
+import wcFormMixin from '@/mixins/wc-form-mixin'
+
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
+import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 export default {
   components: {
     WcForm,
-    WcInput
+    WcInput,
+    WcButtonSubmit
   },
+  mixins: [wcFormMixin],
   data() {
     return {
       loginForm: {
@@ -71,13 +78,16 @@ export default {
   methods: {
     async submit() {
       try {
+        this.isFormProcessing = true
         await this.$refs.form.validationForm(this.$v)
         this.storedRecipe = await this.$axios.$put(
           '/signup',
           this.loginForm.fields
         )
       } catch (error) {
-        console.log('Error in validation')
+        this.serverErrorsHandler(error)
+      } finally {
+        this.isFormProcessing = false
       }
     }
   }
