@@ -145,7 +145,7 @@ export default {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
         await this.$axios.$put('/signup', this.signUpForm.fields)
-        this.$router.push('/login')
+        // this.$router.push('/login')
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {

@@ -3,3 +3,5 @@
     <slot></slot>
   </b-form>
 </template>
+
+// script section is set in wc-form-mixin.js
