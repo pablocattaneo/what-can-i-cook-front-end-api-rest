@@ -19,15 +19,17 @@ export default {
         console.log('error.response.data', error.response.data)
         console.log('error.response.status', error.response.status)
         console.log('error.response.headers', error.response.headers)
-        error.response.data.errors.forEach((element) => {
-          this.$bvToast.toast(element.msg, {
-            title: 'Error',
-            autoHideDelay: 15000,
-            toaster: 'b-toaster-top-center',
-            variant: 'danger',
-            solid: true
+        if (error.response.data.isArray) {
+          error.response.data.errors.forEach((element) => {
+            this.$bvToast.toast(element.msg, {
+              title: 'Error',
+              autoHideDelay: 15000,
+              toaster: 'b-toaster-top-center',
+              variant: 'danger',
+              solid: true
+            })
           })
-        })
+        }
       } else if (error.request) {
         // The request was made but no response was received
         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of

@@ -8,14 +8,14 @@
     <div class="row">
       <WcForm class="col-12">
         <WcInput
-          id="login-username"
-          :value="loginForm.fields.userName"
-          :validation="$v.loginForm.fields.userName"
-          :label="$t('login.loginForm.fields.userName') + ':'"
-          :placeholder="$t('login.loginForm.fields.userName')"
-          :state="$v.loginForm.fields.userName.$error ? false : null"
-          @input="loginForm.fields.userName = $event"
-          autocomplete="off"
+          id="login-email"
+          :value="loginForm.fields.email"
+          :validation="$v.loginForm.fields.email"
+          :label="$t('login.loginForm.fields.email') + ':'"
+          :placeholder="$t('login.loginForm.fields.email')"
+          :state="$v.loginForm.fields.email.$error ? false : null"
+          @input="loginForm.fields.email = $event"
+          type="email"
           class="w-100"
         />
         <WcInput
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 
 import wcFormMixin from '@/mixins/wc-form-mixin'
 
@@ -57,7 +57,7 @@ export default {
     return {
       loginForm: {
         fields: {
-          userName: '',
+          email: '',
           password: ''
         }
       }
@@ -66,8 +66,9 @@ export default {
   validations: {
     loginForm: {
       fields: {
-        userName: {
-          required
+        email: {
+          required,
+          email
         },
         password: {
           required
@@ -80,10 +81,7 @@ export default {
       try {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
-        this.storedRecipe = await this.$axios.$put(
-          '/signup',
-          this.loginForm.fields
-        )
+        await this.$axios.$post('/login', this.loginForm.fields)
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
