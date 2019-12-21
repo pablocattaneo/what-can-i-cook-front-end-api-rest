@@ -43,7 +43,7 @@ export default {
       } else {
         // Something happened in setting up the request that triggered an Error
         console.log('Error', error.message)
-        this.$bvToast.toast(error.message), {
+        this.$bvToast.toast(error.message, {
           title: 'Error',
           autoHideDelay: 15000,
           toaster: 'b-toaster-top-center',
