@@ -71,6 +71,10 @@ export default {
     submit: 'Submit',
     processing: 'Processing...'
   },
+  errors: {
+    server_is_down:
+      'We Sorry. We are having some troubles we our server. In this moment we are working to solve the problem. Please try later.'
+  },
   language: 'Language',
   select_all: 'Select All',
   only: 'Only',

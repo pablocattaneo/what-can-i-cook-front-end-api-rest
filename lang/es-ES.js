@@ -73,6 +73,10 @@ export default {
     submit: 'Enviar',
     processing: 'Procesando...'
   },
+  errors: {
+    server_is_down:
+      'Lo sentimos. Estamos teniendo algunos problemas con nuestro servidor. En este momento estamos trabajando para resolver el problema. Por favor intente mas tarde.'
+  },
   language: 'Idioma',
   select_all: 'Seleccionar todos',
   only: 'Sólo',
