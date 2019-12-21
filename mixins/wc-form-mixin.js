@@ -29,6 +29,14 @@ export default {
               solid: true
             })
           })
+        } else {
+          this.$bvToast.toast(error.response.data, {
+            title: 'Error',
+            autoHideDelay: 15000,
+            toaster: 'b-toaster-top-center',
+            variant: 'danger',
+            solid: true
+          })
         }
       } else if (error.request) {
         // The request was made but no response was received
