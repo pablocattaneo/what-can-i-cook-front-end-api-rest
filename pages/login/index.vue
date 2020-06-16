@@ -81,7 +81,9 @@ export default {
       try {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
-        await this.$axios.$post('/login', this.loginForm.fields)
+        const user = await this.$axios.$post('/login', this.loginForm.fields)
+        console.log('user', user)
+        localStorage.setItem('token', user.token)
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
