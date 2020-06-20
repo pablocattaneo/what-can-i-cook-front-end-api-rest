@@ -1,6 +1,7 @@
 <template>
   <div>
     <WcHeader />
+    <nuxt />
   </div>
 </template>
 
