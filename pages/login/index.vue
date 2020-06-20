@@ -85,7 +85,7 @@ export default {
         await this.validationForm(this.$v)
         const user = await this.$axios.$post('/login', this.loginForm.fields)
         localStorage.setItem('token', user.token)
-        this.isUserLoggedMutation()
+        this.isUserLoggedMutation(true)
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {

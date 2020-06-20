@@ -42,7 +42,7 @@
             <b-dropdown-item v-if="!isUserLogged" to="/login"
               >Login</b-dropdown-item
             >
-            <b-dropdown-item v-if="isUserLogged" to="/login"
+            <b-dropdown-item v-if="isUserLogged" @click="signOut" to="/login"
               >Sign out</b-dropdown-item
             >
           </b-nav-item-dropdown>
@@ -53,11 +53,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   computed: {
     ...mapState('user', ['isUserLogged'])
+  },
+  methods: {
+    ...mapMutations('user', ['isUserLoggedMutation']),
+    signOut() {
+      this.isUserLoggedMutation(false)
+    }
   }
 }
 </script>

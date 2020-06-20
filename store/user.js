@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  isUserLoggedMutation(state) {
-    state.isUserLogged = true
+  isUserLoggedMutation(state, payload) {
+    state.isUserLogged = payload
   }
 }
