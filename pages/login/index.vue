@@ -84,6 +84,7 @@ export default {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
         await this.userLoginAction(this.loginForm.fields)
+        this.$router.push('/')
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {

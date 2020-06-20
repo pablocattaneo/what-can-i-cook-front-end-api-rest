@@ -25,15 +25,13 @@ export const actions = {
     }
     try {
       dataAfterLogin = await this.$axios.$post('/login', longinData)
+      localStorage.setItem('token', state.jwt)
       commit('jwtMutation', dataAfterLogin.token)
       commit('userIdMutation', dataAfterLogin.userId)
-      localStorage.setItem('token', state.jwt)
       commit('isUserLoggedMutation', true)
     } catch (error) {
       this.isUserLoggedMutation(false)
       this.serverErrorsHandler(error)
-    } finally {
-      this.isFormProcessing = false
     }
   }
 }
