@@ -39,7 +39,12 @@
               <em>User</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item to="/login">Login</b-dropdown-item>
+            <b-dropdown-item v-if="!isUserLogged" to="/login"
+              >Login</b-dropdown-item
+            >
+            <b-dropdown-item v-if="isUserLogged" to="/login"
+              >Sign out</b-dropdown-item
+            >
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -48,7 +53,11 @@
 </template>
 
 <script>
-export default {}
-</script>
+import { mapState } from 'vuex'
 
-<style></style>
+export default {
+  computed: {
+    ...mapState('user', ['isUserLogged'])
+  }
+}
+</script>

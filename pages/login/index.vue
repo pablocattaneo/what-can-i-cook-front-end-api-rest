@@ -40,6 +40,7 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import { mapMutations } from 'vuex'
 
 import wcFormMixin from '@/mixins/wc-form-mixin'
 
@@ -77,13 +78,14 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('user', ['isUserLoggedMutation']),
     async submit() {
       try {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
         const user = await this.$axios.$post('/login', this.loginForm.fields)
-        console.log('user', user)
         localStorage.setItem('token', user.token)
+        this.isUserLoggedMutation()
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
