@@ -31,8 +31,6 @@
           <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item :to="switchLocalePath('en')">EN</b-dropdown-item>
             <b-dropdown-item :to="switchLocalePath('es')">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown right>
@@ -41,7 +39,7 @@
               <em>User</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item to="/login">Login</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
