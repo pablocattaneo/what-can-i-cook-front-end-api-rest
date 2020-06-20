@@ -7,10 +7,12 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
+          <b-nav-item :to="localePath({ path: '/about' })">{{
+            $t('links.about')
+          }}</b-nav-item>
           <b-nav-item :to="localePath({ path: '/recipes' })">{{
             $t('links.recipes')
           }}</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
