@@ -2,7 +2,7 @@
   <div id="recipes" class="container">
     <RecipeFilters />
     <div class="row">
-      <h1 v-if="recipes.length === 0" class="col-12 text-muted">
+      <h1 v-if="thereAreNoRecipes" class="col-12 text-muted">
         {{ $t('recipes.there_is_no_recipes_yet') }}
       </h1>
     </div>
@@ -37,10 +37,24 @@ export default {
     RecipeFilters,
     RecipeCard
   },
-  async asyncData({ app, route }) {
-    const recipes = await app.$getRecipes()
+  data() {
     return {
-      recipes
+      recipes: []
+    }
+  },
+  computed: {
+    thereAreNoRecipes() {
+      return this.recipes.length === 0
+    }
+  },
+  async asyncData({ app, route, error }) {
+    try {
+      const recipes = await app.$getRecipes()
+      return {
+        recipes
+      }
+    } catch (error) {
+      console.log('error', error)
     }
   },
   methods: {
