@@ -1,8 +1,8 @@
 <template>
   <div id="recipes" class="container">
-    <RecipeFilters />
+    <RecipeFilters v-if="areRecipes" />
     <div class="row">
-      <h1 v-if="thereAreNoRecipes" class="col-12 text-muted">
+      <h1 v-if="!areRecipes" class="col-12 text-muted">
         {{ $t('recipes.there_is_no_recipes_yet') }}
       </h1>
     </div>
@@ -43,8 +43,8 @@ export default {
     }
   },
   computed: {
-    thereAreNoRecipes() {
-      return this.recipes.length === 0
+    areRecipes() {
+      return this.recipes.length > 0
     }
   },
   async asyncData({ app, route, error }) {
