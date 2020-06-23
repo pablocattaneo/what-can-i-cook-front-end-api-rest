@@ -47,19 +47,24 @@ export default {
       return this.recipes.length > 0
     }
   },
-  async asyncData({ app, route, error }) {
+  async asyncData({ app, route }) {
     try {
       const recipes = await app.$getRecipes()
       return {
         recipes
       }
     } catch (error) {
-      console.log('error', error)
+      console.log('JSON.stringify(error)', JSON.stringify(error))
+      console.log('error.response', error.response)
     }
   },
   methods: {
     async getRecipes() {
-      this.recipes = await this.$getRecipes()
+      try {
+        this.recipes = await this.$getRecipes()
+      } catch (error) {
+        console.log('error', error)
+      }
     }
   }
 }
