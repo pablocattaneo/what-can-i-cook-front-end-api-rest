@@ -38,7 +38,7 @@
             <template v-slot:button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item to="/user/profile">Profile</b-dropdown-item>
             <b-dropdown-item v-if="!isUserLogged" to="/login"
               >Login</b-dropdown-item
             >
