@@ -19,19 +19,26 @@ export const mutations = {
 export const actions = {
   async userLoginAction({ state, commit }, payload) {
     const longinData = payload
-    let dataAfterLogin = {
+    let dataAfterUserLoged = {
       token: '',
       userId: ''
     }
     try {
-      dataAfterLogin = await this.$axios.$post('/login', longinData)
-      localStorage.setItem('token', state.jwt)
-      commit('jwtMutation', dataAfterLogin.token)
-      commit('userIdMutation', dataAfterLogin.userId)
+      dataAfterUserLoged = await this.$axios.$post('/login', longinData)
+      commit('jwtMutation', dataAfterUserLoged.token)
+      commit('userIdMutation', dataAfterUserLoged.userId)
       commit('isUserLoggedMutation', true)
+      localStorage.setItem('token', state.jwt)
     } catch (error) {
       this.isUserLoggedMutation(false)
       this.serverErrorsHandler(error)
+    }
+  },
+  getUserData({ commit }) {
+    const jwt = localStorage.getItem('token')
+    if (jwt) {
+      const jwtPayload = JSON.parse(atob(jwt.split('.')[1]))
+      commit('userIdMutation', jwtPayload.userId)
     }
   }
 }

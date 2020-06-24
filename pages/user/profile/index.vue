@@ -4,8 +4,9 @@
 
 <script>
 export default {
-  async asyncData({ app, store }) {
-    await app.$axios.$get(`user/${store.state.user.userId}`, {
+  async mounted() {
+    this.$store.dispatch('user/getUserData')
+    await this.$axios.$get(`user/${this.$store.state.user.userId}`, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
