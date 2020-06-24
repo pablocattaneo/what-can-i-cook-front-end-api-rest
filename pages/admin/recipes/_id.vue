@@ -151,6 +151,7 @@
 import { required, integer } from 'vuelidate/lib/validators'
 
 import wcFormMixin from '@/mixins/wc-form-mixin'
+import wcHandleError from '@/mixins/wc-handle-error.js'
 
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
@@ -169,7 +170,7 @@ export default {
     WcButtonSubmit,
     RecipeCard
   },
-  mixins: [wcFormMixin],
+  mixins: [wcFormMixin, wcHandleError],
   data() {
     return {
       storedRecipe: {

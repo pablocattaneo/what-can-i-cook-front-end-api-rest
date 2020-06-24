@@ -43,6 +43,7 @@ import { required, email } from 'vuelidate/lib/validators'
 import { mapActions } from 'vuex'
 
 import wcFormMixin from '@/mixins/wc-form-mixin'
+import wcHandleError from '@/mixins/wc-handle-error.js'
 
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
@@ -53,7 +54,7 @@ export default {
     WcInput,
     WcButtonSubmit
   },
-  mixins: [wcFormMixin],
+  mixins: [wcFormMixin, wcHandleError],
   data() {
     return {
       loginForm: {

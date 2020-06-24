@@ -31,7 +31,6 @@ export const actions = {
       localStorage.setItem('token', state.jwt)
     } catch (error) {
       this.isUserLoggedMutation(false)
-      this.serverErrorsHandler(error)
     }
   },
   getUserData({ commit }) {
