@@ -14,24 +14,15 @@ export default {
       if (error.response) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
+        errorToastParameter.message = error.response.statusText
         if (error.response.data.isArray) {
-          error.response.data.errors.forEach((element) => {
-            errorToastParameter.message = element.msg
+          error.response.data.errors.forEach(() => {
             this.$bvToast.toast(
               errorToastParameter.message,
               errorToastParameter.body
             )
           })
         } else {
-          switch (error.response.status) {
-            case 401:
-              errorToastParameter.message = 'Unauthorized'
-              break
-
-            default:
-              errorToastParameter.message = error.response.data
-              break
-          }
           this.$bvToast.toast(
             errorToastParameter.message,
             errorToastParameter.body
