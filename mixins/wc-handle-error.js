@@ -1,5 +1,8 @@
+import { mapMutations } from 'vuex'
+
 export default {
   methods: {
+    ...mapMutations('user', ['isUserLoggedMutation']),
     serverErrorsHandler(error) {
       const errorToastParameter = {
         message: '',
@@ -27,6 +30,10 @@ export default {
             errorToastParameter.message,
             errorToastParameter.body
           )
+          if (error.response.status === 401) {
+            this.isUserLoggedMutation(false)
+            this.$router.push('/login')
+          }
         }
       } else if (error.request) {
         // The request was made but no response was received
