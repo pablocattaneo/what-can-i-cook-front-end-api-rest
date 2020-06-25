@@ -23,7 +23,15 @@ export default {
             )
           })
         } else {
-          errorToastParameter.message = error.response.data
+          switch (error.response.status) {
+            case 401:
+              errorToastParameter.message = 'Unauthorized'
+              break
+
+            default:
+              errorToastParameter.message = error.response.data
+              break
+          }
           this.$bvToast.toast(
             errorToastParameter.message,
             errorToastParameter.body
@@ -34,11 +42,12 @@ export default {
         // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
         // http.ClientRequest in node.js
         this.$bvToast.toast(
-          errorToastParameter.message,
+          this.$t('errors.server_is_down'),
           errorToastParameter.body
         )
       } else {
         // Something happened in setting up the request that triggered an Error
+        errorToastParameter.message = error.message
         this.$bvToast.toast(
           errorToastParameter.message,
           errorToastParameter.body
