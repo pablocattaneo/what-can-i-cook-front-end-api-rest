@@ -30,7 +30,8 @@ export const actions = {
       commit('isUserLoggedMutation', true)
       localStorage.setItem('token', state.jwt)
     } catch (error) {
-      this.isUserLoggedMutation(false)
+      commit('isUserLoggedMutation', false)
+      throw error
     }
   },
   getUserData({ commit }) {
