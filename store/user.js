@@ -13,10 +13,6 @@ export const mutations = {
   },
   userIdMutation(state, payload) {
     state.userId = payload
-  },
-  signOutMutation(state) {
-    state.isUserLogged = false
-    localStorage.removeItem('token')
   }
 }
 
@@ -37,6 +33,12 @@ export const actions = {
       commit('isUserLoggedMutation', false)
       throw error
     }
+  },
+  userSignOutAction({ commit }) {
+    commit('isUserLoggedMutation', false)
+    commit('jwtMutation', '')
+    commit('userIdMutation', '')
+    localStorage.removeItem('token')
   },
   getUserData({ commit }) {
     const jwt = localStorage.getItem('token')

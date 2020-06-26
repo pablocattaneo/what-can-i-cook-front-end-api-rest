@@ -55,16 +55,15 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   computed: {
     ...mapState('user', ['isUserLogged'])
   },
   methods: {
-    ...mapMutations('user', ['isUserLoggedMutation', 'signOutMutation']),
     signOut() {
-      this.signOutMutation()
+      this.$store.dispatch('user/userSignOutAction')
     }
   }
 }
