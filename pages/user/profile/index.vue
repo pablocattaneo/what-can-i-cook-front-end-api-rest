@@ -13,7 +13,7 @@ export default {
       this.$store.dispatch('user/getUserData')
       await this.$axios.$get(`user/${this.$store.state.user.userId}`, {
         headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
+          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       })
     } catch (error) {

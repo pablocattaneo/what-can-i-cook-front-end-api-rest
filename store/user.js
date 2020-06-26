@@ -28,7 +28,7 @@ export const actions = {
       commit('jwtMutation', dataAfterUserLoged.token)
       commit('userIdMutation', dataAfterUserLoged.userId)
       commit('isUserLoggedMutation', true)
-      localStorage.setItem('token', state.jwt)
+      localStorage.setItem('jwtToken', state.jwt)
     } catch (error) {
       commit('isUserLoggedMutation', false)
       throw error
@@ -38,10 +38,10 @@ export const actions = {
     commit('isUserLoggedMutation', false)
     commit('jwtMutation', '')
     commit('userIdMutation', '')
-    localStorage.removeItem('token')
+    localStorage.removeItem('jwtToken')
   },
   getUserData({ commit }) {
-    const jwt = localStorage.getItem('token')
+    const jwt = localStorage.getItem('jwtToken')
     if (jwt) {
       const jwtPayload = JSON.parse(atob(jwt.split('.')[1]))
       commit('userIdMutation', jwtPayload.userId)
