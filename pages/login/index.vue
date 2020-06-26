@@ -40,7 +40,6 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import { mapActions } from 'vuex'
 
 import wcFormMixin from '@/mixins/wc-form-mixin'
 import wcHandleError from '@/mixins/wc-handle-error.js'
@@ -79,12 +78,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions('user', ['userLoginAction']),
     async submit() {
       try {
         this.isFormProcessing = true
         await this.validationForm(this.$v)
-        await this.userLoginAction(this.loginForm.fields)
+        this.$store.dispatch('user/userLoginAction', this.loginForm.fields)
         this.$router.push('/')
       } catch (error) {
         this.serverErrorsHandler(error)
