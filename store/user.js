@@ -13,6 +13,10 @@ export const mutations = {
   },
   userIdMutation(state, payload) {
     state.userId = payload
+  },
+  signOutMutation(state) {
+    state.isUserLogged = false
+    localStorage.removeItem('token')
   }
 }
 

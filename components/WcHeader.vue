@@ -62,9 +62,9 @@ export default {
     ...mapState('user', ['isUserLogged'])
   },
   methods: {
-    ...mapMutations('user', ['isUserLoggedMutation']),
+    ...mapMutations('user', ['isUserLoggedMutation', 'signOutMutation']),
     signOut() {
-      this.isUserLoggedMutation(false)
+      this.signOutMutation()
     }
   }
 }
