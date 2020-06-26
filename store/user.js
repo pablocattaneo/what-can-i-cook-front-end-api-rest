@@ -39,6 +39,9 @@ export const actions = {
     if (jwt) {
       const jwtPayload = JSON.parse(atob(jwt.split('.')[1]))
       commit('userIdMutation', jwtPayload.userId)
+      commit('isUserLoggedMutation', true)
+    } else {
+      commit('isUserLoggedMutation', false)
     }
   }
 }

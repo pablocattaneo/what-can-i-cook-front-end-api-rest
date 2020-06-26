@@ -10,6 +10,9 @@ import WcHeader from '@/components/WcHeader.vue'
 export default {
   components: {
     WcHeader
+  },
+  mounted() {
+    this.$store.dispatch('user/getUserData')
   }
 }
 </script>
