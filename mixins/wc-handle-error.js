@@ -19,7 +19,7 @@ export default {
         // that falls out of the range of 2xx
         console.log('error.response', error.response)
         errorToastParameter.message =
-          error.response.data.customErrorMessage || error.response.statusText
+          error.response?.data?.customErrorMessage || error.response.statusText
         if (error.response.data.isArray) {
           error.response.data.errors.forEach(() => {
             this.$bvToast.toast(
