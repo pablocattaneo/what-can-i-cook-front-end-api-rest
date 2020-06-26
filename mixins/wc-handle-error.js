@@ -35,7 +35,7 @@ export default {
           )
           if (error.response.status === 401) {
             this.isUserLoggedMutation(false)
-            // this.$router.push('/login')
+            this.$router.push('/login')
           }
         }
       } else if (error.request) {
