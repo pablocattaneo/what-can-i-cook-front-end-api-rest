@@ -1,5 +1,5 @@
 <template>
-  <div id="page-profile">
+  <div id="page-profile" class="container">
     <h1>User profile</h1>
     <p>{{ `${$t('User_name')}: ${user.userName}` }}</p>
     <p>{{ `${$t('Name')}: ${user.name}` }}</p>
