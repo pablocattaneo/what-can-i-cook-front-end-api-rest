@@ -9,6 +9,7 @@
       <WcForm class="col-12">
         <WcInput
           id="sign-up-name"
+          ref="wcForm"
           :value="signUpForm.fields.name"
           :validation="$v.signUpForm.fields.name"
           :label="$t('signUp.signUpForm.fields.name') + ':'"
@@ -86,7 +87,6 @@
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 
-import wcFormMixin from '@/mixins/wc-form-mixin'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 
 import WcForm from '@/components/forms/WcForm'
@@ -99,9 +99,10 @@ export default {
     WcInput,
     WcButtonSubmit
   },
-  mixins: [wcFormMixin, wcHandleError],
+  mixins: [wcHandleError],
   data() {
     return {
+      isFormProcessing: false,
       signUpForm: {
         fields: {
           name: '',
@@ -144,7 +145,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.validationForm(this.$v)
+        await this.$refs.wcForm.validationForm(this.$v)
         await this.$axios.$put('/signup', this.signUpForm.fields)
         this.$router.push('/login')
       } catch (error) {

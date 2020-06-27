@@ -1,7 +1,7 @@
 <template>
   <div id="admin-recipes" class="container">
     <h1>{{ recipeForm.title }}</h1>
-    <WcForm>
+    <WcForm ref="wcForm">
       <WcInput
         id="recipe-name"
         :value="recipeForm.fields.title"
@@ -150,7 +150,6 @@
 <script>
 import { required, integer } from 'vuelidate/lib/validators'
 
-import wcFormMixin from '@/mixins/wc-form-mixin'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 
 import WcForm from '@/components/forms/WcForm'
@@ -170,9 +169,10 @@ export default {
     WcButtonSubmit,
     RecipeCard
   },
-  mixins: [wcFormMixin, wcHandleError],
+  mixins: [wcHandleError],
   data() {
     return {
+      isFormProcessing: false,
       storedRecipe: {
         data: '',
         message: ''
@@ -191,10 +191,10 @@ export default {
   },
   computed: {
     previewIngredients() {
-      return this.stringToArray(this.recipeForm.fields.ingredients)
+      return this.$refs.wcForm.stringToArray(this.recipeForm.fields.ingredients)
     },
     previewDirections() {
-      return this.stringToArray(this.recipeForm.fields.directions)
+      return this.$refs.wcForm.stringToArray(this.recipeForm.fields.directions)
     }
   },
   async asyncData({ params, app, store }) {
@@ -241,7 +241,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.validationForm(this.$v)
+        await this.$refs.wcForm.validationForm(this.$v)
         const formData = new FormData()
         for (const key of Object.keys(this.recipeForm.fields)) {
           let value = this.recipeForm.fields[key]

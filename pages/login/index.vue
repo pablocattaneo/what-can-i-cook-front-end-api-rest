@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row">
-      <WcForm class="col-12">
+      <WcForm ref="wcForm" class="col-12">
         <WcInput
           id="login-email"
           :value="loginForm.fields.email"
@@ -41,7 +41,6 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 
-import wcFormMixin from '@/mixins/wc-form-mixin'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 
 import WcForm from '@/components/forms/WcForm'
@@ -53,9 +52,10 @@ export default {
     WcInput,
     WcButtonSubmit
   },
-  mixins: [wcFormMixin, wcHandleError],
+  mixins: [wcHandleError],
   data() {
     return {
+      isFormProcessing: false,
       loginForm: {
         fields: {
           email: '',
@@ -81,7 +81,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.validationForm(this.$v)
+        await this.$refs.wcForm.validationForm(this.$v)
         this.$store.dispatch('user/userLoginAction', this.loginForm.fields)
         this.$router.push('/')
       } catch (error) {

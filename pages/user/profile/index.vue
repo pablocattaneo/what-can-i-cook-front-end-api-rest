@@ -14,7 +14,7 @@
     </p>
 
     <div class="row">
-      <WcForm class="col-12">
+      <WcForm ref="wcForm" class="col-12">
         <WcInput
           id="login-email"
           :value="userForm.email"
@@ -25,6 +25,10 @@
           @input="userForm.email = $event"
           type="email"
           class="w-100"
+        />
+        <WcButtonSubmit
+          @click.native="submit"
+          :isProcessing="isFormProcessing"
         />
       </WcForm>
     </div>
@@ -50,15 +54,18 @@ import { required, email } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 import WcInput from '@/components/forms/WcInput.vue'
 import WcForm from '@/components/forms/WcForm.vue'
+import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 export default {
   components: {
     BIconPencilSquare,
     WcInput,
-    WcForm
+    WcForm,
+    WcButtonSubmit
   },
   mixins: [wcHandleError],
   data() {
     return {
+      isFormProcessing: false,
       animation: null,
       userForm: {
         name: '',
@@ -118,6 +125,17 @@ export default {
       setTimeout(() => {
         this.animation = null
       }, 800)
+    },
+    async submit() {
+      try {
+        this.isFormProcessing = true
+        await this.$refs.wcForm.validationForm(this.$v)
+        // await this.$axios.$put('/signup', this.signUpForm.fields)
+      } catch (error) {
+        this.serverErrorsHandler(error)
+      } finally {
+        this.isFormProcessing = false
+      }
     }
   }
 }
