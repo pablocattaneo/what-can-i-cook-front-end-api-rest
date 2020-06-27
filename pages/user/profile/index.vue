@@ -1,10 +1,22 @@
 <template>
   <div id="page-profile" class="container">
     <h1>User profile</h1>
-    <p>{{ `${$t('User_name')}: ${user.userName}` }}</p>
-    <p>{{ `${$t('Name')}: ${user.name}` }}</p>
-    <p>{{ `${$t('Last_name')}: ${user.lastName}` }}</p>
-    <p>{{ `${$t('Email')}: ${user.email}` }}</p>
+    <p>
+      <span class="font-weight-bold">{{ $t('User_name') }}:</span>
+      <span>{{ user.userName }}</span>
+    </p>
+    <p>
+      <span class="font-weight-bold">{{ $t('Name') }}:</span>
+      <span>{{ user.name }}</span>
+    </p>
+    <p>
+      <span class="font-weight-bold">{{ $t('Last_name') }}:</span>
+      <span>{{ user.lastName }}</span>
+    </p>
+    <p>
+      <span class="font-weight-bold">{{ $t('Email') }}:</span>
+      <span>{{ user.email }}</span>
+    </p>
   </div>
 </template>
 
