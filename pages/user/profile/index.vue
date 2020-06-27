@@ -1,9 +1,10 @@
 <template>
   <div id="page-profile">
     <h1>User profile</h1>
-    <p>{{ `${$t('Name')}: ${user.name}` }}</p>
     <p>{{ `${$t('User_name')}: ${user.userName}` }}</p>
+    <p>{{ `${$t('Name')}: ${user.name}` }}</p>
     <p>{{ `${$t('Last_name')}: ${user.lastName}` }}</p>
+    <p>{{ `${$t('Email')}: ${user.email}` }}</p>
   </div>
 </template>
 
