@@ -6,10 +6,9 @@
       </div>
     </div>
     <div class="row">
-      <WcForm class="col-12">
+      <WcForm ref="wcForm" class="col-12">
         <WcInput
           id="sign-up-name"
-          ref="wcForm"
           :value="signUpForm.fields.name"
           :validation="$v.signUpForm.fields.name"
           :label="$t('signUp.signUpForm.fields.name') + ':'"
