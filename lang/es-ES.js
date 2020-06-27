@@ -17,6 +17,7 @@ export default {
     introduction: 'Está es la página Acerca de nosotros'
   },
   recipes: {
+    title: 'Recetas',
     buy_ingredients: 'Comprar ingredientes',
     cookTime: 'Tiempo de cocción',
     serving: 'Porciones',

@@ -1,5 +1,8 @@
 <template>
   <div id="recipes" class="container">
+    <h1 class="Content__Title">
+      {{ $t('recipes.title') }}
+    </h1>
     <RecipeFilters v-if="areRecipes" />
     <div class="row">
       <h1 v-if="!areRecipes" class="col-12 text-muted">

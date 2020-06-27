@@ -17,6 +17,7 @@ export default {
     introduction: 'This page is made to give you more informations.'
   },
   recipes: {
+    title: 'Recipes',
     buy_ingredients: 'Buy ingredients',
     cookTime: 'Cooking time',
     serving: 'Portions',
