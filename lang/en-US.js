@@ -82,5 +82,6 @@ export default {
   es: 'Spanish',
   en: 'English',
   Name: 'Name',
-  User_name: 'User Name'
+  User_name: 'User name',
+  Last_name: 'Last name'
 }
