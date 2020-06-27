@@ -12,6 +12,23 @@
         scale="1.2"
       />
     </p>
+
+    <div class="row">
+      <WcForm class="col-12">
+        <WcInput
+          id="login-email"
+          :value="userForm.email"
+          :validation="$v.userForm.email"
+          :label="$t('User_name') + ':'"
+          :placeholder="$t('User_name')"
+          :state="$v.userForm.email.$error ? false : null"
+          @input="userForm.email = $event"
+          type="email"
+          class="w-100"
+        />
+      </WcForm>
+    </div>
+
     <p>
       <span class="font-weight-bold">{{ $t('Name') }}:</span>
       <span>{{ user.name }}</span>
@@ -29,21 +46,49 @@
 
 <script>
 import { BIconPencilSquare } from 'bootstrap-vue'
+import { required, email } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
+import WcInput from '@/components/forms/WcInput.vue'
+import WcForm from '@/components/forms/WcForm.vue'
 export default {
   components: {
-    BIconPencilSquare
+    BIconPencilSquare,
+    WcInput,
+    WcForm
   },
   mixins: [wcHandleError],
   data() {
     return {
       animation: null,
+      userForm: {
+        name: '',
+        lastName: '',
+        email: '',
+        userName: ''
+      },
       user: {
         id: '',
         userName: '',
         name: '',
         lastName: '',
         email: ''
+      }
+    }
+  },
+  validations: {
+    userForm: {
+      name: {
+        required
+      },
+      lastName: {
+        required
+      },
+      email: {
+        required,
+        email
+      },
+      userName: {
+        required
       }
     }
   },
@@ -71,7 +116,7 @@ export default {
     edit(field) {
       this.animation = 'throb'
       setTimeout(() => {
-        this.animation = false
+        this.animation = null
       }, 800)
     }
   }
