@@ -84,5 +84,6 @@ export default {
     'Deselecionar todos los idiomas salvo el predeterminado',
   es: 'Español',
   en: 'Inglés',
-  Name: 'Nombre'
+  Name: 'Nombre',
+  User_name: 'Nombre de usuario'
 }

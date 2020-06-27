@@ -81,5 +81,6 @@ export default {
   un_select_all_less_default_language: 'Un-select All except default language',
   es: 'Spanish',
   en: 'English',
-  Name: 'Name'
+  Name: 'Name',
+  User_name: 'User Name'
 }
