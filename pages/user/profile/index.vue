@@ -72,7 +72,7 @@ export default {
       this.animation = 'throb'
       setTimeout(() => {
         this.animation = false
-      }, 1000)
+      }, 800)
     }
   }
 }
