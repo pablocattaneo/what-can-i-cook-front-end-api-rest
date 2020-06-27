@@ -83,5 +83,6 @@ export default {
   un_select_all_less_default_language:
     'Deselecionar todos los idiomas salvo el predeterminado',
   es: 'Español',
-  en: 'Inglés'
+  en: 'Inglés',
+  Name: 'Nombre'
 }

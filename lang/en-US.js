@@ -80,5 +80,6 @@ export default {
   only: 'Only',
   un_select_all_less_default_language: 'Un-select All except default language',
   es: 'Spanish',
-  en: 'English'
+  en: 'English',
+  Name: 'Name'
 }
