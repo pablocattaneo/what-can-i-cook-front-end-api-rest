@@ -4,6 +4,13 @@
     <p>
       <span class="font-weight-bold">{{ $t('User_name') }}:</span>
       <span>{{ user.userName }}</span>
+      <b-icon-pencil-square
+        @click="edit"
+        :animation="animation"
+        variant="primary"
+        class="ml-2"
+        scale="1.2"
+      />
     </p>
     <p>
       <span class="font-weight-bold">{{ $t('Name') }}:</span>
@@ -21,11 +28,16 @@
 </template>
 
 <script>
+import { BIconPencilSquare } from 'bootstrap-vue'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 export default {
+  components: {
+    BIconPencilSquare
+  },
   mixins: [wcHandleError],
   data() {
     return {
+      animation: null,
       user: {
         id: '',
         userName: '',
@@ -53,6 +65,14 @@ export default {
       this.user.email = userDataGotFromServe.email
     } catch (error) {
       this.serverErrorsHandler(error)
+    }
+  },
+  methods: {
+    edit(field) {
+      this.animation = 'throb'
+      setTimeout(() => {
+        this.animation = false
+      }, 1000)
     }
   }
 }
