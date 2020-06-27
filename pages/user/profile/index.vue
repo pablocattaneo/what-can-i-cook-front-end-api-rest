@@ -8,7 +8,7 @@
         @click="edit"
         :animation="animation"
         variant="primary"
-        class="ml-2"
+        class="ml-2 icon wc-cursor-pointer"
         scale="1.2"
       />
     </p>
