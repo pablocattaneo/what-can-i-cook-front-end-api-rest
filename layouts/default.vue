@@ -1,7 +1,7 @@
 <template>
   <div>
     <WcHeader />
-    <nuxt />
+    <nuxt class="mt-4" />
   </div>
 </template>
 
