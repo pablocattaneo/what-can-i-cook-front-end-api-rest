@@ -96,7 +96,9 @@ export default {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.validation)
-        this.objectToSendServer.contentToUpdate.userName = this.value
+        for (const key in this.objectToSendServer.contentToUpdate) {
+          this.objectToSendServer.contentToUpdate[key] = this.value
+        }
         await this.$axios.$post(this.endPointPath, this.objectToSendServer, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
