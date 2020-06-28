@@ -51,9 +51,9 @@ export default {
   },
   methods: {
     focus() {
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.$refs.bFormInput.focus()
-      }, 10)
+      })
     }
   }
 }
