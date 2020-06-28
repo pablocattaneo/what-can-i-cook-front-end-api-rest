@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <p>
+    <p class="mt-4 mb-0">
       <span class="font-weight-bold">{{ $t('User_name') }}:</span>
       <span>{{ actualValue }}</span>
       <b-icon-pencil-square
@@ -11,7 +11,7 @@
         scale="1.2"
       />
     </p>
-    <b-collapse id="user-name-collapse" class="col-12">
+    <b-collapse id="user-name-collapse" class="col-12 mt-2">
       <WcForm ref="wcForm" class="px-2">
         <WcInput
           id="user-name"
