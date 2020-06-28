@@ -2,6 +2,7 @@
   <div id="page-profile" class="container">
     <h1>User profile</h1>
     <WcEditOneField
+      id="user-username"
       :actualValue="user.userName"
       :wcInputValue="userForm.userName"
       :validation="$v.userForm.userName"
@@ -15,6 +16,7 @@
       }"
     />
     <WcEditOneField
+      id="user-name"
       :actualValue="user.name"
       :wcInputValue="userForm.name"
       :validation="$v.userForm.name"

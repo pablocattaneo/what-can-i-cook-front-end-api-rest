@@ -11,7 +11,7 @@
         scale="1.2"
       />
     </p>
-    <b-collapse id="user-name-collapse" class="col-12 mt-2">
+    <b-collapse :id="id" class="col-12 mt-2">
       <WcForm ref="wcForm" class="px-2">
         <WcInput
           id="user-name"
@@ -52,6 +52,11 @@ export default {
   },
   mixins: [wcHandleError],
   props: {
+    id: {
+      type: String,
+      default: 'user-name-collapse',
+      required: true
+    },
     objectToSendServer: {
       type: Object,
       default: () => ({})
@@ -83,10 +88,10 @@ export default {
   },
   methods: {
     closeEdit() {
-      this.$root.$emit('bv::toggle::collapse', 'user-name-collapse')
+      this.$root.$emit('bv::toggle::collapse', this.id)
     },
     edit(field) {
-      this.$root.$emit('bv::toggle::collapse', 'user-name-collapse')
+      this.$root.$emit('bv::toggle::collapse', this.id)
       this.animation = 'throb'
       setTimeout(() => {
         this.animation = null
