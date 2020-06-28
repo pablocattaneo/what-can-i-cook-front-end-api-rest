@@ -5,7 +5,6 @@
       <span>{{ actualValue }}</span>
       <b-icon-pencil-square
         @click="edit"
-        :animation="animation"
         variant="primary"
         class="ml-2 icon wc-cursor-pointer"
         scale="1.2"
@@ -86,7 +85,6 @@ export default {
   data() {
     return {
       isFormProcessing: false,
-      animation: null,
       value: ''
     }
   },
@@ -96,10 +94,6 @@ export default {
     },
     edit(field) {
       this.$root.$emit('bv::toggle::collapse', this.id)
-      this.animation = 'throb'
-      setTimeout(() => {
-        this.animation = null
-      }, 800)
     },
     async submit() {
       try {
