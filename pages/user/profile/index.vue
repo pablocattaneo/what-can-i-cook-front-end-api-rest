@@ -14,6 +14,7 @@
           :wcInputValue="userForm.userName"
           :validation="$v.userForm.userName"
           @input="userForm.userName = $event"
+          @updated="getUser"
           :endPointPath="endPointPath"
           :objectToSendServer="{
             userId: user.id,
@@ -31,6 +32,7 @@
       :wcInputValue="userForm.name"
       :validation="$v.userForm.name"
       @input="userForm.name = $event"
+      @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
         userId: user.id,
@@ -46,6 +48,7 @@
       :wcInputValue="userForm.lastName"
       :validation="$v.userForm.lastName"
       @input="userForm.lastName = $event"
+      @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
         userId: user.id,
@@ -61,6 +64,7 @@
       :wcInputValue="userForm.email"
       :validation="$v.userForm.email"
       @input="userForm.email = $event"
+      @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
         userId: user.id,
@@ -124,25 +128,30 @@ export default {
       }
     }
   },
-  async mounted() {
-    try {
-      this.$store.dispatch('user/getUserData')
-      const userDataGotFromServe = await this.$axios.$get(
-        `user/${this.$store.state.user.userId}`,
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+  mounted() {
+    this.getUser()
+  },
+  methods: {
+    async getUser() {
+      try {
+        this.$store.dispatch('user/getUserData')
+        const userDataGotFromServe = await this.$axios.$get(
+          `user/${this.$store.state.user.userId}`,
+          {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+            }
           }
-        }
-      )
-      this.user.id = userDataGotFromServe._id
-      this.user.userName = userDataGotFromServe.userName
-      this.user.name = userDataGotFromServe.name
-      this.user.lastName = userDataGotFromServe.lastName
-      this.user.email = userDataGotFromServe.email
-      this.endPointPath = `/user/update/${this.user.id}`
-    } catch (error) {
-      this.serverErrorsHandler(error)
+        )
+        this.user.id = userDataGotFromServe._id
+        this.user.userName = userDataGotFromServe.userName
+        this.user.name = userDataGotFromServe.name
+        this.user.lastName = userDataGotFromServe.lastName
+        this.user.email = userDataGotFromServe.email
+        this.endPointPath = `/user/update/${this.user.id}`
+      } catch (error) {
+        this.serverErrorsHandler(error)
+      }
     }
   }
 }

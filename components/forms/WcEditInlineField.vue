@@ -107,6 +107,7 @@ export default {
             Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
           }
         })
+        this.$emit('updated')
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
