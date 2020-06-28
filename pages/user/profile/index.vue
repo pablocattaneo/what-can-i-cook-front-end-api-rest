@@ -27,6 +27,9 @@
             type="text"
             class="w-100"
           />
+          <b-button @click="closeEdit" variant="secondary">{{
+            $t('Cancel')
+          }}</b-button>
           <WcButtonSubmit
             @click.native="submit"
             :isProcessing="isFormProcessing"
@@ -130,6 +133,9 @@ export default {
     }
   },
   methods: {
+    closeEdit() {
+      this.$root.$emit('bv::toggle::collapse', 'user-name-collapse')
+    },
     edit(field) {
       this.$root.$emit('bv::toggle::collapse', 'user-name-collapse')
       this.animation = 'throb'

@@ -85,5 +85,6 @@ export default {
   Name: 'Name',
   User_name: 'User name',
   Last_name: 'Last name',
-  Email: 'Email'
+  Email: 'Email',
+  Cancel: 'Cancel'
 }
