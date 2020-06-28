@@ -46,14 +46,21 @@
         }
       }"
     />
-    <!-- <p>
-      <span class="font-weight-bold">{{ $t('Last_name') }}:</span>
-      <span>{{ user.lastName }}</span>
-    </p> -->
-    <p>
-      <span class="font-weight-bold">{{ $t('Email') }}:</span>
-      <span>{{ user.email }}</span>
-    </p>
+    <WcEditOneField
+      id="user-email"
+      :labels="$t('Email')"
+      :actualValue="user.email"
+      :wcInputValue="userForm.email"
+      :validation="$v.userForm.email"
+      @input="userForm.email = $event"
+      :endPointPath="endPointPath"
+      :objectToSendServer="{
+        userId: user.id,
+        contentToUpdate: {
+          email: ''
+        }
+      }"
+    />
   </div>
 </template>
 
