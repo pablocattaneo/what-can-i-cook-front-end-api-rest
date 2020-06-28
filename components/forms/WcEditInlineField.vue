@@ -13,13 +13,14 @@
     <b-collapse :id="id" class="mt-2">
       <WcForm ref="wcForm" class="px-2">
         <WcInput
-          id="user-name"
+          ref="wcInput"
           :value="wcInputValue"
           :validation="validation"
           :state="validation.$error ? false : null"
           :label="labels + ':'"
           :placeholder="labels"
           @input="value = $event"
+          autofocus
           type="text"
           class="w-100"
         />
@@ -94,6 +95,7 @@ export default {
     },
     edit(field) {
       this.$root.$emit('bv::toggle::collapse', this.id)
+      this.$refs.wcInput.focus()
     },
     async submit() {
       try {
