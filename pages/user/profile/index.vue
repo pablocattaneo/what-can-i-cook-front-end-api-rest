@@ -5,25 +5,21 @@
         <h1>User profile</h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <WcEditInlineField
-          id="user-username"
-          :labels="$t('User_name')"
-          :actualValue="user.userName"
-          :wcInputValue="userForm.userName"
-          :validation="$v.userForm.userName"
-          @updated="getUser"
-          :endPointPath="endPointPath"
-          :objectToSendServer="{
-            userId: user.id,
-            contentToUpdate: {
-              userName: ''
-            }
-          }"
-        />
-      </div>
-    </div>
+    <WcEditInlineField
+      id="user-username"
+      :labels="$t('User_name')"
+      :actualValue="user.userName"
+      :wcInputValue="userForm.userName"
+      :validation="$v.userForm.userName"
+      @updated="getUser"
+      :endPointPath="endPointPath"
+      :objectToSendServer="{
+        userId: user.id,
+        contentToUpdate: {
+          userName: ''
+        }
+      }"
+    />
     <WcEditInlineField
       id="user-name"
       :labels="$t('Name')"
