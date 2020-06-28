@@ -6,6 +6,7 @@
         <span v-if="isARequiredFiled" class="text-danger">*</span>
       </template>
       <b-form-input
+        ref="bFormInput"
         :id="id"
         :value="value"
         :placeholder="placeholder"
@@ -46,6 +47,13 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    focus() {
+      setTimeout(() => {
+        this.$refs.bFormInput.focus()
+      }, 10)
     }
   }
 }
