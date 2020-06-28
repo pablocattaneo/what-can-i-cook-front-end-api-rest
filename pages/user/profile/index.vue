@@ -16,14 +16,14 @@
     <div class="row">
       <WcForm ref="wcForm" class="col-12">
         <WcInput
-          id="login-email"
-          :value="userForm.email"
-          :validation="$v.userForm.email"
+          id="user-name"
+          :value="userForm.userName"
+          :validation="$v.userForm.userName"
           :label="$t('User_name') + ':'"
           :placeholder="$t('User_name')"
-          :state="$v.userForm.email.$error ? false : null"
-          @input="userForm.email = $event"
-          type="email"
+          :state="$v.userForm.userName.$error ? false : null"
+          @input="userForm.userName = $event"
+          type="text"
           class="w-100"
         />
         <WcButtonSubmit
@@ -50,7 +50,7 @@
 
 <script>
 import { BIconPencilSquare } from 'bootstrap-vue'
-import { required, email } from 'vuelidate/lib/validators'
+import { requiredIf, email } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 import WcInput from '@/components/forms/WcInput.vue'
 import WcForm from '@/components/forms/WcForm.vue'
@@ -85,17 +85,25 @@ export default {
   validations: {
     userForm: {
       name: {
-        required
+        required: requiredIf(function() {
+          return false
+        })
       },
       lastName: {
-        required
+        required: requiredIf(function() {
+          return false
+        })
       },
       email: {
-        required,
+        required: requiredIf(function() {
+          return false
+        }),
         email
       },
       userName: {
-        required
+        required: requiredIf(function() {
+          return false
+        })
       }
     }
   },
@@ -130,7 +138,24 @@ export default {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)
-        // await this.$axios.$put('/signup', this.signUpForm.fields)
+        const objectToSendServer = {
+          userId: this.user.id,
+          contentToUpdate: {}
+        }
+        for (const key in this.userForm) {
+          if (this.userForm[key]) {
+            objectToSendServer.contentToUpdate[key] = this.userForm[key]
+          }
+        }
+        await this.$axios.$post(
+          `/user/update/${this.user.id}`,
+          objectToSendServer,
+          {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+            }
+          }
+        )
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
