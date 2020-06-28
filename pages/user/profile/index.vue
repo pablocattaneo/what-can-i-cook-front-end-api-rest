@@ -14,23 +14,25 @@
     </p>
 
     <div class="row">
-      <WcForm ref="wcForm" class="col-12">
-        <WcInput
-          id="user-name"
-          :value="userForm.userName"
-          :validation="$v.userForm.userName"
-          :label="$t('User_name') + ':'"
-          :placeholder="$t('User_name')"
-          :state="$v.userForm.userName.$error ? false : null"
-          @input="userForm.userName = $event"
-          type="text"
-          class="w-100"
-        />
-        <WcButtonSubmit
-          @click.native="submit"
-          :isProcessing="isFormProcessing"
-        />
-      </WcForm>
+      <b-collapse id="user-name-collapse" class="mt-2">
+        <WcForm ref="wcForm" class="col-12">
+          <WcInput
+            id="user-name"
+            :value="userForm.userName"
+            :validation="$v.userForm.userName"
+            :label="$t('User_name') + ':'"
+            :placeholder="$t('User_name')"
+            :state="$v.userForm.userName.$error ? false : null"
+            @input="userForm.userName = $event"
+            type="text"
+            class="w-100"
+          />
+          <WcButtonSubmit
+            @click.native="submit"
+            :isProcessing="isFormProcessing"
+          />
+        </WcForm>
+      </b-collapse>
     </div>
 
     <p>
@@ -129,6 +131,7 @@ export default {
   },
   methods: {
     edit(field) {
+      this.$root.$emit('bv::toggle::collapse', 'user-name-collapse')
       this.animation = 'throb'
       setTimeout(() => {
         this.animation = null
