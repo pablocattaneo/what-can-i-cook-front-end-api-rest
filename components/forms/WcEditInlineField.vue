@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <p class="mt-4 mb-0">
       <span class="font-weight-bold">{{ labels }}:</span>
       <span>{{ actualValue }}</span>
@@ -11,7 +11,7 @@
         scale="1.2"
       />
     </p>
-    <b-collapse :id="id" class="col-12 mt-2">
+    <b-collapse :id="id" class="mt-2">
       <WcForm ref="wcForm" class="px-2">
         <WcInput
           id="user-name"
