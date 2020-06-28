@@ -15,7 +15,7 @@
 
     <div class="row">
       <b-collapse id="user-name-collapse" class="col-12">
-        <WcForm ref="wcForm" class="pl-2">
+        <WcForm ref="wcForm" class="px-2">
           <WcInput
             id="user-name"
             :value="userForm.userName"
