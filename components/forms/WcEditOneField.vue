@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <p class="mt-4 mb-0">
-      <span class="font-weight-bold">{{ $t('User_name') }}:</span>
+      <span class="font-weight-bold">{{ labels }}:</span>
       <span>{{ actualValue }}</span>
       <b-icon-pencil-square
         @click="edit"
@@ -18,8 +18,8 @@
           :value="wcInputValue"
           :validation="validation"
           :state="validation.$error ? false : null"
-          :label="$t('User_name') + ':'"
-          :placeholder="$t('User_name')"
+          :label="labels + ':'"
+          :placeholder="labels"
           @input="value = $event"
           type="text"
           class="w-100"
@@ -52,6 +52,10 @@ export default {
   },
   mixins: [wcHandleError],
   props: {
+    labels: {
+      type: String,
+      default: ''
+    },
     id: {
       type: String,
       default: 'user-name-collapse',

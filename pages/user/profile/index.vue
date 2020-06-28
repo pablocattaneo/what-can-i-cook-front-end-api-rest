@@ -3,6 +3,7 @@
     <h1>User profile</h1>
     <WcEditOneField
       id="user-username"
+      :labels="$t('User_name')"
       :actualValue="user.userName"
       :wcInputValue="userForm.userName"
       :validation="$v.userForm.userName"
@@ -17,6 +18,7 @@
     />
     <WcEditOneField
       id="user-name"
+      :labels="$t('Name')"
       :actualValue="user.name"
       :wcInputValue="userForm.name"
       :validation="$v.userForm.name"
