@@ -110,6 +110,7 @@ export default {
           }
         })
         this.$emit('updated')
+        this.$root.$emit('bv::toggle::collapse', this.id)
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
