@@ -20,7 +20,6 @@
           :label="labels + ':'"
           :placeholder="labels"
           @input="value = $event"
-          autofocus
           type="text"
           class="w-100"
         />
