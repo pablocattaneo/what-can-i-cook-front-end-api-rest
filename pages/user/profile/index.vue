@@ -1,7 +1,7 @@
 <template>
   <div id="page-profile" class="container">
     <h1>User profile</h1>
-    <WcEditOneField
+    <WcEditInlineField
       id="user-username"
       :labels="$t('User_name')"
       :actualValue="user.userName"
@@ -16,7 +16,7 @@
         }
       }"
     />
-    <WcEditOneField
+    <WcEditInlineField
       id="user-name"
       :labels="$t('Name')"
       :actualValue="user.name"
@@ -31,7 +31,7 @@
         }
       }"
     />
-    <WcEditOneField
+    <WcEditInlineField
       id="user-lastname"
       :labels="$t('Last_name')"
       :actualValue="user.lastName"
@@ -46,7 +46,7 @@
         }
       }"
     />
-    <WcEditOneField
+    <WcEditInlineField
       id="user-email"
       :labels="$t('Email')"
       :actualValue="user.email"
@@ -67,10 +67,10 @@
 <script>
 import { requiredIf, email } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
-import WcEditOneField from '@/components/forms/WcEditOneField.vue'
+import WcEditInlineField from '@/components/forms/WcEditInlineField.vue'
 export default {
   components: {
-    WcEditOneField
+    WcEditInlineField
   },
   mixins: [wcHandleError],
   data() {
