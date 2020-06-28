@@ -14,10 +14,19 @@
         }
       }"
     />
-    <p>
-      <span class="font-weight-bold">{{ $t('Name') }}:</span>
-      <span>{{ user.name }}</span>
-    </p>
+    <WcEditOneField
+      :actualValue="user.name"
+      :wcInputValue="userForm.name"
+      :validation="$v.userForm.name"
+      @input="userForm.name = $event"
+      :endPointPath="endPointPath"
+      :objectToSendServer="{
+        userId: user.id,
+        contentToUpdate: {
+          name: ''
+        }
+      }"
+    />
     <p>
       <span class="font-weight-bold">{{ $t('Last_name') }}:</span>
       <span>{{ user.lastName }}</span>
