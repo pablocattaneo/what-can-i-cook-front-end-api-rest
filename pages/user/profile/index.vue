@@ -7,7 +7,12 @@
       :validation="$v.userForm.userName"
       @input="userForm.userName = $event"
       :endPointPath="endPointPath"
-      :objectToSendServer="objectToSendServer"
+      :objectToSendServer="{
+        userId: user.id,
+        contentToUpdate: {
+          userName: ''
+        }
+      }"
     />
     <p>
       <span class="font-weight-bold">{{ $t('Name') }}:</span>
@@ -36,12 +41,6 @@ export default {
   data() {
     return {
       endPointPath: '',
-      objectToSendServer: {
-        userId: '',
-        contentToUpdate: {
-          userName: ''
-        }
-      },
       userForm: {
         name: '',
         lastName: '',
@@ -99,7 +98,6 @@ export default {
       this.user.lastName = userDataGotFromServe.lastName
       this.user.email = userDataGotFromServe.email
       this.endPointPath = `/user/update/${this.user.id}`
-      this.objectToSendServer.userId = this.user.id
     } catch (error) {
       this.serverErrorsHandler(error)
     }
