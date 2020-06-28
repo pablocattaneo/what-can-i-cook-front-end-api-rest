@@ -13,7 +13,6 @@
           :actualValue="user.userName"
           :wcInputValue="userForm.userName"
           :validation="$v.userForm.userName"
-          @input="userForm.userName = $event"
           @updated="getUser"
           :endPointPath="endPointPath"
           :objectToSendServer="{
@@ -31,7 +30,6 @@
       :actualValue="user.name"
       :wcInputValue="userForm.name"
       :validation="$v.userForm.name"
-      @input="userForm.name = $event"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -47,7 +45,6 @@
       :actualValue="user.lastName"
       :wcInputValue="userForm.lastName"
       :validation="$v.userForm.lastName"
-      @input="userForm.lastName = $event"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -63,7 +60,6 @@
       :actualValue="user.email"
       :wcInputValue="userForm.email"
       :validation="$v.userForm.email"
-      @input="userForm.email = $event"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
