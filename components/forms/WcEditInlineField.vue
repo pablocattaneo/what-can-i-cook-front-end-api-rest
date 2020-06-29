@@ -14,7 +14,7 @@
       <WcForm ref="wcForm" class="px-2">
         <WcInput
           ref="wcInput"
-          :value="wcInputValue"
+          :value="actualValue"
           :validation="$v.value"
           :state="$v.value.$error ? false : null"
           :label="labels + ':'"
@@ -66,10 +66,6 @@ export default {
       default: () => ({})
     },
     actualValue: {
-      type: String,
-      default: ''
-    },
-    wcInputValue: {
       type: String,
       default: ''
     },

@@ -9,7 +9,6 @@
       id="user-username"
       :labels="$t('User_name')"
       :actualValue="user.userName"
-      :wcInputValue="userForm.userName"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -23,7 +22,6 @@
       id="user-name"
       :labels="$t('Name')"
       :actualValue="user.name"
-      :wcInputValue="userForm.name"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -37,7 +35,6 @@
       id="user-lastname"
       :labels="$t('Last_name')"
       :actualValue="user.lastName"
-      :wcInputValue="userForm.lastName"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -51,7 +48,6 @@
       id="user-email"
       :labels="$t('Email')"
       :actualValue="user.email"
-      :wcInputValue="userForm.email"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
