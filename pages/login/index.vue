@@ -82,7 +82,10 @@ export default {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)
-        this.$store.dispatch('user/userLoginAction', this.loginForm.fields)
+        await this.$store.dispatch(
+          'user/userLoginAction',
+          this.loginForm.fields
+        )
         this.$router.push('/')
       } catch (error) {
         this.serverErrorsHandler(error)
