@@ -86,5 +86,6 @@ export default {
   User_name: 'User name',
   Last_name: 'Last name',
   Email: 'Email',
-  Cancel: 'Cancel'
+  Cancel: 'Cancel',
+  form_contains_errors: 'Form contains errors'
 }

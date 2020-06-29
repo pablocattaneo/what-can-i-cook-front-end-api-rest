@@ -1,5 +1,5 @@
 <template>
-  <b-form id="WcForm" @submit.prevent novalidate>
+  <b-form id="wc-form" @submit.prevent novalidate>
     <slot></slot>
   </b-form>
 </template>
@@ -20,7 +20,7 @@ export default {
       return array.toString()
     },
     showToastFormError() {
-      this.$bvToast.toast('El formulario contiene errores', {
+      this.$bvToast.toast(this.$t('form_contains_errors'), {
         title: 'Error',
         toaster: 'b-toaster-bottom-center',
         variant: 'danger',
@@ -28,14 +28,15 @@ export default {
       })
     },
     errorScrollTo() {
-      VueScrollTo.scrollTo('#form', 1000, { offset: -60 })
+      VueScrollTo.scrollTo('#wc-form', 1000, { offset: -60 })
     },
     validationForm(validation) {
       validation.$touch()
       if (validation.$error) {
         this.showToastFormError()
         this.errorScrollTo()
-        return Promise.reject(new Error('validation error'))
+        // eslint-disable-next-line prefer-promise-reject-errors
+        return Promise.reject('validation error')
       } else if (!validation.$pending || !validation.$error) {
         return Promise.resolve(true)
       } else {

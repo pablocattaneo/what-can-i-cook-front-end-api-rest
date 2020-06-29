@@ -89,5 +89,6 @@ export default {
   User_name: 'Nombre de usuario',
   Last_name: 'Apellido',
   Email: 'Email',
-  Cancel: 'Cancelar'
+  Cancel: 'Cancelar',
+  form_contains_errors: 'El formulario contiene errores'
 }
