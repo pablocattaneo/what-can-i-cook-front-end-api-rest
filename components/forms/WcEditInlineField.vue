@@ -15,8 +15,8 @@
         <WcInput
           ref="wcInput"
           :value="wcInputValue"
-          :validation="validation"
-          :state="validation.$error ? false : null"
+          :validation="$v.value"
+          :state="$v.value.$error ? false : null"
           :label="labels + ':'"
           :placeholder="labels"
           @input="value = $event"
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { requiredIf } from 'vuelidate/lib/validators'
 import { BIconPencilSquare } from 'bootstrap-vue'
 import WcInput from '@/components/forms/WcInput.vue'
 import WcForm from '@/components/forms/WcForm.vue'
@@ -88,6 +89,13 @@ export default {
       value: ''
     }
   },
+  validations: {
+    value: {
+      required: requiredIf(function() {
+        return true
+      })
+    }
+  },
   methods: {
     closeEdit() {
       this.$root.$emit('bv::toggle::collapse', this.id)
@@ -99,7 +107,7 @@ export default {
     async submit() {
       try {
         this.isFormProcessing = true
-        await this.$refs.wcForm.validationForm(this.validation)
+        await this.$refs.wcForm.validationForm(this.$v)
         for (const key in this.objectToSendServer.contentToUpdate) {
           this.objectToSendServer.contentToUpdate[key] = this.value
         }

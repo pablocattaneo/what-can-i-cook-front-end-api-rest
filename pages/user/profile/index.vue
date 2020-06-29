@@ -10,7 +10,6 @@
       :labels="$t('User_name')"
       :actualValue="user.userName"
       :wcInputValue="userForm.userName"
-      :validation="$v.userForm.userName"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -25,7 +24,6 @@
       :labels="$t('Name')"
       :actualValue="user.name"
       :wcInputValue="userForm.name"
-      :validation="$v.userForm.name"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -40,7 +38,6 @@
       :labels="$t('Last_name')"
       :actualValue="user.lastName"
       :wcInputValue="userForm.lastName"
-      :validation="$v.userForm.lastName"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -55,7 +52,6 @@
       :labels="$t('Email')"
       :actualValue="user.email"
       :wcInputValue="userForm.email"
-      :validation="$v.userForm.email"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -69,7 +65,6 @@
 </template>
 
 <script>
-import { requiredIf, email } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 import WcEditInlineField from '@/components/forms/WcEditInlineField.vue'
 export default {
@@ -92,31 +87,6 @@ export default {
         name: '',
         lastName: '',
         email: ''
-      }
-    }
-  },
-  validations: {
-    userForm: {
-      name: {
-        required: requiredIf(function() {
-          return false
-        })
-      },
-      lastName: {
-        required: requiredIf(function() {
-          return false
-        })
-      },
-      email: {
-        required: requiredIf(function() {
-          return false
-        }),
-        email
-      },
-      userName: {
-        required: requiredIf(function() {
-          return false
-        })
       }
     }
   },
