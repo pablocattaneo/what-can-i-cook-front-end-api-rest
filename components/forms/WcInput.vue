@@ -25,6 +25,9 @@
       <b-form-invalid-feedback v-if="validation.email === false">
         {{ $t('form.validation.email') }}
       </b-form-invalid-feedback>
+      <b-form-invalid-feedback v-if="validation.minLength === false">
+        {{ $t('form.validation.minLength') }}
+      </b-form-invalid-feedback>
       <b-form-invalid-feedback v-if="validation.sameAs === false">
         {{ $t('form.validation.sameAs') }}
       </b-form-invalid-feedback>
