@@ -12,7 +12,8 @@
       @updated="getUser"
       :endPointPath="endPointPath"
       :validationsRules="{
-        required: true
+        required: true,
+        minLength: 5
       }"
       :objectToSendServer="{
         userId: user.id,
