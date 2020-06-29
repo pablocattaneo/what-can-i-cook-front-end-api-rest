@@ -8,9 +8,12 @@
     <WcEditInlineField
       id="user-username"
       :labels="$t('User_name')"
-      :actualValue="user.userName"
+      :currentValue="user.userName"
       @updated="getUser"
       :endPointPath="endPointPath"
+      :validationsRules="{
+        required: true
+      }"
       :objectToSendServer="{
         userId: user.id,
         contentToUpdate: {
@@ -21,7 +24,7 @@
     <WcEditInlineField
       id="user-name"
       :labels="$t('Name')"
-      :actualValue="user.name"
+      :currentValue="user.name"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -34,7 +37,7 @@
     <WcEditInlineField
       id="user-lastname"
       :labels="$t('Last_name')"
-      :actualValue="user.lastName"
+      :currentValue="user.lastName"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{
@@ -47,7 +50,7 @@
     <WcEditInlineField
       id="user-email"
       :labels="$t('Email')"
-      :actualValue="user.email"
+      :currentValue="user.email"
       @updated="getUser"
       :endPointPath="endPointPath"
       :objectToSendServer="{

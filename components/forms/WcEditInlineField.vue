@@ -2,7 +2,7 @@
   <div>
     <p class="mt-4 mb-0">
       <span class="font-weight-bold">{{ labels }}:</span>
-      <span>{{ actualValue }}</span>
+      <span>{{ currentValue }}</span>
       <b-icon-pencil-square
         @click="edit"
         variant="primary"
@@ -14,7 +14,7 @@
       <WcForm ref="wcForm" class="px-2">
         <WcInput
           ref="wcInput"
-          :value="actualValue"
+          :value="currentValue"
           :validation="$v.value"
           :state="$v.value.$error ? false : null"
           :label="labels + ':'"
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
 import { required } from 'vuelidate/lib/validators'
 import { BIconPencilSquare } from 'bootstrap-vue'
 import WcInput from '@/components/forms/WcInput.vue'
@@ -65,9 +66,13 @@ export default {
       type: Object,
       default: () => ({})
     },
-    actualValue: {
+    currentValue: {
       type: String,
       default: ''
+    },
+    validationsRules: {
+      type: Object,
+      default: () => ({})
     },
     endPointPath: {
       type: String,
@@ -81,9 +86,18 @@ export default {
       value: ''
     }
   },
-  validations: {
-    value: {
-      required
+  validations() {
+    console.log('validationsRules', this.validationsRules)
+    if (this.validationsRules.required) {
+      return {
+        value: {
+          required
+        }
+      }
+    } else {
+      return {
+        value: {}
+      }
     }
   },
   methods: {
