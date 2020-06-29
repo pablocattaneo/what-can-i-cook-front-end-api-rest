@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { requiredIf } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
 import { BIconPencilSquare } from 'bootstrap-vue'
 import WcInput from '@/components/forms/WcInput.vue'
 import WcForm from '@/components/forms/WcForm.vue'
@@ -69,10 +69,6 @@ export default {
       type: String,
       default: ''
     },
-    validation: {
-      type: Object,
-      default: () => ({})
-    },
     endPointPath: {
       type: String,
       default: '',
@@ -87,9 +83,7 @@ export default {
   },
   validations: {
     value: {
-      required: requiredIf(function() {
-        return true
-      })
+      required
     }
   },
   methods: {
