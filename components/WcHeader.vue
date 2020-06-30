@@ -66,8 +66,9 @@ export default {
     ...mapState('user', ['isUserLogged'])
   },
   methods: {
-    signOut() {
-      this.$store.dispatch('user/userSignOutAction')
+    async signOut() {
+      await this.$store.dispatch('user/userSignOutAction')
+      this.$router.push(this.localePath('/login'))
     }
   }
 }
