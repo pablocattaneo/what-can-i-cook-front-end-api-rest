@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand to="/">Home</b-navbar-brand>
+      <b-navbar-brand :to="localePath({ path: '/' })">Home</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -38,13 +38,17 @@
             <template v-slot:button-content>
               <em>{{ $t('links.user') }}</em>
             </template>
-            <b-dropdown-item v-if="isUserLogged" to="/user/profile">{{
-              $t('links.profile')
-            }}</b-dropdown-item>
-            <b-dropdown-item v-if="!isUserLogged" to="/login"
+            <b-dropdown-item
+              v-if="isUserLogged"
+              :to="localePath({ path: '/user/profile' })"
+              >{{ $t('links.profile') }}</b-dropdown-item
+            >
+            <b-dropdown-item
+              v-if="!isUserLogged"
+              :to="localePath({ path: '/login' })"
               >Login</b-dropdown-item
             >
-            <b-dropdown-item v-if="isUserLogged" @click="signOut" to="/login">{{
+            <b-dropdown-item v-if="isUserLogged" @click="signOut">{{
               $t('links.sign_out')
             }}</b-dropdown-item>
           </b-nav-item-dropdown>
