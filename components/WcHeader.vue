@@ -38,15 +38,15 @@
             <template v-slot:button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item v-if="isUserLogged" to="/user/profile"
-              >Profile</b-dropdown-item
-            >
+            <b-dropdown-item v-if="isUserLogged" to="/user/profile">{{
+              $t('links.profile')
+            }}</b-dropdown-item>
             <b-dropdown-item v-if="!isUserLogged" to="/login"
               >Login</b-dropdown-item
             >
-            <b-dropdown-item v-if="isUserLogged" @click="signOut" to="/login"
-              >Sign out</b-dropdown-item
-            >
+            <b-dropdown-item v-if="isUserLogged" @click="signOut" to="/login">{{
+              $t('links.sign_out')
+            }}</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>

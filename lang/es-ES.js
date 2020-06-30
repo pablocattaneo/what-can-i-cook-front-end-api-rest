@@ -6,11 +6,14 @@ export default {
   links: {
     home: 'Home',
     about: 'Acerca de',
-    recipes: 'Recetas'
+    recipes: 'Recetas',
+    profile: 'Perfil',
+    sign_out: 'Salir'
   },
   home: {
     title: 'Bienvenidos',
-    introduction: 'Esta es la home'
+    introduction:
+      'Hola, mi nombre es Pablo Cattaneo. Soy un desarrollador full stack. He creado este sitio para mostrar algunas de mis habilidades y conocimientos.'
   },
   about: {
     title: 'Aceca de nosotros',
