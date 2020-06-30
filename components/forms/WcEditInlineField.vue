@@ -37,7 +37,7 @@
 
 <script>
 // eslint-disable-next-line no-unused-vars
-import { required, minLength } from 'vuelidate/lib/validators'
+import { required, minLength, email } from 'vuelidate/lib/validators'
 import { BIconPencilSquare } from 'bootstrap-vue'
 import WcInput from '@/components/forms/WcInput.vue'
 import WcForm from '@/components/forms/WcForm.vue'
@@ -90,10 +90,12 @@ export default {
     console.log('validationsRules', this.validationsRules)
     const requiredRule = this.validationsRules.required
     const minLengthRule = this.validationsRules.minLength
+    const emailRule = this.validationsRules.email
     console.log('minLengthRule', minLengthRule)
     return {
       value: {
         required: requiredRule ? required : false,
+        email: emailRule ? email : false,
         minLength: minLengthRule ? minLength(minLengthRule) : false
       }
     }

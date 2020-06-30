@@ -28,6 +28,9 @@
       :currentValue="user.name"
       @updated="getUser"
       :endPointPath="endPointPath"
+      :validationsRules="{
+        required: true
+      }"
       :objectToSendServer="{
         userId: user.id,
         contentToUpdate: {
@@ -41,6 +44,9 @@
       :currentValue="user.lastName"
       @updated="getUser"
       :endPointPath="endPointPath"
+      :validationsRules="{
+        required: true
+      }"
       :objectToSendServer="{
         userId: user.id,
         contentToUpdate: {
@@ -54,6 +60,10 @@
       :currentValue="user.email"
       @updated="getUser"
       :endPointPath="endPointPath"
+      :validationsRules="{
+        required: true,
+        email: true
+      }"
       :objectToSendServer="{
         userId: user.id,
         contentToUpdate: {
