@@ -8,7 +8,8 @@ export default {
     about: 'About',
     recipes: 'Recipes',
     profile: 'Profile',
-    sign_out: 'Sign out'
+    sign_out: 'Sign out',
+    user: 'User'
   },
   home: {
     title: 'Welcome',

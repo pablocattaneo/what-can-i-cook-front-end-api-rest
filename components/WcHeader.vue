@@ -36,7 +36,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
-              <em>User</em>
+              <em>{{ $t('links.user') }}</em>
             </template>
             <b-dropdown-item v-if="isUserLogged" to="/user/profile">{{
               $t('links.profile')
