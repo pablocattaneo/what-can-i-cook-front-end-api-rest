@@ -86,7 +86,7 @@ export default {
           'user/userLoginAction',
           this.loginForm.fields
         )
-        this.$router.push('/')
+        this.$router.push('user/profile')
       } catch (error) {
         this.serverErrorsHandler(error)
       } finally {
