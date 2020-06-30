@@ -50,7 +50,12 @@
         <nuxt-link to="/user/profile">User profile</nuxt-link>
       </li>
       <li>
-        Supports http error handling
+        Supports catch all http error handling
+        <a
+          href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js"
+          target="_blank"
+          >Mixin</a
+        >
       </li>
     </ul>
   </div>
