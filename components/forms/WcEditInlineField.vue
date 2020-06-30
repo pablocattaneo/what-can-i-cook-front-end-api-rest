@@ -87,11 +87,9 @@ export default {
     }
   },
   validations() {
-    console.log('validationsRules', this.validationsRules)
     const requiredRule = this.validationsRules.required
     const minLengthRule = this.validationsRules.minLength
     const emailRule = this.validationsRules.email
-    console.log('minLengthRule', minLengthRule)
     return {
       value: {
         required: requiredRule ? required : false,
