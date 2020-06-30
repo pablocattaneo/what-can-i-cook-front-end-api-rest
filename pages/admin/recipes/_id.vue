@@ -191,10 +191,14 @@ export default {
   },
   computed: {
     previewIngredients() {
-      return this.$refs.wcForm.stringToArray(this.recipeForm.fields.ingredients)
+      return this.$nextTick(() =>
+        this.$refs.wcForm.stringToArray(this.recipeForm.fields.ingredients)
+      )
     },
     previewDirections() {
-      return this.$refs.wcForm.stringToArray(this.recipeForm.fields.directions)
+      return this.$nextTick(() =>
+        this.$refs.wcForm.stringToArray(this.recipeForm.fields.directions)
+      )
     }
   },
   async asyncData({ params, app, store }) {
