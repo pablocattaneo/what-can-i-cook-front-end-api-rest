@@ -192,12 +192,12 @@ export default {
   computed: {
     previewIngredients() {
       return this.$nextTick(() =>
-        this.$refs.wcForm.stringToArray(this.recipeForm.fields.ingredients)
+        this.$refs.wcForm?.stringToArray(this.recipeForm.fields.ingredients)
       )
     },
     previewDirections() {
       return this.$nextTick(() =>
-        this.$refs.wcForm.stringToArray(this.recipeForm.fields.directions)
+        this.$refs.wcForm?.stringToArray(this.recipeForm.fields.directions)
       )
     }
   },
