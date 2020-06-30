@@ -13,5 +13,13 @@
       </div>
     </div>
     <p class="mt-4">{{ $t('home.introduction') }}</p>
+    <h2>Techonologies apply</h2>
+    <h2>Features</h2>
+    <ul>
+      <li>
+        Inline edit fields:
+        <nuxt-link to="/user/profile">User profile</nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
