@@ -10,7 +10,8 @@ export default {
   },
   home: {
     title: 'Welcome',
-    introduction: 'This is an introduction in English.'
+    introduction:
+      'Hi, name is Pablo Cattaneo I am full stack developer. I have build this site to show some of my skills and knowledges'
   },
   about: {
     title: 'About',
