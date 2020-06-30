@@ -24,15 +24,15 @@
         <a href="https://bootstrap-vue.org/" target="_blank">BootstrapVue</a>
       </li>
       <li>
-        code formatter
+        Code formatter
         <a href="https://prettier.io/" target="_blank">Prettier</a>
       </li>
     </ul>
     <h3>Backend End</h3>
     <ul>
-      <li>Node</li>
-      <li>Express</li>
-      <li>MongoDB</li>
+      <li><a href="https://nodejs.org/en/" target="_blank">Node</a></li>
+      <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
+      <li><a href="https://www.mongodb.com/" target="_blank">MongoDB</a></li>
     </ul>
     <h2>Features</h2>
     <ul>
