@@ -34,20 +34,23 @@
       <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
       <li><a href="https://www.mongodb.com/" target="_blank">MongoDB</a></li>
     </ul>
-    <h2>Features</h2>
+    <h2>Site features:</h2>
     <ul>
       <li>
-        Locale to English and Spanish
+        Supports locale to English and Spanish
       </li>
       <li>
-        Authentication via JWT
+        Authentication via
+        <a href="https://en.wikipedia.org/wiki/JSON_Web_Token" target="_blank"
+          >JWT</a
+        >
       </li>
       <li>
-        Inline edit fields:
+        Supports inline edit fields:
         <nuxt-link to="/user/profile">User profile</nuxt-link>
       </li>
       <li>
-        Handle Erros
+        Supports http error handling
       </li>
     </ul>
   </div>
