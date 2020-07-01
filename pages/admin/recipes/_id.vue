@@ -190,15 +190,11 @@ export default {
     }
   },
   computed: {
-    previewIngredients() {
-      return this.$nextTick(() =>
-        this.$refs.wcForm?.stringToArray(this.recipeForm.fields.ingredients)
-      )
-    },
     previewDirections() {
-      return this.$nextTick(() =>
-        this.$refs.wcForm?.stringToArray(this.recipeForm.fields.directions)
-      )
+      return this.stringToArray(this.recipeForm.fields.directions)
+    },
+    previewIngredients() {
+      return this.stringToArray(this.recipeForm.fields.ingredients)
     }
   },
   async asyncData({ params, app, store }) {
@@ -238,6 +234,9 @@ export default {
     }
   },
   methods: {
+    stringToArray(string, regex = /[\n\r]/g) {
+      return string ? string.split(regex) : null
+    },
     inputImg(event) {
       this.recipeForm.fields.mainImage = event
       this.imgDOMStringOrImgUrl = URL.createObjectURL(event)
