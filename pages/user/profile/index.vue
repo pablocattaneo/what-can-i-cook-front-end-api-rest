@@ -1,76 +1,79 @@
 <template>
   <div id="page-profile" class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>User profile</h1>
+    <WcLoading v-if="isPageLoading" />
+    <div v-if="!isPageLoading" class="page-content">
+      <div class="row">
+        <div class="col-12">
+          <h1>User profile</h1>
+        </div>
       </div>
+      <WcEditInlineField
+        id="user-username"
+        :labels="$t('User_name')"
+        :currentValue="user.userName"
+        @updated="getUser"
+        :endPointPath="endPointPath"
+        :validationsRules="{
+          required: true,
+          minLength: 5
+        }"
+        :objectToSendServer="{
+          userId: user.id,
+          contentToUpdate: {
+            userName: ''
+          }
+        }"
+      />
+      <WcEditInlineField
+        id="user-name"
+        :labels="$t('Name')"
+        :currentValue="user.name"
+        @updated="getUser"
+        :endPointPath="endPointPath"
+        :validationsRules="{
+          required: true
+        }"
+        :objectToSendServer="{
+          userId: user.id,
+          contentToUpdate: {
+            name: ''
+          }
+        }"
+      />
+      <WcEditInlineField
+        id="user-lastname"
+        :labels="$t('Last_name')"
+        :currentValue="user.lastName"
+        @updated="getUser"
+        :endPointPath="endPointPath"
+        :validationsRules="{
+          required: true
+        }"
+        :objectToSendServer="{
+          userId: user.id,
+          contentToUpdate: {
+            lastName: ''
+          }
+        }"
+      />
+      <WcEditInlineField
+        id="user-email"
+        :labels="$t('Email')"
+        :currentValue="user.email"
+        @updated="getUser"
+        :endPointPath="endPointPath"
+        :validationsRules="{
+          required: true,
+          email: true
+        }"
+        :objectToSendServer="{
+          userId: user.id,
+          contentToUpdate: {
+            email: ''
+          }
+        }"
+      />
     </div>
-    <WcEditInlineField
-      id="user-username"
-      :labels="$t('User_name')"
-      :currentValue="user.userName"
-      @updated="getUser"
-      :endPointPath="endPointPath"
-      :validationsRules="{
-        required: true,
-        minLength: 5
-      }"
-      :objectToSendServer="{
-        userId: user.id,
-        contentToUpdate: {
-          userName: ''
-        }
-      }"
-    />
-    <WcEditInlineField
-      id="user-name"
-      :labels="$t('Name')"
-      :currentValue="user.name"
-      @updated="getUser"
-      :endPointPath="endPointPath"
-      :validationsRules="{
-        required: true
-      }"
-      :objectToSendServer="{
-        userId: user.id,
-        contentToUpdate: {
-          name: ''
-        }
-      }"
-    />
-    <WcEditInlineField
-      id="user-lastname"
-      :labels="$t('Last_name')"
-      :currentValue="user.lastName"
-      @updated="getUser"
-      :endPointPath="endPointPath"
-      :validationsRules="{
-        required: true
-      }"
-      :objectToSendServer="{
-        userId: user.id,
-        contentToUpdate: {
-          lastName: ''
-        }
-      }"
-    />
-    <WcEditInlineField
-      id="user-email"
-      :labels="$t('Email')"
-      :currentValue="user.email"
-      @updated="getUser"
-      :endPointPath="endPointPath"
-      :validationsRules="{
-        required: true,
-        email: true
-      }"
-      :objectToSendServer="{
-        userId: user.id,
-        contentToUpdate: {
-          email: ''
-        }
-      }"
-    />
   </div>
 </template>
 
@@ -78,20 +81,17 @@
 import wcHandleError from '@/mixins/wc-handle-error.js'
 import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
 import WcEditInlineField from '@/components/forms/WcEditInlineField.vue'
+import WcLoading from '@/components/WcLoading.vue'
 export default {
   components: {
-    WcEditInlineField
+    WcEditInlineField,
+    WcLoading
   },
   mixins: [wcHandleError, wcAuthenticationMixin],
   data() {
     return {
       endPointPath: '',
-      userForm: {
-        name: '',
-        lastName: '',
-        email: '',
-        userName: ''
-      },
+      isPageLoading: true,
       user: {
         id: '',
         userName: '',
@@ -114,6 +114,7 @@ export default {
         this.user.lastName = userDataGotFromServe.lastName
         this.user.email = userDataGotFromServe.email
         this.endPointPath = `/user/update/${this.user.id}`
+        this.isPageLoading = false
       } catch (error) {
         this.serverErrorsHandler(error)
       }
