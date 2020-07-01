@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     stringToArray(string, regex = /[\n\r]/g) {
-      return string.split(regex)
+      return string ? string.split(regex) : null
     },
     arrayToString(array, regex = /[\n\r]/g) {
       return array.toString()
