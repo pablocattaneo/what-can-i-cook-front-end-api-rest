@@ -9,6 +9,7 @@ export default {
           }
         })
       } catch (error) {
+        this.$router.push(this.localePath('/login'))
         this.serverErrorsHandler(error)
       }
     }
