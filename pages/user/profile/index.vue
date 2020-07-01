@@ -76,12 +76,13 @@
 
 <script>
 import wcHandleError from '@/mixins/wc-handle-error.js'
+import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
 import WcEditInlineField from '@/components/forms/WcEditInlineField.vue'
 export default {
   components: {
     WcEditInlineField
   },
-  mixins: [wcHandleError],
+  mixins: [wcHandleError, wcAuthenticationMixin],
   data() {
     return {
       endPointPath: '',
@@ -107,14 +108,7 @@ export default {
     async getUser() {
       try {
         this.$store.dispatch('user/setUserIdState')
-        const userDataGotFromServe = await this.$axios.$get(
-          `user/${this.$store.state.user.userId}`,
-          {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
-            }
-          }
-        )
+        const userDataGotFromServe = await this.authenticate()
         this.user.id = userDataGotFromServe._id
         this.user.userName = userDataGotFromServe.userName
         this.user.name = userDataGotFromServe.name
