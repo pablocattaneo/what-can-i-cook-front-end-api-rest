@@ -1,5 +1,6 @@
 <template>
   <div id="recipes" class="container">
+    <WcLoading v-if="$fetchState.pending" />
     <h1 class="Content__Title">
       {{ $t('recipes.title') }}
     </h1>
@@ -35,14 +36,18 @@
 <script>
 import RecipeFilters from '@/components/recipes/RecipeFilters.vue'
 import RecipeCard from '@/components/recipes/RecipeCard.vue'
+import WcLoading from '@/components/WcLoading.vue'
+
 export default {
   components: {
     RecipeFilters,
-    RecipeCard
+    RecipeCard,
+    WcLoading
   },
   data() {
     return {
-      recipes: []
+      recipes: [],
+      isPageLoading: true
     }
   },
   computed: {
@@ -50,24 +55,11 @@ export default {
       return this.recipes.length > 0
     }
   },
-  async asyncData({ app, route }) {
+  async fetch() {
     try {
-      const recipes = await app.$getRecipes()
-      return {
-        recipes
-      }
+      this.recipes = await this.$axios.$get('recipes/')
     } catch (error) {
-      console.log('JSON.stringify(error)', JSON.stringify(error))
-      console.log('error.response', error.response)
-    }
-  },
-  methods: {
-    async getRecipes() {
-      try {
-        this.recipes = await this.$getRecipes()
-      } catch (error) {
-        console.log('error', error)
-      }
+      console.log('error', error)
     }
   }
 }

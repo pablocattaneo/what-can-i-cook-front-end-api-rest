@@ -29,10 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/vuelidate.js' },
-    { src: '~/plugins/functions-to-use-in-asyncdata-and-component-instance.js' }
-  ],
+  plugins: [{ src: '~/plugins/vuelidate.js' }],
   /*
    ** Nuxt.js dev-modules
    */
