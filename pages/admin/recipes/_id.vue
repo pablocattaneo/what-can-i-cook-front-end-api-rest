@@ -151,6 +151,7 @@
 import { required, integer } from 'vuelidate/lib/validators'
 
 import wcHandleError from '@/mixins/wc-handle-error.js'
+import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
 
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
@@ -169,7 +170,7 @@ export default {
     WcButtonSubmit,
     RecipeCard
   },
-  mixins: [wcHandleError],
+  mixins: [wcHandleError, wcAuthenticationMixin],
   data() {
     return {
       isFormProcessing: false,
@@ -232,6 +233,9 @@ export default {
         }
       }
     }
+  },
+  async mounted() {
+    await this.authenticate()
   },
   methods: {
     stringToArray(string, regex = /[\n\r]/g) {

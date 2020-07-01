@@ -107,7 +107,6 @@ export default {
   methods: {
     async getUser() {
       try {
-        this.$store.dispatch('user/setUserIdState')
         const userDataGotFromServe = await this.authenticate()
         this.user.id = userDataGotFromServe._id
         this.user.userName = userDataGotFromServe.userName
