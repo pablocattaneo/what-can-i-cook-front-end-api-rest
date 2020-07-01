@@ -40,7 +40,7 @@ export const actions = {
     commit('userIdMutation', '')
     localStorage.removeItem('jwtToken')
   },
-  getUserData({ commit }) {
+  setUserIdState({ commit }) {
     const jwt = localStorage.getItem('jwtToken')
     if (jwt) {
       const jwtPayload = JSON.parse(atob(jwt.split('.')[1]))

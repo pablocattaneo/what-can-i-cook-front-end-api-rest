@@ -106,7 +106,7 @@ export default {
   methods: {
     async getUser() {
       try {
-        this.$store.dispatch('user/getUserData')
+        this.$store.dispatch('user/setUserIdState')
         const userDataGotFromServe = await this.$axios.$get(
           `user/${this.$store.state.user.userId}`,
           {

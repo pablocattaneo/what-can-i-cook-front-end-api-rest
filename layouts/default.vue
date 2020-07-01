@@ -12,7 +12,7 @@ export default {
     WcHeader
   },
   mounted() {
-    this.$store.dispatch('user/getUserData')
+    this.$store.dispatch('user/setUserIdState')
   }
 }
 </script>
