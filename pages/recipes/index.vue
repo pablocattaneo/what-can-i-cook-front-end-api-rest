@@ -58,7 +58,7 @@ export default {
     try {
       this.recipes = await this.$axios.$get('recipes/')
     } catch (error) {
-      console.log('error', error)
+      throw error
     }
   }
 }

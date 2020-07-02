@@ -222,6 +222,7 @@ export default {
       recipeForm: {
         isOnEditMode: !!params.id,
         fields: {
+          author: null,
           title: recipe.title || '',
           description: recipe.description || '',
           ingredients: recipe.ingredients
@@ -244,6 +245,7 @@ export default {
   },
   async mounted() {
     await this.authenticate()
+    this.recipeForm.fields.author = this.$store.state.user.userId
   },
   methods: {
     stringToArray(string, regex = /[\n\r]/g) {
