@@ -28,7 +28,6 @@ export default {
           if (error.response.status === 401) {
             this.$store.commit('toast/mutateShowToast', errorToastParameter)
             this.isUserLoggedMutation(false)
-            this.$router.push('/login')
           }
         }
       } else if (error.request) {
