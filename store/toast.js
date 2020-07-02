@@ -20,7 +20,7 @@ export const mutations = {
   mutateHideToast(stater) {
     state.isToastErrorVisible = false
   },
-  mutateIsToastErrorVisible(state, payload) {
-    state.isToastErrorVisible = payload
+  mutateResetIsToastErrorVisible(state) {
+    state.isToastErrorVisible = false
   }
 }

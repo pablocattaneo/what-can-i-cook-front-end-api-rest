@@ -26,7 +26,7 @@ export default {
           solid: true
         })
       }
-      this.$store.commit('toast/mutateIsToastErrorVisible', false)
+      this.$store.commit('toast/mutateResetIsToastErrorVisible')
     }
   },
   mounted() {
