@@ -222,6 +222,7 @@ export default {
       recipeForm: {
         isOnEditMode: !!params.id,
         fields: {
+          _id: params.id,
           author: null,
           title: recipe.title || '',
           description: recipe.description || '',
@@ -286,7 +287,7 @@ export default {
         }
         if (this.recipeForm.isOnEditMode) {
           this.storedRecipe = await this.$axios.$put(
-            'admin/recipes/editing/5de655dcd269d2821b2c73f9',
+            `admin/recipes/editing/${this.recipeForm.fields._id}`,
             formData,
             { headers: { 'content-type': 'multipart/form-data' } }
           )
