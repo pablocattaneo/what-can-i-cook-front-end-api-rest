@@ -17,22 +17,14 @@ export default {
       if (error.response) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
-        console.log('error.response', error.response)
         errorToastParameter.message =
           error.response?.data?.customErrorMessage || error.response.statusText
         if (error.response.data.isArray) {
           error.response.data.errors.forEach(() => {
-            this.$bvToast.toast(
-              errorToastParameter.message,
-              errorToastParameter.body
-            )
+            this.$store.commit('toast/mutateShowToast', errorToastParameter)
           })
         } else {
-          console.log('error.response', error.response)
-          this.$bvToast.toast(
-            errorToastParameter.message,
-            errorToastParameter.body
-          )
+          this.$store.commit('toast/mutateShowToast', errorToastParameter)
           if (error.response.status === 401) {
             this.$store.commit('toast/mutateShowToast', errorToastParameter)
             this.isUserLoggedMutation(false)
@@ -54,10 +46,7 @@ export default {
           'Something happened in setting up the request that triggered an Error'
         )
         errorToastParameter.message = error.message
-        this.$bvToast.toast(
-          errorToastParameter.message,
-          errorToastParameter.body
-        )
+        this.$store.commit('toast/mutateShowToast', errorToastParameter)
       }
     }
   }
