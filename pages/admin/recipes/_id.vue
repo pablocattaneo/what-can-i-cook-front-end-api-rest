@@ -244,8 +244,13 @@ export default {
     }
   },
   async mounted() {
-    await this.authenticate()
-    this.recipeForm.fields.author = this.$store.state.user.userId
+    try {
+      await this.authenticate()
+      this.recipeForm.fields.author = this.$store.state.user.userId
+    } catch (error) {
+      this.serverErrorsHandler(error)
+      this.$router.push(this.localePath('/login'))
+    }
   },
   methods: {
     stringToArray(string, regex = /[\n\r]/g) {
