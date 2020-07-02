@@ -46,8 +46,7 @@ export default {
   },
   data() {
     return {
-      recipes: [],
-      isPageLoading: true
+      recipes: []
     }
   },
   computed: {
