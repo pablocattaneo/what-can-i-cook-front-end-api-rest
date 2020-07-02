@@ -117,6 +117,7 @@ export default {
         this.isPageLoading = false
       } catch (error) {
         this.serverErrorsHandler(error)
+        this.$router.push(this.localePath('/login'))
       }
     }
   }

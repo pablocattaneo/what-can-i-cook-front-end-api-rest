@@ -14,7 +14,6 @@ export default {
           }
         })
       } catch (error) {
-        this.$router.push(this.localePath('/login'))
         throw error
       } finally {
         this.isProcessingAuthentication = false
