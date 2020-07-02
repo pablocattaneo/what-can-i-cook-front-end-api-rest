@@ -34,7 +34,7 @@ export default {
             errorToastParameter.body
           )
           if (error.response.status === 401) {
-            this.$store.commit('toast/mutateShowToast', { error: 'rarar' })
+            this.$store.commit('toast/mutateShowToast', errorToastParameter)
             this.isUserLoggedMutation(false)
             this.$router.push('/login')
           }

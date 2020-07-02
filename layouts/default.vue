@@ -13,11 +13,11 @@ export default {
     WcHeader
   },
   computed: {
-    ...mapState('toast', ['isToastErrorVisible'])
+    ...mapState('toast', ['isToastErrorVisible', 'errorToastParameter'])
   },
   watch: {
     isToastErrorVisible() {
-      this.$bvToast.toast('sarasa', {
+      this.$bvToast.toast(this.errorToastParameter.message, {
         title: 'Error',
         autoHideDelay: 15000,
         toaster: 'b-toaster-top-center',
