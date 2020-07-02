@@ -17,13 +17,16 @@ export default {
   },
   watch: {
     isToastErrorVisible() {
-      this.$bvToast.toast(this.errorToastParameter.message, {
-        title: 'Error',
-        autoHideDelay: 15000,
-        toaster: 'b-toaster-top-center',
-        variant: 'danger',
-        solid: true
-      })
+      if (this.isToastErrorVisible) {
+        this.$bvToast.toast(this.errorToastParameter.message, {
+          title: 'Error',
+          autoHideDelay: 15000,
+          toaster: 'b-toaster-top-center',
+          variant: 'danger',
+          solid: true
+        })
+      }
+      this.$store.commit('toast/mutateIsToastErrorVisible', false)
     }
   },
   mounted() {
