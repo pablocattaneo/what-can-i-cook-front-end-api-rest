@@ -1,4 +1,9 @@
 export default {
+  data() {
+    return {
+      isProcessingAuthentication: true
+    }
+  },
   methods: {
     async authenticate() {
       try {
@@ -11,6 +16,8 @@ export default {
       } catch (error) {
         this.$router.push(this.localePath('/login'))
         this.serverErrorsHandler(error)
+      } finally {
+        this.isProcessingAuthentication = false
       }
     }
   }

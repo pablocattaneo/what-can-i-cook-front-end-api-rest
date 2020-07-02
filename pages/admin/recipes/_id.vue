@@ -1,149 +1,155 @@
 <template>
   <div id="admin-recipes" class="container">
-    <h1>{{ recipeForm.title }}</h1>
-    <WcForm ref="wcForm">
-      <WcInput
-        id="recipe-name"
-        :value="recipeForm.fields.title"
-        :validation="$v.recipeForm.fields.title"
-        :label="$t('recipes.form_title_label') + ':'"
-        :placeholder="$t('recipes.form_title_label')"
-        :state="$v.recipeForm.fields.title.$error ? false : null"
-        @input="recipeForm.fields.title = $event"
-        autocomplete="off"
-        autofocus
-      />
-      <WcTextArea
-        id="recipe-description"
-        :value="recipeForm.fields.description"
-        :label="`${$t('recipes.form_description_label')}:`"
-        @input="recipeForm.fields.description = $event"
-      />
-      <WcTextArea
-        id="recipe-directions"
-        :value="recipeForm.fields.directions"
-        :validation="$v.recipeForm.fields.directions"
-        :state="$v.recipeForm.fields.directions.$error ? false : null"
-        :form-text-help-users="$t('recipes.form_directions_text_helps')"
-        :label="`${$t('recipes.form_directions_label')}:`"
-        @input="recipeForm.fields.directions = $event"
-        placeholder="Recipe directions"
-        autocomplete="off"
-      />
-      <div v-if="recipeForm.fields.directions" class="preview-directions">
-        <h1>{{ $t('recipes.preview_directions') }}</h1>
-        <ol>
-          <li
-            v-for="(ingredient, index) in previewDirections"
-            :key="'ingredient-' + index"
-          >
-            {{ ingredient }}
-          </li>
-        </ol>
-      </div>
-      <WcTextArea
-        id="recipe-ingredients"
-        :value="recipeForm.fields.ingredients"
-        :validation="$v.recipeForm.fields.ingredients"
-        :state="$v.recipeForm.fields.ingredients.$error ? false : null"
-        :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
-        :label="`${$t('recipes.form_ingredients_label')}:`"
-        @input="recipeForm.fields.ingredients = $event"
-        placeholder="Recipe ingredients"
-        autocomplete="off"
-      />
-      <div v-if="recipeForm.fields.ingredients" class="preview-ingredients">
-        <h1>{{ $t('recipes.preview_ingredients') }}</h1>
-        <ul>
-          <li
-            v-for="(ingredient, index) in previewIngredients"
-            :key="'ingredient-' + index"
-          >
-            {{ ingredient }}
-          </li>
-        </ul>
-      </div>
-      <WcSelect
-        :options="recipeLanguageOptions"
-        :label="$t('recipes.select_recipe_language')"
-        :value="recipeForm.fields.language"
-        :validation="$v.recipeForm.fields.language"
-        :state="$v.recipeForm.fields.language.$error ? false : null"
-        @input="recipeForm.fields.language = $event"
-      />
-      <WcFile
-        :label="$t('recipes.form_main_img_label')"
-        :placeholder="$t('recipes.form_main_img_label')"
-        @input="inputImg($event)"
-      />
-      <b-img-lazy
-        v-if="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
-        :src="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
-        :alt="recipeForm.fields.title"
-        :title="recipeForm.fields.title"
-        :blank-src="null"
-        class="mw-100"
-      />
-      <WcInput
-        id="recipe-more-info-serving"
-        :value="recipeForm.fields.moreInfo.serving"
-        :validation="$v.recipeForm.fields.moreInfo.serving"
-        :label="$t('recipes.form_more_info_serving_label') + ':'"
-        :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
-        @input="recipeForm.fields.moreInfo.serving = $event"
-        placeholder="4"
-        type="number"
-      />
-      <WcInput
-        id="recipe-more-info-cook-time"
-        :value="recipeForm.fields.moreInfo.cookTime"
-        :validation="$v.recipeForm.fields.moreInfo.cookTime"
-        :label="$t('recipes.form_more_info_cook_time_label') + ':'"
-        :state="$v.recipeForm.fields.moreInfo.cookTime.$error ? false : null"
-        @input="recipeForm.fields.moreInfo.cookTime = $event"
-        placeholder="45"
-        type="number"
-      />
-      <WcInput
-        id="recipe-more-info-ready-in"
-        :value="recipeForm.fields.moreInfo.readyIn"
-        :validation="$v.recipeForm.fields.moreInfo.readyIn"
-        :label="$t('recipes.form_more_info_ready_in_label') + ':'"
-        :state="$v.recipeForm.fields.moreInfo.readyIn.$error ? false : null"
-        @input="recipeForm.fields.moreInfo.readyIn = $event"
-        placeholder="45"
-        type="number"
-      />
-      <WcInput
-        id="recipe-more-info-calories"
-        :value="recipeForm.fields.moreInfo.calories"
-        :validation="$v.recipeForm.fields.moreInfo.calories"
-        :label="$t('recipes.form_more_info_calories_label') + ':'"
-        :state="$v.recipeForm.fields.moreInfo.calories.$error ? false : null"
-        @input="recipeForm.fields.moreInfo.calories = $event"
-        placeholder="120"
-        type="number"
-      />
-      <WcButtonSubmit @click.native="submit" :isProcessing="isFormProcessing" />
-    </WcForm>
-    <b-modal
-      id="storedRecipe"
-      :title="storedRecipe.message"
-      header-bg-variant="success"
-      header-text-variant="light"
-    >
-      <RecipeCard
-        :title="storedRecipe.data.title"
-        :b-img-lazy-src="
-          storedRecipe.data.mainImg
-            ? $store.state.apiRestBaseUrl + storedRecipe.data.mainImg
-            : null
-        "
-        :description="storedRecipe.data.description"
-        :more-info="storedRecipe.data.more_info"
-        :directions="storedRecipe.data.directions"
-      />
-    </b-modal>
+    <WcLoading v-if="isProcessingAuthentication" />
+    <div v-if="!isProcessingAuthentication" class="page-content">
+      <h1>{{ recipeForm.title }}</h1>
+      <WcForm ref="wcForm">
+        <WcInput
+          id="recipe-name"
+          :value="recipeForm.fields.title"
+          :validation="$v.recipeForm.fields.title"
+          :label="$t('recipes.form_title_label') + ':'"
+          :placeholder="$t('recipes.form_title_label')"
+          :state="$v.recipeForm.fields.title.$error ? false : null"
+          @input="recipeForm.fields.title = $event"
+          autocomplete="off"
+          autofocus
+        />
+        <WcTextArea
+          id="recipe-description"
+          :value="recipeForm.fields.description"
+          :label="`${$t('recipes.form_description_label')}:`"
+          @input="recipeForm.fields.description = $event"
+        />
+        <WcTextArea
+          id="recipe-directions"
+          :value="recipeForm.fields.directions"
+          :validation="$v.recipeForm.fields.directions"
+          :state="$v.recipeForm.fields.directions.$error ? false : null"
+          :form-text-help-users="$t('recipes.form_directions_text_helps')"
+          :label="`${$t('recipes.form_directions_label')}:`"
+          @input="recipeForm.fields.directions = $event"
+          placeholder="Recipe directions"
+          autocomplete="off"
+        />
+        <div v-if="recipeForm.fields.directions" class="preview-directions">
+          <h1>{{ $t('recipes.preview_directions') }}</h1>
+          <ol>
+            <li
+              v-for="(ingredient, index) in previewDirections"
+              :key="'ingredient-' + index"
+            >
+              {{ ingredient }}
+            </li>
+          </ol>
+        </div>
+        <WcTextArea
+          id="recipe-ingredients"
+          :value="recipeForm.fields.ingredients"
+          :validation="$v.recipeForm.fields.ingredients"
+          :state="$v.recipeForm.fields.ingredients.$error ? false : null"
+          :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
+          :label="`${$t('recipes.form_ingredients_label')}:`"
+          @input="recipeForm.fields.ingredients = $event"
+          placeholder="Recipe ingredients"
+          autocomplete="off"
+        />
+        <div v-if="recipeForm.fields.ingredients" class="preview-ingredients">
+          <h1>{{ $t('recipes.preview_ingredients') }}</h1>
+          <ul>
+            <li
+              v-for="(ingredient, index) in previewIngredients"
+              :key="'ingredient-' + index"
+            >
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
+        <WcSelect
+          :options="recipeLanguageOptions"
+          :label="$t('recipes.select_recipe_language')"
+          :value="recipeForm.fields.language"
+          :validation="$v.recipeForm.fields.language"
+          :state="$v.recipeForm.fields.language.$error ? false : null"
+          @input="recipeForm.fields.language = $event"
+        />
+        <WcFile
+          :label="$t('recipes.form_main_img_label')"
+          :placeholder="$t('recipes.form_main_img_label')"
+          @input="inputImg($event)"
+        />
+        <b-img-lazy
+          v-if="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
+          :src="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"
+          :alt="recipeForm.fields.title"
+          :title="recipeForm.fields.title"
+          :blank-src="null"
+          class="mw-100"
+        />
+        <WcInput
+          id="recipe-more-info-serving"
+          :value="recipeForm.fields.moreInfo.serving"
+          :validation="$v.recipeForm.fields.moreInfo.serving"
+          :label="$t('recipes.form_more_info_serving_label') + ':'"
+          :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
+          @input="recipeForm.fields.moreInfo.serving = $event"
+          placeholder="4"
+          type="number"
+        />
+        <WcInput
+          id="recipe-more-info-cook-time"
+          :value="recipeForm.fields.moreInfo.cookTime"
+          :validation="$v.recipeForm.fields.moreInfo.cookTime"
+          :label="$t('recipes.form_more_info_cook_time_label') + ':'"
+          :state="$v.recipeForm.fields.moreInfo.cookTime.$error ? false : null"
+          @input="recipeForm.fields.moreInfo.cookTime = $event"
+          placeholder="45"
+          type="number"
+        />
+        <WcInput
+          id="recipe-more-info-ready-in"
+          :value="recipeForm.fields.moreInfo.readyIn"
+          :validation="$v.recipeForm.fields.moreInfo.readyIn"
+          :label="$t('recipes.form_more_info_ready_in_label') + ':'"
+          :state="$v.recipeForm.fields.moreInfo.readyIn.$error ? false : null"
+          @input="recipeForm.fields.moreInfo.readyIn = $event"
+          placeholder="45"
+          type="number"
+        />
+        <WcInput
+          id="recipe-more-info-calories"
+          :value="recipeForm.fields.moreInfo.calories"
+          :validation="$v.recipeForm.fields.moreInfo.calories"
+          :label="$t('recipes.form_more_info_calories_label') + ':'"
+          :state="$v.recipeForm.fields.moreInfo.calories.$error ? false : null"
+          @input="recipeForm.fields.moreInfo.calories = $event"
+          placeholder="120"
+          type="number"
+        />
+        <WcButtonSubmit
+          @click.native="submit"
+          :isProcessing="isFormProcessing"
+        />
+      </WcForm>
+      <b-modal
+        id="storedRecipe"
+        :title="storedRecipe.message"
+        header-bg-variant="success"
+        header-text-variant="light"
+      >
+        <RecipeCard
+          :title="storedRecipe.data.title"
+          :b-img-lazy-src="
+            storedRecipe.data.mainImg
+              ? $store.state.apiRestBaseUrl + storedRecipe.data.mainImg
+              : null
+          "
+          :description="storedRecipe.data.description"
+          :more-info="storedRecipe.data.more_info"
+          :directions="storedRecipe.data.directions"
+        />
+      </b-modal>
+    </div>
   </div>
 </template>
 
@@ -153,6 +159,7 @@ import { required, integer } from 'vuelidate/lib/validators'
 import wcHandleError from '@/mixins/wc-handle-error.js'
 import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
 
+import WcLoading from '@/components/WcLoading.vue'
 import WcForm from '@/components/forms/WcForm'
 import WcInput from '@/components/forms/WcInput'
 import WcSelect from '@/components/forms/WcSelect'
@@ -168,7 +175,8 @@ export default {
     WcTextArea,
     WcFile,
     WcButtonSubmit,
-    RecipeCard
+    RecipeCard,
+    WcLoading
   },
   mixins: [wcHandleError, wcAuthenticationMixin],
   data() {
