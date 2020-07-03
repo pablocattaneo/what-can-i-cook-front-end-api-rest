@@ -31,13 +31,14 @@
         </li>
       </ul>
     </b-card-header>
-    <b-img-lazy
-      v-if="bImgLazySrc"
-      :src="bImgLazySrc"
-      :alt="title"
-      :title="title"
-      :blank-src="null"
-    />
+    <div class="img-wrapper">
+      <b-img-lazy
+        :src="recipeImage"
+        :alt="title"
+        :title="title"
+        :blank-src="null"
+      />
+    </div>
     <b-card-body>
       <b-card-title>{{ title }}</b-card-title>
       <b-card-text v-if="description" class="text-truncate">
@@ -97,6 +98,9 @@ export default {
       return Object.keys(this.moreInfo).some(
         (key) => this.moreInfo[key] !== null
       )
+    },
+    recipeImage() {
+      return this.bImgLazySrc || require('@/assets/img/logo.svg')
     }
   },
   methods: {
@@ -115,6 +119,9 @@ export default {
   position absolute
   width 100%
   background-color rgba(0, 0, 0, 0.5)
-img
-  width 100%
+.img-wrapper
+  width auto
+  overflow hidden
+  img
+    height 253px
 </style>
