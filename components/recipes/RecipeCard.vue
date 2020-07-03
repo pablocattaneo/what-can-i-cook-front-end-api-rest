@@ -62,7 +62,10 @@
 </template>
 
 <script>
+import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
+
 export default {
+  mixins: [wcAuthenticationMixin],
   props: {
     id: {
       type: [String, Number],
@@ -99,6 +102,7 @@ export default {
   },
   methods: {
     async deleteRecipe(recipeId) {
+      await this.authenticate()
       await this.$axios.$delete(`/recipe/${recipeId}`)
       this.$emit('recipeDeleted')
     }
