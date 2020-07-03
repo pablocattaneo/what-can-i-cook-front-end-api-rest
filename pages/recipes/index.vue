@@ -10,26 +10,22 @@
         {{ $t('recipes.there_is_no_recipes_yet') }}
       </h1>
     </div>
-    <div class="row">
-      <div
+    <b-card-group deck>
+      <RecipeCard
         v-for="(recipe, recipesIndex) in recipes"
         :key="recipesIndex"
-        class="mb-5 col-12 col-md-6 col-lg-3 d-flex align-items-stretch"
-      >
-        <RecipeCard
-          :showCardHeader="userCanEdit(recipe.author)"
-          :id="recipe._id"
-          :title="recipe.title"
-          :b-img-lazy-src="
-            recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
-          "
-          :description="recipe.description"
-          :more-info="recipe.more_info"
-          :directions="recipe.directions"
-          @recipeDeleted="getRecipes()"
-        />
-      </div>
-    </div>
+        :showCardHeader="userCanEdit(recipe.author)"
+        :id="recipe._id"
+        :title="recipe.title"
+        :b-img-lazy-src="
+          recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
+        "
+        :description="recipe.description"
+        :more-info="recipe.more_info"
+        :directions="recipe.directions"
+        @recipeDeleted="getRecipes()"
+      />
+    </b-card-group>
   </div>
 </template>
 

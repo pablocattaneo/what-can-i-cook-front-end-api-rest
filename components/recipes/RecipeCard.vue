@@ -27,19 +27,20 @@
         </li>
       </ul>
     </b-card-header>
-    <b-card-title>{{ title }}</b-card-title>
     <b-img-lazy
       v-if="bImgLazySrc"
       :src="bImgLazySrc"
       :alt="title"
       :title="title"
       :blank-src="null"
-      class="mb-3"
     />
-    <b-card-text v-if="description">
-      {{ description }}
-    </b-card-text>
-    <b-list-group flush>
+    <b-card-body>
+      <b-card-title>{{ title }}</b-card-title>
+      <b-card-text v-if="description">
+        {{ description }}
+      </b-card-text>
+    </b-card-body>
+    <b-list-group v-if="showMoreInfo" flush>
       <b-list-group-item
         v-for="(info, key, index) in moreInfo"
         :key="index + key"
@@ -98,6 +99,13 @@ export default {
     showCardHeader: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    showMoreInfo() {
+      return Object.keys(this.moreInfo).some(
+        (key) => this.moreInfo[key] !== null
+      )
     }
   },
   methods: {
