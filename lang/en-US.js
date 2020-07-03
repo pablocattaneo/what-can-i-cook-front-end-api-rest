@@ -92,5 +92,6 @@ export default {
   Last_name: 'Last name',
   Email: 'Email',
   Cancel: 'Cancel',
-  form_contains_errors: 'Form contains errors'
+  form_contains_errors: 'Form contains errors',
+  Read_more: 'Read more...'
 }

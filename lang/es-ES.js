@@ -95,5 +95,6 @@ export default {
   Last_name: 'Apellido',
   Email: 'Email',
   Cancel: 'Cancelar',
-  form_contains_errors: 'El formulario contiene errores'
+  form_contains_errors: 'El formulario contiene errores',
+  Read_more: 'Leer más...'
 }

@@ -47,17 +47,8 @@
         >
       </template>
     </b-list-group>
-    <b-list-group flush>
-      <b-list-group-item
-        v-for="(direction, index) in directions"
-        :key="`direction-${index}`"
-        >{{ index + 1 }} {{ direction }}</b-list-group-item
-      >
-    </b-list-group>
     <template v-slot:footer>
-      <b-button href="#" variant="primary">{{
-        $t('recipes.buy_ingredients')
-      }}</b-button>
+      <n-link to="/" variant="primary">{{ $t('Read_more') }}</n-link>
     </template>
   </b-card>
 </template>
