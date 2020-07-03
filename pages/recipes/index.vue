@@ -63,8 +63,6 @@ export default {
   },
   methods: {
     userCanEdit(recipeAuthor) {
-      console.log('recipeAuthor', recipeAuthor)
-      console.log('this.$store?.user?.userId', this.$store?.state?.user?.userId)
       return recipeAuthor === this.$store?.state?.user?.userId
     },
     async getRecipes() {
