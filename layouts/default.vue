@@ -2,15 +2,18 @@
   <div>
     <WcHeader />
     <nuxt class="mt-4" />
+    <WcFooter />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import WcHeader from '@/components/WcHeader.vue'
+import WcFooter from '@/components/WcFooter.vue'
 export default {
   components: {
-    WcHeader
+    WcHeader,
+    WcFooter
   },
   computed: {
     ...mapState('toast', ['isToastErrorVisible', 'errorToastParameter'])

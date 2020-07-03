@@ -14,7 +14,7 @@
       <div
         v-for="(recipe, recipesIndex) in recipes"
         :key="recipesIndex"
-        class="col-lg-4 mb-3"
+        class="col-lg-3 col-md-6 col-12 mb-3"
       >
         <RecipeCard
           :showCardHeader="userCanEdit(recipe.author)"

@@ -7,7 +7,11 @@
     no-body
     class="w-100"
   >
-    <b-card-header v-if="showCardHeader" header-tag="header">
+    <b-card-header
+      v-if="showCardHeader"
+      header-tag="header"
+      class="b-card-header"
+    >
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
           <nuxt-link
@@ -106,6 +110,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.b-card-header
+  z-index 10
+  position absolute
+  width 100%
+  background-color rgba(0, 0, 0, 0.5)
 img
   width 100%
 </style>
