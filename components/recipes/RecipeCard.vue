@@ -40,10 +40,11 @@
       />
     </div>
     <b-card-body>
-      <b-card-title>{{ title }}</b-card-title>
-      <b-card-text v-if="description" class="text-truncate">
-        {{ description }}
-      </b-card-text>
+      <b-card-title
+        v-b-popover.hover.top="{ variant: 'secondary', content: title }"
+        class="text-truncate"
+        >{{ title }}</b-card-title
+      >
     </b-card-body>
     <b-list-group v-if="showMoreInfo" flush>
       <template v-for="(info, key, index) in moreInfo">
