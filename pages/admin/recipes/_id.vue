@@ -291,6 +291,7 @@ export default {
             formData,
             { headers: { 'content-type': 'multipart/form-data' } }
           )
+          this.$router.push(this.localePath('/recipes'))
         }
         this.$bvModal.show('storedRecipe')
       } catch (error) {
