@@ -36,7 +36,7 @@
     />
     <b-card-body>
       <b-card-title>{{ title }}</b-card-title>
-      <b-card-text v-if="description">
+      <b-card-text v-if="description" class="text-truncate">
         {{ description }}
       </b-card-text>
     </b-card-body>
@@ -78,10 +78,6 @@ export default {
     moreInfo: {
       type: Object,
       default: () => ({})
-    },
-    directions: {
-      type: Array,
-      default: () => []
     },
     borderVariant: {
       type: String,
