@@ -41,11 +41,11 @@
       </b-card-text>
     </b-card-body>
     <b-list-group v-if="showMoreInfo" flush>
-      <b-list-group-item
-        v-for="(info, key, index) in moreInfo"
-        :key="index + key"
-        >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
-      >
+      <template v-for="(info, key, index) in moreInfo">
+        <b-list-group-item v-if="info" :key="index + key"
+          >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
+        >
+      </template>
     </b-list-group>
     <b-list-group flush>
       <b-list-group-item
