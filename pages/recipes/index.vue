@@ -17,7 +17,7 @@
         class="mb-5 col-12 col-md-6 col-lg-3 d-flex align-items-stretch"
       >
         <RecipeCard
-          :showCardHeader="true"
+          :showCardHeader="userCanEdit(recipe.author)"
           :id="recipe._id"
           :title="recipe.title"
           :b-img-lazy-src="
@@ -62,6 +62,11 @@ export default {
     }
   },
   methods: {
+    userCanEdit(recipeAuthor) {
+      console.log('recipeAuthor', recipeAuthor)
+      console.log('this.$store?.user?.userId', this.$store?.state?.user?.userId)
+      return recipeAuthor === this.$store?.state?.user?.userId
+    },
     async getRecipes() {
       this.recipes = await this.$axios.$get('recipes/')
     }
