@@ -60,6 +60,11 @@ export default {
     } catch (error) {
       throw error
     }
+  },
+  methods: {
+    async getRecipes() {
+      this.recipes = await this.$axios.$get('recipes/')
+    }
   }
 }
 </script>
