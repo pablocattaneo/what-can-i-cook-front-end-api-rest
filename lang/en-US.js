@@ -41,7 +41,8 @@ export default {
     preview_ingredients: 'Preview ingredients',
     preview_directions: 'Preview directions',
     select_recipe_language: 'Select recipe language',
-    there_is_no_recipes_yet: 'There is no recipes yet!'
+    there_is_no_recipes_yet: 'There is no recipes yet!',
+    form_slug_label: 'Recipe slug'
   },
   signUp: {
     signUpForm: {

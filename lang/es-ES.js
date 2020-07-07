@@ -43,7 +43,8 @@ export default {
     preview_ingredients: 'Ingredientes vista previa',
     preview_directions: 'Preparación vista previa',
     select_recipe_language: 'Eliga el idioma en el que está la receta',
-    there_is_no_recipes_yet: 'Aún no se han cargado recetas!'
+    there_is_no_recipes_yet: 'Aún no se han cargado recetas!',
+    form_slug_label: 'Slug'
   },
   signUp: {
     signUpForm: {

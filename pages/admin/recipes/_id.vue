@@ -126,6 +126,16 @@
           placeholder="120"
           type="number"
         />
+        <WcInput
+          id="recipe-name"
+          :value="recipeForm.fields.slug"
+          :validation="$v.recipeForm.fields.slug"
+          :label="$t('recipes.form_slug_label') + ':'"
+          :placeholder="$t('recipes.form_slug_label')"
+          :state="$v.recipeForm.fields.slug.$error ? false : null"
+          @input="recipeForm.fields.slug = $event"
+          autocomplete="off"
+        />
         <WcButtonSubmit
           @click.native="submit"
           :isProcessing="isFormProcessing"
@@ -239,7 +249,8 @@ export default {
             cookTime: recipe.more_info ? recipe.more_info.cookTime : null,
             readyIn: recipe.more_info ? recipe.more_info.readyIn : null,
             calories: recipe.more_info ? recipe.more_info.calories : null
-          }
+          },
+          slug: recipe.slug || ''
         }
       }
     }
@@ -329,6 +340,9 @@ export default {
           calories: {
             integer
           }
+        },
+        slug: {
+          required
         }
       }
     }
