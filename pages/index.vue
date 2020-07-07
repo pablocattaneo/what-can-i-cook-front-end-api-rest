@@ -27,6 +27,21 @@
         Code formatter
         <a href="https://prettier.io/" target="_blank">Prettier</a>
       </li>
+      <li>
+        Use Stylus as css preprocesor
+        <a href="https://stylus-lang.com/" target="_blank">Stylus</a>
+      </li>
+      <li>
+        Use ES6 features:
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
+          >Optional chaining</a
+        >
+        <a
+          href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js"
+          >For example</a
+        >
+      </li>
     </ul>
     <h3>Backend End</h3>
     <ul>
@@ -56,6 +71,20 @@
           target="_blank"
           >Mixin</a
         >
+      </li>
+      <li>
+        Mongo Schema validation:
+        <a
+          href="https://github.com/pablocattaneo/what-can-i-cook-backend-api-rest/blob/master/db/validation-recipes.js"
+          target="_blank"
+          >For example: recipe schema validation
+        </a>
+      </li>
+      <li>
+        Mongo Index for query recipe optimization (I am conscious that there is
+        a cost in the insert operation for that, but there are more queries that
+        insert in this application because is more probably that user search
+        recipe that create new ones):
       </li>
     </ul>
   </div>
