@@ -45,6 +45,13 @@
         class="text-truncate"
         >{{ title }}</b-card-title
       >
+      <b-card-text
+        v-b-popover.hover.top="{ variant: 'secondary', content: description }"
+        v-if="description"
+        class="text-truncate"
+      >
+        {{ description }}
+      </b-card-text>
     </b-card-body>
     <b-list-group v-if="showMoreInfo" flush>
       <template v-for="(info, key, index) in moreInfo">
@@ -119,7 +126,7 @@ export default {
   z-index 10
   position absolute
   width 100%
-  background-color rgba(0, 0, 0, 0.5)
+  background-color rgba(0, 0, 0, 0.8)
 .img-wrapper
   width auto
   overflow hidden
