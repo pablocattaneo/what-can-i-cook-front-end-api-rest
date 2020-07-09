@@ -243,7 +243,7 @@ export default {
             ? directionsArrayToString(recipe.directions)
             : null,
           language: recipe.language || '',
-          mainImage: recipe.mainImg || null,
+          mainImg: recipe.mainImg || null,
           moreInfo: {
             serving: recipe.more_info ? recipe.more_info.serving : null,
             cookTime: recipe.more_info ? recipe.more_info.cookTime : null,
@@ -269,7 +269,7 @@ export default {
       return string ? string.split(regex) : null
     },
     inputImg(event) {
-      this.recipeForm.fields.mainImage = event
+      this.recipeForm.fields.mainImg = event
       this.imgDOMStringOrImgUrl = URL.createObjectURL(event)
     },
     async submit() {
