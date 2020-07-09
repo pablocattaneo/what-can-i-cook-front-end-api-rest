@@ -1,5 +1,5 @@
 <template>
-  <div id="wc-footer">
+  <div id="wc-footer" class="mt-5">
     <div>
       Icons made by
       <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
