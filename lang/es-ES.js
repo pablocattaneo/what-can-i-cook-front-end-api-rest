@@ -97,5 +97,7 @@ export default {
   Email: 'Email',
   Cancel: 'Cancelar',
   form_contains_errors: 'El formulario contiene errores',
-  Read_more: 'Leer más...'
+  Read_more: 'Leer más...',
+  Description: 'Descripción',
+  Directions: 'Instrucciones'
 }
