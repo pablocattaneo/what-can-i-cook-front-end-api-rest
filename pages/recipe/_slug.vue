@@ -48,6 +48,18 @@
         </ol>
       </div>
     </div>
+    <div class="row">
+      <div class="col-12">
+        <h2>{{ $t('More_info') }}</h2>
+        <b-list-group>
+          <template v-for="(info, key, index) in recipe.more_info">
+            <b-list-group-item v-if="info" :key="`${index}-more-info`"
+              >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
+            >
+          </template>
+        </b-list-group>
+      </div>
+    </div>
   </div>
 </template>
 

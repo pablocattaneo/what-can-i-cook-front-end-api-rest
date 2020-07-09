@@ -96,5 +96,6 @@ export default {
   form_contains_errors: 'Form contains errors',
   Read_more: 'Read more...',
   Directions: 'Directions',
-  Ingredients: 'Ingredients'
+  Ingredients: 'Ingredients',
+  More_info: 'More info'
 }
