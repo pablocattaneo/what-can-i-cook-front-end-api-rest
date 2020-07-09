@@ -1,6 +1,6 @@
 <template>
   <div id="recipe-page" class="container">
-    <h1>Recipe</h1>
+    <h1>{{ recipe.title }}</h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   async fetch() {
     try {
-      this.recipes = await this.$axios.$get(
+      this.recipe = await this.$axios.$get(
         `/recipe-by-slug/${this.$route.params.slug}`
       )
     } catch (error) {
