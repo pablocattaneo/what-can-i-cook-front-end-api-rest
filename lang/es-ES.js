@@ -99,5 +99,6 @@ export default {
   form_contains_errors: 'El formulario contiene errores',
   Read_more: 'Leer más...',
   Description: 'Descripción',
-  Directions: 'Instrucciones'
+  Directions: 'Instrucciones',
+  Ingredients: 'Ingredientes'
 }

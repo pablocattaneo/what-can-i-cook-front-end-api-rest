@@ -23,6 +23,20 @@
     </div>
     <div class="row">
       <div class="col-12">
+        <h2>{{ $t('Ingredients') }}</h2>
+        <ul>
+          <li
+            v-for="(ingredient, index) in recipe.ingredients"
+            :key="`${index}-ingredient`"
+            class="mt-2"
+          >
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
         <h2>{{ $t('Directions') }}</h2>
         <ol>
           <li
