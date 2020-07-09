@@ -61,7 +61,9 @@
       </template>
     </b-list-group>
     <template v-slot:footer>
-      <n-link to="/" variant="primary">{{ $t('Read_more') }}</n-link>
+      <n-link :to="readMoreLink" variant="primary">{{
+        $t('Read_more')
+      }}</n-link>
     </template>
   </b-card>
 </template>
@@ -72,6 +74,11 @@ import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
 export default {
   mixins: [wcAuthenticationMixin],
   props: {
+    readMoreLink: {
+      type: String,
+      required: true,
+      default: '/'
+    },
     id: {
       type: [String, Number],
       default: null

@@ -23,6 +23,7 @@
           :b-img-lazy-src="
             recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
           "
+          :readMoreLink="`recipe/${recipe.slug}`"
           :description="recipe.description"
           :more-info="recipe.more_info"
           @recipeDeleted="getRecipes()"
