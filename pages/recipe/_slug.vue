@@ -1,18 +1,20 @@
 <template>
   <div id="recipe-page" class="container">
     <h1>{{ recipe.title }}</h1>
+    <img
+      v-if="recipe.mainImg"
+      :src="$store.state.apiRestBaseUrl + recipe.mainImg"
+      :alt="recipe.title"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  async fetch() {
-    try {
-      this.recipe = await this.$axios.$get(
-        `/recipe-by-slug/${this.$route.params.slug}`
-      )
-    } catch (error) {
-      throw error
+  async asyncData({ app, route }) {
+    const recipe = await app.$axios.$get(`/recipe-by-slug/${route.params.slug}`)
+    return {
+      recipe
     }
   }
 }
