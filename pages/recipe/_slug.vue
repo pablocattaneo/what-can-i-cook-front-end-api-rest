@@ -15,6 +15,11 @@
         />
       </div>
     </div>
+    <div v-if="recipe.description" class="row">
+      <div class="col-12">
+        <p>{{ recipe.description }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
