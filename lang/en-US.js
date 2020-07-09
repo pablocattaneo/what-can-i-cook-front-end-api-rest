@@ -95,7 +95,6 @@ export default {
   Cancel: 'Cancel',
   form_contains_errors: 'Form contains errors',
   Read_more: 'Read more...',
-  Description: 'Description',
   Directions: 'Directions',
   Ingredients: 'Ingredients'
 }

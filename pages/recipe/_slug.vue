@@ -5,6 +5,11 @@
         <h1>{{ recipe.title }}</h1>
       </div>
     </div>
+    <div v-if="recipe.description" class="row">
+      <div class="col-12">
+        <p>{{ recipe.description }}</p>
+      </div>
+    </div>
     <div v-if="recipe.mainImg" class="row">
       <div class="col-12">
         <b-img
@@ -13,12 +18,6 @@
           fluid
           center
         />
-      </div>
-    </div>
-    <div v-if="recipe.description" class="row">
-      <div class="col-12">
-        <h2>{{ $t('Description') }}</h2>
-        <p>{{ recipe.description }}</p>
       </div>
     </div>
     <div class="row">

@@ -98,7 +98,6 @@ export default {
   Cancel: 'Cancelar',
   form_contains_errors: 'El formulario contiene errores',
   Read_more: 'Leer más...',
-  Description: 'Descripción',
   Directions: 'Instrucciones',
   Ingredients: 'Ingredientes'
 }
