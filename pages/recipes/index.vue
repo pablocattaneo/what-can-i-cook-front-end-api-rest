@@ -25,7 +25,6 @@
           "
           :readMoreLink="`recipe/${recipe.slug}`"
           :description="recipe.description"
-          :more-info="recipe.more_info"
           @recipeDeleted="getRecipes()"
         />
       </div>
