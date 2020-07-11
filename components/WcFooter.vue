@@ -8,6 +8,12 @@
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
       <span id="author">App developed by: {{ author }}</span>
+      <a
+        id="stackoverflow-user-profile-url"
+        v-if="stackoverflowUserProfileUrl"
+        :href="stackoverflowUserProfileUrl"
+        >stackoverflow</a
+      >
     </div>
   </div>
 </template>
@@ -16,6 +22,10 @@
 export default {
   props: {
     author: {
+      type: String,
+      default: ''
+    },
+    stackoverflowUserProfileUrl: {
       type: String,
       default: ''
     }
