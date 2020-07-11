@@ -2,7 +2,7 @@
   <div>
     <WcHeader />
     <nuxt class="mt-4" />
-    <WcFooter />
+    <WcFooter author="Pablo Cattaneo" />
   </div>
 </template>
 
