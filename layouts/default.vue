@@ -2,7 +2,10 @@
   <div>
     <WcHeader />
     <nuxt class="mt-4" />
-    <WcFooter author="Pablo Cattaneo" />
+    <WcFooter
+      author="Pablo Cattaneo"
+      stackoverflow-user-profile-url="https://stackoverflow.com/users/3599272/pablo"
+    />
   </div>
 </template>
 

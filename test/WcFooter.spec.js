@@ -27,8 +27,7 @@ describe('StackOverflow link', () => {
         'https://stackoverflow.com/users/3599272/pablo'
     })
     expect(
-      wrapper.find('a#stackoverflow-user-profile-url').attributes().href ===
-        'https://stackoverflow.com/users/3599272/pablo'
-    ).toBe(true)
+      wrapper.find('a#stackoverflow-user-profile-url').attributes().href
+    ).toBe('https://stackoverflow.com/users/3599272/pablo')
   })
 })

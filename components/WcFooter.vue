@@ -12,6 +12,7 @@
         id="stackoverflow-user-profile-url"
         v-if="stackoverflowUserProfileUrl"
         :href="stackoverflowUserProfileUrl"
+        target="_blank"
         >stackoverflow</a
       >
     </div>
