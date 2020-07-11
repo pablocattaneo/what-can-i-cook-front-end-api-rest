@@ -7,12 +7,20 @@
       >
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+      <span id="author">App developed by: {{ author }}</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    author: {
+      type: String,
+      default: ''
+    }
+  }
+}
 </script>
 
 <style></style>
