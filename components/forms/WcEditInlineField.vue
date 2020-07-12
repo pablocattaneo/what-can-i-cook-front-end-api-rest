@@ -4,6 +4,7 @@
       <span class="font-weight-bold">{{ labels }}:</span>
       <span>{{ currentValue }}</span>
       <b-icon-pencil-square
+        id="b-icon-pencil-square"
         @click="edit"
         variant="primary"
         class="ml-2 icon wc-cursor-pointer"
@@ -23,7 +24,7 @@
           type="text"
           class="w-100"
         />
-        <b-button @click="closeEdit" variant="secondary">{{
+        <b-button id="cancelButton" @click="closeEdit" variant="secondary">{{
           $t('Cancel')
         }}</b-button>
         <WcButtonSubmit

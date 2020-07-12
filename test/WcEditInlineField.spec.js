@@ -44,10 +44,9 @@ describe('WcButtonSubmit click', () => {
   test('WcButtonSubmit must exist', () => {
     expect(wrapper.findComponent(WcButtonSubmit).exists()).toBe(true)
   })
-  test('When user click con WcButtonSubmit submit method must be called', async () => {
-    const submit = jest.fn()
-    wrapper.vm.submit = submit
+  test('When user click WcButtonSubmit submit method must be called', async () => {
+    wrapper.vm.submit = jest.fn()
     await wrapper.findComponent(WcButtonSubmit).trigger('click')
-    expect(submit).toHaveBeenCalled()
+    expect(wrapper.vm.submit).toHaveBeenCalled()
   })
 })
