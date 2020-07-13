@@ -16,3 +16,9 @@ describe('WcInput', () => {
     expect(wrapper.emitted().input).toBeTruthy()
   })
 })
+
+describe('Props type', () => {
+  test('The component is well formed so prop type should exist', () => {
+    expect(wrapper.vm).toHaveProperty('type')
+  })
+})
