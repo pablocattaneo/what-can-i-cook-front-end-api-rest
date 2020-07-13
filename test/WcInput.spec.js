@@ -6,8 +6,10 @@ const localVue = createLocalVue()
 localVue.use(BootstrapVue)
 
 let wrapper
+let input
 beforeAll(() => {
   wrapper = mount(WcInput, { localVue })
+  input = wrapper.find('input')
 })
 
 describe('WcInput', () => {
@@ -21,14 +23,21 @@ describe('Props type', () => {
   test('The component is well formed so prop type should exist', () => {
     expect(wrapper.vm).toHaveProperty('type')
   })
+  test('Type props was no set so input type text should be rendered', () => {
+    expect(input.attributes().type).toBe('text')
+  })
   test('Type props was set to text so input type text should be rendered', async () => {
     await wrapper.setProps({ type: 'text' })
-    const input = wrapper.find('input')
     expect(input.attributes().type).toBe('text')
   })
   test('Type props was set to number so input type number should be rendered', async () => {
     await wrapper.setProps({ type: 'number' })
-    const input = wrapper.find('input')
     expect(input.attributes().type).toBe('number')
+  })
+})
+
+describe('Focus method', () => {
+  test('Focus method should be definded', () => {
+    expect(wrapper.vm.focus).toBeDefined()
   })
 })
