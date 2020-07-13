@@ -21,9 +21,14 @@ describe('Props type', () => {
   test('The component is well formed so prop type should exist', () => {
     expect(wrapper.vm).toHaveProperty('type')
   })
-  test('type props was set to text so input type text should be rendered', () => {
-    wrapper.setProps({ type: 'text' })
+  test('Type props was set to text so input type text should be rendered', async () => {
+    await wrapper.setProps({ type: 'text' })
     const input = wrapper.find('input')
     expect(input.attributes().type).toBe('text')
+  })
+  test('Type props was set to number so input type number should be rendered', async () => {
+    await wrapper.setProps({ type: 'number' })
+    const input = wrapper.find('input')
+    expect(input.attributes().type).toBe('number')
   })
 })
