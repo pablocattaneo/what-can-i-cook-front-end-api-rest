@@ -7,17 +7,7 @@ localVue.use(BootstrapVue)
 
 let wrapper
 beforeAll(() => {
-  wrapper = mount(WcInput, {
-    localVue,
-    mocks: {
-      $t: (msg) => msg,
-      $v: {
-        value: {
-          $error: {}
-        }
-      }
-    }
-  })
+  wrapper = mount(WcInput, { localVue })
 })
 
 describe('WcInput', () => {
