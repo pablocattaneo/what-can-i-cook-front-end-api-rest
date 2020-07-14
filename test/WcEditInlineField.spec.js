@@ -3,11 +3,12 @@ import WcEditInlineField from '@/components/forms/WcEditInlineField'
 import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 import WcInput from '@/components/forms/WcInput'
 import Vuex from 'vuex'
-import { BootstrapVue } from 'bootstrap-vue'
+import { BootstrapVue, BButton } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
 localVue.use(BootstrapVue)
 localVue.use(Vuex)
+localVue.use('b-button', BButton)
 
 const store = new Vuex.Store({
   modules: {
@@ -38,6 +39,24 @@ beforeAll(() => {
       id: 'user-name-collapse',
       endPointPath: '/'
     }
+  })
+})
+
+describe('closeEdit method', () => {
+  test('closeEdit method should be definded', () => {
+    expect(wrapper.vm.closeEdit).toBeDefined()
+  })
+})
+
+describe('edit method', () => {
+  test('edit method should be definded', () => {
+    expect(wrapper.vm.edit).toBeDefined()
+  })
+})
+
+describe('submit method', () => {
+  test('submit method should be definded', () => {
+    expect(wrapper.vm.submit).toBeDefined()
   })
 })
 
