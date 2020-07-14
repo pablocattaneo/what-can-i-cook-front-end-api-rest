@@ -36,6 +36,12 @@ describe('Props type', () => {
   })
 })
 
+describe('Props id', () => {
+  test('The component is well formed so prop id should exist', () => {
+    expect(wrapper.vm).toHaveProperty('id')
+  })
+})
+
 describe('Focus method', () => {
   test('Focus method should be definded', () => {
     expect(wrapper.vm.focus).toBeDefined()
