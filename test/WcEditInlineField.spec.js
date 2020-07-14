@@ -84,3 +84,39 @@ describe('WcInput', () => {
     expect(wrapper.vm.value).toBe('An x value')
   })
 })
+
+describe('Props labels', () => {
+  test('The component is well formed so prop labels should exist', () => {
+    expect(wrapper.vm).toHaveProperty('labels')
+  })
+})
+
+describe('Props id', () => {
+  test('The component is well formed so prop id should exist', () => {
+    expect(wrapper.vm).toHaveProperty('id')
+  })
+})
+
+describe('Props objectToSendServer', () => {
+  test('The component is well formed so prop objectToSendServer should exist', () => {
+    expect(wrapper.vm).toHaveProperty('objectToSendServer')
+  })
+})
+
+describe('Props currentValue', () => {
+  test('The component is well formed so prop currentValue should exist', () => {
+    expect(wrapper.vm).toHaveProperty('currentValue')
+  })
+})
+
+describe('Props validationsRules', () => {
+  test('The component is well formed so prop validationsRules should exist', () => {
+    expect(wrapper.vm).toHaveProperty('validationsRules')
+  })
+})
+
+describe('Props endPointPath', () => {
+  test('The component is well formed so prop endPointPath should exist', () => {
+    expect(wrapper.vm).toHaveProperty('endPointPath')
+  })
+})
