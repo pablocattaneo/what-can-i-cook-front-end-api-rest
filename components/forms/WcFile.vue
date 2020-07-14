@@ -13,7 +13,7 @@
         :autocomplete="autocomplete"
         :autofocus="autofocus"
         :browse-text="buttonTextValue"
-        @input="cambiar()"
+        @input="change()"
         drop-placeholder="Drop file here..."
       >
         <template slot="file-name" slot-scope="{ names }">
@@ -51,9 +51,7 @@ export default {
     }
   },
   methods: {
-    cambiar() {
-      console.log('cambiar')
-      console.log('file', this.file)
+    change() {
       this.$emit('input', this.file)
     }
   }
