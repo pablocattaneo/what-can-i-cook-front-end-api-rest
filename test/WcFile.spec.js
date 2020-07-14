@@ -7,9 +7,7 @@ localVue.use(BootstrapVue)
 
 let wrapper
 beforeAll(() => {
-  wrapper = shallowMount(WcFile, {
-    localVue
-  })
+  wrapper = shallowMount(WcFile, { localVue })
 })
 
 describe('change method', () => {
