@@ -24,7 +24,7 @@ beforeAll(() => {
     mocks: {
       localePath: () => {},
       switchLocalePath: () => {},
-      $t: () => {},
+      $t: () => {}
     }
   })
 })
