@@ -14,7 +14,7 @@
         :autofocus="autofocus"
         :autocomplete="autocomplete"
         :type="type"
-        @change="$emit('input', $event)"
+        @input="$emit('input', $event)"
       ></b-form-input>
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}

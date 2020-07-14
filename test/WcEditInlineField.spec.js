@@ -76,7 +76,6 @@ describe('WcInput', () => {
     expect(wrapper.findComponent(WcInput).exists()).toBe(true)
   })
   test('When user input a value in WcInput value data must store this value', async () => {
-    wrapper.vm.submit = jest.fn()
     await wrapper
       .findComponent(WcInput)
       .find('input[type="text"]')
