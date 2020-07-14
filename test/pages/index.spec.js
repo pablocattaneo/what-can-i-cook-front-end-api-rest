@@ -1,4 +1,4 @@
-import { mount, createLocalVue, RouterLinkStub} from '@vue/test-utils'
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Index from '@/pages/index.vue'
 import { BootstrapVue } from 'bootstrap-vue'
 
