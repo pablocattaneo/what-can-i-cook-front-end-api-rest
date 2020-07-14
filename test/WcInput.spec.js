@@ -42,6 +42,12 @@ describe('Props id', () => {
   })
 })
 
+describe('Props placeholder', () => {
+  test('The component is well formed so prop placeholder should exist', () => {
+    expect(wrapper.vm).toHaveProperty('placeholder')
+  })
+})
+
 describe('Focus method', () => {
   test('Focus method should be definded', () => {
     expect(wrapper.vm.focus).toBeDefined()
