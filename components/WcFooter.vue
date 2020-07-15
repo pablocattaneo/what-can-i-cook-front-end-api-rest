@@ -1,9 +1,9 @@
 <template>
   <div id="wc-footer" class="mt-5 bg-dark container-fluid">
     <div class="row">
-      <ul class="list-unstyled col-12 mt-4">
-        <b-media tag="li">
-          <template v-slot:aside>
+      <div class="col-12 d-flex justify-content-center mt-3">
+        <ul class="list-unstyled">
+          <li class="mt-2">
             <b-img-lazy
               blank
               blank-color="#abc"
@@ -11,18 +11,16 @@
               src="@/assets/img/linkedin-icon.svg"
               alt="placeholder"
             />
-          </template>
-          <a
-            id="stackoverflow-user-profile-url"
-            v-if="stackoverflowUserProfileUrl"
-            :href="stackoverflowUserProfileUrl"
-            class="mt-0 mb-1"
-            target="_blank"
-            >stackoverflow</a
-          >
-        </b-media>
-        <b-media tag="li">
-          <template v-slot:aside>
+            <a
+              id="stackoverflow-user-profile-url"
+              v-if="stackoverflowUserProfileUrl"
+              :href="stackoverflowUserProfileUrl"
+              class="mt-0 mb-1"
+              target="_blank"
+              >stackoverflow</a
+            >
+          </li>
+          <li class="mt-2">
             <b-img-lazy
               blank
               blank-color="#abc"
@@ -30,17 +28,17 @@
               src="@/assets/img/stack-overflow-icon.svg"
               alt="placeholder"
             />
-          </template>
-          <a
-            id="stackoverflow-user-profile-url"
-            v-if="stackoverflowUserProfileUrl"
-            :href="stackoverflowUserProfileUrl"
-            class="mt-0 mb-1"
-            target="_blank"
-            >stackoverflow</a
-          >
-        </b-media>
-      </ul>
+            <a
+              id="stackoverflow-user-profile-url"
+              v-if="stackoverflowUserProfileUrl"
+              :href="stackoverflowUserProfileUrl"
+              class="mt-0 mb-1"
+              target="_blank"
+              >stackoverflow</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="text-center row">
       <div class="col-12">
