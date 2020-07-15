@@ -3,7 +3,7 @@
     <WcHeader />
     <nuxt class="mt-4" />
     <WcFooter
-      author="Pablo Cattaneo"
+      :author="author"
       stackoverflow-user-profile-url="https://stackoverflow.com/users/3599272/pablo"
     />
   </div>
@@ -17,6 +17,14 @@ export default {
   components: {
     WcHeader,
     WcFooter
+  },
+  data() {
+    return {
+      author: {
+        name: 'Pablo Cattaneo',
+        externalLink: 'https://www.linkedin.com/in/cattaneopablo/'
+      }
+    }
   },
   computed: {
     ...mapState('toast', ['isToastErrorVisible', 'errorToastParameter'])

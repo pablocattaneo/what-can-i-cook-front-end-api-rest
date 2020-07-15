@@ -49,7 +49,12 @@
       >
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-      <span id="author">App developed by: {{ author }}</span>
+      <span id="author"
+        >App developed by:
+        <a :href="author.externalLink" target="blank">{{
+          author.name
+        }}</a></span
+      >
     </div>
   </div>
 </template>
@@ -58,8 +63,11 @@
 export default {
   props: {
     author: {
-      type: String,
-      default: ''
+      type: Object,
+      default: () => ({
+        name: '',
+        externalLink: ''
+      })
     },
     stackoverflowUserProfileUrl: {
       type: String,

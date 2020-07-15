@@ -1,14 +1,20 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import WcFooter from '@/components/WcFooter'
+import { BootstrapVue } from 'bootstrap-vue'
+
+const localVue = createLocalVue()
+localVue.use(BootstrapVue)
 
 let wrapper
 beforeAll(() => {
-  wrapper = shallowMount(WcFooter)
+  wrapper = mount(WcFooter, {
+    localVue
+  })
 })
 
 describe('Author Property', () => {
   test('Author was set to Pablo Cattaneo so component should render this text.', async () => {
-    await wrapper.setProps({ author: 'Pablo Cattaneo' })
+    await wrapper.setProps({ author: { name: 'Pablo Cattaneo' } })
     expect(wrapper.find('#author').text()).toContain('Pablo Cattaneo')
   })
 })
