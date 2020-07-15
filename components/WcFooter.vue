@@ -1,5 +1,5 @@
 <template>
-  <div id="wc-footer" class="mt-5">
+  <div id="wc-footer" class="mt-5 bg-dark">
     <div>
       <ul class="list-unstyled">
         <b-media tag="li">
@@ -69,4 +69,7 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="stylus" scoped>
+#wc-footer
+  color white
+</style>
