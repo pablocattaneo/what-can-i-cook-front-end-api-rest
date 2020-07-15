@@ -24,6 +24,13 @@
         <a href="https://bootstrap-vue.org/" target="_blank">BootstrapVue</a>
       </li>
       <li>
+        Unit Test using
+        <a href="https://jestjs.io/" target="_blank">Jest</a> and
+        <a href="https://vue-test-utils.vuejs.org/" target="_blank"
+          >Vue Test Utils</a
+        >
+      </li>
+      <li>
         Code formatter
         <a href="https://prettier.io/" target="_blank">Prettier</a>
       </li>
