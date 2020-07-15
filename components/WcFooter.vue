@@ -1,6 +1,6 @@
 <template>
   <div id="wc-footer" class="mt-5 bg-dark">
-    <div>
+    <div class="d-flex justify-content-center mt-4">
       <ul class="list-unstyled">
         <b-media tag="li">
           <template v-slot:aside>
@@ -42,18 +42,26 @@
         </b-media>
       </ul>
     </div>
-    <div>
+    <div class="text-center">
+      <span id="author"
+        >App developed by:
+        <a
+          v-if="author.externalLink"
+          :href="author.externalLink"
+          target="blank"
+          >{{ author.name }}</a
+        >
+        <span v-else>{{ author.name }}</span>
+      </span>
+    </div>
+    <p class="text-center">
       Icons made by
       <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
         >Freepik</a
       >
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-      <span id="author"
-        >App developed by:
-        <a :href="author.externalLink" target="blank">{{ author.name }}</a>
-      </span>
-    </div>
+    </p>
   </div>
 </template>
 

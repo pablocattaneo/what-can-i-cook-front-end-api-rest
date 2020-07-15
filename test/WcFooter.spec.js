@@ -25,6 +25,13 @@ describe('Author Property', () => {
       'https://www.linkedin.com/in/cattaneopablo/'
     )
   })
+  test('Author externalLink was falsy so component should render span element instead a link.', async () => {
+    await wrapper.setProps({
+      author: { externalLink: '' }
+    })
+    expect(wrapper.find('#author a').exists()).toBe(false)
+    expect(wrapper.find('#author span').exists()).toBe(true)
+  })
 })
 
 describe('StackOverflow link', () => {
