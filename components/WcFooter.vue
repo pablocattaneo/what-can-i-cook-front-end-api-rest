@@ -1,7 +1,7 @@
 <template>
-  <div id="wc-footer" class="mt-5 bg-dark">
-    <div class="d-flex justify-content-center mt-4">
-      <ul class="list-unstyled">
+  <div id="wc-footer" class="mt-5 bg-dark container-fluid">
+    <div class="row">
+      <ul class="list-unstyled col-12 mt-4">
         <b-media tag="li">
           <template v-slot:aside>
             <b-img-lazy
@@ -42,26 +42,34 @@
         </b-media>
       </ul>
     </div>
-    <div class="text-center">
-      <span id="author"
-        >App developed by:
-        <a
-          v-if="author.externalLink"
-          :href="author.externalLink"
-          target="blank"
-          >{{ author.name }}</a
-        >
-        <span v-else>{{ author.name }}</span>
-      </span>
+    <div class="text-center row">
+      <div class="col-12">
+        <span id="author"
+          >App developed by:
+          <a
+            v-if="author.externalLink"
+            :href="author.externalLink"
+            target="blank"
+            >{{ author.name }}</a
+          >
+          <span v-else>{{ author.name }}</span>
+        </span>
+      </div>
     </div>
-    <p class="text-center">
-      Icons made by
-      <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
-        >Freepik</a
-      >
-      from
-      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-    </p>
+    <div class="row">
+      <div class="col-12">
+        <p class="text-center">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
