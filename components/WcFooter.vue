@@ -10,7 +10,7 @@
               width="24"
               src="@/assets/img/linkedin-icon.svg"
               alt="placeholder"
-            ></b-img-lazy>
+            />
           </template>
           <a
             id="stackoverflow-user-profile-url"
@@ -29,7 +29,7 @@
               width="24"
               src="@/assets/img/stack-overflow-icon.svg"
               alt="placeholder"
-            ></b-img-lazy>
+            />
           </template>
           <a
             id="stackoverflow-user-profile-url"
@@ -51,10 +51,8 @@
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
       <span id="author"
         >App developed by:
-        <a :href="author.externalLink" target="blank">{{
-          author.name
-        }}</a></span
-      >
+        <a :href="author.externalLink" target="blank">{{ author.name }}</a>
+      </span>
     </div>
   </div>
 </template>

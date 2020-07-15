@@ -13,9 +13,17 @@ beforeAll(() => {
 })
 
 describe('Author Property', () => {
-  test('Author was set to Pablo Cattaneo so component should render this text.', async () => {
+  test('Author name property was set to Pablo Cattaneo so component should render this text.', async () => {
     await wrapper.setProps({ author: { name: 'Pablo Cattaneo' } })
     expect(wrapper.find('#author').text()).toContain('Pablo Cattaneo')
+  })
+  test('Author externalLink was set to https://www.linkedin.com/in/cattaneopablo/ so component should render this a element with href with this value.', async () => {
+    await wrapper.setProps({
+      author: { externalLink: 'https://www.linkedin.com/in/cattaneopablo/' }
+    })
+    expect(wrapper.find('#author a').attributes().href).toBe(
+      'https://www.linkedin.com/in/cattaneopablo/'
+    )
   })
 })
 
