@@ -1,7 +1,7 @@
 <template>
   <div id="wc-layout-default">
     <WcHeader />
-    <nuxt class="mt-4 container" />
+    <nuxt class="mt-4 container page" />
     <WcFooter
       :author="author"
       stackoverflow-user-profile-url="https://stackoverflow.com/users/3599272/pablo"
@@ -48,3 +48,13 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+#wc-layout-default
+  display flex
+  flex-direction column
+  flex 1 1 0
+  min-height 100vh
+  .page
+    flex 1 0 auto
+</style>
