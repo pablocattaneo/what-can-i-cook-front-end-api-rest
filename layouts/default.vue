@@ -53,8 +53,7 @@ export default {
 #wc-layout-default
   display flex
   flex-direction column
-  flex 1 1 0
   min-height 100vh
   .page
-    flex 1 0 auto
+    flex-grow 1
 </style>
