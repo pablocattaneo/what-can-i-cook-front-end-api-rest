@@ -1,7 +1,7 @@
 <template>
   <div id="wc-layout-default">
     <WcHeader />
-    <nuxt class="mt-4" />
+    <nuxt class="mt-4 container" />
     <WcFooter
       :author="author"
       stackoverflow-user-profile-url="https://stackoverflow.com/users/3599272/pablo"

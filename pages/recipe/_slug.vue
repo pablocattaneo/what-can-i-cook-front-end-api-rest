@@ -1,5 +1,5 @@
 <template>
-  <div id="wc-page-recipe" class="container">
+  <div id="wc-page-recipe">
     <div class="row">
       <div class="col-12 mt-4">
         <h1>{{ recipe.title }}</h1>

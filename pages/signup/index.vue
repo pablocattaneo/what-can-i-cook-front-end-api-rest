@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="wc-page-signup-index">
     <div class="row">
       <div class="col-12">
         <h1>Sign Up</h1>
