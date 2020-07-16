@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="wc-layout-default">
     <WcHeader />
     <nuxt class="mt-4" />
     <WcFooter

@@ -1,5 +1,5 @@
 <template>
-  <div id="recipes" class="container">
+  <div id="wc-page-recipes" class="container">
     <WcLoading v-if="$fetchState.pending" />
     <h1 class="Content__Title">
       {{ $t('recipes.title') }}

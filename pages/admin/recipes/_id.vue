@@ -1,5 +1,5 @@
 <template>
-  <div id="admin-recipes" class="container">
+  <div id="wc-page-admin-recipes" class="container">
     <WcLoading v-if="isProcessingAuthentication" />
     <div v-if="!isProcessingAuthentication" class="page-content">
       <h1>{{ recipeForm.title }}</h1>

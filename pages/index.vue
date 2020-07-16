@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="wc-page-index" class="container">
     <h1 class="Content__Title">
       {{ $t('home.title') }}
     </h1>

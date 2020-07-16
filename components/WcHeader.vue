@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="wc-header">
     <b-navbar toggleable="lg" type="dark" variant="primary">
       <b-navbar-brand :to="localePath({ path: '/' })">Home</b-navbar-brand>
 

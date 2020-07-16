@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="wc-page-login" class="container">
     <div class="row">
       <div class="col-12">
         <h1>Login</h1>
