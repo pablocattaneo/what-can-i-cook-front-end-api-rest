@@ -2,7 +2,7 @@
   <div id="wc-footer" class="mt-5 bg-dark container-fluid">
     <div class="row">
       <div class="col-12 d-flex justify-content-center mt-3">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled text-center">
           <li class="mt-2">
             <b-img-lazy
               blank
@@ -13,11 +13,11 @@
             />
             <a
               id="stackoverflow-user-profile-url"
-              v-if="stackoverflowUserProfileUrl"
-              :href="stackoverflowUserProfileUrl"
+              v-if="linkedinProfileUrl"
+              :href="linkedinProfileUrl"
               class="mt-0 mb-1"
               target="_blank"
-              >stackoverflow</a
+              >Linkdin</a
             >
           </li>
           <li class="mt-2">
@@ -82,6 +82,10 @@ export default {
       })
     },
     stackoverflowUserProfileUrl: {
+      type: String,
+      default: ''
+    },
+    linkedinProfileUrl: {
       type: String,
       default: ''
     }

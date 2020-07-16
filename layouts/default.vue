@@ -5,6 +5,7 @@
     <WcFooter
       :author="author"
       stackoverflow-user-profile-url="https://stackoverflow.com/users/3599272/pablo"
+      linkedin-profile-url="https://www.linkedin.com/in/cattaneopablo/"
     />
   </div>
 </template>
