@@ -139,4 +139,6 @@ export default {
   overflow hidden
   img
     height 253px
+    margin 0 auto
+    display block
 </style>
