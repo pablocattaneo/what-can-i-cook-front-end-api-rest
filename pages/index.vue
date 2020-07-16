@@ -93,6 +93,11 @@
         insert in this application because is more probably that user search
         recipe that create new ones):
       </li>
+      <li>
+        Footer always at bottom, but not fixed, it moves if content push it. For
+        example:
+        <nuxt-link to="/login">Login</nuxt-link>
+      </li>
     </ul>
   </div>
 </template>
