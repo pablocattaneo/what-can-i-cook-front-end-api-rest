@@ -34,7 +34,7 @@
               :href="stackoverflowUserProfileUrl"
               class="mt-0 mb-1"
               target="_blank"
-              >stackoverflow</a
+              >Stackoverflow</a
             >
           </li>
         </ul>
