@@ -19,7 +19,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-form @submit.stop.prevent>
             <b-form-input
-              v-model="search"
+              v-model="term"
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
@@ -69,7 +69,7 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      search: ''
+      term: ''
     }
   },
   computed: {
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     async searchMethod() {
-      const recipes = await this.$axios.$get('recipess/')
+      const recipes = await this.$axios.$get(`recipes?term=${this.term}`)
       console.log('recipes', recipes)
     },
     async signOut() {
