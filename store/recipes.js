@@ -8,7 +8,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  async getRecipeAction({ commit }, payload) {
+  async getRecipesAction({ commit }, payload) {
     let url = 'recipes'
     if (payload) {
       Object.keys(payload).forEach((key, index) => {

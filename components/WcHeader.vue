@@ -77,7 +77,9 @@ export default {
   },
   methods: {
     async searchMethod() {
-      await this.$store.dispatch('recipes/getRecipeAction', { term: this.term })
+      await this.$store.dispatch('recipes/getRecipesAction', {
+        term: this.term
+      })
     },
     async signOut() {
       await this.$store.dispatch('user/userSignOutAction')
