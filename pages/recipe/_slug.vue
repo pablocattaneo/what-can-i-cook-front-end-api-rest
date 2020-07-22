@@ -48,7 +48,7 @@
         </ol>
       </div>
     </div>
-    <div class="row">
+    <div v-if="mustShowMoreInfoSection" class="row">
       <div class="col-12 mt-4">
         <h2>{{ $t('More_info') }}</h2>
         <b-list-group>
@@ -65,6 +65,13 @@
 
 <script>
 export default {
+  computed: {
+    mustShowMoreInfoSection() {
+      return Object.keys(this.recipe.more_info).find(
+        (key) => !!this.recipe.more_info[key]
+      )
+    }
+  },
   async asyncData({ app, route }) {
     const recipe = await app.$axios.$get(`/recipe-by-slug/${route.params.slug}`)
     return {
