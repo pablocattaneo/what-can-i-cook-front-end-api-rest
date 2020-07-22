@@ -54,18 +54,16 @@ export default {
     }
   },
   async fetch() {
-    try {
-      this.recipes = await this.$axios.$get('recipes/')
-    } catch (error) {
-      throw error
-    }
+    await this.$store.dispatch('recipes/getRecipeAction')
+    this.recipes = this.$store.state.recipes.recipes
   },
   methods: {
     userCanEdit(recipeAuthor) {
       return recipeAuthor === this.$store?.state?.user?.userId
     },
     async getRecipes() {
-      this.recipes = await this.$axios.$get('recipes/')
+      await this.$store.dispatch('recipes/getRecipeAction')
+      this.recipes = this.$store.state.recipes.recipes
     }
   }
 }
