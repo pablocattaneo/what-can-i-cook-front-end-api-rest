@@ -77,8 +77,7 @@ export default {
   },
   methods: {
     async searchMethod() {
-      const recipes = await this.$axios.$get(`recipes?term=${this.term}`)
-      console.log('recipes', recipes)
+      await this.$store.dispatch('recipes/getRecipeAction', { term: this.term })
     },
     async signOut() {
       await this.$store.dispatch('user/userSignOutAction')

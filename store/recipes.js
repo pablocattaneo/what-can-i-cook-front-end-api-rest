@@ -8,8 +8,15 @@ export const mutations = {
   }
 }
 export const actions = {
-  async getRecipeAction({ commit }) {
-    const recipes = await this.$axios.$get('recipes/')
+  async getRecipeAction({ commit }, payload) {
+    // const recipes = await this.$axios.$get('recipes/')
+    let url = 'recipes'
+    if (payload) {
+      Object.keys(payload).forEach((key, index) => {
+        url += `${index === 0 ? '?' : '&'}${key}=${payload[key]}`
+      })
+    }
+    const recipes = await this.$axios.$get(url)
     commit('getRecipes', recipes)
   }
 }
