@@ -37,25 +37,22 @@ import RecipeFilters from '@/components/recipes/RecipeFilters.vue'
 import RecipeCard from '@/components/recipes/RecipeCard.vue'
 import WcLoading from '@/components/WcLoading.vue'
 
+import { mapState } from 'vuex'
+
 export default {
   components: {
     RecipeFilters,
     RecipeCard,
     WcLoading
   },
-  data() {
-    return {
-      recipes: []
-    }
-  },
   computed: {
+    ...mapState('recipes', ['recipes']),
     areRecipes() {
       return this.recipes.length > 0
     }
   },
   async fetch() {
     await this.$store.dispatch('recipes/getRecipeAction')
-    this.recipes = this.$store.state.recipes.recipes
   },
   methods: {
     userCanEdit(recipeAuthor) {
@@ -63,7 +60,6 @@ export default {
     },
     async getRecipes() {
       await this.$store.dispatch('recipes/getRecipeAction')
-      this.recipes = this.$store.state.recipes.recipes
     }
   }
 }

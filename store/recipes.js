@@ -9,7 +9,6 @@ export const mutations = {
 }
 export const actions = {
   async getRecipeAction({ commit }, payload) {
-    // const recipes = await this.$axios.$get('recipes/')
     let url = 'recipes'
     if (payload) {
       Object.keys(payload).forEach((key, index) => {
