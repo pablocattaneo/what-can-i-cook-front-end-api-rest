@@ -7,7 +7,7 @@
     <RecipeFilters v-if="false" />
     <div class="row">
       <h1 v-if="!areRecipes" class="col-12 text-muted">
-        {{ $t('recipes.there_is_no_recipes_yet') }}
+        {{ $t('recipes.search_returns_no_recipes') }}
       </h1>
     </div>
     <div class="row">
