@@ -1,6 +1,15 @@
 <template>
   <div id="wc-page-recipes">
     <WcLoading v-if="$fetchState.pending" />
+    <div class="row">
+      <div class="col-12">
+        <b-button
+          :to="localePath({ path: '/admin/recipes/' })"
+          variant="primary"
+          >{{ $t('recipes.add_recipe') }}</b-button
+        >
+      </div>
+    </div>
     <h1 class="Content__Title">
       {{ $t('recipes.title') }}
     </h1>

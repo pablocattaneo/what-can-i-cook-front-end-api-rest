@@ -42,7 +42,8 @@ export default {
     preview_directions: 'Preview directions',
     select_recipe_language: 'Select recipe language',
     form_slug_label: 'Recipe slug',
-    search_returns_no_recipes: 'There are no recipes according to your search.'
+    search_returns_no_recipes: 'There are no recipes according to your search.',
+    add_recipe: 'Add recipe'
   },
   signUp: {
     signUpForm: {

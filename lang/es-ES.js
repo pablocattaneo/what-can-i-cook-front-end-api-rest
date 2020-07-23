@@ -44,7 +44,8 @@ export default {
     preview_directions: 'Preparación vista previa',
     select_recipe_language: 'Eliga el idioma en el que está la receta',
     form_slug_label: 'Slug',
-    search_returns_no_recipes: 'No existen recetas acorde a su búsqueda.'
+    search_returns_no_recipes: 'No existen recetas acorde a su búsqueda.',
+    add_recipe: 'Agregar receta'
   },
   signUp: {
     signUpForm: {
