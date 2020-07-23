@@ -59,6 +59,9 @@
     <h2>Site features:</h2>
     <ul>
       <li>
+        Supports Full-text search
+      </li>
+      <li>
         Supports locale to English and Spanish
       </li>
       <li>
