@@ -51,6 +51,11 @@ export default {
       return this.recipes.length > 0
     }
   },
+  watch: {
+    async '$route.query'() {
+      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+    }
+  },
   async fetch() {
     await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
   },
