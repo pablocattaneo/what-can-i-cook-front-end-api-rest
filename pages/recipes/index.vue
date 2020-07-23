@@ -52,14 +52,14 @@ export default {
     }
   },
   async fetch() {
-    await this.$store.dispatch('recipes/getRecipesAction')
+    await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
   },
   methods: {
     userCanEdit(recipeAuthor) {
       return recipeAuthor === this.$store?.state?.user?.userId
     },
     async getRecipes() {
-      await this.$store.dispatch('recipes/getRecipesAction')
+      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
     }
   }
 }
