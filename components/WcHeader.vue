@@ -76,9 +76,13 @@ export default {
     ...mapState('user', ['isUserLogged'])
   },
   methods: {
-    async searchMethod() {
-      await this.$store.dispatch('recipes/getRecipesAction', {
-        term: this.term
+    searchMethod() {
+      this.$router.push({
+        path: this.localePath('/recipes'),
+        query: {
+          ...this.$route.query,
+          term: this.term
+        }
       })
     },
     async signOut() {
