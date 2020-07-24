@@ -282,7 +282,6 @@ export default {
       url = url.replace(/ó/gi, 'o')
       url = url.replace(/ú/gi, 'u')
       url = url.replace(/ñ/gi, 'n')
-      console.log('url', url)
       this.recipeForm.fields.slug = url
     },
     stringToArray(string, regex = /[\n\r]/g) {
