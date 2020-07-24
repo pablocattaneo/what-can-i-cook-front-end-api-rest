@@ -11,7 +11,10 @@
           :label="$t('recipes.form_title_label') + ':'"
           :placeholder="$t('recipes.form_title_label')"
           :state="$v.recipeForm.fields.title.$error ? false : null"
-          @input="recipeForm.fields.title = $event"
+          @input="
+            recipeForm.fields.title = $event
+            getSlugFromTitle($event)
+          "
           autocomplete="off"
           autofocus
         />
@@ -265,6 +268,26 @@ export default {
     }
   },
   methods: {
+    getSlugFromTitle(url) {
+      // const specialChars = '!@#$^&%*()+=-[]\/{}|:<>?,.'
+
+      // for (let i = 0; i < specialChars.length; i++) {
+      //   url = url.replace(new RegExp('\\' + specialChars[i], 'gi'), '')
+      // }
+
+      url = url.toLowerCase()
+
+      url = url.replace(/ /g, '-')
+
+      url = url.replace(/á/gi, 'a')
+      url = url.replace(/é/gi, 'e')
+      url = url.replace(/í/gi, 'i')
+      url = url.replace(/ó/gi, 'o')
+      url = url.replace(/ú/gi, 'u')
+      url = url.replace(/ñ/gi, 'n')
+      console.log('url', url)
+      this.recipeForm.fields.slug = url
+    },
     stringToArray(string, regex = /[\n\r]/g) {
       return string ? string.split(regex) : null
     },
