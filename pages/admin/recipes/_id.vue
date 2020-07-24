@@ -274,7 +274,7 @@ export default {
       // for (let i = 0; i < specialChars.length; i++) {
       //   url = url.replace(new RegExp('\\' + specialChars[i], 'gi'), '')
       // }
-
+      url = url.trim()
       url = url.toLowerCase()
 
       url = url.replace(/ /g, '-')
