@@ -269,16 +269,13 @@ export default {
   },
   methods: {
     getSlugFromTitle(url) {
-      // const specialChars = '!@#$^&%*()+=-[]\/{}|:<>?,.'
-
-      // for (let i = 0; i < specialChars.length; i++) {
-      //   url = url.replace(new RegExp('\\' + specialChars[i], 'gi'), '')
-      // }
+      const urlReservedCharacters = "!#$%&'()*+,/:;=?@[]"
+      for (let i = 0; i < urlReservedCharacters.length; i++) {
+        url = url.replace(new RegExp('\\' + urlReservedCharacters[i], 'gi'), '')
+      }
       url = url.trim()
       url = url.toLowerCase()
-
       url = url.replace(/ /g, '-')
-
       url = url.replace(/á/gi, 'a')
       url = url.replace(/é/gi, 'e')
       url = url.replace(/í/gi, 'i')
