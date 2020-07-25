@@ -364,7 +364,16 @@ export default {
           }
         },
         slug: {
-          required
+          required,
+          validPath: (value) => {
+            const urlReservedCharacters = "!#$%&'()*+,/:;=?@[]"
+            for (let i = 0; i < urlReservedCharacters.length; i++) {
+              if (value.includes(urlReservedCharacters[i])) {
+                return false
+              }
+            }
+            return true
+          }
         }
       }
     }

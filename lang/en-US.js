@@ -74,7 +74,9 @@ export default {
       integerNumber: 'This field only accept integers.',
       email: 'This field must be a valid email address.',
       minLength: 'This field must be at least.',
-      sameAs: 'The content of this field must be the same as password'
+      sameAs: 'The content of this field must be the same as password',
+      validPath:
+        "The content of this field must not contains this characters ! # $ % & '() * + , / : ; = ? @ []"
     },
     submit: 'Submit',
     processing: 'Processing...'

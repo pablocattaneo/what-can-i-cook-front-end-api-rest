@@ -31,6 +31,9 @@
       <b-form-invalid-feedback v-if="validation.sameAs === false">
         {{ $t('form.validation.sameAs') }}
       </b-form-invalid-feedback>
+      <b-form-invalid-feedback v-if="validation.validPath === false">
+        {{ $t('form.validation.validPath') }}
+      </b-form-invalid-feedback>
       <b-form-text v-if="formTextHelpUsers">{{
         formTextHelpUsers
       }}</b-form-text>

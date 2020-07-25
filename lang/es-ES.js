@@ -76,7 +76,9 @@ export default {
       integerNumber: 'Este campo sólo acepta numero enteros.',
       email: 'Este campo debe ser un email válido.',
       minLength: 'Este campo debe tener al menos.',
-      sameAs: 'El contenido de este campo debe ser igual al de password.'
+      sameAs: 'El contenido de este campo debe ser igual al de password.',
+      validPath:
+        "El contenido de este campo no debe contener estos caracteres ! # $ % & '() * + , / : ; = ? @ []"
     },
     submit: 'Enviar',
     processing: 'Procesando...'
