@@ -268,21 +268,24 @@ export default {
     }
   },
   methods: {
-    getSlugFromTitle(url) {
+    getSlugFromTitle(path) {
       const urlReservedCharacters = "!#$%&'()*+,/:;=?@[]"
       for (let i = 0; i < urlReservedCharacters.length; i++) {
-        url = url.replace(new RegExp('\\' + urlReservedCharacters[i], 'gi'), '')
+        path = path.replace(
+          new RegExp('\\' + urlReservedCharacters[i], 'gi'),
+          ''
+        )
       }
-      url = url.trim()
-      url = url.toLowerCase()
-      url = url.replace(/ /g, '-')
-      url = url.replace(/á/gi, 'a')
-      url = url.replace(/é/gi, 'e')
-      url = url.replace(/í/gi, 'i')
-      url = url.replace(/ó/gi, 'o')
-      url = url.replace(/ú/gi, 'u')
-      url = url.replace(/ñ/gi, 'n')
-      this.recipeForm.fields.slug = url
+      path = path.trim()
+      path = path.toLowerCase()
+      path = path.replace(/ /g, '-')
+      path = path.replace(/á/gi, 'a')
+      path = path.replace(/é/gi, 'e')
+      path = path.replace(/í/gi, 'i')
+      path = path.replace(/ó/gi, 'o')
+      path = path.replace(/ú/gi, 'u')
+      path = path.replace(/ñ/gi, 'n')
+      this.recipeForm.fields.slug = path
     },
     stringToArray(string, regex = /[\n\r]/g) {
       return string ? string.split(regex) : null
