@@ -99,7 +99,13 @@
       <li>
         Footer always at bottom, but not fixed, it moves if content push it. For
         example:
-        <nuxt-link to="/login">Login</nuxt-link>
+        <nuxt-link :to="localePath({ path: '/login' })">Login</nuxt-link>
+      </li>
+      <li>
+        Supports slug for recipes
+        <nuxt-link :to="localePath({ path: '/recipe/meat-loaf' })"
+          >Meat Loaf</nuxt-link
+        >
       </li>
     </ul>
   </div>
