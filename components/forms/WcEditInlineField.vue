@@ -99,6 +99,9 @@ export default {
       }
     }
   },
+  created() {
+    this.value = this.currentValue
+  },
   methods: {
     closeEdit() {
       this.$root.$emit('bv::toggle::collapse', this.id)
