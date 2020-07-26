@@ -102,7 +102,7 @@
         <nuxt-link :to="localePath({ path: '/login' })">Login</nuxt-link>
       </li>
       <li>
-        Supports slug for recipes
+        Supports slug for recipes. For example:
         <nuxt-link :to="localePath({ path: '/recipe/meat-loaf' })"
           >Meat Loaf</nuxt-link
         >
