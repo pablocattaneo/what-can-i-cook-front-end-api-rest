@@ -1,41 +1,45 @@
 <template>
   <div id="wc-page-recipes" class="position-relative">
     <WcLoading v-if="$fetchState.pending" />
-    <div class="row">
-      <div class="col-12">
-        <b-button
-          :to="localePath({ path: '/admin/recipes/' })"
-          variant="primary"
-          >{{ $t('recipes.add_recipe') }}</b-button
-        >
+    <div v-else class="page-content">
+      <div class="row">
+        <div class="col-12">
+          <b-button
+            :to="localePath({ path: '/admin/recipes/' })"
+            variant="primary"
+            >{{ $t('recipes.add_recipe') }}</b-button
+          >
+        </div>
       </div>
-    </div>
-    <h1 class="Content__Title">
-      {{ $t('recipes.title') }}
-    </h1>
-    <RecipeFilters v-if="false" />
-    <div class="row">
-      <h1 v-if="!areRecipes" class="col-12 text-muted">
-        {{ $t('recipes.search_returns_no_recipes') }}
+      <h1 class="Content__Title">
+        {{ $t('recipes.title') }}
       </h1>
-    </div>
-    <div class="row">
-      <div
-        v-for="(recipe, recipesIndex) in recipes"
-        :key="recipesIndex"
-        class="col-lg-3 col-md-6 col-12 mb-3"
-      >
-        <RecipeCard
-          :showCardHeader="userCanEdit(recipe.author)"
-          :id="recipe._id"
-          :title="recipe.title"
-          :b-img-lazy-src="
-            recipe.mainImg ? $store.state.apiRestBaseUrl + recipe.mainImg : null
-          "
-          :readMoreLink="`recipe/${recipe.slug}`"
-          :description="recipe.description"
-          @recipeDeleted="getRecipes()"
-        />
+      <RecipeFilters v-if="false" />
+      <div class="row">
+        <h1 v-if="!areRecipes" class="col-12 text-muted">
+          {{ $t('recipes.search_returns_no_recipes') }}
+        </h1>
+      </div>
+      <div class="row">
+        <div
+          v-for="(recipe, recipesIndex) in recipes"
+          :key="recipesIndex"
+          class="col-lg-3 col-md-6 col-12 mb-3"
+        >
+          <RecipeCard
+            :showCardHeader="userCanEdit(recipe.author)"
+            :id="recipe._id"
+            :title="recipe.title"
+            :b-img-lazy-src="
+              recipe.mainImg
+                ? $store.state.apiRestBaseUrl + recipe.mainImg
+                : null
+            "
+            :readMoreLink="`recipe/${recipe.slug}`"
+            :description="recipe.description"
+            @recipeDeleted="getRecipes()"
+          />
+        </div>
       </div>
     </div>
   </div>
