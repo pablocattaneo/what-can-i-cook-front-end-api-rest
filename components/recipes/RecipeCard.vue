@@ -14,15 +14,9 @@
     >
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <nuxt-link
-            :to="
-              localePath({
-                path: `/admin/recipes/${id}`
-              })
-            "
-            class="btn btn-link"
-            >{{ $t('actions.edit') }}</nuxt-link
-          >
+          <b-button @click="editRecipe(id)" variant="link">{{
+            $t('actions.edit')
+          }}</b-button>
         </li>
         <li class="nav-item">
           <b-button @click="deleteRecipe(id)" variant="link">{{
@@ -70,9 +64,10 @@
 
 <script>
 import wcAuthenticationMixin from '@/mixins/wc-authentication-mixin.js'
+import wcHandleError from '@/mixins/wc-handle-error.js'
 
 export default {
-  mixins: [wcAuthenticationMixin],
+  mixins: [wcAuthenticationMixin, wcHandleError],
   props: {
     readMoreLink: {
       type: String,
@@ -120,9 +115,23 @@ export default {
   },
   methods: {
     async deleteRecipe(recipeId) {
-      await this.authenticate()
-      await this.$axios.$delete(`/recipe/${recipeId}`)
-      this.$emit('recipeDeleted')
+      try {
+        await this.authenticate()
+        await this.$axios.$delete(`/recipe/${recipeId}`)
+        this.$emit('recipeDeleted')
+      } catch (error) {
+        this.serverErrorsHandler(error)
+        this.$router.push(this.localePath('/login'))
+      }
+    },
+    async editRecipe(recipeId) {
+      try {
+        await this.authenticate()
+        this.$router.push(this.localePath(`/admin/recipes/${recipeId}`))
+      } catch (error) {
+        this.serverErrorsHandler(error)
+        this.$router.push(this.localePath('/login'))
+      }
     }
   }
 }
