@@ -20,6 +20,6 @@ beforeAll(() => {
 
 describe('Componets markup', () => {
   test('The component is well formed contain css class container', () => {
-    expect(wrapper.classes()).toContain('Content')
+    expect(wrapper.find('#wc-page-about-index').exists()).toBe(true)
   })
 })
