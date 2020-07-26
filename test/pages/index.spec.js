@@ -10,7 +10,8 @@ beforeAll(() => {
   wrapper = mount(Index, {
     localVue,
     mocks: {
-      $t: () => {}
+      $t: () => {},
+      localePath: () => ''
     },
     stubs: {
       NuxtLink: RouterLinkStub
@@ -20,6 +21,6 @@ beforeAll(() => {
 
 describe('Componets markup', () => {
   test('The component is well formed contain css class container', () => {
-    expect(wrapper.classes()).toContain('container')
+    expect(wrapper.find('#wc-page-index').exists()).toBe(true)
   })
 })
