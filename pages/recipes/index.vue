@@ -1,5 +1,5 @@
 <template>
-  <div id="wc-page-recipes">
+  <div id="wc-page-recipes" class="position-relative">
     <WcLoading v-if="$fetchState.pending" />
     <div class="row">
       <div class="col-12">

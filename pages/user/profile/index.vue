@@ -1,5 +1,5 @@
 <template>
-  <div id="wc-page-profile">
+  <div id="wc-page-profile" class="position-relative">
     <WcLoading v-if="isPageLoading" />
     <div v-if="!isPageLoading" class="page-content">
       <div class="row">

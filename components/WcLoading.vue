@@ -13,10 +13,10 @@
   position absolute
   left 0
   right 0
-  top 56px
+  top 0
   bottom 0
   margin auto
-  z-index 10
+  z-index 999999999
   background white
   .wc-loading-spinner
     position absolute
