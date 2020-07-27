@@ -29,7 +29,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vuelidate.js' }],
+  plugins: [
+    { src: '~/plugins/vuelidate.js' },
+    { src: '~/plugins/infinite-loading', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

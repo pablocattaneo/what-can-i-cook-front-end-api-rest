@@ -41,6 +41,9 @@
           />
         </div>
       </div>
+      <client-only>
+        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+      </client-only>
     </div>
   </div>
 </template>
@@ -78,6 +81,9 @@ export default {
     },
     async getRecipes() {
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+    },
+    infiniteHandler() {
+      console.log('infiniteHandler')
     }
   }
 }

@@ -20,6 +20,7 @@
     "bootstrap-vue": "^2.15.0",
     "nuxt": "^2.13.2",
     "nuxt-i18n": "^6.12.2",
+    "vue-infinite-loading": "^2.4.5",
     "vue-scrollto": "^2.18.1",
     "vuelidate": "^0.7.4"
   },
