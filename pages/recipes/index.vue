@@ -16,7 +16,7 @@
       </h1>
       <RecipeFilters v-if="false" />
       <div class="row">
-        <h1 v-if="!areRecipes" class="col-12 text-muted">
+        <h1 v-if="isNotSearchResult" class="col-12 text-muted">
           {{ $t('recipes.search_returns_no_recipes') }}
         </h1>
       </div>
@@ -61,6 +61,11 @@ export default {
     RecipeCard,
     WcLoading
   },
+  data() {
+    return {
+      isNotSearchResult: false
+    }
+  },
   computed: {
     ...mapState('recipes', ['recipes']),
     areRecipes() {
@@ -71,6 +76,8 @@ export default {
     async '$route.query'() {
       this.$store.commit('recipes/resetRecipes')
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+      console.log('this.$store.state.recipes', this.$store.state.recipes)
+      this.isNotSearchResult = this.recipes.length === 0
     }
   },
   async fetch() {
