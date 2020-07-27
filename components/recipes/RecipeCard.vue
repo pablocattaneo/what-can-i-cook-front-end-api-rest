@@ -5,7 +5,7 @@
     img-top
     tag="article"
     no-body
-    class="w-100"
+    class="w-100 h-100"
   >
     <b-card-header
       v-if="showCardHeader"
