@@ -107,6 +107,12 @@
           >Meat Loaf</nuxt-link
         >
       </li>
+      <li>
+        Supports infinite loading. For example:
+        <nuxt-link :to="localePath({ path: '/recipes' })"
+          >Inifinite loading</nuxt-link
+        >
+      </li>
     </ul>
   </div>
 </template>

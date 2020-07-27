@@ -4,7 +4,10 @@ export const state = () => ({
 
 export const mutations = {
   getRecipes(state, payload) {
-    state.recipes = payload
+    state.recipes = [...state.recipes, ...payload]
+  },
+  resetRecipes(state) {
+    state.recipes = []
   }
 }
 export const actions = {

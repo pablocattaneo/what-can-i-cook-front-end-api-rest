@@ -69,6 +69,7 @@ export default {
   },
   watch: {
     async '$route.query'() {
+      this.$store.commit('recipes/resetRecipes')
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
     }
   },
@@ -83,8 +84,13 @@ export default {
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
     },
     infiniteHandler() {
-      console.log('infiniteHandler')
+      const queries = { ...this.$route.query, pagination: 10 }
+      this.$store.dispatch('recipes/getRecipesAction', queries)
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.$store.commit('recipes/resetRecipes')
+    next()
   }
 }
 </script>
