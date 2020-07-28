@@ -43,11 +43,11 @@
       </div>
       <client-only>
         <infinite-loading @infinite="infiniteHandler">
-          <div slot="spinner">
+          <template slot="spinner">
             <b-spinner variant="primary" />
-          </div>
-          <div slot="no-more">No more message</div>
-          <div slot="no-results">No results message</div>
+          </template>
+          <template slot="no-more">No more message</template>
+          <template slot="no-results">No results message</template>
         </infinite-loading>
       </client-only>
     </div>
