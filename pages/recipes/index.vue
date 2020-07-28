@@ -46,8 +46,10 @@
           <template slot="spinner">
             <b-spinner variant="primary" />
           </template>
-          <template slot="no-more">No more message</template>
-          <template slot="no-results">No results message</template>
+          <template slot="no-more">{{
+            $t('recipes.this_are_all_recipes_for_your_search')
+          }}</template>
+          <template slot="no-results">no-results</template>
         </infinite-loading>
       </client-only>
     </div>
@@ -82,7 +84,6 @@ export default {
     async '$route.query'() {
       this.$store.commit('recipes/resetRecipes')
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
-      console.log('this.$store.state.recipes', this.$store.state.recipes)
       this.isNotSearchResult = this.recipes.length === 0
     }
   },
@@ -101,7 +102,10 @@ export default {
         const queries = { ...this.$route.query, pagination: 10 }
         await this.$store.dispatch('recipes/getRecipesAction', queries)
         if (this.recipes.length === this.totalRecipes) {
+          $state.loaded()
           $state.complete()
+        } else {
+          $state.loaded()
         }
       } catch (error) {
         $state.error()

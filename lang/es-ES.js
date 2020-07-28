@@ -45,7 +45,9 @@ export default {
     select_recipe_language: 'Eliga el idioma en el que está la receta',
     form_slug_label: 'Slug',
     search_returns_no_recipes: 'No existen recetas acorde a su búsqueda.',
-    add_recipe: 'Agregar receta'
+    add_recipe: 'Agregar receta',
+    this_are_all_recipes_for_your_search:
+      'Estas son todas las recetas para tu búsqueda'
   },
   signUp: {
     signUpForm: {

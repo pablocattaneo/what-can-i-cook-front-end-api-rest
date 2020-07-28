@@ -43,7 +43,8 @@ export default {
     select_recipe_language: 'Select recipe language',
     form_slug_label: 'Recipe slug',
     search_returns_no_recipes: 'There are no recipes according to your search.',
-    add_recipe: 'Add recipe'
+    add_recipe: 'Add recipe',
+    this_are_all_recipes_for_your_search: 'This are all recipes for your search'
   },
   signUp: {
     signUpForm: {
