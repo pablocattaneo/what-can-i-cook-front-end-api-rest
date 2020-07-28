@@ -42,7 +42,13 @@
         </div>
       </div>
       <client-only>
-        <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+        <infinite-loading @infinite="infiniteHandler">
+          <div slot="spinner">
+            <b-spinner variant="primary" />
+          </div>
+          <div slot="no-more">No more message</div>
+          <div slot="no-results">No results message</div>
+        </infinite-loading>
       </client-only>
     </div>
   </div>
@@ -67,7 +73,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('recipes', ['recipes']),
+    ...mapState('recipes', ['recipes', 'totalRecipes']),
     areRecipes() {
       return this.recipes.length > 0
     }
@@ -90,9 +96,17 @@ export default {
     async getRecipes() {
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
     },
-    infiniteHandler() {
-      const queries = { ...this.$route.query, pagination: 10 }
-      this.$store.dispatch('recipes/getRecipesAction', queries)
+    async infiniteHandler($state) {
+      try {
+        const queries = { ...this.$route.query, pagination: 10 }
+        await this.$store.dispatch('recipes/getRecipesAction', queries)
+        if (this.recipes.length === this.totalRecipes) {
+          $state.complete()
+        }
+      } catch (error) {
+        $state.error()
+        throw error
+      }
     }
   },
   beforeRouteLeave(to, from, next) {
