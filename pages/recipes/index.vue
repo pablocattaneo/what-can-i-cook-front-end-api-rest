@@ -46,9 +46,7 @@
           <template slot="spinner">
             <b-spinner variant="primary" />
           </template>
-          <template slot="no-more">{{
-            $t('recipes.this_are_all_recipes_for_your_search')
-          }}</template>
+          <div slot="no-more"></div>
           <template slot="no-results">no-results</template>
         </infinite-loading>
       </client-only>
@@ -101,11 +99,9 @@ export default {
       try {
         const queries = { ...this.$route.query, pagination: 10 }
         await this.$store.dispatch('recipes/getRecipesAction', queries)
+        $state.loaded()
         if (this.recipes.length === this.totalRecipes) {
-          $state.loaded()
           $state.complete()
-        } else {
-          $state.loaded()
         }
       } catch (error) {
         $state.error()

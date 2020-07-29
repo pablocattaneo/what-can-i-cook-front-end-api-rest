@@ -1,6 +1,6 @@
 export const state = () => ({
   recipes: [],
-  totalRecipes: null
+  totalRecipes: 0
 })
 
 export const mutations = {
@@ -10,7 +10,7 @@ export const mutations = {
   },
   resetRecipes(state) {
     state.recipes = []
-    state.totalRecipes = null
+    state.totalRecipes = 0
   }
 }
 export const actions = {
