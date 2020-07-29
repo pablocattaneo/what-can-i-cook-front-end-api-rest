@@ -8,7 +8,7 @@ export default {
         message: '',
         body: {
           title: 'Error',
-          autoHideDelay: 15000,
+          autoHideDelay: 5000,
           toaster: 'b-toaster-top-center',
           variant: 'danger',
           solid: true
