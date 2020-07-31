@@ -2,6 +2,24 @@
   <div id="wc-page-recipes" class="position-relative">
     <WcLoading v-if="$fetchState.pending" />
     <div v-else class="page-content">
+      <div>
+        <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+        <b-sidebar id="sidebar-1" title="Sidebar" shadow>
+          <RecipeFilters />
+          <div class="px-3 py-2">
+            <p>
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
+              ac consectetur ac, vestibulum at eros.
+            </p>
+            <b-img
+              src="https://picsum.photos/500/500/?image=54"
+              fluid
+              thumbnail
+            ></b-img>
+          </div>
+        </b-sidebar>
+      </div>
       <div class="row">
         <div class="col-12">
           <b-button
@@ -14,7 +32,6 @@
       <h1 class="Content__Title">
         {{ $t('recipes.title') }}
       </h1>
-      <RecipeFilters v-if="false" />
       <div class="row">
         <h1 v-if="isNotSearchResult" class="col-12 text-muted">
           {{ $t('recipes.search_returns_no_recipes') }}
