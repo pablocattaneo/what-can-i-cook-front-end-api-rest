@@ -57,4 +57,5 @@ export default {
   min-height 100vh
   .page
     flex-grow 1
+    position static
 </style>
