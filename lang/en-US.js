@@ -100,5 +100,6 @@ export default {
   Read_more: 'Read more...',
   Directions: 'Directions',
   Ingredients: 'Ingredients',
-  More_info: 'More info'
+  More_info: 'More info',
+  Filters: 'Filters'
 }

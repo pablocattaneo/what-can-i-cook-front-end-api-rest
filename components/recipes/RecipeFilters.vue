@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div id="recipefilters">
     <b-form-group>
       <template v-slot:label>
-        <b>{{ $t('language') }}</b
-        ><br />
+        <b>{{ $t('language') }}</b>
         <b-form-checkbox
           v-model="allSelected"
           @change="toggleAll"
@@ -26,7 +25,7 @@
         class="ml-4"
         aria-label="Individual flavours"
         stacked
-      ></b-form-checkbox-group>
+      />
     </b-form-group>
   </div>
 </template>

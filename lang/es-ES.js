@@ -103,5 +103,6 @@ export default {
   Read_more: 'Leer más...',
   Directions: 'Instrucciones',
   Ingredients: 'Ingredientes',
-  More_info: 'Más información'
+  More_info: 'Más información',
+  Filters: 'Filttros'
 }
