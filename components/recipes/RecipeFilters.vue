@@ -28,15 +28,33 @@ export default {
             filters: JSON.stringify(this.urlArray)
           }
         })
+      } else {
+        const index = this.urlArray.findIndex((e) => e.language === 'es')
+        this.urlArray.splice(index, 1)
+        this.$router.push({
+          path: this.localePath('/recipes'),
+          query: {
+            filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
+          }
+        })
       }
     },
     english() {
-      if (this.spanish) {
+      if (this.english) {
         this.urlArray.push({ language: 'en' })
         this.$router.push({
           path: this.localePath('/recipes'),
           query: {
             filters: JSON.stringify(this.urlArray)
+          }
+        })
+      } else {
+        const index = this.urlArray.findIndex((e) => e.language === 'en')
+        this.urlArray.splice(index, 1)
+        this.$router.push({
+          path: this.localePath('/recipes'),
+          query: {
+            filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
           }
         })
       }
