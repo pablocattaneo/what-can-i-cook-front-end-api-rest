@@ -20,28 +20,16 @@ export default {
   },
   watch: {
     spanish() {
-      if (this.spanish) {
-        this.urlArray.push({ language: 'es' })
-        this.$router.push({
-          path: this.localePath('/recipes'),
-          query: {
-            filters: JSON.stringify(this.urlArray)
-          }
-        })
-      } else {
-        const index = this.urlArray.findIndex((e) => e.language === 'es')
-        this.urlArray.splice(index, 1)
-        this.$router.push({
-          path: this.localePath('/recipes'),
-          query: {
-            filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
-          }
-        })
-      }
+      this.buildLanguageQueryString(this.spanish, 'es')
     },
     english() {
-      if (this.english) {
-        this.urlArray.push({ language: 'en' })
+      this.buildLanguageQueryString(this.english, 'en')
+    }
+  },
+  methods: {
+    buildLanguageQueryString(language, value) {
+      if (language) {
+        this.urlArray.push({ language: value })
         this.$router.push({
           path: this.localePath('/recipes'),
           query: {
@@ -49,7 +37,7 @@ export default {
           }
         })
       } else {
-        const index = this.urlArray.findIndex((e) => e.language === 'en')
+        const index = this.urlArray.findIndex((e) => e.language === value)
         this.urlArray.splice(index, 1)
         this.$router.push({
           path: this.localePath('/recipes'),
