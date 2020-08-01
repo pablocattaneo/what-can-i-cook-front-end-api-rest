@@ -1,32 +1,11 @@
 <template>
-  <div id="recipefilters">
-    <b-form-group>
-      <template v-slot:label>
-        <b>{{ $t('language') }}</b>
-        <b-form-checkbox
-          v-model="allSelected"
-          @change="toggleAll"
-          aria-describedby="flavours"
-          aria-controls="flavours"
-        >
-          {{
-            allSelected
-              ? $t('un_select_all_less_default_language')
-              : $t('select_all')
-          }}
-        </b-form-checkbox>
-      </template>
-
-      <b-form-checkbox-group
-        id="flavors"
-        v-model="selected"
-        :options="flavours"
-        name="flavors"
-        class="ml-4"
-        aria-label="Individual flavours"
-        stacked
-      />
-    </b-form-group>
+  <div id="eecipe-filters">
+    <b-form-checkbox v-model="spanish" name="check-button" switch>
+      {{ $t('es') }}
+    </b-form-checkbox>
+    <b-form-checkbox v-model="english" name="check-button" switch>
+      {{ $t('en') }}
+    </b-form-checkbox>
   </div>
 </template>
 
@@ -34,28 +13,33 @@
 export default {
   data() {
     return {
-      flavours: [this.$t('es'), this.$t('en')],
-      selected: [this.$t(this.$i18n.locale)],
-      allSelected: false
+      spanish: false,
+      english: false,
+      urlArray: []
     }
   },
   watch: {
-    selected(newVal, oldVal) {
-      // Handle changes in individual flavour checkboxes
-      if (newVal.length === 0) {
-        this.allSelected = false
-        this.selected.push(this.$t(this.$i18n.locale))
-      } else if (newVal.length === this.flavours.length) {
-        this.allSelected = true
+    spanish() {
+      if (this.spanish) {
+        this.urlArray.push({ language: 'es' })
         this.$router.push({
-          query: { language: 'all' }
+          path: this.localePath('/recipes'),
+          query: {
+            filters: JSON.stringify(this.urlArray)
+          }
         })
       }
-    }
-  },
-  methods: {
-    toggleAll(checked) {
-      this.selected = checked ? this.flavours.slice() : []
+    },
+    english() {
+      if (this.spanish) {
+        this.urlArray.push({ language: 'en' })
+        this.$router.push({
+          path: this.localePath('/recipes'),
+          query: {
+            filters: JSON.stringify(this.urlArray)
+          }
+        })
+      }
     }
   }
 }
