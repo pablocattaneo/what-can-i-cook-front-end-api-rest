@@ -6,6 +6,20 @@
     <b-form-checkbox v-model="english" name="check-button" switch>
       {{ $t('en') }}
     </b-form-checkbox>
+    <div>
+      <label for="range-1">{{ $t('recipes.up_to_calories_by_portion') }}</label>
+      <b-form-input
+        id="range-1"
+        v-model="portionCalories"
+        @change="portionCaloriesChange"
+        type="range"
+        min="0"
+        max="1000"
+      />
+      <div class="mt-2">
+        {{ $t('recipes.portion_calories') }}: {{ portionCalories }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,7 +29,8 @@ export default {
     return {
       spanish: false,
       english: false,
-      urlArray: []
+      urlArray: [],
+      portionCalories: null
     }
   },
   watch: {
@@ -27,12 +42,22 @@ export default {
     }
   },
   methods: {
+    portionCaloriesChange(event) {
+      this.$router.push({
+        path: this.localePath('/recipes'),
+        query: {
+          ...this.$route.query,
+          calories: event
+        }
+      })
+    },
     buildLanguageQueryString(language, value) {
       if (language) {
         this.urlArray.push({ language: value })
         this.$router.push({
           path: this.localePath('/recipes'),
           query: {
+            ...this.$route.query,
             filters: JSON.stringify(this.urlArray)
           }
         })
@@ -42,6 +67,7 @@ export default {
         this.$router.push({
           path: this.localePath('/recipes'),
           query: {
+            ...this.$route.query,
             filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
           }
         })
