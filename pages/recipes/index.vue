@@ -1,6 +1,6 @@
 <template>
   <div id="wc-page-recipes" class="position-relative">
-    <WcLoading v-if="$fetchState.pending" />
+    <WcLoading v-if="isPageLoading" />
     <div v-else class="page-content">
       <div>
         <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
@@ -74,7 +74,8 @@ export default {
   },
   data() {
     return {
-      isNotSearchResult: false
+      isNotSearchResult: false,
+      isPageLoading: false
     }
   },
   computed: {
@@ -85,13 +86,26 @@ export default {
   },
   watch: {
     async '$route.query'() {
-      this.$store.commit('recipes/resetRecipes')
-      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
-      this.isNotSearchResult = this.recipes.length === 0
+      try {
+        this.isPageLoading = true
+        this.$store.commit('recipes/resetRecipes')
+        await this.$store.dispatch(
+          'recipes/getRecipesAction',
+          this.$route.query
+        )
+        this.isNotSearchResult = this.recipes.length === 0
+      } finally {
+        this.isPageLoading = false
+      }
     }
   },
   async fetch() {
-    await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+    try {
+      this.isPageLoading = true
+      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+    } finally {
+      this.isPageLoading = false
+    }
   },
   methods: {
     userCanEdit(recipeAuthor) {
