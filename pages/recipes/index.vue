@@ -112,7 +112,16 @@ export default {
       return recipeAuthor === this.$store?.state?.user?.userId
     },
     async getRecipes() {
-      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+      try {
+        this.isPageLoading = true
+        this.$store.commit('recipes/resetRecipes')
+        await this.$store.dispatch(
+          'recipes/getRecipesAction',
+          this.$route.query
+        )
+      } finally {
+        this.isPageLoading = false
+      }
     },
     async infiniteHandler($state) {
       try {
