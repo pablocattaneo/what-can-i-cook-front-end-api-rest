@@ -1,24 +1,20 @@
 <template>
-  <div>
-    <b-form-group :id="`label-${id}`" :label="label" :for="id">
-      <template v-slot:label>
-        {{ label }}
-        <span v-if="isARequiredFiled" class="text-danger">*</span>
-      </template>
-      <b-form-select
-        :value="selected"
-        :options="options"
-        :state="state"
-        @input="$emit('input', $event)"
-      ></b-form-select>
-      <b-form-invalid-feedback v-if="!validation.required">
-        {{ $t('form.validation.required') }}
-      </b-form-invalid-feedback>
-      <b-form-text v-if="formTextHelpUsers">{{
-        formTextHelpUsers
-      }}</b-form-text>
-    </b-form-group>
-  </div>
+  <b-form-group :id="`label-${id}`" :label="label" :for="id">
+    <template v-slot:label>
+      {{ label }}
+      <span v-if="isARequiredFiled" class="text-danger">*</span>
+    </template>
+    <b-form-select
+      :value="selected"
+      :options="options"
+      :state="state"
+      @input="$emit('input', $event)"
+    />
+    <b-form-invalid-feedback v-if="!validation.required">
+      {{ $t('form.validation.required') }}
+    </b-form-invalid-feedback>
+    <b-form-text v-if="formTextHelpUsers">{{ formTextHelpUsers }}</b-form-text>
+  </b-form-group>
 </template>
 
 <script>

@@ -279,7 +279,7 @@ export default {
       }
     }
   },
-  async created() {
+  async fetch() {
     try {
       await this.authenticate()
       this.recipeForm.fields.author = this.$store.state.user.userId
