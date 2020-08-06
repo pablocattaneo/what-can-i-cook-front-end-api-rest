@@ -47,7 +47,8 @@ export default {
     search_returns_no_recipes: 'No existen recetas acorde a su búsqueda.',
     add_recipe: 'Agregar receta',
     up_to_calories_by_portion: 'Hasta calorias por porción',
-    portion_calories: 'Calorías por porción'
+    portion_calories: 'Calorías por porción',
+    categories: 'Categorías'
   },
   signUp: {
     signUpForm: {

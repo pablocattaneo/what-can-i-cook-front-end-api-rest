@@ -69,6 +69,14 @@
           </ul>
         </div>
         <WcSelect
+          :options="categoryOptions"
+          :label="$t('recipes.categories')"
+          :value="recipeForm.fields.category"
+          :validation="$v.recipeForm.fields.category"
+          :state="$v.recipeForm.fields.category.$error ? false : null"
+          @input="recipeForm.fields.category = $event"
+        />
+        <WcSelect
           :options="recipeLanguageOptions"
           :label="$t('recipes.select_recipe_language')"
           :value="recipeForm.fields.language"
@@ -200,6 +208,18 @@ export default {
         message: ''
       },
       recipeId: this.$route.params.id || null,
+      categoryOptions: [
+        {
+          value: null,
+          text: this.$t('recipes.categories'),
+          disabled: true
+        },
+        { value: 'Appetizers & Snacks', text: 'Appetizers & Snacks' },
+        { value: 'Breakfast & Brunch', text: 'Breakfast & Brunch' },
+        { value: 'Desserts', text: 'Desserts' },
+        { value: 'Dinner', text: 'Dinner' },
+        { value: 'Drinks', text: 'Drinks' }
+      ],
       recipeLanguageOptions: [
         {
           value: null,
@@ -245,6 +265,7 @@ export default {
           directions: recipe.directions
             ? directionsArrayToString(recipe.directions)
             : null,
+          category: recipe.category || '',
           language: recipe.language || '',
           mainImg: recipe.mainImg || null,
           moreInfo: {
@@ -344,6 +365,9 @@ export default {
           required
         },
         directions: {
+          required
+        },
+        category: {
           required
         },
         language: {
