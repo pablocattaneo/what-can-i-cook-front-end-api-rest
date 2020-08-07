@@ -218,7 +218,8 @@ export default {
         { value: 'Breakfast & Brunch', text: 'Breakfast & Brunch' },
         { value: 'Desserts', text: 'Desserts' },
         { value: 'Dinner', text: 'Dinner' },
-        { value: 'Drinks', text: 'Drinks' }
+        { value: 'Drinks', text: 'Drinks' },
+        { value: 'Lunch', text: 'Lunch' }
       ],
       recipeLanguageOptions: [
         {
