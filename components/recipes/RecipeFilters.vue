@@ -20,17 +20,40 @@
         {{ $t('recipes.portion_calories') }}: {{ portionCalories }}
       </div>
     </div>
+    <WcSelect
+      :options="categoryOptions"
+      :label="$t('recipes.categories')"
+      @input="categoryChange($event)"
+    />
   </div>
 </template>
 
 <script>
+import WcSelect from '@/components/forms/WcSelect'
+
 export default {
+  components: {
+    WcSelect
+  },
   data() {
     return {
       spanish: false,
       english: false,
       urlArray: [],
-      portionCalories: null
+      portionCalories: null,
+      categoryOptions: [
+        {
+          value: null,
+          text: this.$t('recipes.categories'),
+          disabled: true
+        },
+        { value: 'Appetizers & Snacks', text: 'Appetizers & Snacks' },
+        { value: 'Breakfast & Brunch', text: 'Breakfast & Brunch' },
+        { value: 'Desserts', text: 'Desserts' },
+        { value: 'Dinner', text: 'Dinner' },
+        { value: 'Drinks', text: 'Drinks' },
+        { value: 'Lunch', text: 'Lunch' }
+      ]
     }
   },
   watch: {
@@ -42,6 +65,15 @@ export default {
     }
   },
   methods: {
+    categoryChange(event) {
+      this.$router.push({
+        path: this.localePath('/recipes'),
+        query: {
+          ...this.$route.query,
+          category: event
+        }
+      })
+    },
     portionCaloriesChange(event) {
       this.$router.push({
         path: this.localePath('/recipes'),
