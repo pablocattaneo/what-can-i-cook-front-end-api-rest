@@ -47,12 +47,12 @@ export default {
           text: this.$t('recipes.categories'),
           disabled: true
         },
-        { value: 'Appetizers & Snacks', text: 'Appetizers & Snacks' },
-        { value: 'Breakfast & Brunch', text: 'Breakfast & Brunch' },
-        { value: 'Desserts', text: 'Desserts' },
-        { value: 'Dinner', text: 'Dinner' },
-        { value: 'Drinks', text: 'Drinks' },
-        { value: 'Lunch', text: 'Lunch' }
+        { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
+        { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
+        { value: 'desserts', text: 'Desserts' },
+        { value: 'dinner', text: 'Dinner' },
+        { value: 'drinks', text: 'Drinks' },
+        { value: 'lunch', text: 'Lunch' }
       ]
     }
   },
