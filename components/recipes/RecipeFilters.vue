@@ -6,7 +6,7 @@
     <b-form-checkbox v-model="english" name="check-button" switch>
       {{ $t('en') }}
     </b-form-checkbox>
-    <div>
+    <div class="mt-4">
       <label for="range-1">{{ $t('recipes.up_to_calories_by_portion') }}</label>
       <b-form-input
         id="range-1"
@@ -16,14 +16,13 @@
         min="0"
         max="1000"
       />
-      <div class="mt-2">
-        {{ $t('recipes.portion_calories') }}: {{ portionCalories }}
-      </div>
+      <div>{{ $t('recipes.portion_calories') }}: {{ portionCalories }}</div>
     </div>
     <WcSelect
       :options="categoryOptions"
       :label="$t('recipes.categories')"
       @input="categoryChange($event)"
+      class="mt-4"
     />
   </div>
 </template>
@@ -40,7 +39,7 @@ export default {
       spanish: false,
       english: false,
       urlArray: [],
-      portionCalories: null,
+      portionCalories: 1000,
       categoryOptions: [
         {
           value: null,
