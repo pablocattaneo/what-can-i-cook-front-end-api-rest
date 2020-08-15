@@ -1,9 +1,9 @@
 <template>
   <div id="eecipe-filters">
-    <b-form-checkbox v-model="spanish" name="check-button" switch>
+    <b-form-checkbox v-model="languages.spanish" name="check-button" switch>
       {{ $t('es') }}
     </b-form-checkbox>
-    <b-form-checkbox v-model="english" name="check-button" switch>
+    <b-form-checkbox v-model="languages.english" name="check-button" switch>
       {{ $t('en') }}
     </b-form-checkbox>
     <div class="mt-4">
@@ -34,10 +34,23 @@ export default {
   components: {
     WcSelect
   },
+  props: {
+    languagesStatus: {
+      type: Object,
+      default: () => ({
+        languages: {
+          spanish: false,
+          english: false
+        }
+      })
+    }
+  },
   data() {
     return {
-      spanish: false,
-      english: false,
+      languages: {
+        spanish: false,
+        english: false
+      },
       urlArray: [],
       portionCalories: 1000,
       categoryOptions: [
@@ -56,14 +69,23 @@ export default {
     }
   },
   watch: {
-    spanish() {
-      this.buildLanguageQueryString(this.spanish, 'es')
-    },
-    english() {
-      this.buildLanguageQueryString(this.english, 'en')
+    languagesStatus() {
+      this.setLanguages()
     }
+    // 'languages.spanish'() {
+    //   this.buildLanguageQueryString(this.languages.spanish, 'es')
+    // },
+    // 'languages.english'() {
+    //   this.buildLanguageQueryString(this.languages.english, 'en')
+    // }
+  },
+  created() {
+    this.setLanguages()
   },
   methods: {
+    setLanguages() {
+      this.languages = this.languagesStatus
+    },
     categoryChange(event) {
       this.$router.push({
         path: this.localePath('/recipes'),

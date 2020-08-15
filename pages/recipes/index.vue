@@ -5,7 +5,7 @@
       <div>
         <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
         <b-sidebar id="sidebar-1" :title="$t('Filters')" shadow>
-          <RecipeFilters class="px-3 py-2" />
+          <RecipeFilters :languagesStatus="languagesStatus" class="px-3 py-2" />
         </b-sidebar>
       </div>
       <div class="row">
@@ -74,6 +74,10 @@ export default {
   },
   data() {
     return {
+      languagesStatus: {
+        spanish: true,
+        english: true
+      },
       isNotSearchResult: false,
       isPageLoading: false
     }
