@@ -2,7 +2,7 @@
   <div id="eecipe-filters">
     <b-form-checkbox
       :key="`language-${index}`"
-      v-for="(language, index) in languages"
+      v-for="(language, index) in languagesData"
       v-model="language.isActive"
       name="check-button"
       switch
@@ -38,14 +38,14 @@ export default {
     WcSelect
   },
   props: {
-    languagesStatus: {
+    languages: {
       type: Array,
       default: () => []
     }
   },
   data() {
     return {
-      languages: [
+      languagesData: [
         {
           isActive: false,
           text: 'es'
@@ -73,12 +73,12 @@ export default {
     }
   },
   watch: {
-    languagesStatus() {
+    languages() {
       this.setLanguages()
     },
-    languages: {
+    languagesData: {
       handler() {
-        this.$emit('languagesChange', this.languages)
+        this.$emit('languagesChange', this.languagesData)
       },
       deep: true
     }
@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     setLanguages() {
-      this.languages = this.languagesStatus
+      this.languagesData = this.languages
     },
     categoryChange(event) {
       this.$router.push({

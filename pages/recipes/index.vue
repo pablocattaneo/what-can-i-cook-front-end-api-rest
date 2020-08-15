@@ -6,7 +6,7 @@
         <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
         <b-sidebar id="sidebar-1" :title="$t('Filters')" shadow>
           <RecipeFilters
-            :languagesStatus="languagesStatus"
+            :languages="languages"
             @languagesChange="buildLanguageQueryString($event)"
             class="px-3 py-2"
           />
@@ -79,13 +79,13 @@ export default {
   data() {
     return {
       urlArray: [],
-      languagesStatus: [
+      languages: [
         {
-          isActive: false,
+          isActive: true,
           text: 'es'
         },
         {
-          isActive: false,
+          isActive: true,
           text: 'en'
         }
       ],
