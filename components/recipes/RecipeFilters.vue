@@ -1,10 +1,13 @@
 <template>
   <div id="eecipe-filters">
-    <b-form-checkbox v-model="languages.spanish" name="check-button" switch>
-      {{ $t('es') }}
-    </b-form-checkbox>
-    <b-form-checkbox v-model="languages.english" name="check-button" switch>
-      {{ $t('en') }}
+    <b-form-checkbox
+      :key="`language-${index}`"
+      v-for="(language, index) in languages"
+      v-model="language.isActive"
+      name="check-button"
+      switch
+    >
+      {{ $t(language.text) }}
     </b-form-checkbox>
     <div class="mt-4">
       <label for="range-1">{{ $t('recipes.up_to_calories_by_portion') }}</label>
@@ -36,21 +39,22 @@ export default {
   },
   props: {
     languagesStatus: {
-      type: Object,
-      default: () => ({
-        languages: {
-          spanish: false,
-          english: false
-        }
-      })
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
-      languages: {
-        spanish: false,
-        english: false
-      },
+      languages: [
+        {
+          isActive: false,
+          text: 'es'
+        },
+        {
+          isActive: false,
+          text: 'en'
+        }
+      ],
       urlArray: [],
       portionCalories: 1000,
       categoryOptions: [
@@ -78,12 +82,6 @@ export default {
       },
       deep: true
     }
-    // 'languages.spanish'() {
-    //   this.buildLanguageQueryString(this.languages.spanish, 'es')
-    // },
-    // 'languages.english'() {
-    //   this.buildLanguageQueryString(this.languages.english, 'en')
-    // }
   },
   created() {
     this.setLanguages()
@@ -109,28 +107,6 @@ export default {
           calories: event
         }
       })
-    },
-    buildLanguageQueryString(language, value) {
-      if (language) {
-        this.urlArray.push({ language: value })
-        this.$router.push({
-          path: this.localePath('/recipes'),
-          query: {
-            ...this.$route.query,
-            filters: JSON.stringify(this.urlArray)
-          }
-        })
-      } else {
-        const index = this.urlArray.findIndex((e) => e.language === value)
-        this.urlArray.splice(index, 1)
-        this.$router.push({
-          path: this.localePath('/recipes'),
-          query: {
-            ...this.$route.query,
-            filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
-          }
-        })
-      }
     }
   }
 }

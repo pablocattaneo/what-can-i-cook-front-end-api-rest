@@ -5,7 +5,11 @@
       <div>
         <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
         <b-sidebar id="sidebar-1" :title="$t('Filters')" shadow>
-          <RecipeFilters :languagesStatus="languagesStatus" class="px-3 py-2" />
+          <RecipeFilters
+            :languagesStatus="languagesStatus"
+            @languagesChange="buildLanguageQueryString($event)"
+            class="px-3 py-2"
+          />
         </b-sidebar>
       </div>
       <div class="row">
@@ -74,10 +78,17 @@ export default {
   },
   data() {
     return {
-      languagesStatus: {
-        spanish: true,
-        english: true
-      },
+      urlArray: [],
+      languagesStatus: [
+        {
+          isActive: false,
+          text: 'es'
+        },
+        {
+          isActive: false,
+          text: 'en'
+        }
+      ],
       isNotSearchResult: false,
       isPageLoading: false
     }
@@ -112,6 +123,31 @@ export default {
     }
   },
   methods: {
+    // buildLanguageQueryString(language, value) {
+    //   if (language) {
+    //     this.urlArray.push({ language: value })
+    //     this.$router.push({
+    //       path: this.localePath('/recipes'),
+    //       query: {
+    //         ...this.$route.query,
+    //         filters: JSON.stringify(this.urlArray)
+    //       }
+    //     })
+    //   } else {
+    //     const index = this.urlArray.findIndex((e) => e.language === value)
+    //     this.urlArray.splice(index, 1)
+    //     this.$router.push({
+    //       path: this.localePath('/recipes'),
+    //       query: {
+    //         ...this.$route.query,
+    //         filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
+    //       }
+    //     })
+    //   }
+    // },
+    buildLanguageQueryString(languages) {
+      console.log('buildLanguageQueryString languages', languages)
+    },
     userCanEdit(recipeAuthor) {
       return recipeAuthor === this.$store?.state?.user?.userId
     },
