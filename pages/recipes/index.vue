@@ -7,7 +7,7 @@
         <b-sidebar id="sidebar-1" :title="$t('Filters')" shadow>
           <RecipeFilters
             :languages="languages"
-            @languagesChange="buildLanguageQueryString($event)"
+            @languages-change="buildLanguageQueryString($event)"
             class="px-3 py-2"
           />
         </b-sidebar>
@@ -123,30 +123,20 @@ export default {
     }
   },
   methods: {
-    // buildLanguageQueryString(language, value) {
-    //   if (language) {
-    //     this.urlArray.push({ language: value })
-    //     this.$router.push({
-    //       path: this.localePath('/recipes'),
-    //       query: {
-    //         ...this.$route.query,
-    //         filters: JSON.stringify(this.urlArray)
-    //       }
-    //     })
-    //   } else {
-    //     const index = this.urlArray.findIndex((e) => e.language === value)
-    //     this.urlArray.splice(index, 1)
-    //     this.$router.push({
-    //       path: this.localePath('/recipes'),
-    //       query: {
-    //         ...this.$route.query,
-    //         filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
-    //       }
-    //     })
-    //   }
-    // },
     buildLanguageQueryString(languages) {
-      console.log('buildLanguageQueryString languages', languages)
+      this.urlArray = []
+      languages.forEach((language) => {
+        if (language.isActive) {
+          this.urlArray.push({ language: language.text })
+        }
+      })
+      this.$router.push({
+        path: this.localePath('/recipes'),
+        query: {
+          ...this.$route.query,
+          filters: JSON.stringify(this.urlArray.length ? this.urlArray : [{}])
+        }
+      })
     },
     userCanEdit(recipeAuthor) {
       return recipeAuthor === this.$store?.state?.user?.userId

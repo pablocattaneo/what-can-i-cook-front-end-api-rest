@@ -4,6 +4,7 @@
       :key="`language-${index}`"
       v-for="(language, index) in languagesData"
       v-model="language.isActive"
+      @change="changeLanguage"
       name="check-button"
       switch
     >
@@ -45,17 +46,7 @@ export default {
   },
   data() {
     return {
-      languagesData: [
-        {
-          isActive: false,
-          text: 'es'
-        },
-        {
-          isActive: false,
-          text: 'en'
-        }
-      ],
-      urlArray: [],
+      languagesData: this.languages,
       portionCalories: 1000,
       categoryOptions: [
         {
@@ -72,23 +63,11 @@ export default {
       ]
     }
   },
-  watch: {
-    languages() {
-      this.setLanguages()
-    },
-    languagesData: {
-      handler() {
-        this.$emit('languagesChange', this.languagesData)
-      },
-      deep: true
-    }
-  },
-  created() {
-    this.setLanguages()
-  },
   methods: {
-    setLanguages() {
-      this.languagesData = this.languages
+    changeLanguage() {
+      this.$nextTick(() => {
+        this.$emit('languages-change', this.languagesData)
+      })
     },
     categoryChange(event) {
       this.$router.push({
