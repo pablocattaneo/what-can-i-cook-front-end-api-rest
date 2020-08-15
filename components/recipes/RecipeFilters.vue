@@ -71,6 +71,12 @@ export default {
   watch: {
     languagesStatus() {
       this.setLanguages()
+    },
+    languages: {
+      handler() {
+        this.$emit('languagesChange', this.languages)
+      },
+      deep: true
     }
     // 'languages.spanish'() {
     //   this.buildLanguageQueryString(this.languages.spanish, 'es')
