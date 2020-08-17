@@ -122,7 +122,21 @@ export default {
       this.isPageLoading = false
     }
   },
+  created() {
+    this.setLanguagesFromQueryString()
+  },
   methods: {
+    setLanguagesFromQueryString() {
+      const languagesQueryString = this.$route.query?.filters?.length
+        ? JSON.parse(this.$route.query.filters).map((e) => e.language)
+        : []
+      languagesQueryString.forEach((languageInQuerystring) => {
+        this.languages.forEach((language, index) => {
+          this.languages[index].isActive =
+            language.text === languageInQuerystring
+        })
+      })
+    },
     buildLanguageQueryString(languages) {
       this.urlArray = []
       languages.forEach((language) => {
