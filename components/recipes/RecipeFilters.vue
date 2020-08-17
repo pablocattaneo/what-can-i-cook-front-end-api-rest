@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       languagesData: this.languages,
+      languagesActivesCounter: 0,
       portionCalories: 1000,
       categoryOptions: [
         {
@@ -63,7 +64,17 @@ export default {
       ]
     }
   },
+  created() {
+    this.countActivesLanguages()
+  },
   methods: {
+    countActivesLanguages() {
+      this.languages.forEach((language) => {
+        if (language.isActive) {
+          this.languagesActivesCounter++
+        }
+      })
+    },
     changeLanguage() {
       this.$nextTick(() => {
         this.$emit('languages-change', this.languagesData)
