@@ -82,11 +82,13 @@ export default {
       languages: [
         {
           isActive: true,
-          text: 'es'
+          text: 'es',
+          isDisable: false
         },
         {
           isActive: true,
-          text: 'en'
+          text: 'en',
+          isDisable: false
         }
       ],
       isNotSearchResult: false,

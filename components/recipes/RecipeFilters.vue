@@ -5,6 +5,7 @@
       v-for="(language, index) in languagesData"
       v-model="language.isActive"
       @change="changeLanguage"
+      :disabled="language.isDisable"
       name="check-button"
       switch
     >
@@ -66,6 +67,7 @@ export default {
   },
   created() {
     this.countActivesLanguages()
+    this.activeOrDisableLanguageSection()
   },
   methods: {
     countActivesLanguages() {
@@ -74,6 +76,18 @@ export default {
           this.languagesActivesCounter++
         }
       })
+    },
+    activeOrDisableLanguageSection() {
+      if (this.languagesActivesCounter === 1) {
+        const activeLangueIndex = this.languages.findIndex(
+          (e) => e.isActive === true
+        )
+        this.languages[activeLangueIndex].isDisable = true
+      } else {
+        this.languages.forEach((language, index) => {
+          this.languages[index].isDisable = false
+        })
+      }
     },
     changeLanguage() {
       this.$nextTick(() => {
