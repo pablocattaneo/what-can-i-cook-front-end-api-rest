@@ -4,7 +4,12 @@
     <div v-else class="page-content">
       <div>
         <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
-        <b-sidebar id="sidebar-1" :title="$t('Filters')" shadow>
+        <b-sidebar
+          id="sidebar-1"
+          :title="$t('Filters')"
+          no-close-on-route-change
+          shadow
+        >
           <RecipeFilters
             :languages="languages"
             @languages-change="buildLanguageQueryString($event)"

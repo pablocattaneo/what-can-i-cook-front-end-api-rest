@@ -6,7 +6,9 @@
       v-model="language.isActive"
       @change="changeLanguage"
       :disabled="language.isDisable"
+      v-b-tooltip.hover.top="language.isDisable ? $t('language_disable') : null"
       name="check-button"
+      class="d-inline-block mr-4"
       switch
     >
       {{ $t(language.text) }}

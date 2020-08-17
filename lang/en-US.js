@@ -104,5 +104,6 @@ export default {
   Directions: 'Directions',
   Ingredients: 'Ingredients',
   More_info: 'More info',
-  Filters: 'Filters'
+  Filters: 'Filters',
+  language_disable: 'Deshabilitado, al menos hay que tener un idioma activo.'
 }
