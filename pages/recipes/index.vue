@@ -14,6 +14,7 @@
             :languages="languages"
             @languages-change="buildLanguageQueryString($event)"
             :category-selected="$route.query.category || null"
+            :portion-calories="Number($route.query.calories) || 1000"
             class="px-3 py-2"
           />
         </b-sidebar>

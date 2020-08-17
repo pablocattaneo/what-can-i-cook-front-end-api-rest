@@ -17,13 +17,13 @@
       <label for="range-1">{{ $t('recipes.up_to_calories_by_portion') }}</label>
       <b-form-input
         id="range-1"
-        v-model="portionCalories"
+        v-model="portionCaloriesData"
         @change="portionCaloriesChange"
         type="range"
         min="0"
         max="1000"
       />
-      <div>{{ $t('recipes.portion_calories') }}: {{ portionCalories }}</div>
+      <div>{{ $t('recipes.portion_calories') }}: {{ portionCaloriesData }}</div>
     </div>
     <WcSelect
       :options="categoryOptions"
@@ -50,13 +50,17 @@ export default {
     categorySelected: {
       type: String,
       default: ''
+    },
+    portionCalories: {
+      type: Number,
+      default: 0
     }
   },
   data() {
     return {
       languagesData: this.languages,
       languagesActivesCounter: 0,
-      portionCalories: 1000,
+      portionCaloriesData: this.portionCalories,
       categoryOptions: [
         {
           value: null,
