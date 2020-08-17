@@ -111,6 +111,7 @@ export default {
   watch: {
     async '$route.query'() {
       try {
+        console.log('this.$route.query', this.$route.query)
         this.isPageLoading = true
         this.$store.commit('recipes/resetRecipes')
         await this.$store.dispatch(

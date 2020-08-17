@@ -64,8 +64,7 @@ export default {
       categoryOptions: [
         {
           value: null,
-          text: this.$t('recipes.categories'),
-          disabled: true
+          text: this.$t('recipes.categories')
         },
         { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
         { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
@@ -106,13 +105,24 @@ export default {
       })
     },
     categoryChange(event) {
-      this.$router.push({
-        path: this.localePath('/recipes'),
-        query: {
-          ...this.$route.query,
-          category: event
-        }
-      })
+      if (event) {
+        this.$router.push({
+          path: this.localePath('/recipes'),
+          query: {
+            ...this.$route.query,
+            category: event
+          }
+        })
+      } else {
+        const query = { ...this.$route.query }
+        delete query.category
+        this.$router.push({
+          path: this.localePath('/recipes'),
+          query: {
+            ...query
+          }
+        })
+      }
     },
     portionCaloriesChange(event) {
       this.$router.push({
