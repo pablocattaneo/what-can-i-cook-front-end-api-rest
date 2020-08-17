@@ -29,6 +29,7 @@
       :options="categoryOptions"
       :label="$t('recipes.categories')"
       @input="categoryChange($event)"
+      :value="categorySelected"
       class="mt-4"
     />
   </div>
@@ -45,6 +46,10 @@ export default {
     languages: {
       type: Array,
       default: () => []
+    },
+    categorySelected: {
+      type: String,
+      default: ''
     }
   },
   data() {
