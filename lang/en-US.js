@@ -106,6 +106,6 @@ export default {
   Ingredients: 'Ingredients',
   More_info: 'More info',
   Filters: 'Filters',
-  language_disable: 'Deshabilitado, al menos hay que tener un idioma activo.',
+  language_disable: 'Disabled, at least have to be one language active.',
   clear_filters: 'Clear Filters'
 }
