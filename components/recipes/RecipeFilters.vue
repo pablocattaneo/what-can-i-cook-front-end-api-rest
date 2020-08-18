@@ -32,6 +32,9 @@
       :value="categorySelected"
       class="mt-4"
     />
+    <b-button @click="$emit('crear-filter')">{{
+      $t('clear_filters')
+    }}</b-button>
   </div>
 </template>
 

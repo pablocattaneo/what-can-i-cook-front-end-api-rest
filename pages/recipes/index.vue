@@ -15,6 +15,7 @@
           <RecipeFilters
             :languages="languages"
             @languages-change="buildLanguageQueryString($event)"
+            @crear-filter="$router.push(localePath('/recipes'))"
             :category-selected="$route.query.category || null"
             :portion-calories="Number($route.query.calories) || 1000"
             class="px-3 py-2"
