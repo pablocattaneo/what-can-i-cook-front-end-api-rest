@@ -9,6 +9,7 @@ export default {
     recipes: 'Recetas',
     profile: 'Perfil',
     sign_out: 'Salir',
+    sign_up: 'Registrarse',
     user: 'Usuario'
   },
   home: {

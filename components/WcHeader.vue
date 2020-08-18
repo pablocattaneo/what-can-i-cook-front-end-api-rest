@@ -55,6 +55,9 @@
               $t('links.sign_out')
             }}</b-dropdown-item>
           </b-nav-item-dropdown>
+          <b-nav-item :to="localePath({ path: '/signup' })">{{
+            $t('links.sign_up')
+          }}</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
