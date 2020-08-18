@@ -15,7 +15,7 @@
           <RecipeFilters
             :languages="languages"
             @languages-change="buildLanguageQueryString($event)"
-            @crear-filter="$router.push(localePath('/recipes'))"
+            @clear-filter="clearFilters"
             :category-selected="$route.query.category || null"
             :portion-calories="Number($route.query.calories) || 1000"
             class="px-3 py-2"
@@ -134,6 +134,15 @@ export default {
     this.setLanguagesFromQueryString()
   },
   methods: {
+    clearFilters() {
+      this.$router.push(this.localePath('/recipes'))
+      this.activeAllLanguages()
+    },
+    activeAllLanguages() {
+      this.languages.forEach((language, index) => {
+        this.languages[index].isActive = true
+      })
+    },
     setLanguagesFromQueryString() {
       const languagesQueryString = this.$route.query?.filters?.length
         ? JSON.parse(this.$route.query.filters).map((e) => e.language)
