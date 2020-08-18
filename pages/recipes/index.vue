@@ -2,8 +2,10 @@
   <div id="wc-page-recipes" class="position-relative">
     <WcLoading v-if="isPageLoading" />
     <div v-else class="page-content">
+      <h1 class="Content__Title">
+        {{ $t('recipes.title') }}
+      </h1>
       <div>
-        <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
         <b-sidebar
           id="sidebar-1"
           :title="$t('Filters')"
@@ -19,8 +21,9 @@
           />
         </b-sidebar>
       </div>
-      <div class="row">
-        <div class="col-12">
+      <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-between">
+          <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
           <b-button
             :to="localePath({ path: '/admin/recipes/' })"
             variant="primary"
@@ -28,15 +31,10 @@
           >
         </div>
       </div>
-      <h1 class="Content__Title">
-        {{ $t('recipes.title') }}
-      </h1>
-      <div class="row">
+      <div class="row mt-4">
         <h1 v-if="isNotSearchResult" class="col-12 text-muted">
           {{ $t('recipes.search_returns_no_recipes') }}
         </h1>
-      </div>
-      <div class="row">
         <div
           v-for="(recipe, recipesIndex) in recipes"
           :key="recipesIndex"
@@ -111,7 +109,6 @@ export default {
   watch: {
     async '$route.query'() {
       try {
-        console.log('this.$route.query', this.$route.query)
         this.isPageLoading = true
         this.$store.commit('recipes/resetRecipes')
         await this.$store.dispatch(
