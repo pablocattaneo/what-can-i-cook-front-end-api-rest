@@ -15,7 +15,7 @@ export default {
   home: {
     title: 'Welcome',
     introduction:
-      'Hi, name is Pablo Cattaneo I am full stack developer. I have build this site to show some of my skills and knowledges.'
+      'Hi, name is Pablo Cattaneo I am full stack developer. I have build this technical demo site to show some of my skills and knowledges.'
   },
   about: {
     title: 'About',
