@@ -88,6 +88,7 @@
           :label="$t('recipes.form_main_img_label')"
           :placeholder="$t('recipes.form_main_img_label')"
           @input="inputImg($event)"
+          accept="image/*"
         />
         <b-img-lazy
           v-if="imgDOMStringOrImgUrl || recipeForm.fields.mainImg"

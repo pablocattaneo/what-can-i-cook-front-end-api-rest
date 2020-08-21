@@ -5,13 +5,14 @@
       <span v-if="isARequiredFiled" class="text-danger">*</span>
     </template>
     <b-form-file
-      :id="id"
       v-model="file"
-      :placeholder="placeholder"
-      :state="state"
+      :id="id"
       :autocomplete="autocomplete"
       :autofocus="autofocus"
       :browse-text="buttonTextValue"
+      :placeholder="placeholder"
+      :state="state"
+      :accept="accept"
       @input="change()"
       drop-placeholder="Drop file here..."
     >
@@ -39,6 +40,10 @@ export default {
     buttonTextValue: {
       type: String,
       default: 'Browse'
+    },
+    accept: {
+      type: String,
+      default: ''
     }
   },
   data() {
