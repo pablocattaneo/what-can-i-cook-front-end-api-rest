@@ -16,7 +16,7 @@
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">
-          <!-- <b-nav-form @submit.stop.prevent>
+          <b-nav-form @submit.stop.prevent>
             <b-form-input
               v-model="term"
               size="sm"
@@ -30,7 +30,7 @@
               type="submit"
               >Search</b-button
             >
-          </b-nav-form> -->
+          </b-nav-form>
 
           <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item :to="switchLocalePath('en')">EN</b-dropdown-item>
