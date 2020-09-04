@@ -58,8 +58,10 @@
       <div class="col-12">
         <p class="text-center">
           Icons made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
-            >Freepik</a
+          <a
+            href="https://www.flaticon.com/free-icon/chef_2413394"
+            title="iconixar"
+            >iconixar</a
           >
           from
           <a href="https://www.flaticon.com/" title="Flaticon"
