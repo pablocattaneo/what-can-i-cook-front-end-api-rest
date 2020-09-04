@@ -31,6 +31,7 @@
         :alt="title"
         :title="title"
         :blank-src="null"
+        @error.native="onError"
       />
     </div>
     <b-card-body>
@@ -103,6 +104,11 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      errorOnImage: false
+    }
+  },
   computed: {
     showMoreInfo() {
       return Object.keys(this.moreInfo).some(
@@ -110,10 +116,17 @@ export default {
       )
     },
     recipeImage() {
-      return this.bImgLazySrc || require('@/assets/img/logo.svg')
+      if (this.errorOnImage) {
+        return require('@/assets/img/logo.svg')
+      } else {
+        return this.bImgLazySrc || require('@/assets/img/logo.svg')
+      }
     }
   },
   methods: {
+    onError() {
+      this.errorOnImage = true
+    },
     async deleteRecipe(recipeId) {
       try {
         await this.authenticate()
