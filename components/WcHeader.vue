@@ -1,7 +1,15 @@
 <template>
   <div id="wc-header">
     <b-navbar toggleable="lg" type="dark" variant="primary">
-      <b-navbar-brand :to="localePath({ path: '/' })">Home</b-navbar-brand>
+      <b-navbar-brand :to="localePath({ path: '/' })">
+        <b-img-lazy
+          :blank-src="null"
+          src="~/assets/img/logo.svg"
+          alt="site logo"
+          title="site logo"
+          class="logo-img"
+        />
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -90,3 +98,10 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.logo-img
+  max-width 30px
+  position relative
+  top -2px
+</style>
