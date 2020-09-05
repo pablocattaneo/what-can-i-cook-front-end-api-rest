@@ -113,5 +113,6 @@ export default {
   language_disable: 'Deshabilitado, al menos hay que tener un idioma activo.',
   clear_filters: 'Quitar filtros',
   through: 'mediante',
-  and: 'y'
+  and: 'y',
+  Search: 'Buscar'
 }

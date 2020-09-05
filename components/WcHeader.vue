@@ -24,16 +24,16 @@
           <b-nav-form @submit.stop.prevent>
             <b-form-input
               v-model="term"
+              :placeholder="$t('Search')"
               size="sm"
               class="mr-sm-2"
-              placeholder="Search"
             />
             <b-button
               @click="searchMethod"
               size="sm"
               class="my-2 my-sm-0"
               type="submit"
-              >Search</b-button
+              >{{ $t('Search') }}</b-button
             >
           </b-nav-form>
 

@@ -110,5 +110,6 @@ export default {
   language_disable: 'Disabled, at least have to be one language active.',
   clear_filters: 'Clear Filters',
   through: 'through',
-  and: 'and'
+  and: 'and',
+  Search: 'Search'
 }
