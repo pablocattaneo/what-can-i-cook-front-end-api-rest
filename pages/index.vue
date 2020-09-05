@@ -19,7 +19,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <h2>{{ $t('home.applied_technologies') }}</h2>
+        <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
       </div>
     </div>
     <div class="row">
@@ -75,7 +75,7 @@
         </ul>
       </div>
     </div>
-    <h2>Site features:</h2>
+    <h2>Site features</h2>
     <ul>
       <li>
         Supports full-text search
