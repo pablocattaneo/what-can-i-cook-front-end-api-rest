@@ -72,6 +72,11 @@
           <li>
             <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
           </li>
+          <li>
+            <a href="https://www.typescriptlang.org/" target="_blank"
+              >Typescript</a
+            >
+          </li>
         </ul>
       </div>
     </div>
