@@ -13,7 +13,7 @@
       </div>
     </div>
     <p class="mt-4">{{ $t('home.introduction') }}</p>
-    <h2>Techonologies apply</h2>
+    <h2>{{ $t('home.applied_technologies') }}</h2>
     <h3>Front End</h3>
     <ul>
       <li>
