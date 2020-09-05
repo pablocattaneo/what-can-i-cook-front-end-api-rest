@@ -24,8 +24,8 @@
         <a href="https://bootstrap-vue.org/" target="_blank">BootstrapVue</a>
       </li>
       <li>
-        Unit Test using
-        <a href="https://jestjs.io/" target="_blank">Jest</a> and
+        Unit Test {{ $t('through') }}
+        <a href="https://jestjs.io/" target="_blank">Jest</a> {{ $t('and') }}
         <a href="https://vue-test-utils.vuejs.org/" target="_blank"
           >Vue Test Utils</a
         >

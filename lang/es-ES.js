@@ -111,5 +111,7 @@ export default {
   More_info: 'Más información',
   Filters: 'Filtros',
   language_disable: 'Deshabilitado, al menos hay que tener un idioma activo.',
-  clear_filters: 'Quitar filtros'
+  clear_filters: 'Quitar filtros',
+  through: 'mediante',
+  and: 'y'
 }

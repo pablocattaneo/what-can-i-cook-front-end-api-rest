@@ -108,5 +108,7 @@ export default {
   More_info: 'More info',
   Filters: 'Filters',
   language_disable: 'Disabled, at least have to be one language active.',
-  clear_filters: 'Clear Filters'
+  clear_filters: 'Clear Filters',
+  through: 'through',
+  and: 'and'
 }
