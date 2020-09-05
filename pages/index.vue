@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="row mt-4">
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-md-6">
         <h3>Front End</h3>
         <ul>
           <li>
@@ -61,7 +61,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-md-6">
         <h3>Backend End</h3>
         <ul>
           <li><a href="https://nodejs.org/en/" target="_blank">Node</a></li>
@@ -78,7 +78,7 @@
       </div>
     </div>
     <h2>Site features</h2>
-    <ul>
+    <ul class="site-features">
       <li>
         Supports full-text search
       </li>
@@ -144,3 +144,10 @@
     </ul>
   </div>
 </template>
+
+<style lang="stylus" scoped>
+@import '~assets/css/global.styl'
+.site-features
+  @media (min-width: $md)
+    column-count: 2
+</style>
