@@ -13,14 +13,9 @@ export default {
     user: 'Usuario'
   },
   home: {
-    title: 'Bienvenidos',
     introduction:
       'Hola, mi nombre es Pablo Cattaneo. Soy un desarrollador full stack. He creado este sitio para mostrar algunas de mis habilidades y conocimientos.',
     applied_technologies: 'Tecnologías aplicadas'
-  },
-  about: {
-    title: 'Aceca de nosotros',
-    introduction: 'Está es la página Acerca de nosotros'
   },
   recipes: {
     title: 'Recetas',

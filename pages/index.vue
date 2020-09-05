@@ -1,8 +1,5 @@
 <template>
   <div id="wc-page-index">
-    <h1 class="Content__Title text-center">
-      {{ $t('home.title') }}
-    </h1>
     <div class="row mt-3">
       <div class="col-12 d-flex justify-content-center">
         <b-avatar
