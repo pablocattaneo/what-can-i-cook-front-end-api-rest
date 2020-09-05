@@ -13,8 +13,9 @@
     <div v-if="recipe.mainImg" class="row">
       <div class="col-12 mt-4">
         <b-img
-          :src="$store.state.apiRestBaseUrl + recipe.mainImg"
+          :src="recipeImage"
           :alt="recipe.title"
+          @error="onError"
           fluid
           center
         />
@@ -70,12 +71,28 @@ export default {
       return Object.keys(this.recipe.more_info).find(
         (key) => !!this.recipe.more_info[key]
       )
+    },
+    recipeImage() {
+      if (this.errorOnImage) {
+        return require('@/assets/img/logo.svg')
+      } else {
+        return (
+          this.$store.state.apiRestBaseUrl + this.recipe.mainImg ||
+          require('@/assets/img/logo.svg')
+        )
+      }
     }
   },
   async asyncData({ app, route }) {
     const recipe = await app.$axios.$get(`/recipe-by-slug/${route.params.slug}`)
     return {
-      recipe
+      recipe,
+      errorOnImage: false
+    }
+  },
+  methods: {
+    onError() {
+      this.errorOnImage = true
     }
   }
 }

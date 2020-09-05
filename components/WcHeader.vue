@@ -27,7 +27,7 @@
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
-            ></b-form-input>
+            />
             <b-button
               @click="searchMethod"
               size="sm"
