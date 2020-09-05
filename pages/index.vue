@@ -1,9 +1,9 @@
 <template>
   <div id="wc-page-index">
-    <h1 class="Content__Title">
+    <h1 class="Content__Title text-center">
       {{ $t('home.title') }}
     </h1>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-12 d-flex justify-content-center">
         <b-avatar
           src="@/assets/img/pablo-cattaneo.jpg"
@@ -17,12 +17,12 @@
         <p class="mt-4">{{ $t('home.introduction') }}</p>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-12">
         <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-4">
       <div class="col-12 col-sm-6">
         <h3>Front End</h3>
         <ul>
