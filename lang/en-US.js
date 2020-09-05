@@ -18,10 +18,6 @@ export default {
       'Hi, name is Pablo Cattaneo I am full stack developer. I have build this technical demo site to show some of my skills and knowledges.',
     applied_technologies: 'Applied Technologies'
   },
-  about: {
-    title: 'About',
-    introduction: 'This page is made to give you more informations.'
-  },
   recipes: {
     title: 'Recipes',
     buy_ingredients: 'Buy ingredients',
@@ -111,5 +107,6 @@ export default {
   clear_filters: 'Clear Filters',
   through: 'through',
   and: 'and',
-  Search: 'Search'
+  Search: 'Search',
+  App_deloped_by: 'App developed by'
 }

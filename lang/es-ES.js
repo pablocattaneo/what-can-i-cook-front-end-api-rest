@@ -114,5 +114,6 @@ export default {
   clear_filters: 'Quitar filtros',
   through: 'mediante',
   and: 'y',
-  Search: 'Buscar'
+  Search: 'Buscar',
+  App_deloped_by: 'App desarrollada por'
 }

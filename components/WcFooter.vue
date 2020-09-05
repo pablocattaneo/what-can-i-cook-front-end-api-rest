@@ -43,7 +43,7 @@
     <div class="text-center row">
       <div class="col-12">
         <span id="author"
-          >App developed by:
+          >{{ $t('App_deloped_by') }}
           <a
             v-if="author.externalLink"
             :href="author.externalLink"
