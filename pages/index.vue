@@ -21,7 +21,10 @@
     </div>
     <div class="row mt-4">
       <div class="col-12 col-md-6">
-        <h3>Front End</h3>
+        <h3>
+          <BIconLayoutTextWindowReverse />
+          Front End
+        </h3>
         <ul>
           <li>
             First Server Side Rendering using:
@@ -62,7 +65,10 @@
         </ul>
       </div>
       <div class="col-12 col-md-6">
-        <h3>Backend End</h3>
+        <h3>
+          <BIconGear />
+          Backend End
+        </h3>
         <ul>
           <li><a href="https://nodejs.org/en/" target="_blank">Node</a></li>
           <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
@@ -144,6 +150,16 @@
     </ul>
   </div>
 </template>
+
+<script>
+import { BIconLayoutTextWindowReverse, BIconGear } from 'bootstrap-vue'
+export default {
+  components: {
+    BIconLayoutTextWindowReverse,
+    BIconGear
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 @import '~assets/css/global.styl'
