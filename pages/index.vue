@@ -67,9 +67,6 @@
         </ul>
         <ul>
           <li>
-            <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
-          </li>
-          <li>
             <a href="https://www.typescriptlang.org/" target="_blank"
               >Typescript</a
             >
@@ -168,6 +165,15 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/expressjs.svg'),
             alt: 'Express',
+            width: 36
+          }
+        },
+        {
+          html:
+            '<a href="https://www.mongodb.com/" target="_blank">MongoDB</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/mongodb.svg'),
+            alt: 'Mongo DB',
             width: 36
           }
         }
