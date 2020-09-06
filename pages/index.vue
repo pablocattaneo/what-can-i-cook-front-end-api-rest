@@ -44,10 +44,6 @@
         </ul>
         <ul>
           <li>
-            Code formatter
-            <a href="https://prettier.io/" target="_blank">Prettier</a>
-          </li>
-          <li>
             Use Stylus as css preprocesor
             <a href="https://stylus-lang.com/" target="_blank">Stylus</a>
           </li>
@@ -167,7 +163,7 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/nuxt.svg'),
             alt: 'Nuxt',
-            width: 32
+            width: 36
           }
         },
         {
