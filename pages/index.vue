@@ -34,7 +34,7 @@
             <b-img-lazy
               :src="frontEndTechnology.img.src"
               :alt="frontEndTechnology.img.alt"
-              :width="frontEndTechnology.img.width"
+              :width="36"
               blank
               blank-color="#abc"
               class="mr-2"
@@ -57,7 +57,7 @@
             <b-img-lazy
               :src="backEndTechnology.img.src"
               :alt="backEndTechnology.img.alt"
-              :width="backEndTechnology.img.width"
+              :width="36"
               blank
               blank-color="#abc"
               class="mr-2"
@@ -149,16 +149,14 @@ export default {
           html: '<a href="https://nodejs.org/en/" target="_blank">Node</a>',
           img: {
             src: require('@/assets/img/technologies-icons/node.svg'),
-            alt: 'Node',
-            width: 36
+            alt: 'Node'
           }
         },
         {
           html: '<a href="https://expressjs.com/" target="_blank">Express</a>',
           img: {
             src: require('@/assets/img/technologies-icons/expressjs.svg'),
-            alt: 'Express',
-            width: 36
+            alt: 'Express'
           }
         },
         {
@@ -166,8 +164,7 @@ export default {
             '<a href="https://www.mongodb.com/" target="_blank">MongoDB</a>',
           img: {
             src: require('@/assets/img/technologies-icons/mongodb.svg'),
-            alt: 'Mongo DB',
-            width: 36
+            alt: 'Mongo DB'
           }
         },
         {
@@ -175,8 +172,7 @@ export default {
             '<a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>',
           img: {
             src: require('@/assets/img/technologies-icons/typescript.svg'),
-            alt: 'Typescript',
-            width: 36
+            alt: 'Typescript'
           }
         }
       ],
@@ -186,8 +182,7 @@ export default {
             'First Server Side Rendering using: <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>',
           img: {
             src: require('@/assets/img/technologies-icons/nuxt.svg'),
-            alt: 'Nuxt',
-            width: 36
+            alt: 'Nuxt'
           }
         },
         {
@@ -195,8 +190,7 @@ export default {
             '<a href="https://bootstrap-vue.org/" target="_blank">BootstrapVue</a>',
           img: {
             src: require('@/assets/img/technologies-icons/boostrap-vue.svg'),
-            alt: 'BootstrapVue',
-            width: 36
+            alt: 'BootstrapVue'
           }
         },
         {
@@ -208,8 +202,7 @@ export default {
             <a href="https://vue-test-utils.vuejs.org/" target="_blank">Vue Test Utils</a>`,
           img: {
             src: require('@/assets/img/technologies-icons/jest.svg'),
-            alt: 'Jest',
-            width: 36
+            alt: 'Jest'
           }
         },
         {
@@ -217,8 +210,7 @@ export default {
             'Code formatter <a href="https://prettier.io/" target="_blank">Prettier</a>',
           img: {
             src: require('@/assets/img/technologies-icons/prettier.svg'),
-            alt: 'Prettier',
-            width: 36
+            alt: 'Prettier'
           }
         },
         {
@@ -226,8 +218,7 @@ export default {
             'Use Stylus as css preprocesor <a href="https://stylus-lang.com/" target="_blank">Stylus</a>',
           img: {
             src: require('@/assets/img/technologies-icons/stylus.svg'),
-            alt: 'Stylus',
-            width: 36
+            alt: 'Stylus'
           }
         },
         {
@@ -235,8 +226,7 @@ export default {
             'Use ES6 features: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining</a> <a href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js" >For example</a>',
           img: {
             src: require('@/assets/img/technologies-icons/js.svg'),
-            alt: 'ES6',
-            width: 36
+            alt: 'ES6'
           }
         }
       ]
