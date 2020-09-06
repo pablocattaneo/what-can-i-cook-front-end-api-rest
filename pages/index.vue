@@ -44,10 +44,6 @@
         </ul>
         <ul>
           <li>
-            Use Stylus as css preprocesor
-            <a href="https://stylus-lang.com/" target="_blank">Stylus</a>
-          </li>
-          <li>
             Use ES6 features:
             <a
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
@@ -193,7 +189,16 @@ export default {
             'Code formatter <a href="https://prettier.io/" target="_blank">Prettier</a>',
           img: {
             src: require('@/assets/img/technologies-icons/prettier.svg'),
-            alt: 'prettier',
+            alt: 'Prettier',
+            width: 36
+          }
+        },
+        {
+          html:
+            'Use Stylus as css preprocesor <a href="https://stylus-lang.com/" target="_blank">Stylus</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/stylus.svg'),
+            alt: 'Stylus',
             width: 36
           }
         }
