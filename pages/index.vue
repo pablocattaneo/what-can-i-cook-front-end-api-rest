@@ -86,33 +86,6 @@
         }}</nuxt-link>
       </li>
       <li>
-        Supports catch all http error handling
-        <a
-          href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js"
-          target="_blank"
-          >Mixin</a
-        >
-      </li>
-      <li>
-        Mongo Schema validation:
-        <a
-          href="https://github.com/pablocattaneo/what-can-i-cook-backend-api-rest/blob/master/db/validation-recipes.js"
-          target="_blank"
-          >For example: recipe schema validation
-        </a>
-      </li>
-      <li>
-        Mongo Index for query recipe optimization (I am conscious that there is
-        a cost in the insert operation for that, but there are more queries that
-        insert in this application because is more probably that user search
-        recipe that create new ones):
-      </li>
-      <li>
-        Footer always at bottom, but not fixed, it moves if content push it. For
-        example:
-        <nuxt-link :to="localePath({ path: '/login' })">Login</nuxt-link>
-      </li>
-      <li>
         Supports slug for recipes. For example:
         <nuxt-link :to="localePath({ path: '/recipe/meat-loaf' })"
           >Meat Loaf</nuxt-link
@@ -171,6 +144,34 @@ export default {
             to: '/user/profile',
             text: 'User profile'
           }
+        },
+        {
+          text: 'Supports catch all http error handling',
+          link: {
+            href:
+              'https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js',
+            text: 'Mixin'
+          }
+        },
+        {
+          text: 'Mongo Schema validation. For example:',
+          link: {
+            href:
+              'https://github.com/pablocattaneo/what-can-i-cook-backend-api-rest/blob/master/db/validation-recipes.js',
+            text: 'recipe schema validation'
+          }
+        },
+        {
+          text:
+            'Footer always at bottom, but not fixed, it moves if content push it. For example:',
+          nuxtLink: {
+            to: this.localePath({ path: '/login' }),
+            text: 'Login'
+          }
+        },
+        {
+          text:
+            'Mongo Index for query recipe optimization (I am conscious that there is a cost in the insert operation for that, but there are more queries that insert in this application because is more probably that user searchrecipe that create new ones):'
         }
       ],
       backEndTechnologies: [
