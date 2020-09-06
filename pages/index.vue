@@ -29,7 +29,7 @@
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
-            class="d-flex align-items-baseline"
+            class="d-flex align-items-center mt-2"
           >
             <b-img-lazy
               :src="frontEndTechnology.img.src"
@@ -43,31 +43,6 @@
           </li>
         </ul>
         <ul>
-          <li class="d-flex align-items-baseline">
-            <b-img-lazy
-              blank
-              blank-color="#abc"
-              width="32"
-              src="@/assets/img/technologies-icons/nuxt.svg"
-              alt="nuxt"
-              class="mr-2"
-            />
-            First Server Side Rendering using:
-            <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>
-          </li>
-          <li>
-            <a href="https://bootstrap-vue.org/" target="_blank"
-              >BootstrapVue</a
-            >
-          </li>
-          <li>
-            Unit Test {{ $t('through') }}
-            <a href="https://jestjs.io/" target="_blank">Jest</a>
-            {{ $t('and') }}
-            <a href="https://vue-test-utils.vuejs.org/" target="_blank"
-              >Vue Test Utils</a
-            >
-          </li>
           <li>
             Code formatter
             <a href="https://prettier.io/" target="_blank">Prettier</a>
@@ -201,6 +176,19 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/boostrap-vue.svg'),
             alt: 'BootstrapVue',
+            width: 36
+          }
+        },
+        {
+          html: `Unit Test ${this.$t(
+            'through'
+          )} <a href="https://jestjs.io/" target="_blank">Jest</a> ${this.$t(
+            'and'
+          )} 
+            <a href="https://vue-test-utils.vuejs.org/" target="_blank">Vue Test Utils</a>`,
+          img: {
+            src: require('@/assets/img/technologies-icons/jest.svg'),
+            alt: 'Jest',
             width: 36
           }
         }
