@@ -77,7 +77,7 @@
         :key="`site-features${index}`"
         class="mt-3"
       >
-        <BIconCodeSlash class="code-slash-icon position-absolute mt-1" />
+        <BIconCodeSlash class="code-slash-icon position-absolute" />
         <div class="pl-4">
           <span>{{ siteFeature.text }}</span>
           <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
@@ -282,4 +282,5 @@ export default {
       column-count: 2
     .code-slash-icon
       margin-right 5px
+      margin-top 4px
 </style>
