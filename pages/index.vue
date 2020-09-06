@@ -25,7 +25,7 @@
           <BIconLayoutTextWindowReverse />
           Front End
         </h3>
-        <ul class="pl-0">
+        <ul class="pl-2 mt-3">
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
