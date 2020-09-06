@@ -85,25 +85,6 @@
           siteFeature.nuxtLink.text
         }}</nuxt-link>
       </li>
-      <li>
-        Supports slug for recipes. For example:
-        <nuxt-link :to="localePath({ path: '/recipe/meat-loaf' })"
-          >Meat Loaf</nuxt-link
-        >
-      </li>
-      <li>
-        Supports infinite loading. For example:
-        <nuxt-link :to="localePath({ path: '/recipes' })"
-          >Inifinite loading</nuxt-link
-        >
-      </li>
-      <li>
-        Supports mongodb projection, it means, only get data that front-end
-        needs from data base . For example:
-        <nuxt-link :to="localePath({ path: '/recipes' })"
-          >mongodb projection</nuxt-link
-        >
-      </li>
     </ul>
   </div>
 </template>
@@ -167,6 +148,28 @@ export default {
           nuxtLink: {
             to: this.localePath({ path: '/login' }),
             text: 'Login'
+          }
+        },
+        {
+          text: 'Supports slug for recipes. For example:',
+          nuxtLink: {
+            to: this.localePath({ path: '/recipe/meat-loaf' }),
+            text: 'Meat Loaf'
+          }
+        },
+        {
+          text: 'Supports infinite loading. For example:',
+          nuxtLink: {
+            to: this.localePath({ path: '/recipes' }),
+            text: 'Inifinite loading'
+          }
+        },
+        {
+          text:
+            'Supports mongodb projection, it means, only get data that front-end needs from data base . For example:',
+          nuxtLink: {
+            to: this.localePath({ path: '/recipes' }),
+            text: 'mongodb projection'
           }
         },
         {
