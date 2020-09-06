@@ -191,6 +191,15 @@ export default {
             alt: 'Jest',
             width: 36
           }
+        },
+        {
+          html:
+            'Code formatter <a href="https://prettier.io/" target="_blank">Prettier</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/prettier.svg'),
+            alt: 'prettier',
+            width: 36
+          }
         }
       ]
     }
