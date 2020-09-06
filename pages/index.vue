@@ -67,7 +67,10 @@
         </ul>
       </div>
     </div>
-    <h2>Site features</h2>
+    <h2 class="mt-3">
+      <BIconCodeSquare />
+      Site features
+    </h2>
     <ul class="site-features">
       <li>
         Supports full-text search
@@ -136,11 +139,16 @@
 </template>
 
 <script>
-import { BIconLayoutTextWindowReverse, BIconGear } from 'bootstrap-vue'
+import {
+  BIconLayoutTextWindowReverse,
+  BIconGear,
+  BIconCodeSquare
+} from 'bootstrap-vue'
 export default {
   components: {
     BIconLayoutTextWindowReverse,
-    BIconGear
+    BIconGear,
+    BIconCodeSquare
   },
   data() {
     return {
