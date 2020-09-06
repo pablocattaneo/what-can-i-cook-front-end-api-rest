@@ -25,7 +25,7 @@
           <BIconLayoutTextWindowReverse />
           Front End
         </h3>
-        <ul>
+        <ul class="pl-0">
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
@@ -194,6 +194,15 @@ export default {
             alt: 'Nuxt',
             width: 32
           }
+        },
+        {
+          html:
+            '<a href="https://bootstrap-vue.org/" target="_blank">BootstrapVue</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/boostrap-vue.svg'),
+            alt: 'BootstrapVue',
+            width: 36
+          }
         }
       ]
     }
@@ -203,7 +212,8 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~assets/css/global.styl'
-.site-features
-  @media (min-width: $md)
-    column-count: 2
+#wc-page-index
+  .site-features
+    @media (min-width: $md)
+      column-count: 2
 </style>
