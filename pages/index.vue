@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <p class="mt-4">{{ $t('home.introduction') }}</p>
+        <p class="mt-4 text-center">{{ $t('home.introduction') }}</p>
       </div>
     </div>
     <div class="row mt-3">
@@ -19,13 +19,13 @@
         <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
       </div>
     </div>
-    <div class="row mt-4">
-      <div class="col-12 col-md-6">
+    <div class="row">
+      <div class="col-12 col-md-6 mt-4">
         <h3>
           <BIconLayoutTextWindowReverse />
           Front End
         </h3>
-        <ul class="pl-2 mt-3">
+        <ul class="pl-2 mt-2">
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
@@ -43,12 +43,12 @@
           </li>
         </ul>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 mt-4">
         <h3>
           <BIconGear />
           Backend End
         </h3>
-        <ul class="pl-2 mt-3">
+        <ul class="pl-2 mt-2">
           <li
             v-for="(backEndTechnology, index) in backEndTechnologies"
             :key="index"
@@ -71,7 +71,7 @@
       <BIconCodeSquare />
       Site features
     </h2>
-    <ul class="site-features pl-2 mt-3">
+    <ul class="site-features pl-2 mt-2">
       <li
         v-for="(siteFeature, index) in siteFeatures"
         :key="`site-features${index}`"
