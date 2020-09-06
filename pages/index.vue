@@ -72,21 +72,18 @@
       Site features
     </h2>
     <ul class="site-features">
-      <li>
-        Supports full-text search
-      </li>
-      <li>
-        Supports locale to English and Spanish
-      </li>
-      <li>
-        Authentication via
-        <a href="https://en.wikipedia.org/wiki/JSON_Web_Token" target="_blank"
-          >JWT</a
-        >
-      </li>
-      <li>
-        Supports inline edit fields:
-        <nuxt-link to="/user/profile">User profile</nuxt-link>
+      <li
+        v-for="(siteFeature, index) in siteFeatures"
+        :key="`site-features${index}`"
+      >
+        <BIconCodeSlash />
+        <span>{{ siteFeature.text }}</span>
+        <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
+          siteFeature.link.text
+        }}</a>
+        <nuxt-link v-if="siteFeature.nuxtLink" :to="siteFeature.nuxtLink.to">{{
+          siteFeature.nuxtLink.text
+        }}</nuxt-link>
       </li>
       <li>
         Supports catch all http error handling
@@ -142,16 +139,40 @@
 import {
   BIconLayoutTextWindowReverse,
   BIconGear,
-  BIconCodeSquare
+  BIconCodeSquare,
+  BIconCodeSlash
 } from 'bootstrap-vue'
 export default {
   components: {
     BIconLayoutTextWindowReverse,
     BIconGear,
-    BIconCodeSquare
+    BIconCodeSquare,
+    BIconCodeSlash
   },
   data() {
     return {
+      siteFeatures: [
+        {
+          text: 'Supports full-text search'
+        },
+        {
+          text: 'Supports locale to English and Spanish'
+        },
+        {
+          text: 'Authentication via',
+          link: {
+            href: 'https://en.wikipedia.org/wiki/JSON_Web_Token',
+            text: 'JWT'
+          }
+        },
+        {
+          text: 'Supports inline edit fields',
+          nuxtLink: {
+            to: '/user/profile',
+            text: 'User profile'
+          }
+        }
+      ],
       backEndTechnologies: [
         {
           html: '<a href="https://nodejs.org/en/" target="_blank">Node</a>',
@@ -247,6 +268,7 @@ export default {
 @import '~assets/css/global.styl'
 #wc-page-index
   .site-features
+    list-style none
     @media (min-width: $md)
       column-count: 2
 </style>
