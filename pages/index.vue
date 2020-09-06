@@ -66,8 +66,6 @@
           </li>
         </ul>
         <ul>
-          <li><a href="https://nodejs.org/en/" target="_blank">Node</a></li>
-          <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
           <li>
             <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
           </li>
@@ -162,6 +160,14 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/node.svg'),
             alt: 'Node',
+            width: 36
+          }
+        },
+        {
+          html: '<a href="https://expressjs.com/" target="_blank">Express</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/expressjs.svg'),
+            alt: 'Express',
             width: 36
           }
         }
