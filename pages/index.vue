@@ -76,7 +76,7 @@
         v-for="(siteFeature, index) in siteFeatures"
         :key="`site-features${index}`"
       >
-        <BIconCodeSlash />
+        <BIconCodeSlash class="code-slash-icon" />
         <span>{{ siteFeature.text }}</span>
         <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
           siteFeature.link.text
@@ -275,4 +275,6 @@ export default {
     list-style none
     @media (min-width: $md)
       column-count: 2
+    .code-slash-icon
+      margin-right 5px
 </style>
