@@ -29,7 +29,7 @@
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
-            class="d-flex align-items-center mt-2"
+            class="d-flex align-items-center mt-3"
           >
             <b-img-lazy
               :src="frontEndTechnology.img.src"
@@ -52,7 +52,7 @@
           <li
             v-for="(backEndTechnology, index) in backEndTechnologies"
             :key="index"
-            class="d-flex align-items-center mt-2"
+            class="d-flex align-items-center mt-3"
           >
             <b-img-lazy
               :src="backEndTechnology.img.src"
@@ -71,10 +71,11 @@
       <BIconCodeSquare />
       Site features
     </h2>
-    <ul class="site-features">
+    <ul class="site-features pl-2 mt-3">
       <li
         v-for="(siteFeature, index) in siteFeatures"
         :key="`site-features${index}`"
+        class="mt-3"
       >
         <BIconCodeSlash class="code-slash-icon" />
         <span>{{ siteFeature.text }}</span>
