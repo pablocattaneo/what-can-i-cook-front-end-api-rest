@@ -26,15 +26,33 @@
           Front End
         </h3>
         <ul>
-          <li class="d-flex align-items-center">
+          <li
+            v-for="(frontEndTechnology, index) in frontEndTechnologies"
+            :key="index"
+            class="d-flex align-items-baseline"
+          >
+            <b-img-lazy
+              :src="frontEndTechnology.img.src"
+              :alt="frontEndTechnology.img.alt"
+              :width="frontEndTechnology.img.width"
+              blank
+              blank-color="#abc"
+              class="mr-2"
+            />
+            <span v-html="frontEndTechnology.html"></span>
+          </li>
+        </ul>
+        <ul>
+          <li class="d-flex align-items-baseline">
             <b-img-lazy
               blank
               blank-color="#abc"
               width="32"
               src="@/assets/img/technologies-icons/nuxt.svg"
               alt="nuxt"
+              class="mr-2"
             />
-            <span>First Server Side Rendering using:</span>
+            First Server Side Rendering using:
             <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>
           </li>
           <li>
@@ -164,6 +182,21 @@ export default {
   components: {
     BIconLayoutTextWindowReverse,
     BIconGear
+  },
+  data() {
+    return {
+      frontEndTechnologies: [
+        {
+          html:
+            'First Server Side Rendering using: <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/nuxt.svg'),
+            alt: 'Nuxt',
+            width: 32
+          }
+        }
+      ]
+    }
   }
 }
 </script>
