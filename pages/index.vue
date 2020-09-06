@@ -77,14 +77,18 @@
         :key="`site-features${index}`"
         class="mt-3"
       >
-        <BIconCodeSlash class="code-slash-icon" />
-        <span>{{ siteFeature.text }}</span>
-        <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
-          siteFeature.link.text
-        }}</a>
-        <nuxt-link v-if="siteFeature.nuxtLink" :to="siteFeature.nuxtLink.to">{{
-          siteFeature.nuxtLink.text
-        }}</nuxt-link>
+        <BIconCodeSlash class="code-slash-icon position-absolute mt-1" />
+        <div class="pl-4">
+          <span>{{ siteFeature.text }}</span>
+          <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
+            siteFeature.link.text
+          }}</a>
+          <nuxt-link
+            v-if="siteFeature.nuxtLink"
+            :to="siteFeature.nuxtLink.to"
+            >{{ siteFeature.nuxtLink.text }}</nuxt-link
+          >
+        </div>
       </li>
     </ul>
   </div>
