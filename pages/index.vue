@@ -67,7 +67,7 @@
         </ul>
       </div>
     </div>
-    <h2 class="mt-3">
+    <h2 class="mt-4">
       <BIconCodeSquare />
       Site features
     </h2>
