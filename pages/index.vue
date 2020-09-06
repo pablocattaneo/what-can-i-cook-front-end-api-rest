@@ -48,6 +48,23 @@
           <BIconGear />
           Backend End
         </h3>
+        <ul class="pl-2 mt-3">
+          <li
+            v-for="(backEndTechnology, index) in backEndTechnologies"
+            :key="index"
+            class="d-flex align-items-center mt-2"
+          >
+            <b-img-lazy
+              :src="backEndTechnology.img.src"
+              :alt="backEndTechnology.img.alt"
+              :width="backEndTechnology.img.width"
+              blank
+              blank-color="#abc"
+              class="mr-2"
+            />
+            <span v-html="backEndTechnology.html"></span>
+          </li>
+        </ul>
         <ul>
           <li><a href="https://nodejs.org/en/" target="_blank">Node</a></li>
           <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
@@ -139,6 +156,16 @@ export default {
   },
   data() {
     return {
+      backEndTechnologies: [
+        {
+          html: '<a href="https://nodejs.org/en/" target="_blank">Node</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/node.svg'),
+            alt: 'Node',
+            width: 36
+          }
+        }
+      ],
       frontEndTechnologies: [
         {
           html:
