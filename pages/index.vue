@@ -42,19 +42,6 @@
             <span v-html="frontEndTechnology.html"></span>
           </li>
         </ul>
-        <ul>
-          <li>
-            Use ES6 features:
-            <a
-              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"
-              >Optional chaining</a
-            >
-            <a
-              href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js"
-              >For example</a
-            >
-          </li>
-        </ul>
       </div>
       <div class="col-12 col-md-6">
         <h3>
@@ -199,6 +186,15 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/stylus.svg'),
             alt: 'Stylus',
+            width: 36
+          }
+        },
+        {
+          html:
+            'Use ES6 features: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining</a> <a href="https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/mixins/wc-handle-error.js" >For example</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/js.svg'),
+            alt: 'ES6',
             width: 36
           }
         }
