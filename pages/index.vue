@@ -65,13 +65,6 @@
             <span v-html="backEndTechnology.html"></span>
           </li>
         </ul>
-        <ul>
-          <li>
-            <a href="https://www.typescriptlang.org/" target="_blank"
-              >Typescript</a
-            >
-          </li>
-        </ul>
       </div>
     </div>
     <h2>Site features</h2>
@@ -174,6 +167,15 @@ export default {
           img: {
             src: require('@/assets/img/technologies-icons/mongodb.svg'),
             alt: 'Mongo DB',
+            width: 36
+          }
+        },
+        {
+          html:
+            '<a href="https://www.typescriptlang.org/" target="_blank">Typescript</a>',
+          img: {
+            src: require('@/assets/img/technologies-icons/typescript.svg'),
+            alt: 'Typescript',
             width: 36
           }
         }
