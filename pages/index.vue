@@ -26,8 +26,15 @@
           Front End
         </h3>
         <ul>
-          <li>
-            First Server Side Rendering using:
+          <li class="d-flex align-items-center">
+            <b-img-lazy
+              blank
+              blank-color="#abc"
+              width="32"
+              src="@/assets/img/technologies-icons/nuxt.svg"
+              alt="nuxt"
+            />
+            <span>First Server Side Rendering using:</span>
             <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>
           </li>
           <li>
