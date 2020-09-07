@@ -25,7 +25,7 @@
           <BIconLayoutTextWindowReverse />
           Front End
         </h3>
-        <ul class="pl-2 mt-2">
+        <ul class="mt-2">
           <li
             v-for="(frontEndTechnology, index) in frontEndTechnologies"
             :key="index"
@@ -48,7 +48,7 @@
           <BIconGear />
           Backend End
         </h3>
-        <ul class="pl-2 mt-2">
+        <ul class="mt-2">
           <li
             v-for="(backEndTechnology, index) in backEndTechnologies"
             :key="index"
@@ -270,12 +270,10 @@ export default {
 @import '~assets/css/global.styl'
 #wc-page-index
   .site-features
-    list-style-image url('~@/assets/img/code.svg')
     padding-top 0px
+    li
+      list-style circle
+      list-style-position inside
     @media (min-width: $md)
       column-count 2
-    li
-      .text
-        position relative
-        top -3px
 </style>
