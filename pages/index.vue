@@ -71,24 +71,19 @@
       <BIconCodeSquare />
       Site features
     </h2>
-    <ul class="site-features pl-2 mt-2">
+    <ul class="site-features mt-2">
       <li
         v-for="(siteFeature, index) in siteFeatures"
         :key="`site-features${index}`"
-        class="mt-3"
+        class="mt-3 align-bottom"
       >
-        <BIconCodeSlash class="code-slash-icon position-absolute" />
-        <div class="pl-4">
-          <span>{{ siteFeature.text }}</span>
-          <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
-            siteFeature.link.text
-          }}</a>
-          <nuxt-link
-            v-if="siteFeature.nuxtLink"
-            :to="siteFeature.nuxtLink.to"
-            >{{ siteFeature.nuxtLink.text }}</nuxt-link
-          >
-        </div>
+        <span class="text">{{ siteFeature.text }}</span>
+        <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
+          siteFeature.link.text
+        }}</a>
+        <nuxt-link v-if="siteFeature.nuxtLink" :to="siteFeature.nuxtLink.to">{{
+          siteFeature.nuxtLink.text
+        }}</nuxt-link>
       </li>
     </ul>
   </div>
@@ -98,15 +93,13 @@
 import {
   BIconLayoutTextWindowReverse,
   BIconGear,
-  BIconCodeSquare,
-  BIconCodeSlash
+  BIconCodeSquare
 } from 'bootstrap-vue'
 export default {
   components: {
     BIconLayoutTextWindowReverse,
     BIconGear,
-    BIconCodeSquare,
-    BIconCodeSlash
+    BIconCodeSquare
   },
   data() {
     return {
@@ -277,10 +270,12 @@ export default {
 @import '~assets/css/global.styl'
 #wc-page-index
   .site-features
-    list-style none
+    list-style-image url('~@/assets/img/code.svg')
+    padding-top 0px
     @media (min-width: $md)
-      column-count: 2
-    .code-slash-icon
-      margin-right 5px
-      margin-top 4px
+      column-count 2
+    li
+      .text
+        position relative
+        top -3px
 </style>
