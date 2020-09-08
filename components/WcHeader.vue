@@ -33,8 +33,10 @@
               size="sm"
               class="my-2 my-sm-0"
               type="submit"
-              >{{ $t('Search') }}</b-button
             >
+              <BIconSearch class="mr-1" />
+              {{ $t('Search') }}
+            </b-button>
           </b-nav-form>
 
           <b-nav-item-dropdown text="Lang" right>
@@ -72,7 +74,12 @@
 <script>
 import { mapState } from 'vuex'
 
+import { BIconSearch } from 'bootstrap-vue'
+
 export default {
+  components: {
+    BIconSearch
+  },
   data() {
     return {
       term: ''
