@@ -8,7 +8,7 @@
       :disabled="language.isDisable"
       v-b-tooltip.hover.top="language.isDisable ? $t('language_disable') : null"
       name="check-button"
-      class="d-inline-block mr-4"
+      class="d-inline-block mr-4 mt-3"
       switch
     >
       {{ $t(language.text) }}
@@ -32,7 +32,7 @@
       :value="categorySelected"
       class="mt-4"
     />
-    <b-button @click="$emit('clear-filter')">
+    <b-button @click="$emit('clear-filter')" class="mt-4">
       <BIconTrash2 />
       {{ $t('clear_filters') }}</b-button
     >
