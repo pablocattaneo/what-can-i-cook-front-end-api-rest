@@ -11,16 +11,18 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <p class="mt-4 text-center">{{ $t('home.introduction') }}</p>
+        <p class="mt-4 text-center introduction">
+          {{ $t('home.introduction') }}
+        </p>
       </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-5">
       <div class="col-12">
         <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 mt-4">
+      <div class="col-12 col-md-6 mt-5">
         <h3>
           <BIconLayoutTextWindowReverse />
           Front End
@@ -43,7 +45,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-12 col-md-6 mt-4">
+      <div class="col-12 col-md-6 mt-5">
         <h3>
           <BIconGear />
           Backend End
@@ -67,7 +69,7 @@
         </ul>
       </div>
     </div>
-    <h2 class="mt-4">
+    <h2 class="mt-5">
       <BIconCodeSquare />
       Site features
     </h2>
@@ -269,6 +271,8 @@ export default {
 <style lang="stylus" scoped>
 @import '~assets/css/global.styl'
 #wc-page-index
+  .introduction
+    font-size 18px
   .site-features
     padding-top 0px
     li

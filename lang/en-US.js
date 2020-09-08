@@ -15,7 +15,7 @@ export default {
   home: {
     introduction:
       'Hi, name is Pablo Cattaneo I am full stack developer. I have build this technical demo site to show some of my skills and knowledges.',
-    applied_technologies: 'Applied Technologies'
+    applied_technologies: 'APPLIED TECHNOLOGIES'
   },
   recipes: {
     title: 'Recipes',
