@@ -51,7 +51,9 @@
             <b-dropdown-item
               v-if="isUserLogged"
               :to="localePath({ path: '/user/profile' })"
-              >{{ $t('links.profile') }}</b-dropdown-item
+            >
+              <BIconPersonCircle class="mr-1" />
+              {{ $t('links.profile') }}</b-dropdown-item
             >
             <b-dropdown-item
               v-if="!isUserLogged"
@@ -74,11 +76,12 @@
 <script>
 import { mapState } from 'vuex'
 
-import { BIconSearch } from 'bootstrap-vue'
+import { BIconSearch, BIconPersonCircle } from 'bootstrap-vue'
 
 export default {
   components: {
-    BIconSearch
+    BIconSearch,
+    BIconPersonCircle
   },
   data() {
     return {
