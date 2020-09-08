@@ -24,12 +24,17 @@
       </div>
       <div class="row mt-4">
         <div class="col-12 d-flex justify-content-between">
-          <b-button v-b-toggle.sidebar-1>{{ $t('Filters') }}</b-button>
+          <b-button v-b-toggle.sidebar-1>
+            <BIconFilter class="mr-1" />
+            {{ $t('Filters') }}
+          </b-button>
           <b-button
             :to="localePath({ path: '/admin/recipes/' })"
             variant="primary"
-            >{{ $t('recipes.add_recipe') }}</b-button
           >
+            <BIconPlusCircleFill class="mr-2" />
+            {{ $t('recipes.add_recipe') }}
+          </b-button>
         </div>
       </div>
       <div class="row mt-4">
@@ -76,11 +81,15 @@ import WcLoading from '@/components/WcLoading.vue'
 
 import { mapState } from 'vuex'
 
+import { BIconPlusCircleFill, BIconFilter } from 'bootstrap-vue'
+
 export default {
   components: {
     RecipeFilters,
     RecipeCard,
-    WcLoading
+    WcLoading,
+    BIconPlusCircleFill,
+    BIconFilter
   },
   data() {
     return {
