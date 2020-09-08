@@ -32,18 +32,21 @@
       :value="categorySelected"
       class="mt-4"
     />
-    <b-button @click="$emit('clear-filter')">{{
-      $t('clear_filters')
-    }}</b-button>
+    <b-button @click="$emit('clear-filter')">
+      <BIconTrash2 />
+      {{ $t('clear_filters') }}</b-button
+    >
   </div>
 </template>
 
 <script>
 import WcSelect from '@/components/forms/WcSelect'
+import { BIconTrash2 } from 'bootstrap-vue'
 
 export default {
   components: {
-    WcSelect
+    WcSelect,
+    BIconTrash2
   },
   props: {
     languages: {
