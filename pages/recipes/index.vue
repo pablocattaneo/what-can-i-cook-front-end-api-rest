@@ -25,7 +25,7 @@
       <div class="row mt-4">
         <div class="col-12 d-flex justify-content-between">
           <b-button v-b-toggle.sidebar-1>
-            <BIconFilter class="mr-1" />
+            <BIconSliders class="mr-1" />
             {{ $t('Filters') }}
           </b-button>
           <b-button
@@ -81,7 +81,7 @@ import WcLoading from '@/components/WcLoading.vue'
 
 import { mapState } from 'vuex'
 
-import { BIconPlusCircleFill, BIconFilter } from 'bootstrap-vue'
+import { BIconPlusCircleFill, BIconSliders } from 'bootstrap-vue'
 
 export default {
   components: {
@@ -89,7 +89,7 @@ export default {
     RecipeCard,
     WcLoading,
     BIconPlusCircleFill,
-    BIconFilter
+    BIconSliders
   },
   data() {
     return {
