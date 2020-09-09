@@ -2,7 +2,7 @@
   <div id="wc-page-recipes" class="position-relative">
     <WcLoading v-if="isPageLoading" />
     <div v-else class="page-content">
-      <h1 class="Content__Title">
+      <h1 class="Content__Title text-center">
         {{ $t('recipes.title') }}
       </h1>
       <div>
@@ -44,7 +44,7 @@
         <div
           v-for="(recipe, recipesIndex) in recipes"
           :key="recipesIndex"
-          class="col-lg-3 col-md-6 col-12 mb-3"
+          class="col-lg-3 col-md-6 col-12 mb-4"
         >
           <RecipeCard
             :showCardHeader="userCanEdit(recipe.author)"

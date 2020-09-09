@@ -40,8 +40,8 @@
           </b-nav-form>
 
           <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item :to="switchLocalePath('en')">EN</b-dropdown-item>
-            <b-dropdown-item :to="switchLocalePath('es')">ES</b-dropdown-item>
+            <b-dropdown-item :to="switchLocalePath('en')"> EN</b-dropdown-item>
+            <b-dropdown-item :to="switchLocalePath('es')"> ES</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-nav-item-dropdown right>
@@ -58,15 +58,18 @@
             <b-dropdown-item
               v-if="!isUserLogged"
               :to="localePath({ path: '/login' })"
-              >Login</b-dropdown-item
             >
-            <b-dropdown-item v-if="isUserLogged" @click="signOut">{{
-              $t('links.sign_out')
-            }}</b-dropdown-item>
+              <BIconBoxArrowInRight class="mr-1" />
+              Login</b-dropdown-item
+            >
+            <b-dropdown-item v-if="isUserLogged" @click="signOut">
+              <BIconBoxArrowRight class="mr-1" />
+              {{ $t('links.sign_out') }}</b-dropdown-item
+            >
           </b-nav-item-dropdown>
-          <b-nav-item :to="localePath({ path: '/signup' })">{{
-            $t('links.sign_up')
-          }}</b-nav-item>
+          <b-nav-item :to="localePath({ path: '/signup' })">
+            {{ $t('links.sign_up') }}</b-nav-item
+          >
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -76,12 +79,19 @@
 <script>
 import { mapState } from 'vuex'
 
-import { BIconSearch, BIconPersonCircle } from 'bootstrap-vue'
+import {
+  BIconSearch,
+  BIconPersonCircle,
+  BIconBoxArrowRight,
+  BIconBoxArrowInRight
+} from 'bootstrap-vue'
 
 export default {
   components: {
     BIconSearch,
-    BIconPersonCircle
+    BIconPersonCircle,
+    BIconBoxArrowRight,
+    BIconBoxArrowInRight
   },
   data() {
     return {

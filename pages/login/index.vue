@@ -2,17 +2,20 @@
   <div id="wc-page-login">
     <div class="row">
       <div class="col-12">
-        <h1>Login</h1>
+        <h1 class="text-center">Login</h1>
       </div>
     </div>
-    <div>
-      <b-jumbotron header-level="6" bg-variant="info" header="User demo">
-        <p><b>User email:</b> user-demo@gmail.com</p>
-        <p><b>User password:</b> 1234</p>
-      </b-jumbotron>
-    </div>
+    <b-jumbotron
+      header-level="6"
+      bg-variant="info"
+      header="User demo"
+      class="mt-5"
+    >
+      <p><b>User email:</b> user-demo@gmail.com</p>
+      <p><b>User password:</b> 1234</p>
+    </b-jumbotron>
     <div class="row">
-      <WcForm ref="wcForm" class="col-12">
+      <WcForm ref="wcForm" class="col-12 mt-4">
         <WcInput
           id="login-email"
           :value="loginForm.fields.email"
