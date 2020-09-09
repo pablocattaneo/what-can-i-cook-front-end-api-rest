@@ -20,22 +20,21 @@
       </b-navbar-nav>
       <b-navbar-nav class="flex-grow-06">
         <b-nav-form @submit.stop.prevent class="flex-grow-1 b-nav-form">
-          <b-form-input
-            v-model="term"
-            :placeholder="$t('Search')"
-            size="sm"
-            class="mr-sm-1 flex-grow-1"
-            autofocus
-          />
-          <b-button
-            @click="searchMethod"
-            size="sm"
-            class="my-2 my-sm-0"
-            type="submit"
-          >
-            <BIconSearch class="mr-1" />
-            {{ $t('Search') }}
-          </b-button>
+          <b-input-group size="sm" class="flex-grow-1">
+            <b-form-input
+              v-model="term"
+              :placeholder="$t('Search')"
+              size="sm"
+              class="flex-grow-1"
+              autofocus
+            />
+            <b-input-group-append>
+              <b-button @click="searchMethod" size="sm" type="submit">
+                <BIconSearch class="mr-1" />
+                {{ $t('Search') }}
+              </b-button>
+            </b-input-group-append>
+          </b-input-group>
         </b-nav-form>
       </b-navbar-nav>
       <b-navbar-nav>
