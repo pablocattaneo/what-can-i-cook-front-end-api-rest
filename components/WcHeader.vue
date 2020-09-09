@@ -24,7 +24,7 @@
             v-model="term"
             :placeholder="$t('Search')"
             size="sm"
-            class="mr-sm-2 flex-grow-1"
+            class="mr-sm-1 flex-grow-1"
             autofocus
           />
           <b-button
