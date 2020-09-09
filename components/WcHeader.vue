@@ -12,20 +12,20 @@
 
     <b-navbar-toggle target="nav-collapse" />
 
-    <b-collapse id="nav-collapse" is-nav>
+    <b-collapse id="nav-collapse" is-nav class="justify-content-between">
       <b-navbar-nav>
         <b-nav-item :to="localePath({ path: '/recipes' })">{{
           $t('links.recipes')
         }}</b-nav-item>
       </b-navbar-nav>
-
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form @submit.stop.prevent>
+      <b-navbar-nav class="flex-grow-06">
+        <b-nav-form @submit.stop.prevent class="flex-grow-1 b-nav-form">
           <b-form-input
             v-model="term"
             :placeholder="$t('Search')"
             size="sm"
-            class="mr-sm-2"
+            class="mr-sm-2 flex-grow-1"
+            autofocus
           />
           <b-button
             @click="searchMethod"
@@ -37,7 +37,8 @@
             {{ $t('Search') }}
           </b-button>
         </b-nav-form>
-
+      </b-navbar-nav>
+      <b-navbar-nav>
         <b-nav-item-dropdown text="Lang" right>
           <b-dropdown-item :to="switchLocalePath('en')"> EN</b-dropdown-item>
           <b-dropdown-item :to="switchLocalePath('es')"> ES</b-dropdown-item>
@@ -122,4 +123,10 @@ export default {
   max-width 30px
   position relative
   top -2px
+.flex-grow-06
+  flex-grow 0.6
+::v-deep
+  .b-nav-form
+    form
+      flex-grow 1
 </style>
