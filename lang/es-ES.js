@@ -14,7 +14,7 @@ export default {
   },
   home: {
     introduction:
-      'Hola, mi nombre es Pablo Cattaneo. Soy un desarrollador full stack. He creado este sitio para mostrar algunas de mis habilidades y conocimientos.',
+      'Hola, mi nombre es Pablo Cattaneo. Soy un desarrollador full stack. Cree este sitio para mostrar algunas de mis habilidades y conocimientos.',
     applied_technologies: 'TECNOLOGÍAS APLICADAS'
   },
   recipes: {
