@@ -80,6 +80,7 @@
           :buttonTextValue="$t('Sign_up')"
           @click.native="submit"
           :isProcessing="isFormProcessing"
+          class="mt-2 w-100"
         />
       </div>
     </WcForm>
