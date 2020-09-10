@@ -40,7 +40,10 @@
     </div>
     <div class="row">
       <div class="col-12 mt-5">
-        <h2>{{ $t('Directions') }}</h2>
+        <h2>
+          <BIconListOl class="mr-1" />
+          {{ $t('Directions') }}
+        </h2>
         <ol>
           <li
             v-for="(direction, index) in recipe.directions"
@@ -68,11 +71,12 @@
 </template>
 
 <script>
-import { BIconListTask } from 'bootstrap-vue'
+import { BIconListTask, BIconListOl } from 'bootstrap-vue'
 
 export default {
   components: {
-    BIconListTask
+    BIconListTask,
+    BIconListOl
   },
   computed: {
     mustShowMoreInfoSection() {
