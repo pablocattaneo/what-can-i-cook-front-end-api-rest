@@ -7,7 +7,7 @@
     </div>
     <WcForm ref="wcForm" class="row">
       <div
-        class="col-12 col-md-6 justify-content-center align-items-center d-flex flex-column"
+        class="col-12 col-md-6 justify-content-center align-items-center d-flex flex-column mt-4"
       >
         <h2>{{ $t('What_can_i_cook') }}</h2>
         <h3>{{ $t('Sign_up_and_find_answer') }}</h3>
@@ -16,10 +16,10 @@
           src="~/assets/img/logo.svg"
           alt="site logo"
           title="site logo"
-          class="logo-img mt-3"
+          class="logo-img mt-4"
         />
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6 mt-4 mt-md-0">
         <WcInput
           id="sign-up-name"
           :value="signUpForm.fields.name"
@@ -30,7 +30,7 @@
           @input="signUpForm.fields.name = $event"
           autocomplete="off"
           autofocus
-          class="w-100 mt-3"
+          class="w-100 mt-4"
         />
         <WcInput
           id="sign-up-lastname"
@@ -41,7 +41,7 @@
           :state="$v.signUpForm.fields.lastName.$error ? false : null"
           @input="signUpForm.fields.lastName = $event"
           autocomplete="off"
-          class="w-100 mt-3"
+          class="w-100 mt-4"
         />
         <WcInput
           id="sign-up-username"
@@ -52,7 +52,7 @@
           :state="$v.signUpForm.fields.userName.$error ? false : null"
           @input="signUpForm.fields.userName = $event"
           autocomplete="off"
-          class="w-100 mt-3"
+          class="w-100 mt-4"
         />
         <WcInput
           id="sign-up-password"
@@ -63,7 +63,7 @@
           :state="$v.signUpForm.fields.password.$error ? false : null"
           @input="signUpForm.fields.password = $event"
           type="password"
-          class="w-100 mt-3"
+          class="w-100 mt-4"
         />
         <WcInput
           id="sign-up-repeat-password"
@@ -74,7 +74,7 @@
           :state="$v.signUpForm.fields.confirmPassword.$error ? false : null"
           @input="signUpForm.fields.confirmPassword = $event"
           type="password"
-          class="w-100 mt-3"
+          class="w-100 mt-4"
         />
         <WcButtonSubmit
           :buttonTextValue="$t('Sign_up')"
