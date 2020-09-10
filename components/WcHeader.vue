@@ -1,5 +1,11 @@
 <template>
-  <b-navbar id="wc-header" toggleable="lg" type="dark" variant="primary">
+  <b-navbar
+    id="wc-header"
+    :sticky="true"
+    toggleable="lg"
+    type="dark"
+    variant="primary"
+  >
     <b-navbar-brand :to="localePath({ path: '/' })">
       <b-img-lazy
         :blank-src="null"
