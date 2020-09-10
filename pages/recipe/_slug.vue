@@ -27,7 +27,7 @@
           <BIconBasket class="mr-1" />
           {{ $t('Ingredients') }}
         </h2>
-        <ul>
+        <ul class="mt-4">
           <li
             v-for="(ingredient, index) in recipe.ingredients"
             :key="`${index}-ingredient`"
@@ -42,11 +42,11 @@
           <BIconBook class="mr-1" />
           {{ $t('Directions') }}
         </h2>
-        <ol>
+        <ol class="mt-4">
           <li
             v-for="(direction, index) in recipe.directions"
             :key="`${index}-direction`"
-            class="mt-2"
+            class="mt-3"
           >
             {{ direction }}
           </li>
@@ -55,8 +55,11 @@
     </div>
     <div v-if="mustShowMoreInfoSection" class="row">
       <div class="col-12 mt-5">
-        <h2>{{ $t('More_info') }}</h2>
-        <b-list-group>
+        <h2>
+          <BIconEasel class="mr-2" />
+          {{ $t('More_info') }}
+        </h2>
+        <b-list-group class="mt-3">
           <template v-for="(info, key, index) in recipe.more_info">
             <b-list-group-item v-if="info" :key="`${index}-more-info`"
               >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
@@ -69,12 +72,13 @@
 </template>
 
 <script>
-import { BIconBasket, BIconBook } from 'bootstrap-vue'
+import { BIconBasket, BIconBook, BIconEasel } from 'bootstrap-vue'
 
 export default {
   components: {
     BIconBasket,
-    BIconBook
+    BIconBook,
+    BIconEasel
   },
   computed: {
     mustShowMoreInfoSection() {
