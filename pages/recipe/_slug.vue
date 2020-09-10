@@ -22,13 +22,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 mt-4">
-        <h2>{{ $t('Ingredients') }}</h2>
+      <div class="col-12 mt-5">
+        <h2>
+          <BIconListTask class="mr-1" />
+          {{ $t('Ingredients') }}
+        </h2>
         <ul>
           <li
             v-for="(ingredient, index) in recipe.ingredients"
             :key="`${index}-ingredient`"
-            class="mt-2"
+            class="mt-3"
           >
             {{ ingredient }}
           </li>
@@ -36,7 +39,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 mt-4">
+      <div class="col-12 mt-5">
         <h2>{{ $t('Directions') }}</h2>
         <ol>
           <li
@@ -50,7 +53,7 @@
       </div>
     </div>
     <div v-if="mustShowMoreInfoSection" class="row">
-      <div class="col-12 mt-4">
+      <div class="col-12 mt-5">
         <h2>{{ $t('More_info') }}</h2>
         <b-list-group>
           <template v-for="(info, key, index) in recipe.more_info">
@@ -65,7 +68,12 @@
 </template>
 
 <script>
+import { BIconListTask } from 'bootstrap-vue'
+
 export default {
+  components: {
+    BIconListTask
+  },
   computed: {
     mustShowMoreInfoSection() {
       return Object.keys(this.recipe.more_info).find(
