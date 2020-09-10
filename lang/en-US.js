@@ -109,5 +109,7 @@ export default {
   Search: 'Search',
   App_deloped_by: 'App developed by',
   Log_in: 'Log In',
-  Sign_up: 'Sign Up'
+  Sign_up: 'Sign Up',
+  What_can_i_cook: 'What can I Cook?',
+  Sign_up_and_find_answer: 'Sign Up and find the answer!!'
 }

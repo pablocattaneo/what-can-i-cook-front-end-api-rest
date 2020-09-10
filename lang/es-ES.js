@@ -112,5 +112,7 @@ export default {
   Search: 'Buscar',
   App_deloped_by: 'App desarrollada por',
   Log_in: 'Loguearse',
-  Sign_up: 'Registrarse'
+  Sign_up: 'Registrarse',
+  What_can_i_cook: 'Que puedo cocinar?',
+  Sign_up_and_find_answer: 'Registrate y encuentra la respuesta!!'
 }

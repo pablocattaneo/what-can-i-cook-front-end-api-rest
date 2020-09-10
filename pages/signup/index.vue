@@ -9,14 +9,14 @@
       <div
         class="col-12 col-md-6 justify-content-center align-items-center d-flex flex-column"
       >
-        <h2>What can I Cook?</h2>
-        <h3>Sign Up and find the solution!!</h3>
+        <h2>{{ $t('What_can_i_cook') }}</h2>
+        <h3>{{ $t('Sign_up_and_find_answer') }}</h3>
         <b-img-lazy
           :blank-src="null"
           src="~/assets/img/logo.svg"
           alt="site logo"
           title="site logo"
-          class="logo-img"
+          class="logo-img mt-3"
         />
       </div>
       <div class="col-12 col-md-6">
