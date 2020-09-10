@@ -19,7 +19,7 @@
           class="logo-img mt-4"
         />
       </div>
-      <div class="col-12 col-md-6 mt-4 mt-md-0">
+      <div class="col-12 col-md-6 mt-2 mt-md-0">
         <WcInput
           id="sign-up-name"
           :value="signUpForm.fields.name"
