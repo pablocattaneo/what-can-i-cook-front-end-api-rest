@@ -6,6 +6,19 @@
       </div>
     </div>
     <WcForm ref="wcForm" class="row">
+      <div
+        class="col-12 col-md-6 justify-content-center align-items-center d-flex flex-column"
+      >
+        <h2>What can I Cook?</h2>
+        <h3>Sign Up and find the solution!!</h3>
+        <b-img-lazy
+          :blank-src="null"
+          src="~/assets/img/logo.svg"
+          alt="site logo"
+          title="site logo"
+          class="logo-img"
+        />
+      </div>
       <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-name"
@@ -19,8 +32,6 @@
           autofocus
           class="w-100 mt-3"
         />
-      </div>
-      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-lastname"
           :value="signUpForm.fields.lastName"
@@ -32,8 +43,6 @@
           autocomplete="off"
           class="w-100 mt-3"
         />
-      </div>
-      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-username"
           :value="signUpForm.fields.userName"
@@ -45,8 +54,6 @@
           autocomplete="off"
           class="w-100 mt-3"
         />
-      </div>
-      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-password"
           :value="signUpForm.fields.password"
@@ -58,8 +65,6 @@
           type="password"
           class="w-100 mt-3"
         />
-      </div>
-      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-repeat-password"
           :value="signUpForm.fields.confirmPassword"
@@ -71,8 +76,6 @@
           type="password"
           class="w-100 mt-3"
         />
-      </div>
-      <div class="col-12 mt-3">
         <WcButtonSubmit
           :buttonTextValue="$t('Sign_up')"
           @click.native="submit"
@@ -156,3 +159,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.logo-img
+  max-height 200px
+</style>
