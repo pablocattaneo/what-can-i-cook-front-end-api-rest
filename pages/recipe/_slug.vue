@@ -22,9 +22,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 mt-5">
+      <div class="col-12 col-md-6 mt-5">
         <h2>
-          <BIconListTask class="mr-1" />
+          <BIconBasket class="mr-1" />
           {{ $t('Ingredients') }}
         </h2>
         <ul>
@@ -37,11 +37,9 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mt-5">
+      <div class="col-12 col-md-6 mt-5">
         <h2>
-          <BIconListOl class="mr-1" />
+          <BIconBook class="mr-1" />
           {{ $t('Directions') }}
         </h2>
         <ol>
@@ -71,12 +69,12 @@
 </template>
 
 <script>
-import { BIconListTask, BIconListOl } from 'bootstrap-vue'
+import { BIconBasket, BIconBook } from 'bootstrap-vue'
 
 export default {
   components: {
-    BIconListTask,
-    BIconListOl
+    BIconBasket,
+    BIconBook
   },
   computed: {
     mustShowMoreInfoSection() {
