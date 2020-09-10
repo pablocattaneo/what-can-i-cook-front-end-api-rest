@@ -108,5 +108,6 @@ export default {
   and: 'and',
   Search: 'Search',
   App_deloped_by: 'App developed by',
-  Log_in: 'Log In'
+  Log_in: 'Log In',
+  Sign_up: 'Sign Up'
 }

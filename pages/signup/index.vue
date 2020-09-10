@@ -75,6 +75,7 @@
           class="w-100"
         />
         <WcButtonSubmit
+          :buttonTextValue="$t('Sign_up')"
           @click.native="submit"
           :isProcessing="isFormProcessing"
         />

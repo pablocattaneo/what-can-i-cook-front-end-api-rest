@@ -111,5 +111,6 @@ export default {
   and: 'y',
   Search: 'Buscar',
   App_deloped_by: 'App desarrollada por',
-  Log_in: 'Loguearse'
+  Log_in: 'Loguearse',
+  Sign_up: 'Registrarse'
 }
