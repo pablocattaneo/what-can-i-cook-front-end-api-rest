@@ -2,11 +2,11 @@
   <div id="wc-page-signup-index">
     <div class="row">
       <div class="col-12">
-        <h1>Sign Up</h1>
+        <h1 class="text-center">Sign Up</h1>
       </div>
     </div>
-    <div class="row">
-      <WcForm ref="wcForm" class="col-12">
+    <WcForm ref="wcForm" class="row">
+      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-name"
           :value="signUpForm.fields.name"
@@ -17,8 +17,10 @@
           @input="signUpForm.fields.name = $event"
           autocomplete="off"
           autofocus
-          class="w-100"
+          class="w-100 mt-3"
         />
+      </div>
+      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-lastname"
           :value="signUpForm.fields.lastName"
@@ -28,19 +30,10 @@
           :state="$v.signUpForm.fields.lastName.$error ? false : null"
           @input="signUpForm.fields.lastName = $event"
           autocomplete="off"
-          class="w-100"
+          class="w-100 mt-3"
         />
-        <WcInput
-          id="sign-up-email"
-          :value="signUpForm.fields.email"
-          :validation="$v.signUpForm.fields.email"
-          :label="$t('signUp.signUpForm.fields.email') + ':'"
-          :placeholder="$t('signUp.signUpForm.fields.email')"
-          :state="$v.signUpForm.fields.email.$error ? false : null"
-          @input="signUpForm.fields.email = $event"
-          type="email"
-          class="w-100"
-        />
+      </div>
+      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-username"
           :value="signUpForm.fields.userName"
@@ -50,8 +43,10 @@
           :state="$v.signUpForm.fields.userName.$error ? false : null"
           @input="signUpForm.fields.userName = $event"
           autocomplete="off"
-          class="w-100"
+          class="w-100 mt-3"
         />
+      </div>
+      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-password"
           :value="signUpForm.fields.password"
@@ -61,8 +56,10 @@
           :state="$v.signUpForm.fields.password.$error ? false : null"
           @input="signUpForm.fields.password = $event"
           type="password"
-          class="w-100"
+          class="w-100 mt-3"
         />
+      </div>
+      <div class="col-12 col-md-6">
         <WcInput
           id="sign-up-repeat-password"
           :value="signUpForm.fields.confirmPassword"
@@ -72,15 +69,17 @@
           :state="$v.signUpForm.fields.confirmPassword.$error ? false : null"
           @input="signUpForm.fields.confirmPassword = $event"
           type="password"
-          class="w-100"
+          class="w-100 mt-3"
         />
+      </div>
+      <div class="col-12 mt-3">
         <WcButtonSubmit
           :buttonTextValue="$t('Sign_up')"
           @click.native="submit"
           :isProcessing="isFormProcessing"
         />
-      </WcForm>
-    </div>
+      </div>
+    </WcForm>
   </div>
 </template>
 
