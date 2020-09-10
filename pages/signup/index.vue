@@ -7,7 +7,7 @@
     </div>
     <WcForm ref="wcForm" class="row">
       <div
-        class="col-12 col-md-6 justify-content-center align-items-center d-flex flex-column mt-4"
+        class="col-12 col-md-6 justify-content-center align-items-center d-md-flex flex-column mt-4 d-none"
       >
         <h2>{{ $t('What_can_i_cook') }}</h2>
         <h3>{{ $t('Sign_up_and_find_answer') }}</h3>
