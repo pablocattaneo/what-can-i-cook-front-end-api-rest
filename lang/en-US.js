@@ -107,5 +107,6 @@ export default {
   through: 'through',
   and: 'and',
   Search: 'Search',
-  App_deloped_by: 'App developed by'
+  App_deloped_by: 'App developed by',
+  Log_in: 'Log In'
 }

@@ -110,5 +110,6 @@ export default {
   through: 'mediante',
   and: 'y',
   Search: 'Buscar',
-  App_deloped_by: 'App desarrollada por'
+  App_deloped_by: 'App desarrollada por',
+  Log_in: 'Loguearse'
 }
