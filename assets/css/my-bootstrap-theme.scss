@@ -1,17 +1,15 @@
+// Color system
+$white:    #fff !default;
 
-// $primary: #FBD570;
-// $secondary: #ACACAB;
-// $success:       #68FF66;
-// $info:          #3DB3E0;
-// $warning:       #FBD570;
-// $danger:        #E0513D;
-// $light:         #E7D6A7;
-// $dark:          #5E5434;
+$primary: #7fad39;
+$info: #5B7CAD;
+$danger: #AD4128;
 
-// $link-color: #577CFA;
-// $link-hover-color: darken($link-color, 10%) !default;
 
-// $navbar-dark-color: $dark;
+// Navbar
+$navbar-dark-color:                 rgba($white, .75);
+$navbar-dark-hover-color:           rgba($white, 100);
+$navbar-dark-active-color:          $white;
 
 // Bootstrap and its default variables
 @import '../../node_modules/bootstrap/scss/bootstrap';
