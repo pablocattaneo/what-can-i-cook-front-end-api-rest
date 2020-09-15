@@ -1,0 +1,20 @@
+
+// $primary: #FBD570;
+// $secondary: #ACACAB;
+// $success:       #68FF66;
+// $info:          #3DB3E0;
+// $warning:       #FBD570;
+// $danger:        #E0513D;
+// $light:         #E7D6A7;
+// $dark:          #5E5434;
+
+// $link-color: #577CFA;
+// $link-hover-color: darken($link-color, 10%) !default;
+
+// $navbar-dark-color: $dark;
+
+// Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// BootstrapVue and its default variables
+@import '../../node_modules/bootstrap-vue/src/index.scss';
