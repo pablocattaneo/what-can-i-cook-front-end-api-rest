@@ -40,7 +40,7 @@
         </ul>
       </div>
     </div>
-    <div class="text-center row">
+    <div class="text-center row author-section">
       <div class="col-12">
         <span id="author"
           >{{ $t('App_deloped_by') }}
@@ -54,7 +54,7 @@
         </span>
       </div>
     </div>
-    <div class="row">
+    <div class="row icon-made">
       <div class="col-12">
         <p class="text-center">
           Icons made by
@@ -98,4 +98,10 @@ export default {
 <style lang="stylus" scoped>
 #wc-footer
   color white
+  .icon-made,
+  .author-section
+    p,
+    a,
+    span
+      font-size 15px
 </style>
