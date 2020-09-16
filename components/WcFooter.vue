@@ -96,14 +96,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~assets/css/global.styl'
 #wc-footer
   color white
   .icon-made,
   .author-section
-    p,
-    a,
+    p
+    a
     span
-      font-size 15px
+      font-size 12px
       @media (min-width: $md)
-        font-size 10px
+        font-size 15px
 </style>
