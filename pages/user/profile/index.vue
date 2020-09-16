@@ -23,6 +23,7 @@
             userName: ''
           }
         }"
+        class="mt-5"
       />
       <WcEditInlineField
         id="user-name"
@@ -39,6 +40,7 @@
             name: ''
           }
         }"
+        class="mt-5"
       />
       <WcEditInlineField
         id="user-lastname"
@@ -55,6 +57,7 @@
             lastName: ''
           }
         }"
+        class="mt-5"
       />
       <WcEditInlineField
         id="user-email"
@@ -72,6 +75,7 @@
             email: ''
           }
         }"
+        class="mt-5"
       />
     </div>
   </div>
