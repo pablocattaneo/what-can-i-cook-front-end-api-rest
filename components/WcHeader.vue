@@ -124,12 +124,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~assets/css/global.styl'
 .logo-img
   max-width 30px
   position relative
   top -2px
 .flex-grow-06
   flex-grow 0.6
+#nav-collapse
+  ::v-deep
+    a
+      font-size 1.1rem
+      @media (min-width: $md)
+        font-size 1rem
 ::v-deep
   .b-nav-form
     form
