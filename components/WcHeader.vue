@@ -134,7 +134,7 @@ export default {
 #nav-collapse
   ::v-deep
     a
-      font-size 1.1rem
+      font-size 1.2rem
       @media (min-width: $md)
         font-size 1rem
 ::v-deep
