@@ -163,4 +163,7 @@ export default {
     height 253px
     margin 0 auto
     display block
+.card-footer
+  a
+    color #5742AD
 </style>

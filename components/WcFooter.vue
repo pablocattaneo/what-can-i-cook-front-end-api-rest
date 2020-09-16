@@ -104,4 +104,6 @@ export default {
     a,
     span
       font-size 15px
+      @media (min-width: $md)
+        font-size 12px
 </style>

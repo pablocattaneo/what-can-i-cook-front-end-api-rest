@@ -21,7 +21,7 @@
         <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row technologies">
       <div class="col-12 col-md-6 mt-5">
         <h3>
           <BIconLayoutTextWindowReverse />
@@ -273,8 +273,16 @@ export default {
 #wc-page-index
   .introduction
     font-size 18px
+  ::v-deep
+    .technologies
+      ul
+        li
+          a
+            color #5742AD
   .site-features
     padding-top 0px
+    a
+      color #5742AD
     li
       list-style circle
       list-style-position inside
