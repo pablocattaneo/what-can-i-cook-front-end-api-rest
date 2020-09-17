@@ -45,7 +45,8 @@ export default {
     add_recipe: 'Agregar receta',
     up_to_calories_by_portion: 'Hasta calorias por porción',
     portion_calories: 'Calorías por porción',
-    categories: 'Categorías'
+    categories: 'Categorías',
+    create: 'Crear receta'
   },
   signUp: {
     signUpForm: {
