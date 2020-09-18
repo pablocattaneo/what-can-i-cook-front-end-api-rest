@@ -9,13 +9,13 @@
       header-level="6"
       bg-variant="info"
       header="User demo"
-      class="mt-5"
+      class="mt-5 mb-3"
     >
       <p><b>User email:</b> user-demo@gmail.com</p>
       <p><b>User password:</b> 1234</p>
     </b-jumbotron>
-    <div class="row">
-      <WcForm ref="wcForm" class="col-12 mt-4">
+    <WcForm ref="wcForm">
+      <div class="row">
         <WcInput
           id="login-email"
           :value="loginForm.fields.email"
@@ -25,7 +25,7 @@
           :state="$v.loginForm.fields.email.$error ? false : null"
           @input="loginForm.fields.email = $event"
           type="email"
-          class="w-100"
+          class="col-12 col-md-6 mt-4"
         />
         <WcInput
           id="login-password"
@@ -36,15 +36,16 @@
           :state="$v.loginForm.fields.password.$error ? false : null"
           @input="loginForm.fields.password = $event"
           type="password"
-          class="w-100"
+          class="col-12 col-md-6 mt-4"
         />
-        <WcButtonSubmit
-          :buttonTextValue="$t('Log_in')"
-          @click.native="submit"
-          :isProcessing="isFormProcessing"
-        />
-      </WcForm>
-    </div>
+      </div>
+      <WcButtonSubmit
+        :buttonTextValue="$t('Log_in')"
+        @click.native="submit"
+        :isProcessing="isFormProcessing"
+        class="w-100 mt-3"
+      />
+    </WcForm>
   </div>
 </template>
 
