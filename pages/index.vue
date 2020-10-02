@@ -135,6 +135,15 @@ export default {
           }
         },
         {
+          text:
+            'Supports Higher Order Component to reuse features to manage all forms',
+          link: {
+            href:
+              'https://github.com/pablocattaneo/what-can-i-cook-front-end-api-rest/blob/master/components/forms/WcForm.vue',
+            text: 'HOC'
+          }
+        },
+        {
           text: 'Mongo Schema validation. For example:',
           link: {
             href:
