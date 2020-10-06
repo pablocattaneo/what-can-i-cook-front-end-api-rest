@@ -55,6 +55,16 @@
           class="w-100 mt-5 mt-md-4"
         />
         <WcInput
+          id="sign-up-email"
+          :value="signUpForm.fields.email"
+          :validation="$v.signUpForm.fields.email"
+          :label="$t('signUp.signUpForm.fields.email') + ':'"
+          :placeholder="$t('signUp.signUpForm.fields.email')"
+          :state="$v.signUpForm.fields.email.$error ? false : null"
+          @input="signUpForm.fields.email = $event"
+          class="w-100 mt-5 mt-md-4"
+        />
+        <WcInput
           id="sign-up-password"
           :value="signUpForm.fields.password"
           :validation="$v.signUpForm.fields.password"
