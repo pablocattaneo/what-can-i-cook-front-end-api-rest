@@ -9,6 +9,10 @@ let wrapper
 beforeAll(() => {
   wrapper = shallowMount(RecipeCard, {
     localVue,
+    mocks: {
+      $t: () => {},
+      localePath: () => ''
+    },
     propsData: {
       readMoreLink: '/',
       bImgLazySrc: '/'
