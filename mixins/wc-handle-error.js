@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { mapMutations } from 'vuex'
 
 export default {
