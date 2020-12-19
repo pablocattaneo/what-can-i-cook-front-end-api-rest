@@ -8,7 +8,11 @@ localVue.use(BootstrapVue)
 let wrapper
 beforeAll(() => {
   wrapper = mount(WcFooter, {
-    localVue
+    localVue,
+    mocks: {
+      $t: () => {},
+      localePath: () => ''
+    }
   })
 })
 
