@@ -1,4 +1,5 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+
 import RecipeCard from '@/components/recipes/RecipeCard'
 import { BootstrapVue } from 'bootstrap-vue'
 
@@ -12,6 +13,9 @@ beforeAll(() => {
     mocks: {
       $t: () => {},
       localePath: () => ''
+    },
+    stubs: {
+      'n-link': RouterLinkStub
     },
     propsData: {
       readMoreLink: '/',
