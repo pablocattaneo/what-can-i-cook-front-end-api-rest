@@ -3,10 +3,11 @@ import WcTextArea from '@/components/forms/WcTextArea'
 import { BootstrapVue } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
-localVue.use(BootstrapVue)
 
 let wrapper
 beforeAll(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {})
+  localVue.use(BootstrapVue)
   wrapper = mount(WcTextArea, {
     localVue,
     mocks: {

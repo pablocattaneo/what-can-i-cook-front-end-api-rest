@@ -4,7 +4,6 @@ import { BootstrapVue } from 'bootstrap-vue'
 import Vuex from 'vuex'
 
 const localVue = createLocalVue()
-localVue.use(BootstrapVue)
 localVue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -18,6 +17,8 @@ const store = new Vuex.Store({
 
 let wrapper
 beforeAll(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {})
+  localVue.use(BootstrapVue)
   wrapper = shallowMount(WcHeader, {
     store,
     localVue,

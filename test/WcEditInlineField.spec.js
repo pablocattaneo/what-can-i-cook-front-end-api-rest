@@ -6,7 +6,6 @@ import Vuex from 'vuex'
 import { BootstrapVue, BButton } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
-localVue.use(BootstrapVue)
 localVue.use(Vuex)
 localVue.use('b-button', BButton)
 
@@ -24,6 +23,8 @@ const store = new Vuex.Store({
 
 let wrapper
 beforeAll(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {})
+  localVue.use(BootstrapVue)
   wrapper = mount(WcEditInlineField, {
     localVue,
     store,

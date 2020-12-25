@@ -3,10 +3,11 @@ import WcSelect from '@/components/forms/WcSelect'
 import { BootstrapVue } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
-localVue.use(BootstrapVue)
 
 let wrapper
 beforeAll(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {})
+  localVue.use(BootstrapVue)
   wrapper = mount(WcSelect, {
     localVue,
     mocks: {

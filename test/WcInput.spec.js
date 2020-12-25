@@ -3,11 +3,12 @@ import WcInput from '@/components/forms/WcInput'
 import { BootstrapVue } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
-localVue.use(BootstrapVue)
 
 let wrapper
 let input
 beforeAll(() => {
+  jest.spyOn(console, 'warn').mockImplementation(() => {})
+  localVue.use(BootstrapVue)
   wrapper = mount(WcInput, { localVue })
   input = wrapper.find('input')
 })
