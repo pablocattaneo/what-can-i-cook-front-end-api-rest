@@ -12,7 +12,7 @@
               alt="placeholder"
             />
             <a
-              id="stackoverflow-user-profile-url"
+              id="linkdin-url"
               v-if="linkedinProfileUrl"
               :href="linkedinProfileUrl"
               class="mt-0 mb-1"

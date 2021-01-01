@@ -58,3 +58,14 @@ describe('StackOverflow link', () => {
     ).toBe('https://stackoverflow.com/users/3599272/pablo')
   })
 })
+
+describe('linkedinProfileUrl link', () => {
+  test('linkedinProfileUrl props was set to https://www.linkedin.com/in/cattaneopablo/ so component should be rendered.', async () => {
+    await wrapper.setProps({
+      linkedinProfileUrl: 'https://www.linkedin.com/in/cattaneopablo/'
+    })
+    expect(wrapper.find('a#linkdin-url').attributes('href')).toBe(
+      'https://www.linkedin.com/in/cattaneopablo/'
+    )
+  })
+})
