@@ -41,26 +41,19 @@ describe('Author Property', () => {
 })
 
 describe('StackOverflow link', () => {
-  test('stackoverflowUserProfileUrl props was set to https://stackoverflow.com/users/3599272/pablo so component should be rendered.', async () => {
-    await wrapper.setProps({
-      stackoverflowUserProfileUrl:
-        'https://stackoverflow.com/users/3599272/pablo'
-    })
-    expect(wrapper.find('a#stackoverflow-user-profile-url').exists()).toBe(true)
-  })
-  test('stackoverflowUserProfileUrl props was set to https://stackoverflow.com/users/3599272/pablo so component should a link elemnt whith this value in this href property.', async () => {
+  test('stackoverflowUserProfileUrl props was set to https://stackoverflow.com/users/3599272/pablo so component should render a link elemnt whith this value in this href property.', async () => {
     await wrapper.setProps({
       stackoverflowUserProfileUrl:
         'https://stackoverflow.com/users/3599272/pablo'
     })
     expect(
-      wrapper.find('a#stackoverflow-user-profile-url').attributes().href
+      wrapper.find('a#stackoverflow-user-profile-url').attributes('href')
     ).toBe('https://stackoverflow.com/users/3599272/pablo')
   })
 })
 
 describe('linkedinProfileUrl link', () => {
-  test('linkedinProfileUrl props was set to https://www.linkedin.com/in/cattaneopablo/ so component should be rendered.', async () => {
+  test('linkedinProfileUrl props was set to https://www.linkedin.com/in/cattaneopablo/ so component should render a link elemnt whith this value in this href property.', async () => {
     await wrapper.setProps({
       linkedinProfileUrl: 'https://www.linkedin.com/in/cattaneopablo/'
     })
