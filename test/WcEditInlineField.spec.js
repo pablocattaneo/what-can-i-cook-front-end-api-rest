@@ -106,6 +106,11 @@ describe('Props id', () => {
   test('The component is well formed so prop id should exist', () => {
     expect(wrapper.vm).toHaveProperty('id')
   })
+  test('Should render span element that contains "my label" because property label is set to "my label"', async () => {
+    const id = 'my-id'
+    await wrapper.setProps({ id })
+    expect(wrapper.find('.collapse').attributes('id')).toBe(id)
+  })
 })
 
 describe('Props objectToSendServer', () => {
