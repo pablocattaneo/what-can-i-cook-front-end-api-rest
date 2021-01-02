@@ -54,4 +54,9 @@ describe('Focus method', () => {
   test('Focus method should be definded', () => {
     expect(wrapper.vm.focus).toBeDefined()
   })
+  test('should call bFormInput.focus() method', async () => {
+    jest.spyOn(wrapper.vm.$refs.bFormInput, 'focus')
+    await wrapper.vm.focus()
+    expect(wrapper.vm.$refs.bFormInput.focus).toHaveBeenCalled()
+  })
 })
