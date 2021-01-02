@@ -40,4 +40,12 @@ describe('validationForm method', () => {
   test('validationForm method should be definded', () => {
     expect(wrapper.vm.validationForm).toBeDefined()
   })
+  test('should call bFormInput.focus() method', async () => {
+    const validation = {
+      $touch() {}
+    }
+    jest.spyOn(validation, '$touch')
+    await wrapper.vm.validationForm(validation)
+    expect(validation.$touch).toHaveBeenCalled()
+  })
 })
