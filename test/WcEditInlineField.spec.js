@@ -90,6 +90,11 @@ describe('Props labels', () => {
   test('The component is well formed so prop labels should exist', () => {
     expect(wrapper.vm).toHaveProperty('labels')
   })
+  test('Should render legend element that contains "my label" because property label is set to my label', async () => {
+    const label = 'my label'
+    await wrapper.setProps({ labels: label })
+    expect(wrapper.find('legend').text()).toContain(label)
+  })
 })
 
 describe('Props id', () => {
