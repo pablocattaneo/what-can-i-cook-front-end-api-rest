@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import WcFooter from '@/components/WcFooter'
 import { BootstrapVue } from 'bootstrap-vue'
 
@@ -9,7 +9,7 @@ beforeAll(() => {
   // It removes boostrap warning in the way a member of Bootrap-vue recommend do it https://github.com/bootstrap-vue/bootstrap-vue/issues/3303\#issuecomment-492718875
   jest.spyOn(console, 'warn').mockImplementation(() => {})
   localVue.use(BootstrapVue)
-  wrapper = mount(WcFooter, {
+  wrapper = shallowMount(WcFooter, {
     localVue,
     mocks: {
       $t: () => {},
