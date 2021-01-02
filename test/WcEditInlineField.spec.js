@@ -106,7 +106,7 @@ describe('Props id', () => {
   test('The component is well formed so prop id should exist', () => {
     expect(wrapper.vm).toHaveProperty('id')
   })
-  test('Should render span element that contains "my label" because property label is set to "my label"', async () => {
+  test('Should render with the attribute id set to "my-id"', async () => {
     const id = 'my-id'
     await wrapper.setProps({ id })
     expect(wrapper.find('.collapse').attributes('id')).toBe(id)
@@ -122,6 +122,11 @@ describe('Props objectToSendServer', () => {
 describe('Props currentValue', () => {
   test('The component is well formed so prop currentValue should exist', () => {
     expect(wrapper.vm).toHaveProperty('currentValue')
+  })
+  test('Should render span element that contains "current value" because property currentValue is set to "current value"', async () => {
+    const currentValue = 'current value'
+    await wrapper.setProps({ currentValue })
+    expect(wrapper.find('#current-value').text()).toContain(currentValue)
   })
 })
 

@@ -2,7 +2,7 @@
   <div>
     <p class="mt-4 mb-0">
       <span class="font-weight-bold">{{ labels }}:</span>
-      <span>{{ currentValue }}</span>
+      <span id="current-value">{{ currentValue }}</span>
       <b-icon-pencil-square
         id="b-icon-pencil-square"
         @click="edit"
