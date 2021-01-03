@@ -12,8 +12,7 @@ beforeAll(() => {
   wrapper = shallowMount(WcFooter, {
     localVue,
     mocks: {
-      $t: () => {},
-      localePath: () => ''
+      $t: () => {}
     }
   })
 })
