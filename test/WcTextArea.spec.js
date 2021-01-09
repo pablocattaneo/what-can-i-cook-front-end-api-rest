@@ -25,7 +25,10 @@ describe('Props placeholder', () => {
 
 describe('WcTextArea', () => {
   test('When user input a value in WcTextArea input event must be emmit', async () => {
-    await wrapper.find('textarea').trigger('input')
-    expect(wrapper.emitted().input).toBeTruthy()
+    const textArea = wrapper.find('textarea')
+    textArea.element.value = 'Foo'
+    await textArea.trigger('input')
+    expect(wrapper.emitted('input')).toBeTruthy()
+    expect(wrapper.emitted('input')[0]).toEqual([textArea.element.value])
   })
 })
