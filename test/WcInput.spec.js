@@ -16,8 +16,10 @@ beforeAll(() => {
 
 describe('WcInput', () => {
   test('When user input a value in WcInput input event must be emmit', async () => {
+    input.element.value = 'foo'
     await wrapper.find('input').trigger('input')
-    expect(wrapper.emitted().input).toBeTruthy()
+    expect(wrapper.emitted().input).toHaveLength(1)
+    expect(wrapper.emitted('input')[0]).toEqual([input.element.value])
   })
 })
 
