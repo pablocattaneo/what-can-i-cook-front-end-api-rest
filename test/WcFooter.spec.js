@@ -26,7 +26,7 @@ describe('Author Property', () => {
     await wrapper.setProps({
       author: { externalLink: 'https://www.linkedin.com/in/cattaneopablo/' }
     })
-    expect(wrapper.find('#author a').attributes().href).toBe(
+    expect(wrapper.find('#author a').attributes('href')).toBe(
       'https://www.linkedin.com/in/cattaneopablo/'
     )
   })
