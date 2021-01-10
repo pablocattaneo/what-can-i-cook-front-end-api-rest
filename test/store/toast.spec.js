@@ -26,3 +26,11 @@ test('mutateHideToast should set isToastErrorVisible state property to false ', 
   mutations.mutateHideToast(state)
   expect(state).toEqual({ isToastErrorVisible: false })
 })
+
+test('mutateResetIsToastErrorVisible should set isToastErrorVisible state property to false ', () => {
+  const state = {
+    isToastErrorVisible: true
+  }
+  mutations.mutateResetIsToastErrorVisible(state)
+  expect(state).toEqual({ isToastErrorVisible: false })
+})
