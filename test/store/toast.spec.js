@@ -1,6 +1,6 @@
 import { mutations } from '~/store/toast'
 
-test('mutateShowToast ', () => {
+test('mutateShowToast should set isToastErrorVisible state property to true and errorToastParameter message with the value pass as a message property of the second argument ', () => {
   const state = {
     isToastErrorVisible: false,
     errorToastParameter: {
@@ -17,4 +17,12 @@ test('mutateShowToast ', () => {
       message: error.message
     }
   })
+})
+
+test('mutateHideToast should set isToastErrorVisible state property to false ', () => {
+  const state = {
+    isToastErrorVisible: true
+  }
+  mutations.mutateHideToast(state)
+  expect(state).toEqual({ isToastErrorVisible: false })
 })

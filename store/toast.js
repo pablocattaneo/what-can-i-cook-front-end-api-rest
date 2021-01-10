@@ -17,7 +17,7 @@ export const mutations = {
     state.errorToastParameter.message = error.message
     state.isToastErrorVisible = true
   },
-  mutateHideToast(stater) {
+  mutateHideToast(state) {
     state.isToastErrorVisible = false
   },
   mutateResetIsToastErrorVisible(state) {
