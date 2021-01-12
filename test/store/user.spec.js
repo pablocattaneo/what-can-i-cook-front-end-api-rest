@@ -1,4 +1,4 @@
-import { mutations } from '~/store/user'
+import { mutations, actions } from '~/store/user'
 
 test('Sanity test', () => {
   expect(true).toBe(true)
@@ -19,5 +19,15 @@ describe('Mutations', () => {
     const state = { userId: '' }
     mutations.userIdMutation(state, '1')
     expect(state).toEqual({ userId: '1' })
+  })
+})
+
+describe('Actions', () => {
+  test('userSignOutAction', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.userSignOutAction(context)
+    expect(localStorage.removeItem).toHaveBeenCalledWith('jwtToken')
   })
 })
