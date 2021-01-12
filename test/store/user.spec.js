@@ -15,4 +15,9 @@ describe('Mutations', () => {
     mutations.jwtMutation(state, '123')
     expect(state).toEqual({ jwt: '123' })
   })
+  test('userIdMutation was called with "1" as payload so state.jwt should be "1"', () => {
+    const state = { userId: '' }
+    mutations.userIdMutation(state, '1')
+    expect(state).toEqual({ userId: '1' })
+  })
 })
