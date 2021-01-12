@@ -30,4 +30,25 @@ describe('Actions', () => {
     actions.userSignOutAction(context)
     expect(localStorage.removeItem).toHaveBeenCalledWith('jwtToken')
   })
+  test('userSignOutAction should commit isUserLoggedMutation mutation with false as a payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.userSignOutAction(context)
+    expect(context.commit).toHaveBeenCalledWith('isUserLoggedMutation', false)
+  })
+  test('userSignOutAction should commit jwtMutation mutation empty string as a payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.userSignOutAction(context)
+    expect(context.commit).toHaveBeenCalledWith('jwtMutation', '')
+  })
+  test('userSignOutAction should commit userIdMutation mutation empty string as a payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.userSignOutAction(context)
+    expect(context.commit).toHaveBeenCalledWith('userIdMutation', '')
+  })
 })
