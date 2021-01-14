@@ -78,4 +78,17 @@ describe('Action setUserIdState', () => {
     actions.setUserIdState(context)
     expect(context.commit).toHaveBeenCalledWith('isUserLoggedMutation', true)
   })
+  test('localStorage item jwtToken return with a valid jwt so setUserIdState should commit userIdMutation mutation with 5f3bba81f33c511a90455fa3 as payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    localStorage.getItem.mockReturnValue(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
+    )
+    actions.setUserIdState(context)
+    expect(context.commit).toHaveBeenCalledWith(
+      'userIdMutation',
+      '5f3bba81f33c511a90455fa3'
+    )
+  })
 })
