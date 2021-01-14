@@ -52,3 +52,20 @@ describe('Action userSignOutAction', () => {
     expect(context.commit).toHaveBeenCalledWith('userIdMutation', '')
   })
 })
+
+describe('Action setUserIdState', () => {
+  test('Should call localStorage.getItem with "jwtToken" as argument', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.setUserIdState(context)
+    expect(localStorage.getItem).toHaveBeenCalledWith('jwtToken')
+  })
+  test('Should commit isUserLoggedMutation mutation with false as a payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    actions.setUserIdState(context)
+    expect(context.commit).toHaveBeenCalledWith('isUserLoggedMutation', false)
+  })
+})
