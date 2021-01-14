@@ -22,8 +22,8 @@ describe('Mutations', () => {
   })
 })
 
-describe('Actions', () => {
-  test('userSignOutAction', () => {
+describe('Action userSignOutAction', () => {
+  test('Should call localStorage.removeItem with jwtToken as argument', () => {
     const context = {
       commit: jest.fn()
     }
