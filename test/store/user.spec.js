@@ -61,11 +61,21 @@ describe('Action setUserIdState', () => {
     actions.setUserIdState(context)
     expect(localStorage.getItem).toHaveBeenCalledWith('jwtToken')
   })
-  test('Should commit isUserLoggedMutation mutation with false as a payload', () => {
+  test('localStorage item jwtToken return with falsy value so setUserIdState should commit isUserLoggedMutation mutation with false as a payload', () => {
     const context = {
       commit: jest.fn()
     }
     actions.setUserIdState(context)
     expect(context.commit).toHaveBeenCalledWith('isUserLoggedMutation', false)
+  })
+  test('localStorage item jwtToken return with a valid jwt so setUserIdState should commit isUserLoggedMutation mutation with true as a payload', () => {
+    const context = {
+      commit: jest.fn()
+    }
+    localStorage.getItem.mockReturnValue(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
+    )
+    actions.setUserIdState(context)
+    expect(context.commit).toHaveBeenCalledWith('isUserLoggedMutation', true)
   })
 })
