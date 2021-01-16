@@ -8,30 +8,32 @@ test('Sanity test', () => {
   expect(true).toBe(true)
 })
 
-test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', async () => {
-  const localVue = createLocalVue()
-  localVue.use(Vuex)
-  const storeOtions = { mutations, actions, state: state() }
-  const clonedStoreConfig = cloneDeep(storeOtions)
-  const store = new Vuex.Store(clonedStoreConfig)
-  localStorage.getItem.mockReturnValue(
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
-  )
-  store.dispatch('setUserIdState')
-  await flushPromises()
-  expect(store.state.isUserLogged).toBe(true)
-})
+describe('setUserIdState', () => {
+  test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    localStorage.getItem.mockReturnValue(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
+    )
+    store.dispatch('setUserIdState')
+    await flushPromises()
+    expect(store.state.isUserLogged).toBe(true)
+  })
 
-test('localStorage item jwtToken contain a falsy value so isUserLogged state is set with false value', async () => {
-  const localVue = createLocalVue()
-  localVue.use(Vuex)
-  const storeOtions = { mutations, actions, state: state() }
-  const clonedStoreConfig = cloneDeep(storeOtions)
-  const store = new Vuex.Store(clonedStoreConfig)
-  localStorage.getItem.mockReturnValue(false)
-  store.dispatch('setUserIdState')
-  await flushPromises()
-  expect(store.state.isUserLogged).toBe(false)
+  test('localStorage item jwtToken contain a falsy value so isUserLogged state is set with false value', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    localStorage.getItem.mockReturnValue(false)
+    store.dispatch('setUserIdState')
+    await flushPromises()
+    expect(store.state.isUserLogged).toBe(false)
+  })
 })
 
 // describe('Mutations', () => {
