@@ -8,7 +8,7 @@ test('Sanity test', () => {
   expect(true).toBe(true)
 })
 
-test('should ', async () => {
+test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', async () => {
   const localVue = createLocalVue()
   localVue.use(Vuex)
   const storeOtions = { mutations, actions, state: state() }
