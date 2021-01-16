@@ -34,6 +34,20 @@ describe('setUserIdState', () => {
     await flushPromises()
     expect(store.state.isUserLogged).toBe(false)
   })
+
+  test('localStorage item jwtToken contain eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA jwt so userId state is set with "5f3bba81f33c511a90455fa3" value', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    const jwt =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
+    localStorage.getItem.mockReturnValue(jwt)
+    store.dispatch('setUserIdState')
+    await flushPromises()
+    expect(store.state.userId).toBe('5f3bba81f33c511a90455fa3')
+  })
 })
 
 // describe('Mutations', () => {
