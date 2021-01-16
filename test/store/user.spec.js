@@ -4,16 +4,14 @@ import cloneDeep from 'lodash.clonedeep'
 import flushPromises from 'flush-promises'
 import { mutations, actions, state } from '~/store/user'
 
-const localVue = createLocalVue()
-localVue.use(Vuex)
-
-const storeOtions = { mutations, actions, state: state() }
-
 test('Sanity test', () => {
   expect(true).toBe(true)
 })
 
 test('should ', async () => {
+  const localVue = createLocalVue()
+  localVue.use(Vuex)
+  const storeOtions = { mutations, actions, state: state() }
   const clonedStoreConfig = cloneDeep(storeOtions)
   const store = new Vuex.Store(clonedStoreConfig)
   localStorage.getItem.mockReturnValue(
