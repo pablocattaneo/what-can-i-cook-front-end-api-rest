@@ -22,6 +22,18 @@ test('localStorage item jwtToken contain a valid jwt so isUserLogged state is se
   expect(store.state.isUserLogged).toBe(true)
 })
 
+test('localStorage item jwtToken contain a falsy value so isUserLogged state is set with false value', async () => {
+  const localVue = createLocalVue()
+  localVue.use(Vuex)
+  const storeOtions = { mutations, actions, state: state() }
+  const clonedStoreConfig = cloneDeep(storeOtions)
+  const store = new Vuex.Store(clonedStoreConfig)
+  localStorage.getItem.mockReturnValue(false)
+  store.dispatch('setUserIdState')
+  await flushPromises()
+  expect(store.state.isUserLogged).toBe(false)
+})
+
 // describe('Mutations', () => {
 //   test('isUserLoggedMutation was called with true as payload so state.isUserLogged should be true ', () => {
 //     const state = { isUserLogged: false }
