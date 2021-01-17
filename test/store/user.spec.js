@@ -50,6 +50,23 @@ describe('setUserIdState', () => {
   })
 })
 
+describe('userSignOutAction', () => {
+  test('should set isUserLogged state to false', () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const stateWithIsUserLoggedSetToTrue = { ...state(), isUserLogged: true }
+    const storeOtions = {
+      mutations,
+      actions,
+      state: stateWithIsUserLoggedSetToTrue
+    }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.dispatch('userSignOutAction')
+    expect(store.state.isUserLogged).toBe(false)
+  })
+})
+
 // describe('Mutations', () => {
 //   test('isUserLoggedMutation was called with true as payload so state.isUserLogged should be true ', () => {
 //     const state = { isUserLogged: false }
