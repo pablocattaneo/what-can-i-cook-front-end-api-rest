@@ -65,6 +65,20 @@ describe('userSignOutAction', () => {
     store.dispatch('userSignOutAction')
     expect(store.state.isUserLogged).toBe(false)
   })
+  test('should set jwt state to empty string', () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const stateWithJwtSetTo123 = { ...state(), jwt: '123' }
+    const storeOtions = {
+      mutations,
+      actions,
+      state: stateWithJwtSetTo123
+    }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.dispatch('userSignOutAction')
+    expect(store.state.jwt).toBe('')
+  })
 })
 
 // describe('Mutations', () => {
