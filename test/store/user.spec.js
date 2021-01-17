@@ -96,6 +96,15 @@ describe('userSignOutAction', () => {
     store.dispatch('userSignOutAction')
     expect(store.state.userId).toBe('')
   })
+  test('Should call localStorage.removeItem with jwtToken as argument', () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.dispatch('userSignOutAction')
+    expect(localStorage.removeItem).toHaveBeenCalledWith('jwtToken')
+  })
 })
 
 // describe('Mutations', () => {
