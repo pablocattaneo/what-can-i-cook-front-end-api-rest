@@ -10,7 +10,6 @@ module.exports = {
     '.*\\.(vue)$': 'vue-jest',
     '^.+\\.svg$': '<rootDir>/svgTransform.js'
   },
-  collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue',
