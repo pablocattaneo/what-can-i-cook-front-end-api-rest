@@ -79,6 +79,23 @@ describe('userSignOutAction', () => {
     store.dispatch('userSignOutAction')
     expect(store.state.jwt).toBe('')
   })
+  test('should set userId state to empty string', () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const stateWithUserIdSetToValidId = {
+      ...state(),
+      userId: '5f3bba81f33c511a90455fa3'
+    }
+    const storeOtions = {
+      mutations,
+      actions,
+      state: stateWithUserIdSetToValidId
+    }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.dispatch('userSignOutAction')
+    expect(store.state.userId).toBe('')
+  })
 })
 
 // describe('Mutations', () => {
