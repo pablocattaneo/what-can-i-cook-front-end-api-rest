@@ -8,6 +8,27 @@ test('Sanity test', () => {
   expect(true).toBe(true)
 })
 
+describe('userLoginAction', () => {
+  test('should set isUserLogged state to true', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.$axios = {
+      $post: jest.fn()
+    }
+    store.$axios.$post.mockReturnValue({
+      token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTEwNTI2ODksImV4cCI6MTYxMTA1NjI4OX0.L9pR2IFbZBPYQWhL4nw47szrjRoVu1ULxj6RgV0Drs8',
+      userId: '5f3bba81f33c511a90455fa3'
+    })
+    store.dispatch('userLoginAction')
+    await flushPromises()
+    expect(store.state.isUserLogged).toBe(true)
+  })
+})
+
 describe('setUserIdState', () => {
   test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', async () => {
     const localVue = createLocalVue()
