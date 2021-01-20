@@ -46,6 +46,26 @@ describe('userLoginAction', () => {
     await flushPromises()
     expect(store.state.jwt).toBe(token)
   })
+  test('should set userId state to 5f3bba81f33c511a90455fa3', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.$axios = {
+      $post: jest.fn()
+    }
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTEwNTI2ODksImV4cCI6MTYxMTA1NjI4OX0.L9pR2IFbZBPYQWhL4nw47szrjRoVu1ULxj6RgV0Drs8'
+    const userId = '5f3bba81f33c511a90455fa3'
+    store.$axios.$post.mockReturnValue({
+      token,
+      userId
+    })
+    store.dispatch('userLoginAction')
+    await flushPromises()
+    expect(store.state.userId).toBe(userId)
+  })
 })
 
 describe('setUserIdState', () => {
