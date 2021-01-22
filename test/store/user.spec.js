@@ -1,7 +1,6 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
-import flushPromises from 'flush-promises'
 import { mutations, actions, state } from '~/store/user'
 
 test('Sanity test', () => {
@@ -113,7 +112,6 @@ describe('setUserIdState', () => {
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
     localStorage.getItem.mockReturnValue(jwt)
     store.dispatch('setUserIdState')
-    await flushPromises()
     expect(store.state.isUserLogged).toBe(true)
   })
 
@@ -125,7 +123,6 @@ describe('setUserIdState', () => {
     const store = new Vuex.Store(clonedStoreConfig)
     localStorage.getItem.mockReturnValue(false)
     store.dispatch('setUserIdState')
-    await flushPromises()
     expect(store.state.isUserLogged).toBe(false)
   })
 
@@ -139,7 +136,6 @@ describe('setUserIdState', () => {
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
     localStorage.getItem.mockReturnValue(jwt)
     store.dispatch('setUserIdState')
-    await flushPromises()
     expect(store.state.userId).toBe('5f3bba81f33c511a90455fa3')
   })
 })
