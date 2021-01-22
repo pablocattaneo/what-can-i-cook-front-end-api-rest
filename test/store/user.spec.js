@@ -86,6 +86,25 @@ describe('userLoginAction', () => {
     await flushPromises()
     expect(localStorage.setItem).toHaveBeenCalledWith('jwtToken', token)
   })
+  test('The request post request fail so userLoginAction should set isUserLogged state to false', async () => {
+    const localVue = createLocalVue()
+    localVue.use(Vuex)
+    const storeOtions = { mutations, actions, state: state() }
+    const clonedStoreConfig = cloneDeep(storeOtions)
+    const store = new Vuex.Store(clonedStoreConfig)
+    store.$axios = {
+      $post: jest.fn()
+    }
+    store.state.isUserLogged = true
+    store.$axios.$post.mockRejectedValue('Async error')
+    try {
+      await store.dispatch('userLoginAction')
+    } catch (error) {
+      console.log('error', error)
+    }
+    await flushPromises()
+    expect(store.state.isUserLogged).toBe(false)
+  })
 })
 
 describe('setUserIdState', () => {
