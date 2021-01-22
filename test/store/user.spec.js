@@ -23,8 +23,7 @@ describe('userLoginAction', () => {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTEwNTI2ODksImV4cCI6MTYxMTA1NjI4OX0.L9pR2IFbZBPYQWhL4nw47szrjRoVu1ULxj6RgV0Drs8',
       userId: '5f3bba81f33c511a90455fa3'
     })
-    store.dispatch('userLoginAction')
-    await flushPromises()
+    await store.dispatch('userLoginAction')
     expect(store.state.isUserLogged).toBe(true)
   })
   test('should set jwt state to eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTEwNTI2ODksImV4cCI6MTYxMTA1NjI4OX0.L9pR2IFbZBPYQWhL4nw47szrjRoVu1ULxj6RgV0Drs8', async () => {
@@ -42,8 +41,7 @@ describe('userLoginAction', () => {
       token,
       userId: '5f3bba81f33c511a90455fa3'
     })
-    store.dispatch('userLoginAction')
-    await flushPromises()
+    await store.dispatch('userLoginAction')
     expect(store.state.jwt).toBe(token)
   })
   test('should set userId state to 5f3bba81f33c511a90455fa3', async () => {
@@ -62,8 +60,7 @@ describe('userLoginAction', () => {
       token,
       userId
     })
-    store.dispatch('userLoginAction')
-    await flushPromises()
+    await store.dispatch('userLoginAction')
     expect(store.state.userId).toBe(userId)
   })
   test('Should call localStorage.setItem with jwtToken and eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTEwNTI2ODksImV4cCI6MTYxMTA1NjI4OX0.L9pR2IFbZBPYQWhL4nw47szrjRoVu1ULxj6RgV0Drs8 as arguments', async () => {
@@ -82,8 +79,7 @@ describe('userLoginAction', () => {
       token,
       userId
     })
-    store.dispatch('userLoginAction')
-    await flushPromises()
+    await store.dispatch('userLoginAction')
     expect(localStorage.setItem).toHaveBeenCalledWith('jwtToken', token)
   })
   test('The request post request fail so userLoginAction should set isUserLogged state to false', async () => {
