@@ -100,9 +100,8 @@ describe('userLoginAction', () => {
     try {
       await store.dispatch('userLoginAction')
     } catch (error) {
-      console.log('error', error)
+      // It handle exception throw by user userLoginAction in order to avoid it breaks the test
     }
-    await flushPromises()
     expect(store.state.isUserLogged).toBe(false)
   })
 })
