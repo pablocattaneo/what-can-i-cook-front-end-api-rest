@@ -30,43 +30,31 @@ describe('deleteRecipe method', () => {
   })
 })
 
-describe('Props id', () => {
+describe('Props', () => {
   test('The component is well formed so prop id should exist', () => {
     expect(wrapper.props()).toHaveProperty('id')
   })
-})
 
-describe('Props title', () => {
   test('The component is well formed so prop title should exist', () => {
     expect(wrapper.props()).toHaveProperty('title')
   })
-})
 
-describe('Props bImgLazySrc', () => {
   test('The component is well formed so prop bImgLazySrc should exist', () => {
     expect(wrapper.props()).toHaveProperty('bImgLazySrc')
   })
-})
 
-describe('Props description', () => {
   test('The component is well formed so prop description should exist', () => {
     expect(wrapper.props()).toHaveProperty('description')
   })
-})
 
-describe('Props moreInfo', () => {
   test('The component is well formed so prop moreInfo should exist', () => {
     expect(wrapper.props()).toHaveProperty('moreInfo')
   })
-})
 
-describe('Props borderVariant', () => {
   test('The component is well formed so prop borderVariant should exist', () => {
     expect(wrapper.props()).toHaveProperty('borderVariant')
   })
-})
 
-describe('Props showCardHeader', () => {
   test('The component is well formed so prop showCardHeader should exist', () => {
     expect(wrapper.props()).toHaveProperty('showCardHeader')
   })
