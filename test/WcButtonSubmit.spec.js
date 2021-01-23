@@ -6,8 +6,6 @@ const localVue = createLocalVue()
 
 let wrapper
 beforeEach(() => {
-  // It removes boostrap warning in the way a member of Bootrap-vue recommend do it https://github.com/bootstrap-vue/bootstrap-vue/issues/3303\#issuecomment-492718875
-  jest.spyOn(console, 'warn').mockImplementation(() => {})
   localVue.use(BootstrapVue)
   wrapper = shallowMount(WcButtonSubmit, {
     localVue,
