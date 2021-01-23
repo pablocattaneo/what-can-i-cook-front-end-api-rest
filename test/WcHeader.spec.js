@@ -16,9 +16,7 @@ const store = new Vuex.Store({
 })
 
 let wrapper
-beforeAll(() => {
-  // It removes boostrap warning in the way a member of Bootrap-vue recommend do it https://github.com/bootstrap-vue/bootstrap-vue/issues/3303\#issuecomment-492718875
-  jest.spyOn(console, 'warn').mockImplementation(() => {})
+beforeEach(() => {
   localVue.use(BootstrapVue)
   wrapper = shallowMount(WcHeader, {
     store,
