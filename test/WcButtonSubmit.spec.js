@@ -19,24 +19,24 @@ beforeEach(() => {
 
 describe('Props isProcessing', () => {
   test('The component is well formed so prop isProcessing should exist', () => {
-    expect(wrapper.vm).toHaveProperty('isProcessing')
+    expect(wrapper.props()).toHaveProperty('isProcessing')
   })
 })
 
 describe('Props disabled', () => {
   test('The component is well formed so prop disabled should exist', () => {
-    expect(wrapper.vm).toHaveProperty('disabled')
+    expect(wrapper.props()).toHaveProperty('disabled')
   })
 })
 
 describe('Props buttonTextValue', () => {
   test('The component is well formed so prop buttonTextValue should exist', () => {
-    expect(wrapper.vm).toHaveProperty('buttonTextValue')
+    expect(wrapper.props()).toHaveProperty('buttonTextValue')
   })
 })
 
 describe('Props processingTextValue', () => {
   test('The component is well formed so prop processingTextValue should exist', () => {
-    expect(wrapper.vm).toHaveProperty('processingTextValue')
+    expect(wrapper.props()).toHaveProperty('processingTextValue')
   })
 })
