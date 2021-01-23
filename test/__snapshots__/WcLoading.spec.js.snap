@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  class="text-center"
+  id="wc-loading"
+>
+  <b-spinner-stub
+    class="wc-loading-spinner"
+    role="status"
+    style="width: 3rem; height: 3rem;"
+    tag="span"
+    type="border"
+    variant="primary"
+  />
+</div>
+`;

@@ -12,3 +12,7 @@ beforeEach(() => {
 test('should have wc-loading id', () => {
   expect(wrapper.attributes('id')).toBe('wc-loading')
 })
+
+test('renders correctly', () => {
+  expect(wrapper.element).toMatchSnapshot()
+})
