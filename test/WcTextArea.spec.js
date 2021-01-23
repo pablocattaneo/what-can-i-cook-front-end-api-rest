@@ -17,7 +17,7 @@ beforeEach(() => {
 
 describe('Props placeholder', () => {
   test('The component is well formed so prop placeholder should exist', () => {
-    expect(wrapper.vm).toHaveProperty('placeholder')
+    expect(wrapper.props()).toHaveProperty('placeholder')
   })
 })
 
