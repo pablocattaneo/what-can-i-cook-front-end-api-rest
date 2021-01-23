@@ -17,7 +17,7 @@ beforeEach(() => {
 
 describe('Props options', () => {
   test('The component is well formed so prop options should exist', () => {
-    expect(wrapper.vm).toHaveProperty('options')
+    expect(wrapper.props()).toHaveProperty('options')
   })
 })
 
