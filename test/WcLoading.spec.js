@@ -4,7 +4,7 @@ import { SpinnerPlugin } from 'bootstrap-vue'
 const localVue = createLocalVue()
 
 let wrapper
-beforeAll(() => {
+beforeEach(() => {
   localVue.use(SpinnerPlugin)
   wrapper = shallowMount(WcLoading, { localVue })
 })
