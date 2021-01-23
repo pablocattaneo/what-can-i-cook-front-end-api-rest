@@ -13,6 +13,7 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:updateSnapshot": "jest --updateSnapshot",
     "postinstall": "npm run build"
   },
   "dependencies": {
