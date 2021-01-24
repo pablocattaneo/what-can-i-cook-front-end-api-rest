@@ -1,4 +1,4 @@
-import { mutations } from '~/store/toast'
+import { mutations } from '@/store/toast'
 
 test('mutateShowToast should set isToastErrorVisible state property to true and errorToastParameter message with the value pass as a message property of the second argument ', () => {
   const state = {

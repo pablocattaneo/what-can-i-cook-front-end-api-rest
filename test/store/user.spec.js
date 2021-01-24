@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
-import { mutations, actions, state } from '~/store/user'
+import { mutations, actions, state } from '@/store/user'
 
 let store = {}
 beforeEach(() => {
