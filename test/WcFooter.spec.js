@@ -15,6 +15,12 @@ beforeEach(() => {
   })
 })
 
+describe('Snapshots', () => {
+  test('renders correctly', () => {
+    expect(wrapper.element).toMatchSnapshot()
+  })
+})
+
 describe('Author Property', () => {
   test('Author name property was set to Pablo Cattaneo so component should render this text.', async () => {
     await wrapper.setProps({ author: { name: 'Pablo Cattaneo' } })
