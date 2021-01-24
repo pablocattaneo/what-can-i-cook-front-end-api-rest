@@ -14,6 +14,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:updateSnapshot": "jest --updateSnapshot",
+    "test:watch": "jest --watch",
     "postinstall": "npm run build"
   },
   "dependencies": {
