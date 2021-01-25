@@ -9,10 +9,10 @@ beforeEach(() => {
   wrapper = shallowMount(WcLoading, { localVue })
 })
 
-test('should have wc-loading id', () => {
-  expect(wrapper.attributes('id')).toBe('wc-loading')
+test('It verify if non-intentional changes were made.', () => {
+  expect(wrapper.element).toMatchSnapshot()
 })
 
-test('renders correctly', () => {
-  expect(wrapper.element).toMatchSnapshot()
+test('should have wc-loading id', () => {
+  expect(wrapper.attributes('id')).toBe('wc-loading')
 })
