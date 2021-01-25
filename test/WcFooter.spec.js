@@ -16,7 +16,7 @@ beforeEach(() => {
 })
 
 describe('Snapshots', () => {
-  test('It verify if non-intentional changes were made.', () => {
+  test('Branch: Default. It verify if non-intentional changes were made.', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 })

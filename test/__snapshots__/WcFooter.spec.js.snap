@@ -101,7 +101,7 @@ exports[`Author Property Branch: Author externalLink was set to https://www.link
 </div>
 `;
 
-exports[`Snapshots It verify if non-intentional changes were made. 1`] = `
+exports[`Snapshots Branch: Default. It verify if non-intentional changes were made. 1`] = `
 <div
   class="mt-5 bg-dark container-fluid"
   id="wc-footer"
