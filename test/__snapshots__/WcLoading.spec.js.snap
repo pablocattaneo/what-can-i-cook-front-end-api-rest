@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`It verify if non-intentional changes were made. 1`] = `
 <div
   class="text-center"
   id="wc-loading"

@@ -64,4 +64,10 @@ describe('linkedinProfileUrl link', () => {
       'https://www.linkedin.com/in/cattaneopablo/'
     )
   })
+  test('Branch: linkedinProfileUrl props was set to https://www.linkedin.com/in/cattaneopablo/ so it verify if non-intentional changes were made for this output.', async () => {
+    await wrapper.setProps({
+      linkedinProfileUrl: 'https://www.linkedin.com/in/cattaneopablo/'
+    })
+    expect(wrapper.element).toMatchSnapshot()
+  })
 })
