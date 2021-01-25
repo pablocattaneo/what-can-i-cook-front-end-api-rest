@@ -34,6 +34,12 @@ describe('Author Property', () => {
       'https://www.linkedin.com/in/cattaneopablo/'
     )
   })
+  test('Branch: Author externalLink was set to https://www.linkedin.com/in/cattaneopablo/ it verify if non-intentional changes were made for this output.', async () => {
+    await wrapper.setProps({
+      author: { externalLink: 'https://www.linkedin.com/in/cattaneopablo/' }
+    })
+    expect(wrapper.element).toMatchSnapshot()
+  })
   test('Author externalLink was falsy so component should render span element instead a link.', async () => {
     await wrapper.setProps({
       author: { externalLink: '' }

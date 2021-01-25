@@ -1,5 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Author Property Branch: Author externalLink was set to https://www.linkedin.com/in/cattaneopablo/ it verify if non-intentional changes were made for this output. 1`] = `
+<div
+  class="mt-5 bg-dark container-fluid"
+  id="wc-footer"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 d-flex justify-content-center mt-3"
+    >
+      <ul
+        class="list-unstyled text-center"
+      >
+        <li
+          class="mt-2"
+        >
+          <b-img-lazy-stub
+            alt="placeholder"
+            blank=""
+            blankcolor="#abc"
+            offset="360"
+            src="@/assets/img/linkedin-icon.svg"
+            width="24"
+          />
+           
+          <!---->
+        </li>
+         
+        <li
+          class="mt-2"
+        >
+          <b-img-lazy-stub
+            alt="placeholder"
+            blank=""
+            blankcolor="#abc"
+            offset="360"
+            src="@/assets/img/stack-overflow-icon.svg"
+            width="24"
+          />
+           
+          <!---->
+        </li>
+      </ul>
+    </div>
+  </div>
+   
+  <div
+    class="text-center row author-section"
+  >
+    <div
+      class="col-12"
+    >
+      <span
+        id="author"
+      >
+        
+        
+        <a
+          href="https://www.linkedin.com/in/cattaneopablo/"
+          target="blank"
+        >
+          
+        </a>
+      </span>
+    </div>
+  </div>
+   
+  <div
+    class="row icon-made"
+  >
+    <div
+      class="col-12"
+    >
+      <p
+        class="text-center"
+      >
+        
+        Icons made by
+        
+        <a
+          href="https://www.flaticon.com/free-icon/chef_2413394"
+          title="iconixar"
+        >
+          iconixar
+        </a>
+        
+        from
+        
+        <a
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+        >
+          www.flaticon.com
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Snapshots It verify if non-intentional changes were made. 1`] = `
 <div
   class="mt-5 bg-dark container-fluid"
