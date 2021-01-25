@@ -53,6 +53,13 @@ describe('StackOverflow link', () => {
       wrapper.find('a#stackoverflow-user-profile-url').attributes('href')
     ).toBe('https://stackoverflow.com/users/3599272/pablo')
   })
+  test('Branch: stackoverflowUserProfileUrl props was set to https://stackoverflow.com/users/3599272/pablo it verify if non-intentional changes were made for this output.', async () => {
+    await wrapper.setProps({
+      stackoverflowUserProfileUrl:
+        'https://stackoverflow.com/users/3599272/pablo'
+    })
+    expect(wrapper.element).toMatchSnapshot()
+  })
 })
 
 describe('linkedinProfileUrl link', () => {
