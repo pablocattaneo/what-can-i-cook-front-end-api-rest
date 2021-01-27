@@ -24,6 +24,10 @@ beforeEach(() => {
   })
 })
 
+test('Branch: Default. It verify if non-intentional changes were made.', () => {
+  expect(wrapper.element).toMatchSnapshot()
+})
+
 describe('deleteRecipe method', () => {
   test('deleteRecipe method should be definded', () => {
     expect(wrapper.vm.deleteRecipe).toBeDefined()

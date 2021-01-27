@@ -9,6 +9,10 @@ beforeEach(() => {
   wrapper = shallowMount(WcLoading, { localVue })
 })
 
+test('Sanity test', () => {
+  expect(true).toBe(true)
+})
+
 test('Branch: Default. It verify if non-intentional changes were made.', () => {
   expect(wrapper.element).toMatchSnapshot()
 })
