@@ -4,6 +4,45 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
 <div
   id="recipe-filters"
 >
+  <div
+    class="d-inline-block mr-4 mt-3 custom-control custom-switch"
+  >
+    <input
+      class="custom-control-input"
+      disabled="disabled"
+      id="language-0"
+      name="check-button"
+      type="checkbox"
+      value="true"
+    />
+    <label
+      class="custom-control-label"
+      for="language-0"
+    >
+      
+    
+  
+    </label>
+  </div>
+  <div
+    class="d-inline-block mr-4 mt-3 custom-control custom-switch"
+  >
+    <input
+      class="custom-control-input"
+      id="language-1"
+      name="check-button"
+      type="checkbox"
+      value="true"
+    />
+    <label
+      class="custom-control-label"
+      for="language-1"
+    >
+      
+    
+  
+    </label>
+  </div>
    
   <div
     class="mt-4"
@@ -14,17 +53,12 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
       
     </label>
      
-    <b-form-input-stub
-      debounce="0"
-      formatter="function bvConfigurablePropDefault() {
-      var value = getComponentConfig(componentKey, key, prop.default);
-      return isFunction(value) ? value() : value;
-    }"
+    <input
+      class="custom-range"
       id="range-1"
       max="1000"
       min="0"
       type="range"
-      value="0"
     />
      
     <div>
@@ -32,33 +66,102 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
     </div>
   </div>
    
-  <wcselect-stub
-    autocomplete="off"
-    class="mt-4"
-    formtexthelpusers=""
-    id=""
-    label=""
-    options="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
-    validation="[object Object]"
-    value=""
-  />
-   
-  <b-button-stub
-    class="mt-4"
-    tag="button"
-    target="_self"
-    type="button"
-    variant="secondary"
+  <fieldset
+    class="form-group mt-4"
+    for=""
+    id="label-"
   >
-    <bicontrash2-stub
-      fontscale="1"
-      rotate="0"
-      scale="1"
-      shifth="0"
-      shiftv="0"
-    />
+    <legend
+      class="bv-no-focus-ring col-form-label pt-0"
+      id="label-__BV_label_"
+      tabindex="-1"
+    >
+      
     
     
-  </b-button-stub>
+      <!---->
+    </legend>
+    <div>
+       
+      <select
+        class="custom-select"
+        id="__BVID__21"
+      >
+        <option
+          value=""
+        >
+          null
+        </option>
+        <option
+          value="appetizers-and-snacks"
+        >
+          Appetizers & Snacks
+        </option>
+        <option
+          value="breakfast-and-brunch"
+        >
+          Breakfast & Brunch
+        </option>
+        <option
+          value="desserts"
+        >
+          Desserts
+        </option>
+        <option
+          value="dinner"
+        >
+          Dinner
+        </option>
+        <option
+          value="drinks"
+        >
+          Drinks
+        </option>
+        <option
+          value="lunch"
+        >
+          Lunch
+        </option>
+      </select>
+       
+      <div
+        class="invalid-feedback"
+      >
+        
+    
+  
+      </div>
+       
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </fieldset>
+   
+  <button
+    class="btn mt-4 btn-secondary"
+    type="button"
+  >
+    <svg
+      aria-label="trash2"
+      class="bi-trash2 b-icon bi"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      role="img"
+      viewBox="0 0 16 16"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <path
+          d="M14 3a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2zM3.215 4.207l1.493 8.957a1 1 0 0 0 .986.836h4.612a1 1 0 0 0 .986-.836l1.493-8.957C11.69 4.689 9.954 5 8 5c-1.954 0-3.69-.311-4.785-.793z"
+        />
+      </g>
+    </svg>
+    
+    
+  </button>
 </div>
 `;

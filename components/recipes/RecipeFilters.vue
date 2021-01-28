@@ -1,6 +1,7 @@
 <template>
   <div id="recipe-filters">
     <b-form-checkbox
+      :id="`language-${index}`"
       :key="`language-${index}`"
       v-for="(language, index) in languagesData"
       v-model="language.isActive"
@@ -64,7 +65,7 @@ export default {
   },
   data() {
     return {
-      languagesData: this.languages,
+      languagesData: [],
       languagesActivesCounter: 0,
       portionCaloriesData: this.portionCalories,
       categoryOptions: [
@@ -82,6 +83,7 @@ export default {
     }
   },
   created() {
+    this.languagesData = this.languages
     this.countActivesLanguages()
     this.activeOrDisableLanguageSection()
   },

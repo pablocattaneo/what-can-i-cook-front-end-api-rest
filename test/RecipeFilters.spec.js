@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import RecipeFilters from '@/components/recipes/RecipeFilters'
 
 import { BootstrapVue } from 'bootstrap-vue'
@@ -8,10 +8,16 @@ localVue.use(BootstrapVue)
 
 let wrapper
 beforeEach(() => {
-  wrapper = shallowMount(RecipeFilters, {
+  wrapper = mount(RecipeFilters, {
     localVue,
     mocks: {
       $t() {}
+    },
+    propsData: {
+      languages: [
+        { isActive: true, text: 'es', isDisable: true },
+        { isActive: false, text: 'en', isDisable: false }
+      ]
     }
   })
 })
@@ -29,6 +35,15 @@ describe('Snapshots', () => {
 describe('Props', () => {
   test('The component is well formed so prop languages should exist', () => {
     expect(wrapper.props()).toHaveProperty('languages')
+  })
+  test('The props languages was set to [{"isActive":true,"text":"es","isDisable":true},{"isActive":false,"text":"en","isDisable":false}] so #language-0 and #language-1 elements should be render.', async () => {
+    await wrapper.setProps({
+      languages: [
+        { isActive: true, text: 'es', isDisable: true },
+        { isActive: false, text: 'en', isDisable: false }
+      ]
+    })
+    expect(wrapper.findAll('#language-0, #language-1')).toHaveLength(2)
   })
   test('The component is well formed so prop categorySelected should exist', () => {
     expect(wrapper.props()).toHaveProperty('categorySelected')
