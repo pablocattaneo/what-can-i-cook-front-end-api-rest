@@ -55,6 +55,68 @@ exports[`Snaphots Branch: Default. It verify if non-intentional changes were mad
 </b-card-stub>
 `;
 
+exports[`Snaphots Branch: description. It verify if non-intentional changes were made. 1`] = `
+<b-card-stub
+  bodytag="div"
+  bordervariant="primary"
+  class="w-100 h-100"
+  footertag="div"
+  headertag="div"
+  imgalt="Image"
+  imgtop="true"
+  nobody="true"
+  subtitletag="h6"
+  subtitletextvariant="muted"
+  tag="article"
+  titletag="h4"
+>
+  <!---->
+   
+  <div
+    class="img-wrapper"
+  >
+    <b-img-lazy-stub
+      alt=""
+      blankcolor="transparent"
+      offset="360"
+      src="/"
+      title=""
+    >
+      <a
+        variant="primary"
+      >
+        
+      </a>
+    </b-img-lazy-stub>
+  </div>
+   
+  <b-card-body-stub
+    bodytag="div"
+    subtitletag="h6"
+    subtitletextvariant="muted"
+    titletag="h4"
+  >
+    <b-card-title-stub
+      class="text-truncate"
+      titletag="h4"
+    >
+      
+    </b-card-title-stub>
+     
+    <b-card-text-stub
+      class="text-truncate"
+      texttag="p"
+    >
+      
+      My description
+    
+    </b-card-text-stub>
+  </b-card-body-stub>
+   
+  <!---->
+</b-card-stub>
+`;
+
 exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes were made. 1`] = `
 <b-card-stub
   bodytag="div"

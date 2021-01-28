@@ -32,6 +32,10 @@ describe('Snaphots', () => {
     await wrapper.setProps({ showCardHeader: true })
     expect(wrapper.element).toMatchSnapshot()
   })
+  test('Branch: description. It verify if non-intentional changes were made.', async () => {
+    await wrapper.setProps({ description: 'My description' })
+    expect(wrapper.element).toMatchSnapshot()
+  })
 })
 
 describe('deleteRecipe method', () => {
