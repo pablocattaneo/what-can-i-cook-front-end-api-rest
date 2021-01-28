@@ -28,6 +28,10 @@ describe('Snaphots', () => {
   test('Branch: Default. It verify if non-intentional changes were made.', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
+  test('Branch: showCardHeader. It verify if non-intentional changes were made.', async () => {
+    await wrapper.setProps({ showCardHeader: true })
+    expect(wrapper.element).toMatchSnapshot()
+  })
 })
 
 describe('deleteRecipe method', () => {

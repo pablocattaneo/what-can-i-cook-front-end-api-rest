@@ -54,3 +54,91 @@ exports[`Snaphots Branch: Default. It verify if non-intentional changes were mad
   <!---->
 </b-card-stub>
 `;
+
+exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes were made. 1`] = `
+<b-card-stub
+  bodytag="div"
+  bordervariant="primary"
+  class="w-100 h-100"
+  footertag="div"
+  headertag="div"
+  imgalt="Image"
+  imgtop="true"
+  nobody="true"
+  subtitletag="h6"
+  subtitletextvariant="muted"
+  tag="article"
+  titletag="h4"
+>
+  <b-card-header-stub
+    class="b-card-header"
+    headertag="header"
+  >
+    <ul
+      class="nav nav-pills card-header-pills"
+    >
+      <li
+        class="nav-item"
+      >
+        <b-button-stub
+          tag="button"
+          target="_self"
+          type="button"
+          variant="link"
+        >
+          
+        </b-button-stub>
+      </li>
+       
+      <li
+        class="nav-item"
+      >
+        <b-button-stub
+          tag="button"
+          target="_self"
+          type="button"
+          variant="link"
+        >
+          
+        </b-button-stub>
+      </li>
+    </ul>
+  </b-card-header-stub>
+   
+  <div
+    class="img-wrapper"
+  >
+    <b-img-lazy-stub
+      alt=""
+      blankcolor="transparent"
+      offset="360"
+      src="/"
+      title=""
+    >
+      <a
+        variant="primary"
+      >
+        
+      </a>
+    </b-img-lazy-stub>
+  </div>
+   
+  <b-card-body-stub
+    bodytag="div"
+    subtitletag="h6"
+    subtitletextvariant="muted"
+    titletag="h4"
+  >
+    <b-card-title-stub
+      class="text-truncate"
+      titletag="h4"
+    >
+      
+    </b-card-title-stub>
+     
+    <!---->
+  </b-card-body-stub>
+   
+  <!---->
+</b-card-stub>
+`;
