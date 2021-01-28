@@ -24,8 +24,10 @@ beforeEach(() => {
   })
 })
 
-test('Branch: Default. It verify if non-intentional changes were made.', () => {
-  expect(wrapper.element).toMatchSnapshot()
+describe('Snaphots', () => {
+  test('Branch: Default. It verify if non-intentional changes were made.', () => {
+    expect(wrapper.element).toMatchSnapshot()
+  })
 })
 
 describe('deleteRecipe method', () => {

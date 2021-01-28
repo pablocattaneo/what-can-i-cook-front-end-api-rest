@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Branch: Default. It verify if non-intentional changes were made. 1`] = `
+exports[`Snaphots Branch: Default. It verify if non-intentional changes were made. 1`] = `
 <b-card-stub
   bodytag="div"
   bordervariant="primary"
