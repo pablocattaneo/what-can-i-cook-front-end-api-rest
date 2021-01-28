@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots Branch: default. It verify if non-intentional changes were made. 1`] = `
+<div
+  id="eecipe-filters"
+>
+   
+  <div
+    class="mt-4"
+  >
+    <label
+      for="range-1"
+    >
+      
+    </label>
+     
+    <b-form-input-stub
+      debounce="0"
+      formatter="function bvConfigurablePropDefault() {
+      var value = getComponentConfig(componentKey, key, prop.default);
+      return isFunction(value) ? value() : value;
+    }"
+      id="range-1"
+      max="1000"
+      min="0"
+      type="range"
+      value="0"
+    />
+     
+    <div>
+      : 0
+    </div>
+  </div>
+   
+  <wcselect-stub
+    autocomplete="off"
+    class="mt-4"
+    formtexthelpusers=""
+    id=""
+    label=""
+    options="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+    validation="[object Object]"
+    value=""
+  />
+   
+  <b-button-stub
+    class="mt-4"
+    tag="button"
+    target="_self"
+    type="button"
+    variant="secondary"
+  >
+    <bicontrash2-stub
+      fontscale="1"
+      rotate="0"
+      scale="1"
+      shifth="0"
+      shiftv="0"
+    />
+    
+    
+  </b-button-stub>
+</div>
+`;

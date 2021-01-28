@@ -20,6 +20,12 @@ test('Sanity test', () => {
   expect(true).toBe(true)
 })
 
+describe('Snapshots', () => {
+  test('Branch: default. It verify if non-intentional changes were made.', () => {
+    expect(wrapper.element).toMatchSnapshot()
+  })
+})
+
 describe('Props', () => {
   test('The component is well formed so prop languages should exist', () => {
     expect(wrapper.props()).toHaveProperty('languages')
