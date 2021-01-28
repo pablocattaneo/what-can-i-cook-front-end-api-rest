@@ -30,8 +30,8 @@ describe('Props', () => {
   test('The component is well formed so prop languages should exist', () => {
     expect(wrapper.props()).toHaveProperty('languages')
   })
-  test('The component is well formed so prop categorySlected should exist', () => {
-    expect(wrapper.props()).toHaveProperty('categorySlected')
+  test('The component is well formed so prop categorySelected should exist', () => {
+    expect(wrapper.props()).toHaveProperty('categorySelected')
   })
   test('The component is well formed so prop portionCalories should exist', () => {
     expect(wrapper.props()).toHaveProperty('portionCalories')

@@ -2,7 +2,7 @@
 
 exports[`Snapshots Branch: default. It verify if non-intentional changes were made. 1`] = `
 <div
-  id="eecipe-filters"
+  id="recipe-filters"
 >
    
   <div

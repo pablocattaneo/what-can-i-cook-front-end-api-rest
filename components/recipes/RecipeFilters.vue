@@ -1,5 +1,5 @@
 <template>
-  <div id="eecipe-filters">
+  <div id="recipe-filters">
     <b-form-checkbox
       :key="`language-${index}`"
       v-for="(language, index) in languagesData"
