@@ -102,7 +102,7 @@ export default {
         )
         this.languages[activeLangueIndex].isDisable = true
       } else {
-        this.languages.forEach((language, index) => {
+        this.languages.forEach((_, index) => {
           this.languages[index].isDisable = false
         })
       }
