@@ -77,7 +77,7 @@ describe('Events', () => {
     await checkbox.trigger('change')
     expect(wrapper.emitted('languages-change')).toHaveLength(1)
     expect(wrapper.emitted('languages-change')[0]).toEqual([
-      wrapper.vm.languages
+      wrapper.vm.$props.languages
     ])
   })
 })
