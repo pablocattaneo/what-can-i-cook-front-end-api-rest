@@ -5,14 +5,17 @@ import { BootstrapVue } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
 localVue.use(BootstrapVue)
+const mountOptionsForAllComponents = {
+  localVue,
+  mocks: {
+    $t() {}
+  }
+}
 
 let wrapper
 beforeEach(() => {
   wrapper = mount(RecipeFilters, {
-    localVue,
-    mocks: {
-      $t() {}
-    },
+    ...mountOptionsForAllComponents,
     propsData: {
       languages: [
         {
@@ -49,10 +52,7 @@ describe('Props', () => {
   })
   test('The first element of languaes has property isDisable set to true, the element #language-0 shold has disabled attribute set to disabled', () => {
     wrapper = mount(RecipeFilters, {
-      localVue,
-      mocks: {
-        $t() {}
-      },
+      ...mountOptionsForAllComponents,
       propsData: {
         languages: [
           { isActive: false, text: 'es', isDisable: false },
@@ -65,6 +65,9 @@ describe('Props', () => {
   })
   test('The component is well formed so prop categorySelected should exist', () => {
     expect(wrapper.props()).toHaveProperty('categorySelected')
+  })
+  test('The props categorySelected was set to "food" so ', async () => {
+    await wrapper.setProps({ categorySelected: 'food' })
   })
   test('The component is well formed so prop portionCalories should exist', () => {
     expect(wrapper.props()).toHaveProperty('portionCalories')
