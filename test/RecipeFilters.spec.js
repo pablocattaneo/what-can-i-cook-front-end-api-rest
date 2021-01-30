@@ -47,6 +47,22 @@ describe('Props', () => {
   test('The props languages was set to [{"isActive":true,"text":"es","isDisable":false},{"isActive":true,"text":"en","isDisable":false}] so #language-0 and #language-1 elements should be render.', () => {
     expect(wrapper.findAll('input[type="checkbox"]')).toHaveLength(2)
   })
+  test('The first element of languaes has property isDisable set to true, the element #language-0 shold has disabled attribute set to disabled', () => {
+    wrapper = mount(RecipeFilters, {
+      localVue,
+      mocks: {
+        $t() {}
+      },
+      propsData: {
+        languages: [
+          { isActive: false, text: 'es', isDisable: false },
+          { isActive: true, text: 'en', isDisable: true }
+        ]
+      }
+    })
+    const checkbox = wrapper.find('#language-1')
+    expect(checkbox.attributes('disabled')).toBe('disabled')
+  })
   test('The component is well formed so prop categorySelected should exist', () => {
     expect(wrapper.props()).toHaveProperty('categorySelected')
   })
@@ -56,7 +72,7 @@ describe('Props', () => {
 })
 
 describe('Events', () => {
-  test('The element #language-0 trigger change event so languages-change event should be trigger with languages as payload', async () => {
+  test('The first element of languaes has property isDisable set to false, the element #language-0 trigger change event so languages-change event should be trigger with languages as payload', async () => {
     const checkbox = await wrapper.find('#language-0')
     await checkbox.trigger('change')
     expect(wrapper.emitted('languages-change')).toHaveLength(1)
