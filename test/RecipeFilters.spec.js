@@ -44,6 +44,9 @@ describe('Snapshots', () => {
 })
 
 describe('Props', () => {
+  test('The component is well formed so prop categoryOptions should exist', () => {
+    expect(wrapper.props()).toHaveProperty('categoryOptions')
+  })
   test('The component is well formed so prop languages should exist', () => {
     expect(wrapper.props()).toHaveProperty('languages')
   })
