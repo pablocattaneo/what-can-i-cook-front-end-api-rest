@@ -14,10 +14,11 @@
         >
           <RecipeFilters
             :languages="languages"
-            @languages-change="buildLanguageQueryString($event)"
-            @clear-filter="clearFilters"
             :category-selected="$route.query.category || null"
             :portion-calories="Number($route.query.calories) || 1000"
+            :categoryOptions="categoryOptions"
+            @languages-change="buildLanguageQueryString($event)"
+            @clear-filter="clearFilters"
             class="px-3 py-2"
           />
         </b-sidebar>
@@ -93,6 +94,18 @@ export default {
   },
   data() {
     return {
+      categoryOptions: [
+        {
+          value: null,
+          text: this.$t('recipes.categories')
+        },
+        { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
+        { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
+        { value: 'desserts', text: 'Desserts' },
+        { value: 'dinner', text: 'Dinner' },
+        { value: 'drinks', text: 'Drinks' },
+        { value: 'lunch', text: 'Lunch' }
+      ],
       urlArray: [],
       languages: [
         {

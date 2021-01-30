@@ -85,43 +85,7 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
       <select
         class="custom-select"
         id="__BVID__21"
-      >
-        <option
-          value=""
-        >
-          null
-        </option>
-        <option
-          value="appetizers-and-snacks"
-        >
-          Appetizers & Snacks
-        </option>
-        <option
-          value="breakfast-and-brunch"
-        >
-          Breakfast & Brunch
-        </option>
-        <option
-          value="desserts"
-        >
-          Desserts
-        </option>
-        <option
-          value="dinner"
-        >
-          Dinner
-        </option>
-        <option
-          value="drinks"
-        >
-          Drinks
-        </option>
-        <option
-          value="lunch"
-        >
-          Lunch
-        </option>
-      </select>
+      />
        
       <div
         class="invalid-feedback"

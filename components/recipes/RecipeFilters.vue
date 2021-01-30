@@ -61,25 +61,17 @@ export default {
     portionCalories: {
       type: Number,
       default: 0
+    },
+    categoryOptions: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       languagesData: [],
       languagesActivesCounter: 0,
-      portionCaloriesData: this.portionCalories,
-      categoryOptions: [
-        {
-          value: null,
-          text: this.$t('recipes.categories')
-        },
-        { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
-        { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
-        { value: 'desserts', text: 'Desserts' },
-        { value: 'dinner', text: 'Dinner' },
-        { value: 'drinks', text: 'Drinks' },
-        { value: 'lunch', text: 'Lunch' }
-      ]
+      portionCaloriesData: this.portionCalories
     }
   },
   created() {

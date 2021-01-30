@@ -66,8 +66,26 @@ describe('Props', () => {
   test('The component is well formed so prop categorySelected should exist', () => {
     expect(wrapper.props()).toHaveProperty('categorySelected')
   })
-  test('The props categorySelected was set to "food" so ', async () => {
-    await wrapper.setProps({ categorySelected: 'food' })
+  test('The props categorySelected was set to "food" so ', () => {
+    wrapper = mount(RecipeFilters, {
+      ...mountOptionsForAllComponents,
+      propsData: {
+        languages: [
+          { isActive: false, text: 'es', isDisable: false },
+          { isActive: true, text: 'en', isDisable: true }
+        ],
+        categorySelected: 'desserts',
+        categoryOptions: [
+          {
+            value: null,
+            text: 'categories'
+          },
+          { value: 'desserts', text: 'Desserts' },
+          { value: 'lunch', text: 'Lunch' }
+        ]
+      }
+    })
+    expect(wrapper.find('select').element.value).toBe('desserts')
   })
   test('The component is well formed so prop portionCalories should exist', () => {
     expect(wrapper.props()).toHaveProperty('portionCalories')
