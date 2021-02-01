@@ -4,44 +4,6 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
 <div
   id="recipe-filters"
 >
-  <div
-    class="d-inline-block mr-4 mt-3 custom-control custom-switch"
-  >
-    <input
-      class="custom-control-input"
-      id="language-0"
-      name="check-button"
-      type="checkbox"
-      value="true"
-    />
-    <label
-      class="custom-control-label"
-      for="language-0"
-    >
-      
-    
-  
-    </label>
-  </div>
-  <div
-    class="d-inline-block mr-4 mt-3 custom-control custom-switch"
-  >
-    <input
-      class="custom-control-input"
-      id="language-1"
-      name="check-button"
-      type="checkbox"
-      value="true"
-    />
-    <label
-      class="custom-control-label"
-      for="language-1"
-    >
-      
-    
-  
-    </label>
-  </div>
    
   <div
     class="mt-4"
@@ -84,7 +46,7 @@ exports[`Snapshots Branch: default. It verify if non-intentional changes were ma
        
       <select
         class="custom-select"
-        id="__BVID__21"
+        id="__BVID__13"
       />
        
       <div
