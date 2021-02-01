@@ -5,7 +5,7 @@
       :key="`language-${index}`"
       v-for="(language, index) in languages"
       v-model="language.isActive"
-      @change="changeLanguage"
+      @change="$emit('languages-change', languages)"
       :disabled="language.isDisable"
       v-b-tooltip.hover.top="language.isDisable ? $t('language_disable') : null"
       name="check-button"
@@ -96,11 +96,6 @@ export default {
           this.languages[index].isDisable = false
         })
       }
-    },
-    changeLanguage() {
-      this.$nextTick(() => {
-        this.$emit('languages-change', this.languages)
-      })
     },
     categoryChange(event) {
       if (event) {
