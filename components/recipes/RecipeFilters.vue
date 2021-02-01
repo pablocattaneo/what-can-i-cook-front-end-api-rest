@@ -77,9 +77,6 @@ export default {
     this.countActivesLanguages()
     this.activeOrDisableLanguageSection()
   },
-  destroyed() {
-    console.log('destroyed')
-  },
   methods: {
     countActivesLanguages() {
       this.languages.forEach((language) => {
