@@ -3,7 +3,7 @@
     <b-form-checkbox
       :id="`language-${index}`"
       :key="`language-${index}`"
-      v-for="(language, index) in languagesData"
+      v-for="(language, index) in languages"
       v-model="language.isActive"
       @change="changeLanguage"
       :disabled="language.isDisable"
@@ -69,13 +69,11 @@ export default {
   },
   data() {
     return {
-      languagesData: [],
       languagesActivesCounter: 0,
       portionCaloriesData: this.portionCalories
     }
   },
   created() {
-    this.languagesData = this.languages
     this.countActivesLanguages()
     this.activeOrDisableLanguageSection()
   },
@@ -101,7 +99,7 @@ export default {
     },
     changeLanguage() {
       this.$nextTick(() => {
-        this.$emit('languages-change', this.languagesData)
+        this.$emit('languages-change', this.languages)
       })
     },
     categoryChange(event) {
