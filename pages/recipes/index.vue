@@ -161,7 +161,7 @@ export default {
       this.activeAllLanguages()
     },
     activeAllLanguages() {
-      this.languages.forEach((language, index) => {
+      this.languages.forEach((_, index) => {
         this.languages[index].isActive = true
       })
     },
