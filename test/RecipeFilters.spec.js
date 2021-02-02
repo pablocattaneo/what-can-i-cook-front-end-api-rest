@@ -40,53 +40,62 @@ describe('Props', () => {
   test('The component is well formed so prop categoryOptions should exist', () => {
     expect(wrapper.props()).toHaveProperty('categoryOptions')
   })
-  test('The component is well formed so prop languages should exist', () => {
-    expect(wrapper.props()).toHaveProperty('languages')
-  })
-  test('The props languages was set to [{"isActive":true,"text":"es","isDisable":false},{"isActive":true,"text":"en","isDisable":false}] so #language-0 and #language-1 elements should be render.', () => {
-    wrapper = mount(RecipeFilters, {
-      ...mountOptionsForAllComponents,
-      propsData: {
-        ...languePropsDataTwoLanguagesActives
-      }
+
+  describe('languages', () => {
+    test('The component is well formed so prop languages should exist', () => {
+      expect(wrapper.props()).toHaveProperty('languages')
     })
-    expect(wrapper.findAll('input[type="checkbox"]')).toHaveLength(2)
-  })
-  test('The first element of languaes has property isDisable set to true, the element #language-0 shold has disabled attribute set to disabled', () => {
-    wrapper = mount(RecipeFilters, {
-      ...mountOptionsForAllComponents,
-      propsData: {
-        languages: [
-          { isActive: false, text: 'es', isDisable: false },
-          { isActive: true, text: 'en', isDisable: true }
-        ]
-      }
+    test('The props languages was set to [{"isActive":true,"text":"es","isDisable":false},{"isActive":true,"text":"en","isDisable":false}] so #language-0 and #language-1 elements should be render.', () => {
+      wrapper = mount(RecipeFilters, {
+        ...mountOptionsForAllComponents,
+        propsData: {
+          ...languePropsDataTwoLanguagesActives
+        }
+      })
+      expect(wrapper.findAll('input[type="checkbox"]')).toHaveLength(2)
     })
-    const checkbox = wrapper.find('#language-1')
-    expect(checkbox.attributes('disabled')).toBe('disabled')
-  })
-  test('The component is well formed so prop categorySelected should exist', () => {
-    expect(wrapper.props()).toHaveProperty('categorySelected')
-  })
-  test('The props categorySelected was set to "food" so ', () => {
-    wrapper = mount(RecipeFilters, {
-      ...mountOptionsForAllComponents,
-      propsData: {
-        categorySelected: 'desserts',
-        categoryOptions: [
-          {
-            value: null,
-            text: 'categories'
-          },
-          { value: 'desserts', text: 'Desserts' },
-          { value: 'lunch', text: 'Lunch' }
-        ]
-      }
+    test('The first element of languaes has property isDisable set to true, the element #language-0 shold has disabled attribute set to disabled', () => {
+      wrapper = mount(RecipeFilters, {
+        ...mountOptionsForAllComponents,
+        propsData: {
+          languages: [
+            { isActive: false, text: 'es', isDisable: false },
+            { isActive: true, text: 'en', isDisable: true }
+          ]
+        }
+      })
+      const checkbox = wrapper.find('#language-1')
+      expect(checkbox.attributes('disabled')).toBe('disabled')
     })
-    expect(wrapper.find('select').element.value).toBe('desserts')
   })
-  test('The component is well formed so prop portionCalories should exist', () => {
-    expect(wrapper.props()).toHaveProperty('portionCalories')
+
+  describe('categorySelected', () => {
+    test('The component is well formed so prop categorySelected should exist', () => {
+      expect(wrapper.props()).toHaveProperty('categorySelected')
+    })
+    test('The props categorySelected was set to "food" so ', () => {
+      wrapper = mount(RecipeFilters, {
+        ...mountOptionsForAllComponents,
+        propsData: {
+          categorySelected: 'desserts',
+          categoryOptions: [
+            {
+              value: null,
+              text: 'categories'
+            },
+            { value: 'desserts', text: 'Desserts' },
+            { value: 'lunch', text: 'Lunch' }
+          ]
+        }
+      })
+      expect(wrapper.find('select').element.value).toBe('desserts')
+    })
+  })
+
+  describe('portionCalories', () => {
+    test('The component is well formed so prop portionCalories should exist', () => {
+      expect(wrapper.props()).toHaveProperty('portionCalories')
+    })
   })
 })
 
