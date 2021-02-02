@@ -125,4 +125,8 @@ describe('Events', () => {
       wrapper.vm.$props.languages
     ])
   })
+  test('The element button trigger click event so the component should emit clear-filter event', async () => {
+    await wrapper.find('button').trigger('click')
+    expect(wrapper.emitted('clear-filter')).toHaveLength(1)
+  })
 })
