@@ -12,12 +12,14 @@ const mountOptionsForAllComponents = {
     $t() {}
   }
 }
+
 const languePropsDataTwoLanguagesActives = {
   languages: [
     { isActive: true, text: 'es', isDisable: false },
     { isActive: true, text: 'en', isDisable: false }
   ]
 }
+const portionCaloriesWasSetTo300 = { portionCalories: 300 }
 
 let wrapper
 beforeEach(() => {
@@ -95,6 +97,15 @@ describe('Props', () => {
   describe('portionCalories', () => {
     test('The component is well formed so prop portionCalories should exist', () => {
       expect(wrapper.props()).toHaveProperty('portionCalories')
+    })
+    test('portionCalories was set to 300 so this value should be rendered', () => {
+      wrapper = mount(RecipeFilters, {
+        ...mountOptionsForAllComponents,
+        propsData: {
+          ...portionCaloriesWasSetTo300
+        }
+      })
+      expect(wrapper.text()).toContain('300')
     })
   })
 })
