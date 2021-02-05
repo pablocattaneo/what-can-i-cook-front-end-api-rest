@@ -75,7 +75,7 @@ describe('Props', () => {
     test('The component is well formed so prop categorySelected should exist', () => {
       expect(wrapper.props()).toHaveProperty('categorySelected')
     })
-    test('The props categorySelected was set to "food" so ', () => {
+    test('The props categorySelected was set to "desserts" so the value of select should be "desserts"', () => {
       wrapper = mount(RecipeFilters, {
         ...mountOptionsForAllComponents,
         propsData: {
