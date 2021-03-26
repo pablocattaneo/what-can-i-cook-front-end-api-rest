@@ -15,9 +15,9 @@
         <b-img
           :src="recipeImage"
           :alt="recipe.title"
-          @error="onError"
           fluid
           center
+          @error="onError"
         />
       </div>
     </div>
@@ -61,9 +61,12 @@
         </h2>
         <b-list-group class="mt-3">
           <template v-for="(info, key, index) in recipe.more_info">
-            <b-list-group-item v-if="info" :key="`${index}-more-info`"
-              >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
+            <b-list-group-item
+              v-if="info"
+              :key="`${index}-more-info`"
             >
+              {{ $t(`recipes.${key}`) }}: {{ info }}
+            </b-list-group-item>
           </template>
         </b-list-group>
       </div>
@@ -80,13 +83,20 @@ export default {
     BIconBook,
     BIconEasel
   },
+  async asyncData ({ app, route }) {
+    const recipe = await app.$axios.$get(`/recipe-by-slug/${route.params.slug}`)
+    return {
+      recipe,
+      errorOnImage: false
+    }
+  },
   computed: {
-    mustShowMoreInfoSection() {
+    mustShowMoreInfoSection () {
       return Object.keys(this.recipe.more_info).find(
-        (key) => !!this.recipe.more_info[key]
+        key => !!this.recipe.more_info[key]
       )
     },
-    recipeImage() {
+    recipeImage () {
       if (this.errorOnImage) {
         return require('@/assets/img/logo.svg')
       } else {
@@ -97,15 +107,8 @@ export default {
       }
     }
   },
-  async asyncData({ app, route }) {
-    const recipe = await app.$axios.$get(`/recipe-by-slug/${route.params.slug}`)
-    return {
-      recipe,
-      errorOnImage: false
-    }
-  },
   methods: {
-    onError() {
+    onError () {
       this.errorOnImage = true
     }
   }

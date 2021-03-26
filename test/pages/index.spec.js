@@ -16,7 +16,7 @@ beforeEach(() => {
     stubs: {
       NuxtLink: RouterLinkStub
     },
-    data() {
+    data () {
       return {
         backEndTechnologies: [
           {

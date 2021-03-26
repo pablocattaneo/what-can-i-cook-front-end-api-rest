@@ -18,7 +18,9 @@
     </div>
     <div class="row mt-5">
       <div class="col-12">
-        <h2 class="text-center">{{ $t('home.applied_technologies') }}</h2>
+        <h2 class="text-center">
+          {{ $t('home.applied_technologies') }}
+        </h2>
       </div>
     </div>
     <div class="row technologies">
@@ -41,7 +43,7 @@
               blank-color="#abc"
               class="mr-2"
             />
-            <span v-html="frontEndTechnology.html"></span>
+            <span v-html="frontEndTechnology.html" />
           </li>
         </ul>
       </div>
@@ -64,7 +66,7 @@
               blank-color="#abc"
               class="mr-2"
             />
-            <span v-html="backEndTechnology.html"></span>
+            <span v-html="backEndTechnology.html" />
           </li>
         </ul>
       </div>
@@ -83,9 +85,11 @@
         <a v-if="siteFeature.link" :href="siteFeature.link.href">{{
           siteFeature.link.text
         }}</a>
-        <nuxt-link v-if="siteFeature.nuxtLink" :to="siteFeature.nuxtLink.to">{{
-          siteFeature.nuxtLink.text
-        }}</nuxt-link>
+        <nuxt-link v-if="siteFeature.nuxtLink" :to="siteFeature.nuxtLink.to">
+          {{
+            siteFeature.nuxtLink.text
+          }}
+        </nuxt-link>
       </li>
     </ul>
   </div>
@@ -103,7 +107,7 @@ export default {
     BIconGear,
     BIconCodeSquare
   },
-  data() {
+  data () {
     return {
       siteFeatures: [
         {

@@ -13,14 +13,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  mutateShowToast(state, error) {
+  mutateShowToast (state, error) {
     state.errorToastParameter.message = error.message
     state.isToastErrorVisible = true
   },
-  mutateHideToast(state) {
+  mutateHideToast (state) {
     state.isToastErrorVisible = false
   },
-  mutateResetIsToastErrorVisible(state) {
+  mutateResetIsToastErrorVisible (state) {
     state.isToastErrorVisible = false
   }
 }

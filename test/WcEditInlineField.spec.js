@@ -28,7 +28,7 @@ beforeEach(() => {
     localVue,
     store,
     mocks: {
-      $t: (msg) => msg,
+      $t: msg => msg,
       $v: {
         value: {
           $error: {}

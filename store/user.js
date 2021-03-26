@@ -5,19 +5,19 @@ export const state = () => ({
 })
 
 export const mutations = {
-  isUserLoggedMutation(state, payload) {
+  isUserLoggedMutation (state, payload) {
     state.isUserLogged = payload
   },
-  jwtMutation(state, payload) {
+  jwtMutation (state, payload) {
     state.jwt = payload
   },
-  userIdMutation(state, payload) {
+  userIdMutation (state, payload) {
     state.userId = payload
   }
 }
 
 export const actions = {
-  async userLoginAction({ state, commit }, payload) {
+  async userLoginAction ({ state, commit }, payload) {
     const longinData = payload
     let dataAfterUserLoged = {
       token: '',
@@ -34,13 +34,13 @@ export const actions = {
       throw error
     }
   },
-  userSignOutAction({ commit }) {
+  userSignOutAction ({ commit }) {
     commit('isUserLoggedMutation', false)
     commit('jwtMutation', '')
     commit('userIdMutation', '')
     localStorage.removeItem('jwtToken')
   },
-  setUserIdState({ commit }) {
+  setUserIdState ({ commit }) {
     const jwt = localStorage.getItem('jwtToken')
     if (jwt) {
       const jwtPayload = JSON.parse(atob(jwt.split('.')[1]))

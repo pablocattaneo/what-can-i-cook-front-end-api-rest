@@ -1,16 +1,16 @@
 <template>
   <div id="recipe-filters">
     <b-form-checkbox
+      v-for="(language, index) in languages"
       :id="`language-${index}`"
       :key="`language-${index}`"
-      v-for="(language, index) in languages"
       v-model="language.isActive"
-      @change="$emit('languages-change', languages)"
-      :disabled="language.isDisable"
       v-b-tooltip.hover.top="language.isDisable ? $t('language_disable') : null"
+      :disabled="language.isDisable"
       name="check-button"
       class="d-inline-block mr-4 mt-3"
       switch
+      @change="$emit('languages-change', languages)"
     >
       {{ $t(language.text) }}
     </b-form-checkbox>
@@ -19,24 +19,24 @@
       <b-form-input
         id="range-1"
         v-model="portionCaloriesData"
-        @change="portionCaloriesChange"
         type="range"
         min="0"
         max="1000"
+        @change="portionCaloriesChange"
       />
       <div>{{ $t('recipes.portion_calories') }}: {{ portionCaloriesData }}</div>
     </div>
     <WcSelect
       :options="categoryOptions"
       :label="$t('recipes.categories')"
-      @input="categoryChange($event)"
       :value="categorySelected"
       class="mt-4"
+      @input="categoryChange($event)"
     />
-    <b-button @click="$emit('clear-filter')" class="mt-4">
+    <b-button class="mt-4" @click="$emit('clear-filter')">
       <BIconTrash2 />
-      {{ $t('clear_filters') }}</b-button
-    >
+      {{ $t('clear_filters') }}
+    </b-button>
   </div>
 </template>
 
@@ -67,28 +67,28 @@ export default {
       default: () => []
     }
   },
-  data() {
+  data () {
     return {
       languagesActivesCounter: 0,
       portionCaloriesData: this.portionCalories
     }
   },
-  created() {
+  created () {
     this.countActivesLanguages()
     this.activeOrDisableLanguageSection()
   },
   methods: {
-    countActivesLanguages() {
+    countActivesLanguages () {
       this.languages.forEach((language) => {
         if (language.isActive) {
           this.languagesActivesCounter++
         }
       })
     },
-    activeOrDisableLanguageSection() {
+    activeOrDisableLanguageSection () {
       if (this.languagesActivesCounter === 1) {
         const activeLangueIndex = this.languages.findIndex(
-          (e) => e.isActive === true
+          e => e.isActive === true
         )
         this.languages[activeLangueIndex].isDisable = true
       } else {
@@ -97,7 +97,7 @@ export default {
         })
       }
     },
-    categoryChange(event) {
+    categoryChange (event) {
       if (event) {
         this.$router.push({
           path: this.localePath('/recipes'),
@@ -117,7 +117,7 @@ export default {
         })
       }
     },
-    portionCaloriesChange(event) {
+    portionCaloriesChange (event) {
       this.$router.push({
         path: this.localePath('/recipes'),
         query: {

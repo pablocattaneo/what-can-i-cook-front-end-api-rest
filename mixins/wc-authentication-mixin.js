@@ -1,11 +1,11 @@
 export default {
-  data() {
+  data () {
     return {
       isProcessingAuthentication: true
     }
   },
   methods: {
-    async authenticate() {
+    async authenticate () {
       try {
         this.$store.dispatch('user/setUserIdState')
         return await this.$axios.$get(

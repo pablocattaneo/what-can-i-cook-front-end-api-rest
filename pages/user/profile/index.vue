@@ -10,72 +10,72 @@
       <WcEditInlineField
         id="user-username"
         :labels="$t('User_name')"
-        :currentValue="user.userName"
-        @updated="getUser"
-        :endPointPath="endPointPath"
-        :validationsRules="{
+        :current-value="user.userName"
+        :end-point-path="endPointPath"
+        :validations-rules="{
           required: true,
           minLength: 5
         }"
-        :objectToSendServer="{
+        :object-to-send-server="{
           userId: user.id,
           contentToUpdate: {
             userName: ''
           }
         }"
         class="mt-5"
+        @updated="getUser"
       />
       <WcEditInlineField
         id="user-name"
         :labels="$t('Name')"
-        :currentValue="user.name"
-        @updated="getUser"
-        :endPointPath="endPointPath"
-        :validationsRules="{
+        :current-value="user.name"
+        :end-point-path="endPointPath"
+        :validations-rules="{
           required: true
         }"
-        :objectToSendServer="{
+        :object-to-send-server="{
           userId: user.id,
           contentToUpdate: {
             name: ''
           }
         }"
         class="mt-5"
+        @updated="getUser"
       />
       <WcEditInlineField
         id="user-lastname"
         :labels="$t('Last_name')"
-        :currentValue="user.lastName"
-        @updated="getUser"
-        :endPointPath="endPointPath"
-        :validationsRules="{
+        :current-value="user.lastName"
+        :end-point-path="endPointPath"
+        :validations-rules="{
           required: true
         }"
-        :objectToSendServer="{
+        :object-to-send-server="{
           userId: user.id,
           contentToUpdate: {
             lastName: ''
           }
         }"
         class="mt-5"
+        @updated="getUser"
       />
       <WcEditInlineField
         id="user-email"
         :labels="$t('Email')"
-        :currentValue="user.email"
-        @updated="getUser"
-        :endPointPath="endPointPath"
-        :validationsRules="{
+        :current-value="user.email"
+        :end-point-path="endPointPath"
+        :validations-rules="{
           required: true,
           email: true
         }"
-        :objectToSendServer="{
+        :object-to-send-server="{
           userId: user.id,
           contentToUpdate: {
             email: ''
           }
         }"
         class="mt-5"
+        @updated="getUser"
       />
     </div>
   </div>
@@ -92,7 +92,7 @@ export default {
     WcLoading
   },
   mixins: [wcHandleError, wcAuthenticationMixin],
-  data() {
+  data () {
     return {
       endPointPath: '',
       isPageLoading: true,
@@ -105,11 +105,11 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.getUser()
   },
   methods: {
-    async getUser() {
+    async getUser () {
       try {
         const userDataGotFromServe = await this.authenticate()
         this.user.id = userDataGotFromServe._id

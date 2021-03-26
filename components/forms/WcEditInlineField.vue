@@ -5,10 +5,10 @@
       <span id="current-value">{{ currentValue }}</span>
       <b-icon-pencil-square
         id="b-icon-pencil-square"
-        @click="edit"
         variant="primary"
         class="ml-2 icon wc-cursor-pointer"
         scale="1.2"
+        @click="edit"
       />
     </p>
     <b-collapse :id="id" class="mt-2">
@@ -20,16 +20,18 @@
           :state="$v.value.$error ? false : null"
           :label="labels + ':'"
           :placeholder="labels"
-          @input="value = $event"
           type="text"
           class="w-100"
+          @input="value = $event"
         />
-        <b-button id="cancelButton" @click="closeEdit" variant="secondary">{{
-          $t('Cancel')
-        }}</b-button>
+        <b-button id="cancelButton" variant="secondary" @click="closeEdit">
+          {{
+            $t('Cancel')
+          }}
+        </b-button>
         <WcButtonSubmit
+          :is-processing="isFormProcessing"
           @click.native="submit"
-          :isProcessing="isFormProcessing"
         />
       </WcForm>
     </b-collapse>
@@ -81,13 +83,13 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       isFormProcessing: false,
       value: ''
     }
   },
-  validations() {
+  validations () {
     const requiredRule = this.validationsRules.required
     const minLengthRule = this.validationsRules.minLength
     const emailRule = this.validationsRules.email
@@ -99,18 +101,18 @@ export default {
       }
     }
   },
-  created() {
+  created () {
     this.value = this.currentValue
   },
   methods: {
-    closeEdit() {
+    closeEdit () {
       this.$root.$emit('bv::toggle::collapse', this.id)
     },
-    edit(field) {
+    edit (field) {
       this.$root.$emit('bv::toggle::collapse', this.id)
       this.$refs.wcInput.focus()
     },
-    async submit() {
+    async submit () {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)

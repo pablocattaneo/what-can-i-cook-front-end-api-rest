@@ -19,7 +19,7 @@ export default {
     WcHeader,
     WcFooter
   },
-  data() {
+  data () {
     return {
       author: {
         name: 'Pablo Cattaneo',
@@ -31,7 +31,7 @@ export default {
     ...mapState('toast', ['isToastErrorVisible', 'errorToastParameter'])
   },
   watch: {
-    isToastErrorVisible() {
+    isToastErrorVisible () {
       if (this.isToastErrorVisible) {
         this.$bvToast.toast(this.errorToastParameter.message, {
           title: 'Error',
@@ -44,7 +44,7 @@ export default {
       this.$store.commit('toast/mutateResetIsToastErrorVisible')
     }
   },
-  mounted() {
+  mounted () {
     this.$store.dispatch('user/setUserIdState')
   }
 }

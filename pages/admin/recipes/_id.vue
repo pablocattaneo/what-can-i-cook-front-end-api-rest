@@ -1,9 +1,13 @@
 <template>
   <div id="wc-page-admin-recipes" class="position-relative">
-    <h1 class="text-center">{{ $t('recipes.create') }}</h1>
+    <h1 class="text-center">
+      {{ $t('recipes.create') }}
+    </h1>
     <WcLoading v-if="isProcessingAuthentication" />
     <div v-if="!isProcessingAuthentication" class="page-content">
-      <h1 class="text-center">{{ recipeForm.title }}</h1>
+      <h1 class="text-center">
+        {{ recipeForm.title }}
+      </h1>
       <WcForm ref="wcForm">
         <div class="row">
           <WcInput
@@ -13,13 +17,13 @@
             :label="$t('recipes.form_title_label') + ':'"
             :placeholder="$t('recipes.form_title_label')"
             :state="$v.recipeForm.fields.title.$error ? false : null"
+            class="col-12 mt-5 mt-md-4"
+            autocomplete="off"
+            autofocus
             @input="
               recipeForm.fields.title = $event
               getSlugFromTitle($event)
             "
-            class="col-12 mt-5 mt-md-4"
-            autocomplete="off"
-            autofocus
           />
         </div>
         <div class="row">
@@ -27,8 +31,8 @@
             id="recipe-description"
             :value="recipeForm.fields.description"
             :label="`${$t('recipes.form_description_label')}:`"
-            @input="recipeForm.fields.description = $event"
             class="col-12 mt-5"
+            @input="recipeForm.fields.description = $event"
           />
         </div>
         <div class="row">
@@ -39,10 +43,10 @@
             :state="$v.recipeForm.fields.directions.$error ? false : null"
             :form-text-help-users="$t('recipes.form_directions_text_helps')"
             :label="`${$t('recipes.form_directions_label')}:`"
-            @input="recipeForm.fields.directions = $event"
             class="col-12 mt-5"
             placeholder="Recipe directions"
             autocomplete="off"
+            @input="recipeForm.fields.directions = $event"
           />
           <div v-if="recipeForm.fields.directions" class="preview-directions">
             <h1>{{ $t('recipes.preview_directions') }}</h1>
@@ -64,10 +68,10 @@
             :state="$v.recipeForm.fields.ingredients.$error ? false : null"
             :form-text-help-users="$t('recipes.form_ingredients_text_helps')"
             :label="`${$t('recipes.form_ingredients_label')}:`"
-            @input="recipeForm.fields.ingredients = $event"
             class="col-12 mt-5"
             placeholder="Recipe ingredients"
             autocomplete="off"
+            @input="recipeForm.fields.ingredients = $event"
           />
           <div v-if="recipeForm.fields.ingredients" class="preview-ingredients">
             <h1>{{ $t('recipes.preview_ingredients') }}</h1>
@@ -88,8 +92,8 @@
             :value="recipeForm.fields.category"
             :validation="$v.recipeForm.fields.category"
             :state="$v.recipeForm.fields.category.$error ? false : null"
-            @input="recipeForm.fields.category = $event"
             class="col-12 col-md-6 mt-5"
+            @input="recipeForm.fields.category = $event"
           />
           <WcSelect
             :options="recipeLanguageOptions"
@@ -97,17 +101,17 @@
             :value="recipeForm.fields.language"
             :validation="$v.recipeForm.fields.language"
             :state="$v.recipeForm.fields.language.$error ? false : null"
-            @input="recipeForm.fields.language = $event"
             class="col-12 col-md-6 mt-5"
+            @input="recipeForm.fields.language = $event"
           />
         </div>
         <div class="row">
           <WcFile
             :label="$t('recipes.form_main_img_label')"
             :placeholder="$t('recipes.form_main_img_label')"
-            @input="inputImg($event)"
             class="col-12 mt-5"
             accept="image/*"
+            @input="inputImg($event)"
           />
         </div>
         <div class="row">
@@ -127,10 +131,10 @@
             :validation="$v.recipeForm.fields.moreInfo.serving"
             :label="$t('recipes.form_more_info_serving_label') + ':'"
             :state="$v.recipeForm.fields.moreInfo.serving.$error ? false : null"
-            @input="recipeForm.fields.moreInfo.serving = $event"
             class="col-12 col-md-6 mt-5"
             placeholder="4"
             type="number"
+            @input="recipeForm.fields.moreInfo.serving = $event"
           />
           <WcInput
             id="recipe-more-info-cook-time"
@@ -140,10 +144,10 @@
             :state="
               $v.recipeForm.fields.moreInfo.cookTime.$error ? false : null
             "
-            @input="recipeForm.fields.moreInfo.cookTime = $event"
             class="col-12 col-md-6 mt-5"
             placeholder="45"
             type="number"
+            @input="recipeForm.fields.moreInfo.cookTime = $event"
           />
         </div>
         <div class="row">
@@ -153,10 +157,10 @@
             :validation="$v.recipeForm.fields.moreInfo.readyIn"
             :label="$t('recipes.form_more_info_ready_in_label') + ':'"
             :state="$v.recipeForm.fields.moreInfo.readyIn.$error ? false : null"
-            @input="recipeForm.fields.moreInfo.readyIn = $event"
             class="col-12 col-md-6 mt-5"
             placeholder="45"
             type="number"
+            @input="recipeForm.fields.moreInfo.readyIn = $event"
           />
           <WcInput
             id="recipe-more-info-calories"
@@ -166,10 +170,10 @@
             :state="
               $v.recipeForm.fields.moreInfo.calories.$error ? false : null
             "
-            @input="recipeForm.fields.moreInfo.calories = $event"
             class="col-12 col-md-6 mt-5"
             placeholder="120"
             type="number"
+            @input="recipeForm.fields.moreInfo.calories = $event"
           />
         </div>
         <div class="row">
@@ -180,15 +184,15 @@
             :label="$t('recipes.form_slug_label') + ':'"
             :placeholder="$t('recipes.form_slug_label')"
             :state="$v.recipeForm.fields.slug.$error ? false : null"
-            @input="recipeForm.fields.slug = $event"
             class="col-12 mt-5"
             autocomplete="off"
+            @input="recipeForm.fields.slug = $event"
           />
         </div>
         <WcButtonSubmit
-          @click.native="submit"
-          :isProcessing="isFormProcessing"
+          :is-processing="isFormProcessing"
           class="col-12 mt-5"
+          @click.native="submit"
         />
       </WcForm>
       <b-modal
@@ -239,51 +243,11 @@ export default {
     WcLoading
   },
   mixins: [wcHandleError, wcAuthenticationMixin],
-  data() {
-    return {
-      isFormProcessing: false,
-      storedRecipe: {
-        data: '',
-        message: ''
-      },
-      recipeId: this.$route.params.id || null,
-      categoryOptions: [
-        {
-          value: null,
-          text: this.$t('recipes.categories'),
-          disabled: true
-        },
-        { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
-        { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
-        { value: 'desserts', text: 'Desserts' },
-        { value: 'dinner', text: 'Dinner' },
-        { value: 'drinks', text: 'Drinks' },
-        { value: 'lunch', text: 'Lunch' }
-      ],
-      recipeLanguageOptions: [
-        {
-          value: null,
-          text: this.$t('recipes.select_recipe_language'),
-          disabled: true
-        },
-        { value: 'en', text: 'English' },
-        { value: 'es', text: 'Spanish' }
-      ]
-    }
-  },
-  computed: {
-    previewDirections() {
-      return this.stringToArray(this.recipeForm.fields.directions)
-    },
-    previewIngredients() {
-      return this.stringToArray(this.recipeForm.fields.ingredients)
-    }
-  },
-  async asyncData({ params, app, store }) {
-    function ingredientsArrayToString(array) {
+  async asyncData ({ params, app, store }) {
+    function ingredientsArrayToString (array) {
       return array.toString().replace(/,/g, '\n')
     }
-    function directionsArrayToString(array) {
+    function directionsArrayToString (array) {
       return array.join('\r')
     }
     const recipeId = params.id
@@ -319,7 +283,47 @@ export default {
       }
     }
   },
-  async mounted() {
+  data () {
+    return {
+      isFormProcessing: false,
+      storedRecipe: {
+        data: '',
+        message: ''
+      },
+      recipeId: this.$route.params.id || null,
+      categoryOptions: [
+        {
+          value: null,
+          text: this.$t('recipes.categories'),
+          disabled: true
+        },
+        { value: 'appetizers-and-snacks', text: 'Appetizers & Snacks' },
+        { value: 'breakfast-and-brunch', text: 'Breakfast & Brunch' },
+        { value: 'desserts', text: 'Desserts' },
+        { value: 'dinner', text: 'Dinner' },
+        { value: 'drinks', text: 'Drinks' },
+        { value: 'lunch', text: 'Lunch' }
+      ],
+      recipeLanguageOptions: [
+        {
+          value: null,
+          text: this.$t('recipes.select_recipe_language'),
+          disabled: true
+        },
+        { value: 'en', text: 'English' },
+        { value: 'es', text: 'Spanish' }
+      ]
+    }
+  },
+  computed: {
+    previewDirections () {
+      return this.stringToArray(this.recipeForm.fields.directions)
+    },
+    previewIngredients () {
+      return this.stringToArray(this.recipeForm.fields.ingredients)
+    }
+  },
+  async mounted () {
     try {
       await this.authenticate()
       this.recipeForm.fields.author = this.$store.state.user.userId
@@ -329,7 +333,7 @@ export default {
     }
   },
   methods: {
-    getSlugFromTitle(path) {
+    getSlugFromTitle (path) {
       const urlReservedCharacters = "!#$%&'()*+,/:;=?@[]"
       for (let i = 0; i < urlReservedCharacters.length; i++) {
         path = path.replace(
@@ -348,14 +352,14 @@ export default {
       path = path.replace(/ñ/gi, 'n')
       this.recipeForm.fields.slug = path
     },
-    stringToArray(string, regex = /[\n\r]/g) {
+    stringToArray (string, regex = /[\n\r]/g) {
       return string ? string.split(regex) : null
     },
-    inputImg(event) {
+    inputImg (event) {
       this.recipeForm.fields.mainImg = event
       this.imgDOMStringOrImgUrl = URL.createObjectURL(event)
     },
-    async submit() {
+    async submit () {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)

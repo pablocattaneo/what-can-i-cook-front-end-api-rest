@@ -40,7 +40,7 @@ describe('validationForm method', () => {
   })
   test('should call bFormInput.focus() method', async () => {
     const validation = {
-      $touch() {}
+      $touch () {}
     }
     jest.spyOn(validation, '$touch')
     await wrapper.vm.validationForm(validation)

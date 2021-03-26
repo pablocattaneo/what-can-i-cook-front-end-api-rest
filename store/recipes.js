@@ -4,17 +4,17 @@ export const state = () => ({
 })
 
 export const mutations = {
-  getRecipes(state, payload) {
+  getRecipes (state, payload) {
     state.recipes = [...state.recipes, ...payload.recipes]
     state.totalRecipes = payload.totalRecipes
   },
-  resetRecipes(state) {
+  resetRecipes (state) {
     state.recipes = []
     state.totalRecipes = 0
   }
 }
 export const actions = {
-  async getRecipesAction({ commit }, payload) {
+  async getRecipesAction ({ commit }, payload) {
     let url = 'recipes'
     if (payload) {
       Object.keys(payload).forEach((key, index) => {

@@ -2,7 +2,9 @@
   <div id="wc-page-signup-index">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center">Sign Up</h1>
+        <h1 class="text-center">
+          Sign Up
+        </h1>
       </div>
     </div>
     <WcForm ref="wcForm" class="row">
@@ -27,10 +29,10 @@
           :label="$t('signUp.signUpForm.fields.name') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.name')"
           :state="$v.signUpForm.fields.name.$error ? false : null"
-          @input="signUpForm.fields.name = $event"
           autocomplete="off"
           autofocus
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.name = $event"
         />
         <WcInput
           id="sign-up-lastname"
@@ -39,9 +41,9 @@
           :label="$t('signUp.signUpForm.fields.lastName') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.lastName')"
           :state="$v.signUpForm.fields.lastName.$error ? false : null"
-          @input="signUpForm.fields.lastName = $event"
           autocomplete="off"
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.lastName = $event"
         />
         <WcInput
           id="sign-up-username"
@@ -50,9 +52,9 @@
           :label="$t('signUp.signUpForm.fields.userName') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.userName')"
           :state="$v.signUpForm.fields.userName.$error ? false : null"
-          @input="signUpForm.fields.userName = $event"
           autocomplete="off"
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.userName = $event"
         />
         <WcInput
           id="sign-up-email"
@@ -61,8 +63,8 @@
           :label="$t('signUp.signUpForm.fields.email') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.email')"
           :state="$v.signUpForm.fields.email.$error ? false : null"
-          @input="signUpForm.fields.email = $event"
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.email = $event"
         />
         <WcInput
           id="sign-up-password"
@@ -71,9 +73,9 @@
           :label="$t('signUp.signUpForm.fields.password') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.password')"
           :state="$v.signUpForm.fields.password.$error ? false : null"
-          @input="signUpForm.fields.password = $event"
           type="password"
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.password = $event"
         />
         <WcInput
           id="sign-up-repeat-password"
@@ -82,15 +84,15 @@
           :label="$t('signUp.signUpForm.fields.confirmPassword') + ':'"
           :placeholder="$t('signUp.signUpForm.fields.confirmPassword')"
           :state="$v.signUpForm.fields.confirmPassword.$error ? false : null"
-          @input="signUpForm.fields.confirmPassword = $event"
           type="password"
           class="w-100 mt-5 mt-md-4"
+          @input="signUpForm.fields.confirmPassword = $event"
         />
         <WcButtonSubmit
-          :buttonTextValue="$t('Sign_up')"
-          @click.native="submit"
-          :isProcessing="isFormProcessing"
+          :button-text-value="$t('Sign_up')"
+          :is-processing="isFormProcessing"
           class="w-100 mt-4 mt-md-3"
+          @click.native="submit"
         />
       </div>
     </WcForm>
@@ -113,7 +115,7 @@ export default {
     WcButtonSubmit
   },
   mixins: [wcHandleError],
-  data() {
+  data () {
     return {
       isFormProcessing: false,
       signUpForm: {
@@ -155,7 +157,7 @@ export default {
     }
   },
   methods: {
-    async submit() {
+    async submit () {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)

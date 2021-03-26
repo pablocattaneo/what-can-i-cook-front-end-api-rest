@@ -31,7 +31,7 @@ export default {
     value: ''
   },
   computed: {
-    isARequiredFiled() {
+    isARequiredFiled () {
       return this.validation.hasOwnProperty('required')
     }
   }

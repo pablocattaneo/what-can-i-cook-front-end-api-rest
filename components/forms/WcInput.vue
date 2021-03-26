@@ -1,13 +1,13 @@
 <template>
   <div id="wc-input">
     <b-form-group :id="`label-${id}`" :label="label" :for="id">
-      <template v-slot:label>
+      <template #label>
         {{ label }}
         <span v-if="isARequiredFiled" class="text-danger">*</span>
       </template>
       <b-form-input
-        ref="bFormInput"
         :id="id"
+        ref="bFormInput"
         :value="value"
         :placeholder="placeholder"
         :state="state"
@@ -15,7 +15,7 @@
         :autocomplete="autocomplete"
         :type="type"
         @input="$emit('input', $event)"
-      ></b-form-input>
+      />
       <b-form-invalid-feedback v-if="validation.required === false">
         {{ $t('form.validation.required') }}
       </b-form-invalid-feedback>
@@ -34,9 +34,11 @@
       <b-form-invalid-feedback v-if="validation.validPath === false">
         {{ $t('form.validation.validPath') }}
       </b-form-invalid-feedback>
-      <b-form-text v-if="formTextHelpUsers">{{
-        formTextHelpUsers
-      }}</b-form-text>
+      <b-form-text v-if="formTextHelpUsers">
+        {{
+          formTextHelpUsers
+        }}
+      </b-form-text>
     </b-form-group>
   </div>
 </template>
@@ -56,7 +58,7 @@ export default {
     }
   },
   methods: {
-    focus() {
+    focus () {
       this.$nextTick(() => {
         this.$refs.bFormInput.focus()
       })

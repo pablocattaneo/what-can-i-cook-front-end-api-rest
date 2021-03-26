@@ -1,25 +1,25 @@
 <template>
-  <b-form id="wc-form" @submit.prevent novalidate>
-    <slot></slot>
+  <b-form id="wc-form" novalidate @submit.prevent>
+    <slot />
   </b-form>
 </template>
 
 <script>
 import VueScrollTo from 'vue-scrollto'
 export default {
-  data() {
+  data () {
     return {
       isFormProcessing: false
     }
   },
   methods: {
-    stringToArray(string, regex = /[\n\r]/g) {
+    stringToArray (string, regex = /[\n\r]/g) {
       return string ? string.split(regex) : null
     },
-    arrayToString(array, regex = /[\n\r]/g) {
+    arrayToString (array, regex = /[\n\r]/g) {
       return array.toString()
     },
-    showToastFormError() {
+    showToastFormError () {
       this.$bvToast.toast(this.$t('form_contains_errors'), {
         title: 'Error',
         toaster: 'b-toaster-bottom-center',
@@ -27,10 +27,10 @@ export default {
         solid: true
       })
     },
-    errorScrollTo() {
+    errorScrollTo () {
       VueScrollTo.scrollTo('#wc-form', 1000, { offset: -60 })
     },
-    validationForm(validation) {
+    validationForm (validation) {
       validation.$touch()
       if (validation.$error) {
         this.showToastFormError()

@@ -20,12 +20,14 @@
 
     <b-collapse id="nav-collapse" is-nav class="justify-content-between">
       <b-navbar-nav>
-        <b-nav-item :to="localePath({ path: '/recipes' })">{{
-          $t('links.recipes')
-        }}</b-nav-item>
+        <b-nav-item :to="localePath({ path: '/recipes' })">
+          {{
+            $t('links.recipes')
+          }}
+        </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="flex-grow-06">
-        <b-nav-form @submit.stop.prevent class="flex-grow-1 b-nav-form">
+        <b-nav-form class="flex-grow-1 b-nav-form" @submit.stop.prevent>
           <b-input-group size="sm" class="flex-grow-1">
             <b-form-input
               v-model="term"
@@ -35,7 +37,7 @@
               autofocus
             />
             <b-input-group-append>
-              <b-button @click="searchMethod" size="sm" type="submit">
+              <b-button size="sm" type="submit" @click="searchMethod">
                 <BIconSearch class="mr-1" />
                 {{ $t('Search') }}
               </b-button>
@@ -45,12 +47,16 @@
       </b-navbar-nav>
       <b-navbar-nav>
         <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item :to="switchLocalePath('en')"> EN</b-dropdown-item>
-          <b-dropdown-item :to="switchLocalePath('es')"> ES</b-dropdown-item>
+          <b-dropdown-item :to="switchLocalePath('en')">
+            EN
+          </b-dropdown-item>
+          <b-dropdown-item :to="switchLocalePath('es')">
+            ES
+          </b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown right>
-          <template v-slot:button-content>
+          <template #button-content>
             <em>{{ $t('links.user') }}</em>
           </template>
           <b-dropdown-item
@@ -58,23 +64,23 @@
             :to="localePath({ path: '/user/profile' })"
           >
             <BIconPersonCircle class="mr-1" />
-            {{ $t('links.profile') }}</b-dropdown-item
-          >
+            {{ $t('links.profile') }}
+          </b-dropdown-item>
           <b-dropdown-item
             v-if="!isUserLogged"
             :to="localePath({ path: '/login' })"
           >
             <BIconBoxArrowInRight class="mr-1" />
-            Login</b-dropdown-item
-          >
+            Login
+          </b-dropdown-item>
           <b-dropdown-item v-if="isUserLogged" @click="signOut">
             <BIconBoxArrowRight class="mr-1" />
-            {{ $t('links.sign_out') }}</b-dropdown-item
-          >
+            {{ $t('links.sign_out') }}
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item :to="localePath({ path: '/signup' })">
-          {{ $t('links.sign_up') }}</b-nav-item
-        >
+          {{ $t('links.sign_up') }}
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -97,7 +103,7 @@ export default {
     BIconBoxArrowRight,
     BIconBoxArrowInRight
   },
-  data() {
+  data () {
     return {
       term: ''
     }
@@ -106,7 +112,7 @@ export default {
     ...mapState('user', ['isUserLogged'])
   },
   methods: {
-    searchMethod() {
+    searchMethod () {
       this.$router.push({
         path: this.localePath('/recipes'),
         query: {
@@ -115,7 +121,7 @@ export default {
         }
       })
     },
-    async signOut() {
+    async signOut () {
       await this.$store.dispatch('user/userSignOutAction')
       this.$router.push(this.localePath('/login'))
     }

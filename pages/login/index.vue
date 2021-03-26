@@ -2,7 +2,9 @@
   <div id="wc-page-login">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center">Login</h1>
+        <h1 class="text-center">
+          Login
+        </h1>
       </div>
     </div>
     <b-jumbotron
@@ -23,9 +25,9 @@
           :label="$t('login.loginForm.fields.email') + ':'"
           :placeholder="$t('login.loginForm.fields.email')"
           :state="$v.loginForm.fields.email.$error ? false : null"
-          @input="loginForm.fields.email = $event"
           type="email"
           class="col-12 col-md-6 mt-4"
+          @input="loginForm.fields.email = $event"
         />
         <WcInput
           id="login-password"
@@ -34,16 +36,16 @@
           :label="$t('login.loginForm.fields.password') + ':'"
           :placeholder="$t('login.loginForm.fields.password')"
           :state="$v.loginForm.fields.password.$error ? false : null"
-          @input="loginForm.fields.password = $event"
           type="password"
           class="col-12 col-md-6 mt-4"
+          @input="loginForm.fields.password = $event"
         />
       </div>
       <WcButtonSubmit
-        :buttonTextValue="$t('Log_in')"
-        @click.native="submit"
-        :isProcessing="isFormProcessing"
+        :button-text-value="$t('Log_in')"
+        :is-processing="isFormProcessing"
         class="w-100 mt-3"
+        @click.native="submit"
       />
     </WcForm>
   </div>
@@ -64,7 +66,7 @@ export default {
     WcButtonSubmit
   },
   mixins: [wcHandleError],
-  data() {
+  data () {
     return {
       isFormProcessing: false,
       loginForm: {
@@ -89,7 +91,7 @@ export default {
     }
   },
   methods: {
-    async submit() {
+    async submit () {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)

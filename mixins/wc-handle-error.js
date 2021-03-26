@@ -4,7 +4,7 @@ import { mapMutations } from 'vuex'
 export default {
   methods: {
     ...mapMutations('user', ['isUserLoggedMutation']),
-    serverErrorsHandler(error) {
+    serverErrorsHandler (error) {
       const errorToastParameter = {
         message: '',
         body: {

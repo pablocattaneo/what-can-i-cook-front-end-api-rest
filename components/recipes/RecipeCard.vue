@@ -14,14 +14,18 @@
     >
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <b-button @click="editRecipe(id)" variant="link">{{
-            $t('actions.edit')
-          }}</b-button>
+          <b-button variant="link" @click="editRecipe(id)">
+            {{
+              $t('actions.edit')
+            }}
+          </b-button>
         </li>
         <li class="nav-item">
-          <b-button @click="deleteRecipe(id)" variant="link">{{
-            $t('actions.delete')
-          }}</b-button>
+          <b-button variant="link" @click="deleteRecipe(id)">
+            {{
+              $t('actions.delete')
+            }}
+          </b-button>
         </li>
       </ul>
     </b-card-header>
@@ -38,11 +42,12 @@
       <b-card-title
         v-b-popover.hover.top="{ variant: 'secondary', content: title }"
         class="text-truncate"
-        >{{ title }}</b-card-title
       >
+        {{ title }}
+      </b-card-title>
       <b-card-text
-        v-b-popover.hover.top="{ variant: 'secondary', content: description }"
         v-if="description"
+        v-b-popover.hover.top="{ variant: 'secondary', content: description }"
         class="text-truncate"
       >
         {{ description }}
@@ -50,15 +55,20 @@
     </b-card-body>
     <b-list-group v-if="showMoreInfo" flush>
       <template v-for="(info, key, index) in moreInfo">
-        <b-list-group-item v-if="info" :key="index + key"
-          >{{ $t(`recipes.${key}`) }}: {{ info }}</b-list-group-item
+        <b-list-group-item
+          v-if="info"
+          :key="index + key"
         >
+          {{ $t(`recipes.${key}`) }}: {{ info }}
+        </b-list-group-item>
       </template>
     </b-list-group>
-    <template v-slot:footer>
-      <n-link :to="readMoreLink" variant="primary">{{
-        $t('Read_more')
-      }}</n-link>
+    <template #footer>
+      <n-link :to="readMoreLink" variant="primary">
+        {{
+          $t('Read_more')
+        }}
+      </n-link>
     </template>
   </b-card>
 </template>
@@ -104,18 +114,18 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
       errorOnImage: false
     }
   },
   computed: {
-    showMoreInfo() {
+    showMoreInfo () {
       return Object.keys(this.moreInfo).some(
-        (key) => this.moreInfo[key] !== null
+        key => this.moreInfo[key] !== null
       )
     },
-    recipeImage() {
+    recipeImage () {
       if (this.errorOnImage) {
         return require('@/assets/img/logo.svg')
       } else {
@@ -124,10 +134,10 @@ export default {
     }
   },
   methods: {
-    onError() {
+    onError () {
       this.errorOnImage = true
     },
-    async deleteRecipe(recipeId) {
+    async deleteRecipe (recipeId) {
       try {
         await this.authenticate()
         await this.$axios.$delete(`/recipe/${recipeId}`)
@@ -137,7 +147,7 @@ export default {
         this.$router.push(this.localePath('/login'))
       }
     },
-    async editRecipe(recipeId) {
+    async editRecipe (recipeId) {
       try {
         await this.authenticate()
         this.$router.push(this.localePath(`/admin/recipes/${recipeId}`))

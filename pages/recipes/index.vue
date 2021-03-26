@@ -16,10 +16,10 @@
             :languages="languages"
             :category-selected="$route.query.category || null"
             :portion-calories="Number($route.query.calories) || 1000"
-            :categoryOptions="categoryOptions"
+            :category-options="categoryOptions"
+            class="px-3 py-2"
             @languages-change="buildLanguageQueryString($event)"
             @clear-filter="clearFilters"
-            class="px-3 py-2"
           />
         </b-sidebar>
       </div>
@@ -48,15 +48,15 @@
           class="col-lg-3 col-md-6 col-12 mb-4"
         >
           <RecipeCard
-            :showCardHeader="userCanEdit(recipe.author)"
             :id="recipe._id"
+            :show-card-header="userCanEdit(recipe.author)"
             :title="recipe.title"
             :b-img-lazy-src="
               recipe.mainImg
                 ? $store.state.apiRestBaseUrl + recipe.mainImg
                 : null
             "
-            :readMoreLink="`recipe/${recipe.slug}`"
+            :read-more-link="`recipe/${recipe.slug}`"
             :description="recipe.description"
             @recipeDeleted="getRecipes()"
           />
@@ -67,8 +67,10 @@
           <template slot="spinner">
             <b-spinner variant="primary" />
           </template>
-          <div slot="no-more"></div>
-          <template slot="no-results">no-results</template>
+          <div slot="no-more" />
+          <template slot="no-results">
+            no-results
+          </template>
         </infinite-loading>
       </client-only>
     </div>
@@ -92,7 +94,7 @@ export default {
     BIconPlusCircleFill,
     BIconSliders
   },
-  data() {
+  data () {
     return {
       categoryOptions: [
         {
@@ -125,12 +127,12 @@ export default {
   },
   computed: {
     ...mapState('recipes', ['recipes', 'totalRecipes']),
-    areRecipes() {
+    areRecipes () {
       return this.recipes.length > 0
     }
   },
   watch: {
-    async '$route.query'() {
+    async '$route.query' () {
       try {
         this.isPageLoading = true
         this.$store.commit('recipes/resetRecipes')
@@ -144,7 +146,7 @@ export default {
       }
     }
   },
-  async fetch() {
+  async fetch () {
     try {
       this.isPageLoading = true
       await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
@@ -152,22 +154,22 @@ export default {
       this.isPageLoading = false
     }
   },
-  created() {
+  created () {
     this.setLanguagesFromQueryString()
   },
   methods: {
-    clearFilters() {
+    clearFilters () {
       this.$router.push(this.localePath('/recipes'))
       this.activeAllLanguages()
     },
-    activeAllLanguages() {
+    activeAllLanguages () {
       this.languages.forEach((_, index) => {
         this.languages[index].isActive = true
       })
     },
-    setLanguagesFromQueryString() {
+    setLanguagesFromQueryString () {
       const languagesQueryString = this.$route.query?.filters?.length
-        ? JSON.parse(this.$route.query.filters).map((e) => e.language)
+        ? JSON.parse(this.$route.query.filters).map(e => e.language)
         : []
       languagesQueryString.forEach((languageInQuerystring) => {
         this.languages.forEach((language, index) => {
@@ -176,7 +178,7 @@ export default {
         })
       })
     },
-    buildLanguageQueryString(languages) {
+    buildLanguageQueryString (languages) {
       this.urlArray = []
       languages.forEach((language) => {
         if (language.isActive) {
@@ -191,10 +193,10 @@ export default {
         }
       })
     },
-    userCanEdit(recipeAuthor) {
+    userCanEdit (recipeAuthor) {
       return recipeAuthor === this.$store?.state?.user?.userId
     },
-    async getRecipes() {
+    async getRecipes () {
       try {
         this.isPageLoading = true
         this.$store.commit('recipes/resetRecipes')
@@ -206,7 +208,7 @@ export default {
         this.isPageLoading = false
       }
     },
-    async infiniteHandler($state) {
+    async infiniteHandler ($state) {
       try {
         const queries = { ...this.$route.query, pagination: 10 }
         await this.$store.dispatch('recipes/getRecipesAction', queries)
@@ -220,7 +222,7 @@ export default {
       }
     }
   },
-  beforeRouteLeave(to, from, next) {
+  beforeRouteLeave (to, from, next) {
     this.$store.commit('recipes/resetRecipes')
     next()
   }

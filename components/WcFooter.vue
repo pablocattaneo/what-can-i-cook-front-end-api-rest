@@ -12,13 +12,12 @@
               alt="placeholder"
             />
             <a
-              id="linkdin-url"
               v-if="linkedinProfileUrl"
+              id="linkdin-url"
               :href="linkedinProfileUrl"
               class="mt-0 mb-1"
               target="_blank"
-              >Linkdin</a
-            >
+            >Linkdin</a>
           </li>
           <li class="mt-2">
             <b-img-lazy
@@ -29,27 +28,26 @@
               alt="placeholder"
             />
             <a
-              id="stackoverflow-user-profile-url"
               v-if="stackoverflowUserProfileUrl"
+              id="stackoverflow-user-profile-url"
               :href="stackoverflowUserProfileUrl"
               class="mt-0 mb-1"
               target="_blank"
-              >Stackoverflow</a
-            >
+            >Stackoverflow</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="text-center row author-section">
       <div class="col-12">
-        <span id="author"
-          >{{ $t('App_deloped_by') }}
+        <span
+          id="author"
+        >{{ $t('App_deloped_by') }}
           <a
             v-if="author.externalLink"
             :href="author.externalLink"
             target="blank"
-            >{{ author.name }}</a
-          >
+          >{{ author.name }}</a>
           <span v-else>{{ author.name }}</span>
         </span>
       </div>
@@ -61,12 +59,12 @@
           <a
             href="https://www.flaticon.com/free-icon/chef_2413394"
             title="iconixar"
-            >iconixar</a
-          >
+          >iconixar</a>
           from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          >
+          <a
+            href="https://www.flaticon.com/"
+            title="Flaticon"
+          >www.flaticon.com</a>
         </p>
       </div>
     </div>

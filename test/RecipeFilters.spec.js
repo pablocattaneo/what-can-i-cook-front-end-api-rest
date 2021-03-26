@@ -9,7 +9,7 @@ localVue.use(BootstrapVue)
 const mountOptionsForAllComponents = {
   localVue,
   mocks: {
-    $t() {}
+    $t () {}
   }
 }
 
