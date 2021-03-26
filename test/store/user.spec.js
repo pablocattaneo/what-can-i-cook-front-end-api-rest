@@ -74,7 +74,7 @@ describe('userLoginAction', () => {
 })
 
 describe('setUserIdState', () => {
-  test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', async () => {
+  test('localStorage item jwtToken contain a valid jwt so isUserLogged state is set with true value', () => {
     const jwt =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
     localStorage.getItem.mockReturnValue(jwt)
@@ -82,13 +82,13 @@ describe('setUserIdState', () => {
     expect(store.state.isUserLogged).toBe(true)
   })
 
-  test('localStorage item jwtToken contain a falsy value so isUserLogged state is set with false value', async () => {
+  test('localStorage item jwtToken contain a falsy value so isUserLogged state is set with false value', () => {
     localStorage.getItem.mockReturnValue(false)
     store.dispatch('setUserIdState')
     expect(store.state.isUserLogged).toBe(false)
   })
 
-  test('localStorage item jwtToken contain eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA jwt so userId state is set with "5f3bba81f33c511a90455fa3" value', async () => {
+  test('localStorage item jwtToken contain eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA jwt so userId state is set with "5f3bba81f33c511a90455fa3" value', () => {
     const jwt =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjNiYmE4MWYzM2M1MTFhOTA0NTVmYTMiLCJpYXQiOjE2MTA2MTc4ODksImV4cCI6MTYxMDYyMTQ4OX0.qvLwYk6_ODEF6dAMcdEDNZUQR6cSjPElsZ3fC_fMIqA'
     localStorage.getItem.mockReturnValue(jwt)

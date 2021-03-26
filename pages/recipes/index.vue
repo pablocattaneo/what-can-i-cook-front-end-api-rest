@@ -222,7 +222,7 @@ export default {
       }
     }
   },
-  beforeRouteLeave (to, from, next) {
+  beforeRouteLeave (_, __, next) {
     this.$store.commit('recipes/resetRecipes')
     next()
   }
