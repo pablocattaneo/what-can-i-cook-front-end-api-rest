@@ -31,6 +31,8 @@ exports[`Snaphots Branch: Default. It verify if non-intentional changes were mad
         variant="primary"
       >
         
+      
+    
       </a>
     </b-img-lazy-stub>
   </div>
@@ -46,6 +48,8 @@ exports[`Snaphots Branch: Default. It verify if non-intentional changes were mad
       titletag="h4"
     >
       
+      
+    
     </b-card-title-stub>
      
     <!---->
@@ -86,6 +90,8 @@ exports[`Snaphots Branch: description. It verify if non-intentional changes were
         variant="primary"
       >
         
+      
+    
       </a>
     </b-img-lazy-stub>
   </div>
@@ -101,6 +107,8 @@ exports[`Snaphots Branch: description. It verify if non-intentional changes were
       titletag="h4"
     >
       
+      
+    
     </b-card-title-stub>
      
     <b-card-text-stub
@@ -149,6 +157,8 @@ exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes w
           variant="link"
         >
           
+          
+        
         </b-button-stub>
       </li>
        
@@ -162,6 +172,8 @@ exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes w
           variant="link"
         >
           
+          
+        
         </b-button-stub>
       </li>
     </ul>
@@ -181,6 +193,8 @@ exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes w
         variant="primary"
       >
         
+      
+    
       </a>
     </b-img-lazy-stub>
   </div>
@@ -196,6 +210,8 @@ exports[`Snaphots Branch: showCardHeader. It verify if non-intentional changes w
       titletag="h4"
     >
       
+      
+    
     </b-card-title-stub>
      
     <!---->
