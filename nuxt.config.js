@@ -82,14 +82,6 @@ export default {
   axios: {
     baseURL: process.env.API_REST_BASE_URL
   },
-  /*
-   ** Build configuration
-   */
-  build: {
-    babel: {
-      plugins: ['@babel/plugin-proposal-optional-chaining']
-    }
-  },
   typescript: {
     typeCheck: {
       eslint: {

@@ -29,7 +29,6 @@
     "vuelidate": "^0.7.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@nuxt/types": "^2.15.3",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
