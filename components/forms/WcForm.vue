@@ -16,7 +16,7 @@ export default {
     stringToArray (string, regex = /[\n\r]/g) {
       return string ? string.split(regex) : null
     },
-    arrayToString (array, regex = /[\n\r]/g) {
+    arrayToString (array) {
       return array.toString()
     },
     showToastFormError () {

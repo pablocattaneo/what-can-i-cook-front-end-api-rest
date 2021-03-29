@@ -108,7 +108,7 @@ export default {
     closeEdit () {
       this.$root.$emit('bv::toggle::collapse', this.id)
     },
-    edit (field) {
+    edit () {
       this.$root.$emit('bv::toggle::collapse', this.id)
       this.$refs.wcInput.focus()
     },

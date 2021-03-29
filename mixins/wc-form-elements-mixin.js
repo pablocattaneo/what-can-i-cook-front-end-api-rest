@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     isARequiredFiled () {
-      return this.validation.hasOwnProperty('required')
+      return 'required' in this.validation
     }
   }
 }

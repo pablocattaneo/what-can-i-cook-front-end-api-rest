@@ -8,6 +8,7 @@ export default {
     async authenticate () {
       try {
         this.$store.dispatch('user/setUserIdState')
+        this.isProcessingAuthentication = false
         return await this.$axios.$get(
           `user/${this.$store.state.user.userId || null}`,
           {
@@ -17,9 +18,8 @@ export default {
           }
         )
       } catch (error) {
-        throw error
-      } finally {
         this.isProcessingAuthentication = false
+        throw error
       }
     }
   }

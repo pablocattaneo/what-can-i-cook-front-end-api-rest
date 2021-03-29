@@ -94,6 +94,10 @@ export default {
     BIconPlusCircleFill,
     BIconSliders
   },
+  beforeRouteLeave (_, __, next) {
+    this.$store.commit('recipes/resetRecipes')
+    next()
+  },
   data () {
     return {
       categoryOptions: [
@@ -125,6 +129,14 @@ export default {
       isPageLoading: false
     }
   },
+  async fetch () {
+    try {
+      this.isPageLoading = true
+      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
+    } finally {
+      this.isPageLoading = false
+    }
+  },
   computed: {
     ...mapState('recipes', ['recipes', 'totalRecipes']),
     areRecipes () {
@@ -144,14 +156,6 @@ export default {
       } finally {
         this.isPageLoading = false
       }
-    }
-  },
-  async fetch () {
-    try {
-      this.isPageLoading = true
-      await this.$store.dispatch('recipes/getRecipesAction', this.$route.query)
-    } finally {
-      this.isPageLoading = false
     }
   },
   created () {
@@ -221,10 +225,6 @@ export default {
         throw error
       }
     }
-  },
-  beforeRouteLeave (_, __, next) {
-    this.$store.commit('recipes/resetRecipes')
-    next()
   }
 }
 </script>
