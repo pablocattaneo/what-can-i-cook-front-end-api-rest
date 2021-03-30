@@ -39,7 +39,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
 import { required, minLength, email } from 'vuelidate/lib/validators'
 import { BIconPencilSquare } from 'bootstrap-vue'
 import WcInput from '@/components/forms/WcInput.vue'
