@@ -85,7 +85,8 @@ export default {
   data () {
     return {
       isFormProcessing: false,
-      value: ''
+      value: '',
+      objectToSendServerData: {}
     }
   },
   validations () {
@@ -102,6 +103,7 @@ export default {
   },
   created () {
     this.value = this.currentValue
+    this.objectToSendServerData = { ...this.objectToSendServer }
   },
   methods: {
     closeEdit () {
@@ -115,10 +117,10 @@ export default {
       try {
         this.isFormProcessing = true
         await this.$refs.wcForm.validationForm(this.$v)
-        for (const key in this.objectToSendServer.contentToUpdate) {
-          this.objectToSendServer.contentToUpdate[key] = this.value
+        for (const key in this.objectToSendServerData.contentToUpdate) {
+          this.objectToSendServerData.contentToUpdate[key] = this.value
         }
-        await this.$axios.$post(this.endPointPath, this.objectToSendServer, {
+        await this.$axios.$post(this.endPointPath, this.objectToSendServerData, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
           }
