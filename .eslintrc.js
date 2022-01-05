@@ -12,5 +12,6 @@ module.exports = {
   ],
   plugins: [
     'prettier'
-  ]
+  ],
+  ignorePatterns: ['static/sw.js']
 }
