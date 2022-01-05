@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import WcSelect from '@/components/forms/WcSelect'
 import { BootstrapVue } from 'bootstrap-vue'
+import WcSelect from '@/components/forms/WcSelect'
 
 const localVue = createLocalVue()
 

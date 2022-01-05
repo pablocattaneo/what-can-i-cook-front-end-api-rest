@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 import { BootstrapVue } from 'bootstrap-vue'
+import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 
 const localVue = createLocalVue()
 

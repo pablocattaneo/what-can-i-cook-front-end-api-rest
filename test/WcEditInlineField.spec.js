@@ -1,9 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import { BootstrapVue, BButton } from 'bootstrap-vue'
 import WcEditInlineField from '@/components/forms/WcEditInlineField'
 import WcButtonSubmit from '@/components/forms/WcButtonSubmit'
 import WcInput from '@/components/forms/WcInput'
-import Vuex from 'vuex'
-import { BootstrapVue, BButton } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

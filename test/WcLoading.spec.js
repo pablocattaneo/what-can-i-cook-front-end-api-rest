@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WcLoading from '@/components/WcLoading'
 import { SpinnerPlugin } from 'bootstrap-vue'
+import WcLoading from '@/components/WcLoading'
 const localVue = createLocalVue()
 
 let wrapper

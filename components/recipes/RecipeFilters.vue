@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import WcSelect from '@/components/forms/WcSelect'
 import { BIconTrash2 } from 'bootstrap-vue'
+import WcSelect from '@/components/forms/WcSelect'
 
 export default {
   components: {

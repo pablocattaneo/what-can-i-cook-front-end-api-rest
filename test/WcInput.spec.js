@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import WcInput from '@/components/forms/WcInput'
 import { BootstrapVue } from 'bootstrap-vue'
+import WcInput from '@/components/forms/WcInput'
 
 const localVue = createLocalVue()
 

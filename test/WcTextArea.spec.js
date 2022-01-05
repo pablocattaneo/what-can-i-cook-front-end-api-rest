@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import WcTextArea from '@/components/forms/WcTextArea'
 import { BootstrapVue } from 'bootstrap-vue'
+import WcTextArea from '@/components/forms/WcTextArea'
 
 const localVue = createLocalVue()
 

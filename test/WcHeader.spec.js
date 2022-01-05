@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WcHeader from '@/components/WcHeader'
 import { BootstrapVue } from 'bootstrap-vue'
 import Vuex from 'vuex'
+import WcHeader from '@/components/WcHeader'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

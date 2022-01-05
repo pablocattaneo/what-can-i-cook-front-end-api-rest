@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 
-import RecipeCard from '@/components/recipes/RecipeCard'
 import { BootstrapVue } from 'bootstrap-vue'
+import RecipeCard from '@/components/recipes/RecipeCard'
 
 const localVue = createLocalVue()
 

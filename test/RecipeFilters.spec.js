@@ -1,7 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import RecipeFilters from '@/components/recipes/RecipeFilters'
-
 import { BootstrapVue } from 'bootstrap-vue'
+import RecipeFilters from '@/components/recipes/RecipeFilters'
 
 const localVue = createLocalVue()
 localVue.use(BootstrapVue)

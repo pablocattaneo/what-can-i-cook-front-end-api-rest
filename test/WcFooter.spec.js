@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import WcFooter from '@/components/WcFooter'
 import { BootstrapVue } from 'bootstrap-vue'
+import WcFooter from '@/components/WcFooter'
 
 const localVue = createLocalVue()
 

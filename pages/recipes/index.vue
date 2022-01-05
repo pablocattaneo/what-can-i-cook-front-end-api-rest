@@ -78,13 +78,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { BIconPlusCircleFill, BIconSliders } from 'bootstrap-vue'
 import RecipeFilters from '@/components/recipes/RecipeFilters.vue'
 import RecipeCard from '@/components/recipes/RecipeCard.vue'
 import WcLoading from '@/components/WcLoading.vue'
-
-import { mapState } from 'vuex'
-
-import { BIconPlusCircleFill, BIconSliders } from 'bootstrap-vue'
 
 export default {
   components: {

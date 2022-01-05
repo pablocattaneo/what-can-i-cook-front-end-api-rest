@@ -1,6 +1,6 @@
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import Index from '@/pages/index.vue'
 import { BootstrapVue } from 'bootstrap-vue'
+import Index from '@/pages/index.vue'
 
 const localVue = createLocalVue()
 
