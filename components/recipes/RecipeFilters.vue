@@ -1,7 +1,7 @@
 <template>
   <div id="recipe-filters">
     <b-form-checkbox
-      v-for="(language, index) in languages"
+      v-for="(language, index) in languagesData"
       :id="`language-${index}`"
       :key="`language-${index}`"
       v-model="language.isActive"
@@ -10,7 +10,7 @@
       name="check-button"
       class="d-inline-block mr-4 mt-3"
       switch
-      @change="$emit('languages-change', languages)"
+      @change="$emit('languages-change', languagesData)"
     >
       {{ $t(language.text) }}
     </b-form-checkbox>
@@ -70,10 +70,12 @@ export default {
   data () {
     return {
       languagesActivesCounter: 0,
-      portionCaloriesData: this.portionCalories
+      portionCaloriesData: this.portionCalories,
+      languagesData: []
     }
   },
   created () {
+    this.languagesData = [...this.languages]
     this.countActivesLanguages()
     this.activeOrDisableLanguageSection()
   },
@@ -87,13 +89,13 @@ export default {
     },
     activeOrDisableLanguageSection () {
       if (this.languagesActivesCounter === 1) {
-        const activeLangueIndex = this.languages.findIndex(
+        const activeLangueIndex = this.languagesData.findIndex(
           e => e.isActive === true
         )
-        this.languages[activeLangueIndex].isDisable = true
+        this.languagesData[activeLangueIndex].isDisable = true
       } else {
-        this.languages.forEach((_, index) => {
-          this.languages[index].isDisable = false
+        this.languagesData.forEach((_, index) => {
+          this.languagesData[index].isDisable = false
         })
       }
     },
